@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mets xmlns="http://www.loc.gov/METS/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OBJID="3c35aa9b-f48d-48da-a85b-e04bfe54806b" TYPE="SIP" LABEL="Preservation package 2026_000001" xsi:schemaLocation="http://www.loc.gov/METS/ schemas/mets.xsd">
+  <metsHdr CREATEDATE="2026-10-15T10:51:23Z">
+    <altRecordID TYPE="JOB_ID">2026_000001</altRecordID>
+  </metsHdr>
+  <dmdSec ID="DOME">
+    <mdRef LOCTYPE="URL" MDTYPE="OTHER" MIMETYPE="application/xml" CHECKSUMTYPE="SHA-512" CHECKSUM="2fa5929358e2186219416599cbd0b04e5eebb96f6ffe7bbfafb3e6042cb0cb84fe1b65127d2dca509c6883ca850eb7b23841d8156e2df481856ab358bbaba919" SIZE="652" xlink:href="metadata/descriptive/2026_000001_dome.xml" OTHERMDTYPE="DOME"/>
+  </dmdSec>
+  <amdSec ID="AMD">
+    <digiprovMD ID="PREMIS">
+      <mdRef LOCTYPE="URL" MDTYPE="PREMIS" MIMETYPE="application/xml" CHECKSUMTYPE="SHA-512" CHECKSUM="82c55160a13dba8a604a5b841a7425bb3ea281ecded05c48b5f920e3a671844bbc478c16a17d65b829b4717ff3e5bcdf5c84a2671d294b98b1dc830fa6ded210" SIZE="129965" xlink:href="metadata/preservation/2026_000001_premis.xml"/>
+    </digiprovMD>
+  </amdSec>
+  <fileSec>
+    <fileGrp USE="documentation">
+      <file ID="F1" CHECKSUMTYPE="SHA-512" CHECKSUM="78a666d7cb36e392c315b0f5826481835711667e96b53e9c0dfbb819c89f02b6db48973312c0878dfff68dc672e7115384cf584c61d8f7a26ee501b8dd5cfdb9" SIZE="13">
+        <FLocat LOCTYPE="URL" xlink:href="documentation/0767cec1-2cc3-4755-884e-772345a7c9ad_conv_aspose.xml"/>
+      </file>
+      <file ID="F2" CHECKSUMTYPE="SHA-512" CHECKSUM="e222557859db285e16b724c6adf8651620d0191374f64e50fdbad5d1b60ced47b1529df31a21325d460125d02132b6c5e2f947c64b0bfe4fd6752b0c04e18aad" SIZE="4154">
+        <FLocat LOCTYPE="URL" xlink:href="documentation/0767cec1-2cc3-4755-884e-772345a7c9ad_qa_pypdf.json"/>
+      </file>
+      <file ID="F3" CHECKSUMTYPE="SHA-512" CHECKSUM="7e1e2eb50d56e52ea789e2d07a3a842be85d0c151b5fcc73e20e493ab26ed116af573842f5ceb2153fda07d49e6102427e8d6dad7baca67489f7055ce406c889" SIZE="78">
+        <FLocat LOCTYPE="URL" xlink:href="documentation/0767cec1-2cc3-4755-884e-772345a7c9ad_val_verapdf.xml"/>
+      </file>
+      <file ID="F4" CHECKSUMTYPE="SHA-512" CHECKSUM="78a666d7cb36e392c315b0f5826481835711667e96b53e9c0dfbb819c89f02b6db48973312c0878dfff68dc672e7115384cf584c61d8f7a26ee501b8dd5cfdb9" SIZE="13">
+        <FLocat LOCTYPE="URL" xlink:href="documentation/1b884a14-0806-4af4-b669-52ac6455a814_conv_aspose.xml"/>
+      </file>
+      <file ID="F5" CHECKSUMTYPE="SHA-512" CHECKSUM="7328843c79cd941a81c9b78bd351bd693926f8d9e6404dab253977f131b0c13af9dcb030b6a9d6379aa809c853827bc8cdbb6d313c5ccb65aa42462f8c6c0424" SIZE="4211">
+        <FLocat LOCTYPE="URL" xlink:href="documentation/1b884a14-0806-4af4-b669-52ac6455a814_qa_pypdf.json"/>
+      </file>
+      <file ID="F6" CHECKSUMTYPE="SHA-512" CHECKSUM="7e1e2eb50d56e52ea789e2d07a3a842be85d0c151b5fcc73e20e493ab26ed116af573842f5ceb2153fda07d49e6102427e8d6dad7baca67489f7055ce406c889" SIZE="78">
+        <FLocat LOCTYPE="URL" xlink:href="documentation/1b884a14-0806-4af4-b669-52ac6455a814_val_verapdf.xml"/>
+      </file>
+      <file ID="F7" CHECKSUMTYPE="SHA-512" CHECKSUM="8a405542e11b2adfd49f87f36e090801f70ac0824db09ac31e5d863cf7fe2116d6524c10779d4c9f9e586962f1ccd0af462aab15e0cbfe4073ca76127e6df4fd" SIZE="589">
+        <FLocat LOCTYPE="URL" xlink:href="documentation/2026_000001_1_droid_export.csv"/>
+      </file>
+      <file ID="F8" CHECKSUMTYPE="SHA-512" CHECKSUM="6ee23afaf61f80af55f7e536b0f8e91bb95d1b5289a47908b9ab051b0bb6f0572b133c99f41befab357c78bb84eb9e36099cd7696b555340fe7892741b12cfe6" SIZE="255">
+        <FLocat LOCTYPE="URL" xlink:href="documentation/2026_000001_2_droid_export.csv"/>
+      </file>
+      <file ID="F9" CHECKSUMTYPE="SHA-512" CHECKSUM="e605aa88dc3629b0ec35cf7ef970d299f0ecc79951462d2f92adeefe49a92bf3d5a291bb3b16f462fae541b6fcd90e1c245f7dfdad67726a4e55da8e0ee13ea8" SIZE="278">
+        <FLocat LOCTYPE="URL" xlink:href="documentation/2026_000001_dome_sql_extraction.json"/>
+      </file>
+      <file ID="F10" CHECKSUMTYPE="SHA-512" CHECKSUM="78a666d7cb36e392c315b0f5826481835711667e96b53e9c0dfbb819c89f02b6db48973312c0878dfff68dc672e7115384cf584c61d8f7a26ee501b8dd5cfdb9" SIZE="13">
+        <FLocat LOCTYPE="URL" xlink:href="documentation/2026_000001_en_conv_aspose.xml"/>
+      </file>
+      <file ID="F11" CHECKSUMTYPE="SHA-512" CHECKSUM="5d99022516e2bdf76fd11a8111bf83a60cfdb75777e6516bc68179855eb37c5bf22d36d13758c9c5659f0705a85ead3ae8338b530a3b335e7e4e420a4f46a7d3" SIZE="4132">
+        <FLocat LOCTYPE="URL" xlink:href="documentation/2026_000001_en_qa_pypdf.json"/>
+      </file>
+      <file ID="F12" CHECKSUMTYPE="SHA-512" CHECKSUM="7e1e2eb50d56e52ea789e2d07a3a842be85d0c151b5fcc73e20e493ab26ed116af573842f5ceb2153fda07d49e6102427e8d6dad7baca67489f7055ce406c889" SIZE="78">
+        <FLocat LOCTYPE="URL" xlink:href="documentation/2026_000001_en_val_verapdf.xml"/>
+      </file>
+      <file ID="F13" CHECKSUMTYPE="SHA-512" CHECKSUM="2fa5929358e2186219416599cbd0b04e5eebb96f6ffe7bbfafb3e6042cb0cb84fe1b65127d2dca509c6883ca850eb7b23841d8156e2df481856ab358bbaba919" SIZE="652">
+        <FLocat LOCTYPE="URL" xlink:href="metadata/descriptive/2026_000001_dome.xml"/>
+      </file>
+      <file ID="F14" CHECKSUMTYPE="SHA-512" CHECKSUM="82c55160a13dba8a604a5b841a7425bb3ea281ecded05c48b5f920e3a671844bbc478c16a17d65b829b4717ff3e5bcdf5c84a2671d294b98b1dc830fa6ded210" SIZE="129965">
+        <FLocat LOCTYPE="URL" xlink:href="metadata/preservation/2026_000001_premis.xml"/>
+      </file>
+      <file ID="F21" CHECKSUMTYPE="SHA-512" CHECKSUM="f0c95073d0c571ff89cb965e21a5c3adaa27ab7de71850acc53a3d88395668b6fc76f8ca0167c5649c852497e60399049180f1d355c48fdfa04575fc3c604cfa" SIZE="15898">
+        <FLocat LOCTYPE="URL" xlink:href="schemas/dol-metadata-v-03.xsd"/>
+      </file>
+      <file ID="F22" CHECKSUMTYPE="SHA-512" CHECKSUM="f7348f7f7dea347777e2e6338c85bc6a43c828646948298d62f03d3ec6683d219cf3554228129b560e34ff641ef51f23a213efb33e80dd80ca124841845bbb47" SIZE="138326">
+        <FLocat LOCTYPE="URL" xlink:href="schemas/mets.xsd"/>
+      </file>
+      <file ID="F23" CHECKSUMTYPE="SHA-512" CHECKSUM="f0feb6d7d30a0f27ffd53dadb976ded9fde56adbe339fac0d2cb43352966c768103001c44d1dd0a013c89323f3ca81557f4ddf106629134d82ac9f0587de07c5" SIZE="52845">
+        <FLocat LOCTYPE="URL" xlink:href="schemas/premis.xsd"/>
+      </file>
+      <file ID="F24" CHECKSUMTYPE="SHA-512" CHECKSUM="d524ed457c67a9e9e4de723519f26567e098c02b8db21fca6807683b30a0b9e477a230cef942e8245411f2a6ccb0f8a7df2bae18dc7363ec2810899d67064a32" SIZE="3180">
+        <FLocat LOCTYPE="URL" xlink:href="schemas/xlink.xsd"/>
+      </file>
+      <file ID="F25" CHECKSUMTYPE="SHA-512" CHECKSUM="a716c93db1bbbcf9c353ff939f15aa1ed83c8d96739bafad93c790a7779c49c680a279c97c760fe55546fa43cab1d43e92431f24c46ff001976e05329231b635" SIZE="4726">
+        <FLocat LOCTYPE="URL" xlink:href="schemas/xml.xsd"/>
+      </file>
+    </fileGrp>
+    <fileGrp USE="rep_1">
+      <file ID="F15" CHECKSUMTYPE="SHA-512" CHECKSUM="50fa4d216a539812de36ab018cdb357aa8af791067f3eac90ca0939acbf9adba14b72c839ef23198ffb008c83e0727e77d9205739891b59ee406d2fd636ec7d7" SIZE="143">
+        <FLocat LOCTYPE="URL" xlink:href="representations/rep_1/data/en/2026_000001_en.docx"/>
+      </file>
+    </fileGrp>
+    <fileGrp USE="rep_2">
+      <file ID="F16" CHECKSUMTYPE="SHA-512" CHECKSUM="6e1badced1d60689aedfeb83d7e330fe8c787a59df59c84efcfc311255a60c96d08bd5071ddaa1830cbcfaee49f064c0dbc6f4a6dbc5e24af470c8a1aefd0f11" SIZE="454">
+        <FLocat LOCTYPE="URL" xlink:href="representations/rep_2/data/attachments/notice.pdf"/>
+      </file>
+      <file ID="F17" CHECKSUMTYPE="SHA-512" CHECKSUM="6e1badced1d60689aedfeb83d7e330fe8c787a59df59c84efcfc311255a60c96d08bd5071ddaa1830cbcfaee49f064c0dbc6f4a6dbc5e24af470c8a1aefd0f11" SIZE="454">
+        <FLocat LOCTYPE="URL" xlink:href="representations/rep_2/data/attachments/preservation/0767cec1-2cc3-4755-884e-772345a7c9ad.pdf"/>
+      </file>
+      <file ID="F18" CHECKSUMTYPE="SHA-512" CHECKSUM="3dfdbd7746f15e4b97e960adec1f0edbe4b9a3dc3d933061685f564cd45443f134f5ab9d38339ecf5428ec9b05af397782ae2aec2b81cba9b250e68ec7193827" SIZE="479">
+        <FLocat LOCTYPE="URL" xlink:href="representations/rep_2/data/attachments/preservation/1b884a14-0806-4af4-b669-52ac6455a814.pdf"/>
+      </file>
+      <file ID="F19" CHECKSUMTYPE="SHA-512" CHECKSUM="3dfdbd7746f15e4b97e960adec1f0edbe4b9a3dc3d933061685f564cd45443f134f5ab9d38339ecf5428ec9b05af397782ae2aec2b81cba9b250e68ec7193827" SIZE="479">
+        <FLocat LOCTYPE="URL" xlink:href="representations/rep_2/data/attachments/synthetic_notification_fr.pdf"/>
+      </file>
+      <file ID="F20" CHECKSUMTYPE="SHA-512" CHECKSUM="2d7129ab6de623a1dd8952818ce2dabcb4a9d81c74c8d11716abe2d87b502aa4824561ce87e5a118de6a63f010f1fe295a1963b35dae9850dcd8525ff63673d1" SIZE="470">
+        <FLocat LOCTYPE="URL" xlink:href="representations/rep_2/data/en/2026_000001_en.pdf"/>
+      </file>
+    </fileGrp>
+  </fileSec>
+  <structMap TYPE="physical">
+    <div TYPE="intellectualEntity" LABEL="2026_000001" DMDID="DOME" ADMID="PREMIS">
+      <div TYPE="representation" LABEL="rep_1">
+        <fptr FILEID="F15"/>
+      </div>
+      <div TYPE="representation" LABEL="rep_2">
+        <fptr FILEID="F16"/>
+        <fptr FILEID="F17"/>
+        <fptr FILEID="F18"/>
+        <fptr FILEID="F19"/>
+        <fptr FILEID="F20"/>
+      </div>
+      <div TYPE="documentation" LABEL="documentation">
+        <fptr FILEID="F1"/>
+        <fptr FILEID="F2"/>
+        <fptr FILEID="F3"/>
+        <fptr FILEID="F4"/>
+        <fptr FILEID="F5"/>
+        <fptr FILEID="F6"/>
+        <fptr FILEID="F7"/>
+        <fptr FILEID="F8"/>
+        <fptr FILEID="F9"/>
+        <fptr FILEID="F10"/>
+        <fptr FILEID="F11"/>
+        <fptr FILEID="F12"/>
+        <fptr FILEID="F13"/>
+        <fptr FILEID="F14"/>
+        <fptr FILEID="F21"/>
+        <fptr FILEID="F22"/>
+        <fptr FILEID="F23"/>
+        <fptr FILEID="F24"/>
+        <fptr FILEID="F25"/>
+      </div>
+    </div>
+  </structMap>
+</mets>

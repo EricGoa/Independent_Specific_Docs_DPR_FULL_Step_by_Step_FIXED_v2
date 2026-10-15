@@ -93,6 +93,8 @@ def should_exclude(relative_path: Path):
     if "record-history" in relative_path.parts:
         return True, "historical working record revision"
     name = relative_path.name.lower()
+    if name.endswith("_profile_state.json"):
+        return True, "working profile state"
     parts = [x.lower() for x in relative_path.parts]
 
     if working_pdf(relative_path):
@@ -396,6 +398,10 @@ def main():
     ap.add_argument("--preparation-dir", required=True)
     ap.add_argument("--staging-dir", required=True)
     ap.add_argument("--job-id", required=True)
+    ap.add_argument("--aip-root",type=Path)
+    ap.add_argument("--agent-registry",type=Path)
+    ap.add_argument("--selection-basis")
+    ap.add_argument("--description")
     ap.add_argument(
         "--contact-name",
         default="PoC Preservation Operator",
@@ -425,6 +431,9 @@ def main():
         if not obj.is_dir():
             raise RuntimeError(f"Preparation object not found: {obj}")
 
+        if load(obj / "documentation" / f"{args.job_id}_poc6_metadata_record.json").get("profile"):
+            from profile_workflow import package
+            return package(args,obj,args.job_id)
         p6, folder_uuid = require_step6(obj, args.job_id)
 
         if bag_root.exists():

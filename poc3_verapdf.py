@@ -21,7 +21,7 @@ import json
 import subprocess
 import sys
 import uuid
-from workflow_common import load, write_record, verify, coverage
+from workflow_common import load, write_record, verify, coverage, registered_uuid
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 from pathlib import Path
@@ -253,9 +253,10 @@ def main() -> int:
             )
 
             report_sha512 = sha512_file(report_path)
-            report_file_id = str(uuid.uuid4()) if compliant else None
+            report_file_id = registered_uuid(obj_dir,"file",str(report_path.resolve())+report_sha512) if compliant else None
 
             validations.append({
+                "completed_at": utc_now(),
                 "master_file_id": conv.get("master_file_id"),
                 "master_path": str(master.resolve()),
                 "master_sha512_verified_against_poc2": True,
@@ -275,7 +276,8 @@ def main() -> int:
                 "relationship": {
                     "type": "isValidationReportOf" if compliant else None,
                     "report_file_id": report_file_id,
-                    "master_file_id": conv.get("master_file_id"),
+                    "completed_at": utc_now(),
+                "master_file_id": conv.get("master_file_id"),
                 },
             })
 

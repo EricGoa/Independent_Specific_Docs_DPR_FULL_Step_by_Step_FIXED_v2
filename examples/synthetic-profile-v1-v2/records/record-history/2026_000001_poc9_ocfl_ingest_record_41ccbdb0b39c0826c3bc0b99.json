@@ -1,0 +1,179 @@
+{
+  "job_id": "2026_000001",
+  "created_utc": "2026-10-15T10:51:21Z",
+  "status": "STEP_9_OCFL_AIP_COMMITTED",
+  "sip_uuid": "eca32121-15cb-49e1-82f9-91a2c5a4fba5",
+  "selection_basis": "new_document",
+  "ocfl": {
+    "object_path": "C:\\Users\\Gao\\AppData\\Local\\Temp\\dpr-synthetic-_1yhwndh\\AIP\\2026\\000000\\2026_000001",
+    "object_id": "urn:uuid:9b66703b-cb8a-4e19-a4c2-3409e8d3766b",
+    "head": "v1"
+  },
+  "verify_on_write": {
+    "outcome": "PASS",
+    "files": [
+      {
+        "logical_path": "2026_000001_mets.xml",
+        "bag_manifest_sha512": "91e2fcd7c63a610b369658f8ba51831389b2ccccca2ef19eea1c84ec31167a26c60de5381ccded6d4ff3f41fdc0773e115f402c08d1c832cea746e3f330c29c8",
+        "ocfl_written_sha512": "91e2fcd7c63a610b369658f8ba51831389b2ccccca2ef19eea1c84ec31167a26c60de5381ccded6d4ff3f41fdc0773e115f402c08d1c832cea746e3f330c29c8",
+        "verified": true,
+        "physical_path": "v1/content/2026_000001_mets.xml",
+        "size_bytes": 8013
+      },
+      {
+        "logical_path": "documentation/0767cec1-2cc3-4755-884e-772345a7c9ad_conv_aspose.xml",
+        "bag_manifest_sha512": "78a666d7cb36e392c315b0f5826481835711667e96b53e9c0dfbb819c89f02b6db48973312c0878dfff68dc672e7115384cf584c61d8f7a26ee501b8dd5cfdb9",
+        "ocfl_written_sha512": "78a666d7cb36e392c315b0f5826481835711667e96b53e9c0dfbb819c89f02b6db48973312c0878dfff68dc672e7115384cf584c61d8f7a26ee501b8dd5cfdb9",
+        "verified": true,
+        "physical_path": "v1/content/documentation/0767cec1-2cc3-4755-884e-772345a7c9ad_conv_aspose.xml",
+        "size_bytes": 13
+      },
+      {
+        "logical_path": "documentation/0767cec1-2cc3-4755-884e-772345a7c9ad_qa_pypdf.json",
+        "bag_manifest_sha512": "e222557859db285e16b724c6adf8651620d0191374f64e50fdbad5d1b60ced47b1529df31a21325d460125d02132b6c5e2f947c64b0bfe4fd6752b0c04e18aad",
+        "ocfl_written_sha512": "e222557859db285e16b724c6adf8651620d0191374f64e50fdbad5d1b60ced47b1529df31a21325d460125d02132b6c5e2f947c64b0bfe4fd6752b0c04e18aad",
+        "verified": true,
+        "physical_path": "v1/content/documentation/0767cec1-2cc3-4755-884e-772345a7c9ad_qa_pypdf.json",
+        "size_bytes": 4154
+      },
+      {
+        "logical_path": "documentation/0767cec1-2cc3-4755-884e-772345a7c9ad_val_verapdf.xml",
+        "bag_manifest_sha512": "7e1e2eb50d56e52ea789e2d07a3a842be85d0c151b5fcc73e20e493ab26ed116af573842f5ceb2153fda07d49e6102427e8d6dad7baca67489f7055ce406c889",
+        "ocfl_written_sha512": "7e1e2eb50d56e52ea789e2d07a3a842be85d0c151b5fcc73e20e493ab26ed116af573842f5ceb2153fda07d49e6102427e8d6dad7baca67489f7055ce406c889",
+        "verified": true,
+        "physical_path": "v1/content/documentation/0767cec1-2cc3-4755-884e-772345a7c9ad_val_verapdf.xml",
+        "size_bytes": 78
+      },
+      {
+        "logical_path": "documentation/2026_000001_1_droid_export.csv",
+        "bag_manifest_sha512": "8a405542e11b2adfd49f87f36e090801f70ac0824db09ac31e5d863cf7fe2116d6524c10779d4c9f9e586962f1ccd0af462aab15e0cbfe4073ca76127e6df4fd",
+        "ocfl_written_sha512": "8a405542e11b2adfd49f87f36e090801f70ac0824db09ac31e5d863cf7fe2116d6524c10779d4c9f9e586962f1ccd0af462aab15e0cbfe4073ca76127e6df4fd",
+        "verified": true,
+        "physical_path": "v1/content/documentation/2026_000001_1_droid_export.csv",
+        "size_bytes": 589
+      },
+      {
+        "logical_path": "documentation/2026_000001_dome_sql_extraction.json",
+        "bag_manifest_sha512": "e605aa88dc3629b0ec35cf7ef970d299f0ecc79951462d2f92adeefe49a92bf3d5a291bb3b16f462fae541b6fcd90e1c245f7dfdad67726a4e55da8e0ee13ea8",
+        "ocfl_written_sha512": "e605aa88dc3629b0ec35cf7ef970d299f0ecc79951462d2f92adeefe49a92bf3d5a291bb3b16f462fae541b6fcd90e1c245f7dfdad67726a4e55da8e0ee13ea8",
+        "verified": true,
+        "physical_path": "v1/content/documentation/2026_000001_dome_sql_extraction.json",
+        "size_bytes": 278
+      },
+      {
+        "logical_path": "documentation/2026_000001_en_conv_aspose.xml",
+        "bag_manifest_sha512": "78a666d7cb36e392c315b0f5826481835711667e96b53e9c0dfbb819c89f02b6db48973312c0878dfff68dc672e7115384cf584c61d8f7a26ee501b8dd5cfdb9",
+        "ocfl_written_sha512": "78a666d7cb36e392c315b0f5826481835711667e96b53e9c0dfbb819c89f02b6db48973312c0878dfff68dc672e7115384cf584c61d8f7a26ee501b8dd5cfdb9",
+        "verified": true,
+        "physical_path": "v1/content/documentation/2026_000001_en_conv_aspose.xml",
+        "size_bytes": 13
+      },
+      {
+        "logical_path": "documentation/2026_000001_en_qa_pypdf.json",
+        "bag_manifest_sha512": "5d99022516e2bdf76fd11a8111bf83a60cfdb75777e6516bc68179855eb37c5bf22d36d13758c9c5659f0705a85ead3ae8338b530a3b335e7e4e420a4f46a7d3",
+        "ocfl_written_sha512": "5d99022516e2bdf76fd11a8111bf83a60cfdb75777e6516bc68179855eb37c5bf22d36d13758c9c5659f0705a85ead3ae8338b530a3b335e7e4e420a4f46a7d3",
+        "verified": true,
+        "physical_path": "v1/content/documentation/2026_000001_en_qa_pypdf.json",
+        "size_bytes": 4132
+      },
+      {
+        "logical_path": "documentation/2026_000001_en_val_verapdf.xml",
+        "bag_manifest_sha512": "7e1e2eb50d56e52ea789e2d07a3a842be85d0c151b5fcc73e20e493ab26ed116af573842f5ceb2153fda07d49e6102427e8d6dad7baca67489f7055ce406c889",
+        "ocfl_written_sha512": "7e1e2eb50d56e52ea789e2d07a3a842be85d0c151b5fcc73e20e493ab26ed116af573842f5ceb2153fda07d49e6102427e8d6dad7baca67489f7055ce406c889",
+        "verified": true,
+        "physical_path": "v1/content/documentation/2026_000001_en_val_verapdf.xml",
+        "size_bytes": 78
+      },
+      {
+        "logical_path": "metadata/descriptive/2026_000001_dome.xml",
+        "bag_manifest_sha512": "2fa5929358e2186219416599cbd0b04e5eebb96f6ffe7bbfafb3e6042cb0cb84fe1b65127d2dca509c6883ca850eb7b23841d8156e2df481856ab358bbaba919",
+        "ocfl_written_sha512": "2fa5929358e2186219416599cbd0b04e5eebb96f6ffe7bbfafb3e6042cb0cb84fe1b65127d2dca509c6883ca850eb7b23841d8156e2df481856ab358bbaba919",
+        "verified": true,
+        "physical_path": "v1/content/metadata/descriptive/2026_000001_dome.xml",
+        "size_bytes": 652
+      },
+      {
+        "logical_path": "metadata/preservation/2026_000001_premis.xml",
+        "bag_manifest_sha512": "4501f2834e4e1c46312cc479822a23b1d1d162b3f344598f39e579958508921b6bd7b2474c8117a24709c91e3519c38fb064758a073d39e712401b13c00d45c1",
+        "ocfl_written_sha512": "4501f2834e4e1c46312cc479822a23b1d1d162b3f344598f39e579958508921b6bd7b2474c8117a24709c91e3519c38fb064758a073d39e712401b13c00d45c1",
+        "verified": true,
+        "physical_path": "v1/content/metadata/preservation/2026_000001_premis.xml",
+        "size_bytes": 96638
+      },
+      {
+        "logical_path": "representations/rep_1/data/en/2026_000001_en.docx",
+        "bag_manifest_sha512": "50fa4d216a539812de36ab018cdb357aa8af791067f3eac90ca0939acbf9adba14b72c839ef23198ffb008c83e0727e77d9205739891b59ee406d2fd636ec7d7",
+        "ocfl_written_sha512": "50fa4d216a539812de36ab018cdb357aa8af791067f3eac90ca0939acbf9adba14b72c839ef23198ffb008c83e0727e77d9205739891b59ee406d2fd636ec7d7",
+        "verified": true,
+        "physical_path": "v1/content/representations/rep_1/data/en/2026_000001_en.docx",
+        "size_bytes": 143
+      },
+      {
+        "logical_path": "representations/rep_2/data/attachments/notice.pdf",
+        "bag_manifest_sha512": "6e1badced1d60689aedfeb83d7e330fe8c787a59df59c84efcfc311255a60c96d08bd5071ddaa1830cbcfaee49f064c0dbc6f4a6dbc5e24af470c8a1aefd0f11",
+        "ocfl_written_sha512": "6e1badced1d60689aedfeb83d7e330fe8c787a59df59c84efcfc311255a60c96d08bd5071ddaa1830cbcfaee49f064c0dbc6f4a6dbc5e24af470c8a1aefd0f11",
+        "verified": true,
+        "physical_path": "v1/content/representations/rep_2/data/attachments/notice.pdf",
+        "size_bytes": 454
+      },
+      {
+        "logical_path": "representations/rep_2/data/attachments/preservation/0767cec1-2cc3-4755-884e-772345a7c9ad.pdf",
+        "bag_manifest_sha512": "6e1badced1d60689aedfeb83d7e330fe8c787a59df59c84efcfc311255a60c96d08bd5071ddaa1830cbcfaee49f064c0dbc6f4a6dbc5e24af470c8a1aefd0f11",
+        "ocfl_written_sha512": "6e1badced1d60689aedfeb83d7e330fe8c787a59df59c84efcfc311255a60c96d08bd5071ddaa1830cbcfaee49f064c0dbc6f4a6dbc5e24af470c8a1aefd0f11",
+        "verified": true,
+        "physical_path": "v1/content/representations/rep_2/data/attachments/preservation/0767cec1-2cc3-4755-884e-772345a7c9ad.pdf",
+        "size_bytes": 454
+      },
+      {
+        "logical_path": "representations/rep_2/data/en/2026_000001_en.pdf",
+        "bag_manifest_sha512": "2d7129ab6de623a1dd8952818ce2dabcb4a9d81c74c8d11716abe2d87b502aa4824561ce87e5a118de6a63f010f1fe295a1963b35dae9850dcd8525ff63673d1",
+        "ocfl_written_sha512": "2d7129ab6de623a1dd8952818ce2dabcb4a9d81c74c8d11716abe2d87b502aa4824561ce87e5a118de6a63f010f1fe295a1963b35dae9850dcd8525ff63673d1",
+        "verified": true,
+        "physical_path": "v1/content/representations/rep_2/data/en/2026_000001_en.pdf",
+        "size_bytes": 470
+      },
+      {
+        "logical_path": "schemas/dol-metadata-v-03.xsd",
+        "bag_manifest_sha512": "f0c95073d0c571ff89cb965e21a5c3adaa27ab7de71850acc53a3d88395668b6fc76f8ca0167c5649c852497e60399049180f1d355c48fdfa04575fc3c604cfa",
+        "ocfl_written_sha512": "f0c95073d0c571ff89cb965e21a5c3adaa27ab7de71850acc53a3d88395668b6fc76f8ca0167c5649c852497e60399049180f1d355c48fdfa04575fc3c604cfa",
+        "verified": true,
+        "physical_path": "v1/content/schemas/dol-metadata-v-03.xsd",
+        "size_bytes": 15898
+      },
+      {
+        "logical_path": "schemas/mets.xsd",
+        "bag_manifest_sha512": "f7348f7f7dea347777e2e6338c85bc6a43c828646948298d62f03d3ec6683d219cf3554228129b560e34ff641ef51f23a213efb33e80dd80ca124841845bbb47",
+        "ocfl_written_sha512": "f7348f7f7dea347777e2e6338c85bc6a43c828646948298d62f03d3ec6683d219cf3554228129b560e34ff641ef51f23a213efb33e80dd80ca124841845bbb47",
+        "verified": true,
+        "physical_path": "v1/content/schemas/mets.xsd",
+        "size_bytes": 138326
+      },
+      {
+        "logical_path": "schemas/premis.xsd",
+        "bag_manifest_sha512": "f0feb6d7d30a0f27ffd53dadb976ded9fde56adbe339fac0d2cb43352966c768103001c44d1dd0a013c89323f3ca81557f4ddf106629134d82ac9f0587de07c5",
+        "ocfl_written_sha512": "f0feb6d7d30a0f27ffd53dadb976ded9fde56adbe339fac0d2cb43352966c768103001c44d1dd0a013c89323f3ca81557f4ddf106629134d82ac9f0587de07c5",
+        "verified": true,
+        "physical_path": "v1/content/schemas/premis.xsd",
+        "size_bytes": 52845
+      },
+      {
+        "logical_path": "schemas/xlink.xsd",
+        "bag_manifest_sha512": "d524ed457c67a9e9e4de723519f26567e098c02b8db21fca6807683b30a0b9e477a230cef942e8245411f2a6ccb0f8a7df2bae18dc7363ec2810899d67064a32",
+        "ocfl_written_sha512": "d524ed457c67a9e9e4de723519f26567e098c02b8db21fca6807683b30a0b9e477a230cef942e8245411f2a6ccb0f8a7df2bae18dc7363ec2810899d67064a32",
+        "verified": true,
+        "physical_path": "v1/content/schemas/xlink.xsd",
+        "size_bytes": 3180
+      },
+      {
+        "logical_path": "schemas/xml.xsd",
+        "bag_manifest_sha512": "a716c93db1bbbcf9c353ff939f15aa1ed83c8d96739bafad93c790a7779c49c680a279c97c760fe55546fa43cab1d43e92431f24c46ff001976e05329231b635",
+        "ocfl_written_sha512": "a716c93db1bbbcf9c353ff939f15aa1ed83c8d96739bafad93c790a7779c49c680a279c97c760fe55546fa43cab1d43e92431f24c46ff001976e05329231b635",
+        "verified": true,
+        "physical_path": "v1/content/schemas/xml.xsd",
+        "size_bytes": 4726
+      }
+    ]
+  },
+  "independent_validation": "PASS",
+  "draft_registry": true
+}

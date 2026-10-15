@@ -1,0 +1,59 @@
+{
+  "job_id": "2026_000001",
+  "created_utc": "2026-10-15T10:51:28Z",
+  "status": "STEP_9_OCFL_AIP_COMMITTED",
+  "sip_uuid": "3c35aa9b-f48d-48da-a85b-e04bfe54806b",
+  "selection_basis": "language_added",
+  "ocfl": {
+    "object_path": "C:\\Users\\Gao\\AppData\\Local\\Temp\\dpr-synthetic-_1yhwndh\\AIP\\2026\\000000\\2026_000001",
+    "object_id": "urn:uuid:9b66703b-cb8a-4e19-a4c2-3409e8d3766b",
+    "head": "v2"
+  },
+  "verify_on_write": {
+    "outcome": "PASS",
+    "files": [
+      {
+        "logical_path": "2026_000001_mets.xml",
+        "physical_path": "v2/content/2026_000001_mets.xml",
+        "bag_manifest_sha512": "d2b8d5ad61f92e37ce17f32fbaa7078c5ee4ef3e492577e85242111c3d445bc20967488abc68f06e89a87cc572a87e6cdfc3267c1dd1fb5e973c47cc20a1aace",
+        "ocfl_written_sha512": "d2b8d5ad61f92e37ce17f32fbaa7078c5ee4ef3e492577e85242111c3d445bc20967488abc68f06e89a87cc572a87e6cdfc3267c1dd1fb5e973c47cc20a1aace",
+        "verified": true,
+        "size_bytes": 10124
+      },
+      {
+        "logical_path": "documentation/1b884a14-0806-4af4-b669-52ac6455a814_qa_pypdf.json",
+        "physical_path": "v2/content/documentation/1b884a14-0806-4af4-b669-52ac6455a814_qa_pypdf.json",
+        "bag_manifest_sha512": "7328843c79cd941a81c9b78bd351bd693926f8d9e6404dab253977f131b0c13af9dcb030b6a9d6379aa809c853827bc8cdbb6d313c5ccb65aa42462f8c6c0424",
+        "ocfl_written_sha512": "7328843c79cd941a81c9b78bd351bd693926f8d9e6404dab253977f131b0c13af9dcb030b6a9d6379aa809c853827bc8cdbb6d313c5ccb65aa42462f8c6c0424",
+        "verified": true,
+        "size_bytes": 4211
+      },
+      {
+        "logical_path": "documentation/2026_000001_2_droid_export.csv",
+        "physical_path": "v2/content/documentation/2026_000001_2_droid_export.csv",
+        "bag_manifest_sha512": "6ee23afaf61f80af55f7e536b0f8e91bb95d1b5289a47908b9ab051b0bb6f0572b133c99f41befab357c78bb84eb9e36099cd7696b555340fe7892741b12cfe6",
+        "ocfl_written_sha512": "6ee23afaf61f80af55f7e536b0f8e91bb95d1b5289a47908b9ab051b0bb6f0572b133c99f41befab357c78bb84eb9e36099cd7696b555340fe7892741b12cfe6",
+        "verified": true,
+        "size_bytes": 255
+      },
+      {
+        "logical_path": "metadata/preservation/2026_000001_premis.xml",
+        "physical_path": "v2/content/metadata/preservation/2026_000001_premis.xml",
+        "bag_manifest_sha512": "54d22fddaa701c23163cf46fa74d2df12d2dca16adc5e8ee6c30c29f1b025d0a670768861c523247f8fa3ce8cbca3e58e989d7aa2cd6a085ef01990326d47f3a",
+        "ocfl_written_sha512": "54d22fddaa701c23163cf46fa74d2df12d2dca16adc5e8ee6c30c29f1b025d0a670768861c523247f8fa3ce8cbca3e58e989d7aa2cd6a085ef01990326d47f3a",
+        "verified": true,
+        "size_bytes": 134292
+      },
+      {
+        "logical_path": "representations/rep_2/data/attachments/preservation/1b884a14-0806-4af4-b669-52ac6455a814.pdf",
+        "physical_path": "v2/content/representations/rep_2/data/attachments/preservation/1b884a14-0806-4af4-b669-52ac6455a814.pdf",
+        "bag_manifest_sha512": "3dfdbd7746f15e4b97e960adec1f0edbe4b9a3dc3d933061685f564cd45443f134f5ab9d38339ecf5428ec9b05af397782ae2aec2b81cba9b250e68ec7193827",
+        "ocfl_written_sha512": "3dfdbd7746f15e4b97e960adec1f0edbe4b9a3dc3d933061685f564cd45443f134f5ab9d38339ecf5428ec9b05af397782ae2aec2b81cba9b250e68ec7193827",
+        "verified": true,
+        "size_bytes": 479
+      }
+    ]
+  },
+  "independent_validation": "PASS",
+  "draft_registry": true
+}

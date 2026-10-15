@@ -1,0 +1,488 @@
+"""OCFL Storage Root validation and manipulation.
+
+This code uses PyFilesystem (import fs) exclusively for access to files. This
+should enable application beyond the operating system filesystem.
+"""
+import json
+import logging
+import os.path
+import re
+
+from .constants import DEFAULT_SPEC_VERSION, SPEC_VERSIONS_SUPPORTED
+from .namaste import find_namastes, Namaste
+from .object import Object
+from .fsw import fsw_openfs, fsw_walk, fsw_opendir_as_fs, fsw_copydir
+from .validator import Validator
+from .validation_logger import ValidationLogger
+
+# Specific layouts
+from .layout_registry import get_layout, layout_is_supported
+
+
+class StorageRootException(Exception):
+    """Exception class for OCFL Storage Root."""
+
+    def __init__(self, code, **kwargs):
+        """Initialze StorageRootException.
+
+        Arguments:
+            code (str): either an exception message (if no **kwargs) or
+                otherwise a validation error code that can be passed to
+                a ValidationLogger instance
+            **kwargs (dict): keyword arguments to complete the error message
+                for the given code
+
+        All exceptions relevant to the validator context should supply
+        both an error code (e.g. "E072") and a set of kwargs that match
+        the strings defined for ValidationLogger. In other contexts, such
+        as operations on a StorageRoot, one parameter may be supplied as
+        the full error string.
+        """
+        self.code = code  # or full exception message
+        self.kwargs = kwargs
+
+    def __str__(self):
+        """Message for use in non-validator contexts."""
+        if len(self.kwargs) == 0:
+            return self.code
+        # FIXME - Representation in non-validator contexts
+        return self.code + ": " + ", ".join("{0}={1!r}".format(k, v) for k, v in self.kwargs.items())
+
+
+class StorageRoot():
+    """Class for handling OCFL Storage Root and include OCFL Objects."""
+
+    def __init__(self, root=None, layout_name=None, lax_digests=False,
+                 spec_version=None):
+        """Initialize OCFL Storage Root.
+
+        Arguments:
+            root (str): file path or fsw filesystem descriptor for the OCFL
+                Storage Root
+            layout_name (str): name of the file layout to use
+            lax_digests (bool):
+            spec_version (str): OCFL specification version expected
+        """
+        self.root = root
+        self.layout_name = layout_name
+        self.layout_description = None
+        self.lax_digests = lax_digests
+        self._layout = None  # Lazily initialized in layout property
+        self.spec_version = None
+        if spec_version is not None:
+            self.check_spec_version(spec_version)
+        self.layout_file = "ocfl_layout.json"
+        self.registered_extensions = [
+            "0002-flat-direct-storage-layout",
+            "0003-hash-and-id-n-tuple-storage-layout"
+        ]
+        self.root_fs = None
+        # Validation records
+        self.num_traversal_errors = 0
+        self.log = None
+        self.num_objects = 0
+        self.good_objects = 0
+        self.errors = []
+        self.traversal_errors = None
+
+    def check_spec_version(self, spec_version, default=DEFAULT_SPEC_VERSION):
+        """Check the OCFL specification version is supported.
+
+        Arguments:
+            spec_version (str or None): specification version to check
+            default (str): specification version to use if spec_version
+                is None
+
+        Raises:
+            StorageRootException: if spec_version is not supported
+
+        Sets self.spec_version to spec_version if given and good,
+        otherwise to the default.
+        """
+        if spec_version is None and self.spec_version is None:
+            spec_version = default
+        if spec_version not in SPEC_VERSIONS_SUPPORTED:
+            raise StorageRootException("Unsupported OCFL specification version %s requested" % (spec_version))
+        self.spec_version = spec_version
+
+    def open_root_fs(self):
+        """Open existing fsw filesystem for this OCFL storage root.
+
+        Raises:
+            StorageRootException: on failure to open root
+
+        Relies upon self.root for the location of the storage root. Will set
+        self.root_fs on success with the open filesystem.
+        """
+        try:
+            self.root_fs = fsw_openfs(self.root)
+        except FileNotFoundError as e:
+            raise StorageRootException("Failed to open OCFL storage root filesystem '%s' (%s)" % (self.root, str(e)))
+
+    def write_root_declaration(self, root_fs):
+        """Write Namaste root declaration file for this Storage Root.
+
+        Uses self.spec_version to determing the Storage Root version and
+        assumes self.obj_fs is open for this object.
+        """
+        Namaste(0, "ocfl_" + self.spec_version).write(fsw=root_fs)
+
+    @property
+    def layout(self):
+        """Instance of layout class.
+
+        Lazily initialized. Will return either a valid layout name or None
+        if the layout is not set.
+        """
+        if not self._layout and self.layout_name is not None:
+            self._layout = get_layout(self.layout_name)
+        return self._layout
+
+    def traversal_error(self, code, **kwargs):
+        """Record error traversing OCFL storage root.
+
+        Arguments:
+            code (str): error code
+            **kwargs: (dict): keyword arguments to complete the error message
+                for the given code
+
+        Uses non-None self.log to determine validation context, in which case
+        the error is logger to self.log. Otherwise uses logging.error() to
+        report the error directly.
+        """
+        self.num_traversal_errors += 1
+        if self.log is None:  # FIXME - What to do in non-validator context?
+            args = ", ".join("{0}={1!r}".format(k, v) for k, v in kwargs.items())
+            logging.error("Traversal error %s - %s", code, args)
+        else:
+            self.log.error(code, **kwargs)
+
+    def object_path(self, identifier):
+        """Path to OCFL object with given identifier relative to the OCFL storage root.
+
+        Arguments:
+            identifier (str): OCFL Object identifier
+
+        Returns:
+            str: path to the OCFL Object specified
+
+        Raises:
+            StorageRootException: on error
+        """
+        if self.layout is None:
+            self.open_root_fs()
+            self.check_root_structure()
+        return self.layout.identifier_to_path(identifier)
+
+    def initialize(self, spec_version=None, layout_params=None):
+        """Create and initialize a new OCFL Storage Root.
+
+        Arguments:
+            spec_version (str or None): OCFL specification version to
+                declare if specified, else default.
+            layout_params (str or None): filename of JSON layout
+                parameters file, else None to not use any.
+
+        Raises:
+            StorageRootException: on failure to create the Storage Root
+        """
+        # Do the checks we can before we do anything on storage
+        if self.layout is not None and layout_params is not None:
+            # Parse as JSON
+            try:
+                config = json.loads(layout_params)
+            except Exception as e:
+                raise StorageRootException("Bad layout params supplied: %s" % (str(e)))
+            self.layout.check_and_set_layout_params(config=config, require_extension_name=False)
+        self.check_spec_version(spec_version=spec_version)
+        # Now create the storage root
+        (parent, root_dir) = os.path.split(self.root)
+        parent_fs = fsw_openfs(parent)
+        if parent_fs.exists(root_dir):
+            raise StorageRootException("OCFL storage root %s already exists, aborting!" % (self.root))
+        parent_fs.makedir(root_dir)
+        self.root_fs = fsw_openfs(self.root)
+        logging.debug("Created OCFL storage root directory at %s", self.root)
+        # Create root declaration
+        self.write_root_declaration(self.root_fs)
+        # Create a layout declaration if the layout ise set, it is valid to have
+        # a storage root with no layout information
+        if self.layout is not None:
+            with self.root_fs.open(self.layout_file, "w") as fh:
+                layout = {"extension": self.layout.NAME,
+                          "description": self.layout.DESCRIPTION}
+                json.dump(layout, fh, sort_keys=True, indent=2)
+            # Do we need to write a extension description?
+            self.layout.write_layout_params(root_fs=self.root_fs)
+        else:
+            logging.debug("No layout set so no %s file written", self.layout_file)
+
+    def check_root_structure(self):
+        """Check the OCFL Storage Root structure.
+
+        Returns:
+            bool: True on success
+
+        Raises:
+            StorageRootException: with validator error codes if there is an error
+
+        Side effects:
+            self.spec_version - set to declared specification version
+            self.layout - initialized with layout handler if specified
+
+        Assumes that self.root_fs filesystem is available to read from.
+        """
+        # Storage root declaration
+        namastes = find_namastes(0, fsw=self.root_fs)
+        if len(namastes) == 0:
+            raise StorageRootException("E069a", root=self.root)
+        if len(namastes) > 1:
+            raise StorageRootException("E069b", root=self.root)
+        spec_version = None
+        for version in SPEC_VERSIONS_SUPPORTED:
+            if namastes[0].filename == "0=ocfl_" + version:
+                spec_version = version
+                break
+        else:
+            raise StorageRootException("E069c", root=self.root,
+                                       namaste_file=namastes[0].filename)
+        if self.spec_version is not None and self.spec_version != spec_version:
+            raise StorageRootException("E069c", root=self.root,
+                                       declared_spec_version=spec_version,
+                                       expected_spec_version=self.spec_version)
+        self.spec_version = spec_version
+        if not namastes[0].content_ok(fsw=self.root_fs):
+            raise StorageRootException("E069e", root=self.root,
+                                       namaste_file=namastes[0].filename)
+        # Layout file (if present)
+        if self.root_fs.exists(self.layout_file):
+            self.layout_name, self.layout_description = self.parse_layout_file()
+            if not layout_is_supported(self.layout_name):
+                raise StorageRootException("E071", root=self.root, layout_name=self.layout_name)
+            if self.layout.NAME == self.layout_name:
+                logging.info("Storage root layout is %s", self.layout_name)
+            else:
+                logging.warning("Non-canonical layout name %s, should be %s", self.layout_name, self.layout.NAME)
+            # Is there a corresponding extensions dir with params in config.json?
+            self.layout.read_layout_params(root_fs=self.root_fs)
+        # Other files are allowed...
+        return True
+
+    def parse_layout_file(self):
+        """Read and parse layout file in OCFL Storage Root.
+
+        Returns:
+          tuple: of (extension, description) strings from the
+            layout file. The values of these strings are not
+            checked
+
+        Raises:
+          StorageRootException: with validator error codes if these is
+            and error in the layout configuration
+        """
+        try:
+            with self.root_fs.open(self.layout_file) as fh:
+                layout = json.load(fh)
+        except Exception as e:
+            raise StorageRootException("E070a", root=self.root, message=str(e))
+        if not isinstance(layout, dict):
+            raise StorageRootException("E070b", root=self.root)
+        if ("extension" not in layout or not isinstance(layout["extension"], str)
+                or "description" not in layout or not isinstance(layout["description"], str)):
+            raise StorageRootException("E070c", root=self.root)
+        return layout["extension"], layout["description"]
+
+    def object_paths(self):
+        """Generate object paths for every obect in the OCFL Storage Root.
+
+        Yields:
+            str: the path to the directory for each object located, relative
+                to the OCFL storage root and without a preceding /.
+
+        Will log any errors seen while traversing the directory tree under the
+        storage root.
+        """
+        for (dirpath, dirs, files) in fsw_walk(self.root_fs):
+            if dirpath == "/":
+                if "extensions" in dirs:
+                    self.validate_extensions_dir()
+                    dirs.remove("extensions")
+                # Ignore any other files in storage root but otherwise continue
+                # to descend
+            elif (len(dirs) + len(files)) == 0:
+                # Empty directory
+                self.traversal_error("E073", path=dirpath)
+            elif len(files) == 0:
+                pass  # Just an intermediate directory
+            else:
+                # Is this directory an OCFL object? Look for any 0= file.
+                zero_eqs = [file for file in files if file.startswith("0=")]
+                if len(zero_eqs) > 1:
+                    self.traversal_error("E003d", path=dirpath)
+                elif len(zero_eqs) == 1:
+                    declaration = zero_eqs[0]
+                    match = re.match(r"""0=ocfl_object_(\d+\.\d+)""", declaration)
+                    if match and match.group(1) in SPEC_VERSIONS_SUPPORTED:
+                        yield dirpath.lstrip("/")
+                    elif match:
+                        self.traversal_error("E004a", path=dirpath, version=match.group(1))
+                    else:
+                        self.traversal_error("E004b", path=dirpath, declaration=declaration)
+                else:
+                    self.traversal_error("E072", path=dirpath)
+            # If we are below the root, do not descend further if there
+            # are files present because these indicate that we are in
+            # an object already.
+            # (see https://ocfl.io/1.0/spec/#root-structure)
+            if dirpath != "/" and len(files) > 0:
+                while len(dirs) > 0:
+                    dirs.pop()
+
+    def validate_extensions_dir(self):
+        """Validate content of extensions directory inside storage root.
+
+        Validate the extensions directory by checking that there aren't any
+        entries in the extensions directory that aren't directories themselves.
+        Where there are extension directories they SHOULD be registered and
+        this code relies up the registered_extensions property to list known
+        storage root extensions.
+        """
+        for entry in self.root_fs.listdir("extensions", detail=True):
+            name = entry["name"]
+            if entry["type"] == "directory":
+                if os.path.relpath(name, "extensions") not in self.registered_extensions:
+                    self.log.warning("W901", entry=name)  # FIXME - No good warning code in spec
+            else:
+                self.traversal_error("E086", entry=name)
+
+    def list_objects(self):
+        """List contents of this OCFL Storage Root.
+
+        Yields:
+            tuple: for each object, which contains (dirpath, identifier)
+
+        Side effects:
+            The count of self.num_objects is updated through the traversal
+            of the storage root
+        """
+        self.open_root_fs()
+        self.check_root_structure()
+        self.num_objects = 0
+        for dirpath in self.object_paths():
+            obj_fs = fsw_opendir_as_fs(fs=self.root_fs, path=dirpath)
+            # Parse inventory to extract id
+            identifier = Object(obj_fs=obj_fs).id_from_inventory()
+            self.num_objects += 1
+            yield (dirpath, identifier)
+            # FIXME - maybe do some more stuff in here
+
+    def validate_hierarchy(self, validate_objects=True, check_digests=True,
+                           log_warnings=False, max_errors=100):
+        """Validate OCFL Storage Root hierarchy and, optionally, all objects.
+
+        Arguments:
+            validate_objects (bool): True to validate each object within the
+                storage root
+            check_digests (bool): True to check file digests for each content
+                file in each object
+            log_warnings (bool): True to log warnings as well as errors
+            max_errors (int): Number of errors to record before stopping
+
+        Returns:
+            tuple of (num_objects, good_objects, errors) where num_objects is
+                the number of objects checked, good_objects is number of objects
+                checked that were found to be valid, and errors is a list of
+                [dirpath, message] pairs for up to max_errors errors
+        """
+        num_objects = 0
+        good_objects = 0
+        errors = []
+        for dirpath in self.object_paths():
+            if validate_objects:
+                validator = Validator(check_digests=check_digests,
+                                      lax_digests=self.lax_digests,
+                                      log_warnings=log_warnings)
+                # FIXME - Should check that all objest are not higher spec
+                # version that storage root https://ocfl.io/1.1/spec/#E081
+                if validator.validate_object(fsw_opendir_as_fs(fs=self.root_fs, path=dirpath)):
+                    good_objects += 1
+                else:
+                    logging.debug("Object at %s in INVALID", dirpath)
+                if len(errors) < max_errors:
+                    # Record detail of errors (and warnings if log_warnings)
+                    messages = validator.status_str(prefix="[[" + dirpath + "]]")
+                    if messages != "":
+                        errors.append([dirpath, messages])
+                num_objects += 1
+        return num_objects, good_objects, errors
+
+    def validate(self, *, validate_objects=True, check_digests=True,
+                 log_warnings=False, log_errors=True, max_errors=100,
+                 lang="en"):
+        """Validate OCFL Storage Root, structure, and optionally all objects.
+
+        Arguments:
+            validate_objects (bool): True (default) to validate each object on
+                the storage root, otherwise will not validate the objects
+            check_digests (bool): True (default) to check the digests of each
+                file while validating objects
+            log_warnings (bool): True if warnings should be logged, default False
+            log_errors (bool): True (default) if errors should be logged
+            max_errors (int): Number of errors and warnings to log, default
+                is 100
+            lang (str): Language of error and warning descriptions to look for,
+                default is "en"
+
+        Returns:
+            bool: True if everything checked is valid, False otherwise
+
+        Sets a number of instance variables as side effects:
+            - self.num_objects: number of objects examined
+            - self.good_objects: number of valid objects
+            - self.errors: list of [dirpath, message] pairs for up to max_errors errors
+            - self.log: ValidationLogger object with any traversal errors
+        """
+        valid = True
+        self.log = ValidationLogger(log_warnings=log_warnings, log_errors=log_errors, lang=lang)
+        self.open_root_fs()
+        try:
+            self.check_root_structure()
+        except StorageRootException as e:
+            logging.debug("Storage root structure is INVALID (%s)", str(e.code))
+            self.log.error(e.code, **e.kwargs)
+            return False
+        self.log.spec_version = self.spec_version
+        self.num_objects, self.good_objects, self.errors = self.validate_hierarchy(validate_objects=validate_objects, check_digests=check_digests, log_warnings=log_warnings, max_errors=max_errors)
+        if self.num_traversal_errors > 0:
+            valid = False
+        return valid
+
+    def add(self, object_path):
+        """Add pre-constructed object from object_path.
+
+        The identifier is extracted from the object and the path is determined
+        by the storage layouts
+
+        Returns:
+            tuple: the (identifier (str), path (str)) on success
+
+        Raises:
+            StorageException: with message string on failure.
+        """
+        self.open_root_fs()
+        self.check_root_structure()
+        # Sanity check
+        o = Object(path=object_path)
+        inventory = o.parse_inventory()
+        identifier = inventory.id
+        # Now copy
+        path = self.object_path(identifier)
+        if self.root_fs.exists(path):
+            raise StorageRootException("Add object failed because destination path %s already exists" % (path))
+        logging.debug("Copying from %s to %s", object_path, os.path.join(self.root, path))
+        try:
+            # Recusive copy of object to path in self.root_fs
+            fsw_copydir(o.obj_fs, "/", self.root_fs, path)
+        except Exception as e:
+            raise StorageRootException("Add object at path %s failed! (%s)" % (path, str(e)))
+        return (identifier, path)

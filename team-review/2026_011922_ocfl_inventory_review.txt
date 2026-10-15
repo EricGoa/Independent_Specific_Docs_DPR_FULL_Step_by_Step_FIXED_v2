@@ -1,0 +1,102 @@
+OCFL INVENTORY REVIEW - JOB_ID 2026_011922 (v1-v3)
+
+Project:        PoC - Digital Preservation Repository Workflow
+Author:         Torsten Fratzke
+UUID:           92f55655-b8cc-4b3e-ab7c-08d1422c9882
+Version:        v1.0
+Status:         Issued
+Created:        2026-10-12
+Modified:       2026-10-12
+Source package: L:\Restricted\Library\09_Team\Fratzke\Projects\dol_dpr_workflow_review_packages\
+                2026_011922\2026_011922_v3_20261009_reviewed20261012.zip
+                SHA-512 a55c729bf61fc96ad5010c89418e99ae299ce59b166cec9f0e24e20abff85e00
+                        f6a6816a210e2f60cd81b9bda3fd27d4f371b6d267a004f216e1506f0f14ff85
+                (567,687 bytes)
+Against:        PREMIS preservation metadata - profile and business rules, v0.4 (draft), DPM14
+Review date:    2026-10-12
+Files reviewed: 2026_011922/inventory.json (head v3) and the copies in v1/, v2/, v3/
+
+1. FINDING
+
+The commit records of v1, v2 and v3 do not meet DPM14. In every version three of the four
+elements are wrong, and the object identifier is not in the form the profile requires. The
+inventory is otherwise sound: all four sidecars verify, v3/inventory.json is identical to the
+root inventory, and every file on disk is in the manifest with the correct digest.
+
+
+2. INVENTORY vs. PROFILE
+
+Element          Profile                                         Found (v1, v2, v3)                              Status
+---------------  ----------------------------------------------  ----------------------------------------------  ------
+id               urn:uuid:ec1921e0-76fd-4ab3-8b4a-0d1f105fc2ad   ec1921e0-76fd-4ab3-8b4a-0d1f105fc2ad (bare)     X
+digestAlgorithm  sha512                                          sha512                                          OK
+created          RFC 3339, UTC with Z                            v1 2026-10-09T13:10:59Z                         OK
+                                                                 v2 2026-10-09T13:12:36Z
+                                                                 v3 2026-10-09T13:14:13Z
+user/name        name of the person who authorised the commit:   Eric Gao, in all three versions                 OK (1)
+                 the authorizer of the version's AIP creation
+                 event (DPM113), as in the agent registry
+user/address     mailto: + that person's e-mail address, as in   absent, in all three versions                   X
+                 the agent registry
+message          <selection basis> - <description>               v1 Initial preservation ingest from verified    X
+                                                                    BagIt SIP
+                                                                 v2, v3 Preservation update from verified
+                                                                    BagIt SIP
+
+Legend: OK = conforms; X = deviation
+(1) Conforms in form; agreement with PREMIS cannot be checked (section 4).
+
+DPM14 as revised in profile v0.4 (2026-10-12): the commit record names the person who
+authorised the commit, as OCFL 1.1 intends ("the e-mail address of the user"), not the ingest
+software. The software is recorded in PREMIS as the executing program of the AIP creation
+event. Profile v0.3 required the software's name and a urn:uuid: address.
+
+
+3. DEVIATIONS
+
+1. id - The object UUID is given bare. The profile requires the urn:uuid: form
+   (urn:uuid:ec1921e0-76fd-4ab3-8b4a-0d1f105fc2ad): the same UUID as the PREMIS intellectual
+   entity and the METS @OBJID, which carry it without prefix (DPM23).
+
+2. user/name - No deviation in form: names a person in every version. The name must be that
+   of the authorizer of the version's AIP creation event, as registered in the agent registry.
+   Since PREMIS has neither that event nor any person agent, it cannot be confirmed that
+   Eric Gao authorised the commits.
+
+3. user/address - Absent. Required: a mailto: URI [RFC 6068] with the authorizer's e-mail
+   address as registered in the agent registry (e.g. mailto:<name>@wto.org).
+
+4. message - Free text, and the same for v2 and v3. Required: the version's selection basis, a
+   space, an em dash, a space, and a short description. On the evidence of the package, the
+   three messages would read:
+     v1  new_document - initial ingest (es)
+     v2  language_added - French added (fr)
+     v3  language_added - English added (en)
+   with an em dash in place of the hyphen. language_added is the proposed value for a new
+   language (profile, vocODRNSSelectionBasis); the selection basis is not recorded anywhere in
+   the package, so these are inferred from the files added in each version.
+
+
+4. CROSS-CHECKS (DPM14)
+
+Before commit, the ingest side checks the commit record against the version's PREMIS. None of
+the three checks can pass in any version:
+
+Check            Inventory           PREMIS                                       Result
+---------------  ------------------  -------------------------------------------  ------------------------------
+Agent            user/name,          authorizer of AIP creation (DPM113)          Not possible: address absent;
+                 user/address                                                     event and authorizer absent
+Selection basis  start of message    selection_basis on SIP creation (DPM111)     Not possible: neither present
+Time             created             eventDateTime of AIP creation (DPM113),      Not possible: event absent
+                                     no later than created
+
+Under DPM3 and DPM14 a failed check commits nothing and holds the bag. That v1, v2 and v3 were
+all committed shows the checks are not implemented on the ingest side (see also F050 in the
+PREMIS conformance review).
+
+
+5. CONSEQUENCE
+
+Committed OCFL versions are immutable, so the commit records cannot be corrected in place.
+For a test object, the clean route is to re-ingest 2026_011922 as a new object once the ingest
+side is fixed; otherwise v1-v3 stand and the records are explained in a later version.

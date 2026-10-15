@@ -1,0 +1,16 @@
+{
+  "python": "3.11.5 | packaged by Anaconda, Inc. | (main, Sep 11 2023, 13:26:23) [MSC v.1916 64 bit (AMD64)]",
+  "validator_source": {
+    "repository": "https://github.com/zimeon/ocfl-py",
+    "commit": "a480226d54cf8d03d71ab8c56eb69ae8a78e231d"
+  },
+  "packages": {
+    "bagit": "1.9.0",
+    "fsspec": "2023.4.0",
+    "s3fs": "2023.4.0",
+    "python-dateutil": "2.8.2",
+    "lxml": "4.9.3",
+    "pypdf": "6.15.0",
+    "pdfminer.six": "20250506"
+  }
+}

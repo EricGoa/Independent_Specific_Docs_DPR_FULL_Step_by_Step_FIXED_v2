@@ -1,0 +1,9 @@
+# Required for core code
+bagit >= 1.8.1
+dateutils >= 0.6.6
+fsspec >= 2026.4.0
+s3fs >= 2026.4.0
+pairtree >= 0.8.1
+# Required for extras
+requests >= 2.20.0
+mock >= 5.1.0

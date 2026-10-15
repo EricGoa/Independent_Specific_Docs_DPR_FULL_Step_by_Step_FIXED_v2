@@ -1,4 +1,4 @@
-﻿# Workflow dependency analysis and implementation
+# Workflow dependency analysis and implementation
 
 Inspected the Python stages, monitor, command guide, .NET converter source/project,
 DOME schema, input/preparation layouts and existing JSON records before editing.
@@ -109,3 +109,8 @@ can require manual recovery from the retained workspace/version inventory. The
 validator fails closed on an inconsistent object. No automated cleanup deletes
 an existing OCFL version or staging package. Preparation should have one writer
 per job; parallel writers to the same job are not supported.
+
+
+Team review upgrade (2026-10-15): the new --profile path supersedes the legacy
+metadata/identity description above. See TEAM_REVIEW_IMPLEMENTATION.md and
+COMMANDS_STEP_BY_STEP.txt. Legacy behavior remains explicitly selectable.

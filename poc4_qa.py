@@ -34,7 +34,7 @@ import re
 import sys
 import unicodedata
 import uuid
-from workflow_common import load, write_record, verify, coverage
+from workflow_common import load, write_record, verify, coverage, registered_uuid
 from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
@@ -435,7 +435,7 @@ def main() -> int:
             if report_path.exists():
                 raise Poc4Error(f"Refusing to overwrite existing QA evidence: {report_path}")
 
-            qa_report_file_id = str(uuid.uuid4())
+            qa_report_file_id = registered_uuid(obj_dir,"file",str(report_path.resolve())+source_sha512+master_sha512)
             status = "AUTO_QA_CLEAR" if qa["automated_qa_clear"] else "FLAGGED_FOR_REVIEW"
             report = {
                 "job_id": job_id,
@@ -477,6 +477,7 @@ def main() -> int:
             report_sha512 = sha512_file(report_path)
 
             entry = {
+                "completed_at": utc_now(),
                 "source_file_id": conv.get("source_file_id"),
                 "source_path": str(source.resolve()),
                 "master_file_id": validation.get("master_file_id"),

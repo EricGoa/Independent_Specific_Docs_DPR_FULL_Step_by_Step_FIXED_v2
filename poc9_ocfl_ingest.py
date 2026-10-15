@@ -331,6 +331,13 @@ def main():
     ap.add_argument("--staging-dir", required=True)
     ap.add_argument("--aip-root", required=True)
     ap.add_argument("--job-id", required=True)
+    ap.add_argument("--agent-registry",type=Path)
+    ap.add_argument("--description")
+    ap.add_argument("--ocfl-validator",type=Path)
+    ap.add_argument("--validator-python",type=Path)
+    ap.add_argument("--strict-profile",action="store_true")
+    ap.add_argument("--require-independent-validator",action="store_true")
+    ap.add_argument("--allow-legacy-package",action="store_true")
     ap.add_argument(
         "--ingest-records-dir",
         help="Default: sibling ingest-records directory beside staging"
@@ -341,7 +348,7 @@ def main():
     )
     ap.add_argument(
         "--user-name",
-        default="DPR PoC Ingest Worker",
+        default=None,
         help="OCFL version user.name"
     )
     ap.add_argument(
@@ -372,6 +379,12 @@ def main():
 
     try:
         print("[INFO] dpr_dol_ingest_worker PoC 9 — OCFL 1.1")
+        if bag_root.is_dir():
+            from profile_workflow import tags,ingest
+            if tags(bag_root).get("DPR-Object-UUID"):
+                return ingest(args,bag_root)
+        if not args.allow_legacy_package:
+            raise RuntimeError("Legacy bag identity requires explicit --allow-legacy-package")
         p8 = verify_poc8(p8_record, args.job_id)
         print("[INFO] PoC 8 gate: VERIFIED")
 
@@ -532,6 +545,7 @@ def main():
             "status": "STEP_9_OCFL_INGEST_FAILED",
             "error": str(e),
             "staging_bag_preserved": str(bag_root),
+            "held": True,
             "disposition": "HOLD_FOR_REVIEW_AND_RETRY",
         }
         try:

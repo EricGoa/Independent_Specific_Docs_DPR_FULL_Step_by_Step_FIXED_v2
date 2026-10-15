@@ -1,0 +1,34 @@
+{
+  "synthetic": true,
+  "job_id": "2026_000001",
+  "head": "v2",
+  "object_id": "urn:uuid:9b66703b-cb8a-4e19-a4c2-3409e8d3766b",
+  "v1_commit": {
+    "name": "Synthetic Preservation Operator",
+    "address": "mailto:preservation-test@example.invalid"
+  },
+  "sip1": {
+    "Source-Organization": "World Trade Organization",
+    "External-Identifier": "eca32121-15cb-49e1-82f9-91a2c5a4fba5",
+    "Internal-Sender-Identifier": "2026_000001",
+    "External-Description": "SIP for 2026_000001 (new_document) [built on none]",
+    "Bag-Group-Identifier": "91360321-52d9-45eb-aa9e-30cd8df33c1c",
+    "Bagging-Date": "2026-10-15",
+    "Payload-Oxum": "326027.20",
+    "DPR-Object-UUID": "9b66703b-cb8a-4e19-a4c2-3409e8d3766b",
+    "DPR-Predecessor-OCFL-Version": "none"
+  },
+  "sip2": {
+    "Source-Organization": "World Trade Organization",
+    "External-Identifier": "3c35aa9b-f48d-48da-a85b-e04bfe54806b",
+    "Internal-Sender-Identifier": "2026_000001",
+    "External-Description": "SIP for 2026_000001 (language_added) [built on v1]",
+    "Bag-Group-Identifier": "f0e24e75-3f76-4051-819d-eae4b15fe2b5",
+    "Bagging-Date": "2026-10-15",
+    "Payload-Oxum": "371999.26",
+    "DPR-Object-UUID": "9b66703b-cb8a-4e19-a4c2-3409e8d3766b",
+    "DPR-Predecessor-OCFL-Version": "v1"
+  },
+  "independent_ocfl_validation": "PASS",
+  "external_tools": "MOCKED"
+}

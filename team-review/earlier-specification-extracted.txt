@@ -1,0 +1,3287 @@
+
+
+
+
+
+
+
+
+
+OFFICIAL DOCUMENTS
+E-ARK CSIP AND E-ARK SIP SPECIFICATIONS
+
+
+
+
+
+
+
+
+Date: 2026-05-22
+Version: 0.2.12
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTENTS
+ TOC \o "1-4" \h \z \u 1   ACKNOWLEDGEMENT PAGEREF _Toc230186118 \h 4
+2   INTRODUCTION PAGEREF _Toc230186119 \h 4
+3   Information packaging specifications: E-ARK PAGEREF _Toc230186120 \h 4
+4   ODRNS Appl. of E-ARK CSIP and E-ARK SIP PAGEREF _Toc230186121 \h 4
+5   ODRNS E-ARK application profile PAGEREF _Toc230186122 \h 5
+5.1   Introduction PAGEREF _Toc230186123 \h 5
+5.2   SIP Folder Structure and Metadata PAGEREF _Toc230186124 \h 5
+5.2.1   Information Package Root Folder PAGEREF _Toc230186125 \h 6
+5.2.2   METS document PAGEREF _Toc230186126 \h 7
+5.2.3   Metadata folder PAGEREF _Toc230186127 \h 7
+5.2.4   Descriptive folder PAGEREF _Toc230186128 \h 7
+5.2.5   Preservation folder PAGEREF _Toc230186129 \h 7
+5.2.6   Other PAGEREF _Toc230186130 \h 7
+5.2.7   Representations PAGEREF _Toc230186131 \h 7
+5.2.7.1   rep_1 folder PAGEREF _Toc_rep1_folder \h 0
+5.2.7.2   rep_2 folder PAGEREF _Toc_rep2_folder \h 0
+5.2.8   Schemas folder PAGEREF _Toc230186132 \h 10
+5.2.9   Documentation folder PAGEREF _Toc230186133 \h 10
+5.3   METS Structure and Element Reference PAGEREF _Toc230186134 \h 10
+5.4   <mets> root element PAGEREF _Toc230186135 \h 11
+5.5   <metsHdr> PAGEREF _Toc230186136 \h 12
+5.5.1   Dates and Package Type PAGEREF _Toc230186137 \h 12
+5.5.2   Submission Agreement and Reference Codes PAGEREF _Toc230186138 \h 13
+5.5.3   Software Agent PAGEREF _Toc230186139 \h 13
+5.5.4   Archival Creator Agent PAGEREF _Toc230186140 \h 14
+5.5.5   Submitting Agent PAGEREF _Toc230186141 \h 14
+5.5.6   Contact Person Agent PAGEREF _Toc230186142 \h 15
+5.5.7   Preservation Agent PAGEREF _Toc230186143 \h 15
+5.5.8   Source System Agent PAGEREF _Toc230186144 \h 16
+5.6   <dmdSec> Descriptive Metadata Section PAGEREF _Toc230186145 \h 17
+5.7   <amdSec> Administrative Metadata Section PAGEREF _Toc230186146 \h 18
+5.7.1   Preservation Metadata PAGEREF _Toc230186147 \h 18
+5.7.2   Rights Metadata PAGEREF _Toc230186148 \h 19
+5.8   <fileSec> File Section PAGEREF _Toc230186149 \h 20
+5.8.1   File Group: Documentation PAGEREF _Toc230186150 \h 21
+5.8.2   File Group: Schemas PAGEREF _Toc230186151 \h 23
+5.8.3   File Group: Representations / rep_1 PAGEREF _Toc230186152 \h 24
+5.8.4   File Group: Representations / rep_2 PAGEREF _Toc230186153 \h 27
+5.9   <structMap> Structural Map PAGEREF _Toc230186154 \h 29
+6   PREMIS Preservation Metadata PAGEREF _Toc230186155 \h 32
+6.1   Purpose PAGEREF _Toc230186156 \h 32
+6.2   The PREMIS data model PAGEREF _Toc230186157 \h 33
+6.3   Placement in the SIP PAGEREF _Toc230186158 \h 33
+6.4   Use of PREMIS PAGEREF _Toc230186159 \h 33
+6.4.1   Use of the PREMIS root element (element premis) PAGEREF _Toc230186160 \h 33
+6.4.2   Location of XML schema PAGEREF _Toc230186161 \h 34
+6.4.3   Metadata for an object of entity type “Intellectual Entity” PAGEREF _Toc230186162 \h 34
+6.4.4   Metadata for an object of entity type “Representation” PAGEREF _Toc230186163 \h 35
+6.4.4.1   rep_1 — Source files PAGEREF _Toc_PREMIS_Rep1 \h 0
+6.4.4.2   rep_2 — PDF/A derivatives and attachments PAGEREF _Toc_PREMIS_Rep2 \h 0
+6.4.5   Metadata for an object of entity type “File” PAGEREF _Toc230186164 \h 35
+6.4.5.1   File objects in rep_1 PAGEREF _Toc_PREMIS_File_rep1 \h 0
+6.4.5.2   File objects in rep_2 PAGEREF _Toc_PREMIS_File_rep2 \h 0
+6.4.6   Metadata for an agent PAGEREF _Toc230186165 \h 38
+6.4.7   Metadata for an event PAGEREF _Toc230186166 \h 39
+6.4.8   Metadata for rights PAGEREF _Toc230186167 \h 40
+7   Vocabularies PAGEREF _Toc230186168 \h 41
+7.1   VocabularyOAISPackageType PAGEREF _Toc230186169 \h 41
+7.2   VocabularyAgentOtherType PAGEREF _Toc230186170 \h 41
+7.3   VocabularyContentCategory PAGEREF _Toc230186171 \h 42
+7.4   ContentInformationTypeSpecification PAGEREF _Toc230186172 \h 42
+7.5   VocabularyStatus PAGEREF _Toc230186173 \h 43
+7.6   VocabularyFileGrpAndStructMapDivisionLabel PAGEREF _Toc230186174 \h 43
+7.7   VocabularyStructMapType PAGEREF _Toc230186175 \h 43
+7.8   VocabularyNoteType PAGEREF _Toc230186176 \h 43
+7.9   VocabularyChecksumType PAGEREF _Toc230186177 \h 43
+7.10   PREMIS Vocabularies PAGEREF _Toc230186178 \h 44
+7.10.1   PREMIS Object Category PAGEREF _Toc230186179 \h 44
+7.10.2   PREMIS Identifier Types PAGEREF _Toc230186180 \h 44
+7.10.3   PREMIS Format Registry Role PAGEREF _Toc230186181 \h 44
+7.10.4   PREMIS Content Location Type PAGEREF _Toc230186182 \h 45
+7.10.5   PREMIS Storage Medium PAGEREF _Toc230186183 \h 45
+7.10.6   PREMIS Relationship Type PAGEREF _Toc230186184 \h 45
+7.10.7   PREMIS Relationship Subtype PAGEREF _Toc230186185 \h 46
+7.10.8   PREMIS Agent Type PAGEREF _Toc230186186 \h 47
+7.10.9   PREMIS Event Type Vocabulary PAGEREF _Toc230186187 \h 48
+7.10.10   PREMIS Event Outcome Vocabulary PAGEREF _Toc230186188 \h 48
+7.11   ODRNS Vocabularies PAGEREF _Toc230186189 \h 48
+7.12   File Naming Conventions PAGEREF _Toc230186190 \h 49
+7.13   File Format References PAGEREF _Toc230186191 \h 50
+8   References PAGEREF _Toc230186192 \h 51
+8.1   Normative References PAGEREF _Toc230186193 \h 52
+8.2   Informative References PAGEREF _Toc230186194 \h 52
+
+
+
+Change log
+
+Version
+Date
+Author
+Description
+0.1
+2026-04-02
+Torsten Fratzke
+First draft version.
+0.2
+2026-05-04
+Torsten Fratzke
+Major update to  rearrange structure, change format and include additional content.
+
+
+
+
+
+ACKNOWLEDGEMENT
+This specification has been informed and influenced by the following specifications: 
+
+Riksarkivet. Tillämpning av E-ARK CSIP och E-ARK SIP förerlämnande till Riksarkivet, version 1.0 [SE_SPEC]
+National Library of Norway. Digital Preservation. SIP 1.0 (E-ARK) Specification [NLN-SIP]
+National Digital Preservation Services of Finland. Metadata Requirements and Preparing Content for Digital Preservation, version 1.7.6 [FI_METADATA] 
+
+These specifications served as a model for the structure, format, and approach to defining local institutional requirements on top of the E-ARK baseline.
+
+
+
+INTRODUCTION
+This document specifies the Official Document and Registry of Notification Section's (ODRNS) application of the Common Specification for Information Packages (E-ARK CSIP) and the Specification for Submission Information Packages (E-ARK SIP). The specification SHALL be used for the creation of a SIP (Submission Information Package) when submitting WTO official documents to the long-term digital preservation repository.
+This document will be continuously maintained, updated, and version-managed.
+
+Information packaging specifications: E-ARK
+This specification builds on the following E-ARK information packaging specifications, which define the baseline structural and metadata requirements for all information packages:
+
+E-ARK Common Specification for Information Packages (CSIP), version 2.2.0, 17 May 2024 [EARK_CSIP]
+E-ARK Submission Information Package (SIP), version 2.2.0, 17 May 2024 [EARK_SIP]
+E-ARK Archival Information Package (AIP), version 2.2.0, 17 May 2024 [EARK_AIP]
+Common Specification for Preservation metadata, version 1.0.1, 17 May 2024 [CS_PREMIS]
+The application defines WTO ODRNS-specific requirements on top of this baseline. Where this specification is silent, the E-ARK base specifications apply.
+This document currently specifies the ODRNS application for SIP creation. 
+
+ODRNS Appl. of E-ARK CSIP and E-ARK SIP
+The application includes the following documents:
+
+Specification
+
+Official Documents E-ARK CSIP and E-ARK SIP Specification (this document).
+
+
+Schemas
+
+METS, version 1.12.1, October 2019 [METS]
+DILCISExtensionMETS
+DILCISExtensionSIPMETS
+XLink
+Documents Online Metadata Elements [add link to DOME document and xml schema]
+SNAadditionalPackageInfo.xsd [add relevant document]
+
+XML Example
+IP_example_1.zip [example of the information package structure. Create link to where zip example is saved]
+METS.xml
+additionalPackageInfo.xml
+The examples are intended to be read alongside the tables in the Annex to this document.
+
+[ Notes: 
+The METS schema, DILCISExtensionMETS schema, and DILCISExtensionSIPMETS schema are used to validate the METS document (METS.xml). 
+
+The additionalPackageInfo.xml document is validated using the SNAadditionalPackageInfo.xsd schema developed for this application. The E-ARK vocabularies are also used.
+
+No changes (adaptations) have been made to the schemas; they are used in their original versions. The application otherwise follows E-ARK CSIP and E-ARK SIP in that all requirements from the specifications are met. This application uses a folder structure with fixed values and only one representation in the METS document per information package.
+
+The application also specifies that in addition to the content defined in E-ARK CSIP and E-ARK SIP, each information package (SIP) may contain an XML document with additional information about the package and its contents. This document shall always be named additionalPackageInfo.xml and placed in a folder named 'documentation'. It is validated by SNAadditionalPackageInfo.xsd. ]
+
+ODRNS E-ARK application profile
+
+Introduction
+This section documents how E-ARK CSIP version 2.2.0 and E-ARK SIP version 2.2.0 SHALL be applied for packaging information in a Submission Information Package (SIP) when transferring official documents and their metadata to the Official Document Digital Preservation Repository (ODDPR).
+No modifications have been made to the METS schema or the E-ARK extension schemas (DILCISExtensionMETS and DILCISExtensionSIPMETS); all are applied in their original versions. The METS profile follows that defined in E-ARK CSIP and E-ARK SIP. The E-ARK controlled vocabularies are used as specified and supplemented, where necessary, by WTO-specific vocabularies applied in OTHERTYPE elements. These supplementary vocabularies are not subject to schema validation.
+
+The application profile also provides for each SIP to include an XML document containing additional information about the package and its contents, beyond what is captured in the METS document. This document is optional but may be used, for example, when describing packages and files where the packaged content is not structured in accordance with a content-type-specific specification. Where used, the document SHALL be named additionalPackageInfo.xml and placed in the documentation folder. It is validated against the SNAadditionalPackageInfo.xsd schema.
+[Note: Develop ODRNS specific version of SNAadditionalPackageInfo.xsd]
+
+SIP Folder Structure and Metadata
+This section sets out the required structure and contents of an ODRNS submission information package (SIP). Every SIP submitted under this application profile SHALL include a METS document (METS.xml) that describes the package and its contents. A SIP MAY additionally include an additionalPackageInfo.xml document providing supplementary package-level information beyond what is captured in the METS document.
+The content of a submission information package (SIP) SHALL always be arranged according to the following defined folder structure with prescribed folder names, as set out below:
+
+
+[Add SIP Folder Structure as separate diagram on its own page?]
+
+
+All folders SHALL be present in every package, including those that contain no content.
+The numbered elements in the diagram above are explained in more detail below:
+
+
+Information Package Root Folder
+All content in the submission information package MUST be included in a single root folder (item 1 in the diagram; see also CSIPSTR1). The folder name SHALL follow this naming convention:
+[SIP]_[YearOfSubmission]_[6-digit_sequential_number]_[dol]_[JOB_ID]
+
+Element
+Description
+Example
+SIP
+Fixed prefix identifying the package type: Submission Information Package.
+SIP
+YearOfSubmission
+Four-digit year in which the SIP is submitted
+2026
+6-digit_sequential_number
+Zero-padded sequential number assigned at time of submission.
+Note: six digits should be able to cater for 999999 submissions in a year.
+000001
+dol
+Fixed infix identifying the originating source system (Documents Online). 
+
+dol
+JOB_ID
+Unique job identifier from the source system (Documents Online). Note: the original job ID format NNNN.YY is converted to YYYY_NNNN for use in this convention (e.g. 3033.25 becomes 2025_3033).
+2025_3033
+
+A complete folder name would read: SIP_2026_000001_dol_2025_3033
+
+Packages archived in an archive file format such as ZIP or TAR MUST be unpacked to a single root folder. 
+
+The root folder SHOULD be named with the same ID or name of the Submission Information Package, that is the value of the package METS.xml root <mets> element @OBJID attribute (see CSIPSTR2).
+
+The JOB_ID is also used as a common identifier across all file names, facilitating comprehension and enabling the attribution of any orphan files to their intellectual entity should they become separated from the package.
+
+NOTE: In the ODRNS application, a separate SIP is created for each intellectual entity — understood in the PREMIS sense [CS_PREMIS] as a set of content treated as a single unit for management and description. In the Documents Online context, this corresponds to a single official document as identified by its document symbol (e.g. G/SPS/N/CAN/1591).
+
+
+METS document 
+The METS document (item 2) MUST be placed directly in the root folder (see also CSIPSTR4). Only one METS document SHOULD exist per SIP. 
+
+The file SHOULD be named according to the following convention:
+[METS]_[JOB_ID].xml  
+
+The file name would read: METS_2025_3033.xml
+If additionalPackageInfo.xml is used for additional description of the package, a reference to it SHOULD be made from the METS document.
+
+Metadata folder
+A folder named metadata MUST exist under the SIP root folder (item 3). 
+
+Note: All metadata for both the package and the representations (METS, DOME, DC and PREMIS metadata) are located in the Information Package folder rather than in the representation folders.
+This is a simplified implementation permitted by [EARK_CSIP] and is reasonable in scenarios where the amount of data and metadata is limited.
+
+Descriptive folder
+A folder named descriptive MUST exist under the metadata folder (item 4).
+
+
+Preservation folder
+A folder named preservation MUST exist under the metadata folder (item 5).
+
+Other
+A folder named other MUST exist in the metadata folder (item 6). Any other metadata, such as rights metadata, SHALL be placed here (if available).
+
+Representations
+The Information Package root folder MUST include a folder named representations (item 7). 
+
+The representations folder MUST include the sub-folders for each individual representation and SHOULD be named rep_1 and rep_2 (item 8 and item 13).
+
+The source files of official documents (e.g. DOC, DOCX, XLS, XLSX, MDB, WPF) MUST be placed in the sub-folder named rep_1.
+
+The derivative/outcome files of official documents (i.e. PDF or PDF/A) MUST be placed in the sub-folder named rep_2. If notification attachments exist, these MUST also be placed in the sub-folder named rep_2.
+
+Note: According to PREMIS Version 3.0 "[a] representation is a set of files, including structural metadata, needed for a complete and reasonable rendition of an Intellectual Entity. For example, a journal article may be complete in one PDF file. This single file constitutes the representation. Another journal article may consist of one SGML file and two image files. These three files constitute the representation. A third article may be represented by one TIFF image for each of 12 pages plus an XML file of structural metadata showing the order of the pages. These 13 files constitute the representation." [PREMIS]
+
+rep_1 folder
+The rep_1 folder MUST contain a folder named data (item 9). The data folder MUST contain a folder named en (item 10), a folder named fr (item 11) and a folder named es (item 12).
+
+All English language source/original files MUST be placed in the folder en (item 10). The files SHALL be named according to the following convention. 
+
+[JOB_ID]_[PART_NUMBER]_[en].[FILE_EXTENSION]
+
+
+Example file names would read: 
+
+2025_3033_en.docx[G/SPS/N/CAN/1591]
+
+2022_9554_01_en.docx[G/AG/34]
+2022_9554_02_en.xlsx
+
+
+2022_12931_01_en.docx[WT/LET/1596]
+2022_12931_02_en.xlsx
+2022_12931_03_en.mdb
+
+
+Files containing trilingual content SHALL be stored once only in the en folder, rather than duplicated across language folders, in order to save storage space and reduce workload. The language indicator mul is used in the file naming convention to identify such files. 
+
+[JOB_ID]_[PART_NUMBER]_[mul].[FILE_EXTENSION].
+
+
+All French language source/original files MUST be placed in the folder fr (item 11). The files SHALL be named according to the following convention. 
+
+[JOB_ID]_[PART_NUMBER]_[fr].[FILE_EXTENSION]
+
+2025_3033_fr.docx[G/SPS/N/CAN/1591]
+
+2022_9554_01_fr.docx[G/AG/34]
+2022_9554_02_fr.xlsx
+
+
+2022_12931_01_fr.docx[WT/LET/1596]
+2022_12931_02_fr.xlsx
+2022_12931_03_fr.mdb
+
+
+All Spanish language source/original files MUST be placed in the folder es (item 12). The files SHALL be named according to the following convention. 
+
+[JOB_ID]_[PART_NUMBER]_[es].[FILE_EXTENSION]
+
+2025_3033_es.docx[G/SPS/N/CAN/1591]
+
+2022_9554_01_es.docx[G/AG/34]
+2022_9554_02_es.xlsx
+
+
+2022_12931_01_es.docx[WT/LET/1596]
+2022_12931_02_es.xlsx
+2022_12931_03_es.mdb
+
+
+
+rep_2 folder
+The rep_2 folder MUST contain a folder named data (item 14). The data folder MUST contain a folder named en (item 15), a folder named fr (item 16) a folder named es (item 17) and a folder named attachments (item 18).
+
+
+All English language derivative files (PDF or PDF/A files) MUST be placed in the folder en (item 15). The files SHALL be named according to the following convention. 
+
+[JOB_ID]_[PART_NUMBER]_[en].[FILE_EXTENSION]
+
+
+Example file names would read: 
+
+2025_3033_en.pdf[G/SPS/N/CAN/1591]
+
+2022_12931_01_en.pdf[WT/LET/1596]
+2022_12931_02_en.pdf
+
+
+
+Derivative files containing trilingual content SHALL be stored once only in the en folder, rather than duplicated across language folders, in order to save storage space and reduce workload. The language indicator mul is used in the file naming convention to identify such files. 
+
+
+All French language derivative files (PDF or PDF/A files) MUST be placed in the folder fr (item 16). The files SHALL be named according to the following convention. 
+
+[JOB_ID]_[PART_NUMBER]_[fr].[FILE_EXTENSION]
+
+
+Example file names would read: 
+
+2025_3033_fr.pdf[G/SPS/N/CAN/1591]
+
+2021_2940_01_fr.pdf[WT/LET/1538]
+2021_2940_02_fr.pdf
+
+
+All Spanish language derivative files (PDF or PDF/A files) MUST be placed in the folder es (item 17). The files SHALL be named according to the following convention. 
+
+[JOB_ID]_[PART_NUMBER]_[es].[FILE_EXTENSION]
+
+
+Example file names would read: 
+
+2025_3033_es.pdf[G/SPS/N/CAN/1591]
+
+
+
+2025_14427_01_es.pdf[WT/LET/1769]
+2025_14427_02_es.pdf
+
+
+All notification attachments regardless of language MUST be placed in the attachments folder (item 18). The attachment file name used in Documents Online SHALL be retained.
+
+25_01731_00_e.pdf[attachment to G/SPS/N/CAN/1591]
+25_01731_00_f.pdf[attachment to G/SPS/N/CAN/1591]
+
+26_02336_00_e.pdf [attachment to G/SPS/N/BRA/2487]
+26_02336_00_x.pdf[attachment to G/SPS/N/BRA/2487]
+
+
+Schemas folder
+A folder named schemas  (item 19) MUST exist in the Information Package root folder. This folder is designated for holding the XML schema documents for all structured data and metadata files in the package. All XML schemas used in the package SHALL be placed here. The schema version included SHALL correspond to the version used in the package, not necessarily the latest available.
+
+
+Documentation folder
+A folder named documentation (item 20) MUST exist in the Information Package root folder.
+
+This folder is a valuable resource for understanding the structure, meaning, and organization of the data, making it an essential component of the package for both current users and future stakeholders [EARK_SIP]. The folder MUST include at minimum one of the documents listed below to ensure the package contains supporting materials. Documentation that SHOULD be included is:
+
+Submission process documentation
+Current version of DOL Cataloguing Manual
+Documents Online Metadata Elements (DOME) guide
+Any script used to migrate, normalize or prepare the content of the information package (e.g. Aspose PDF/A creation script)
+DOL value lists used in the descriptive metadata (e.g. Subject, Body, Organization, Articles, Products etc.)
+CRN notification description procedures
+
+If additionalPackageInfo.xml is used, it shall be placed in the documentation folder and referenced from the METS document.
+
+Note: It is recommended to include the current versions of any value lists and guidance documents at the time of SIP preparation. This ensures that the package documents the values and definitions that were in use when it was created. Linking to externally maintained namespace documents, vocabulary lists, or similar resources is not advised — such links will always resolve to the latest version rather than preserving the version used at the time of packaging.
+
+METS Structure and Element Reference
+The following section describes how the METS.xml document SHALL be constructed. It follows the overall structure of the E-ARK CSIP and E-ARK SIP Specifications. 
+
+The information is presented in tabular format. The columns are described below:
+
+Column
+Description
+ID
+The E-ARK CSIP or SIP requirement identifier, e.g. CSIP1 or SIP2
+Description
+The requirement name in bold, the element or attribute path in code font, and a description of its purpose and usage including any ODRNS-specific values or examples
+Card & Level
+The cardinality and requirement level as defined in the E-ARK CSIP and SIP specifications, e.g. 1..1 MUST or 0..1 MAY
+ODRNS Appl.
+The requirement level as applied in the ODRNS implementation. Where this differs from the E-ARK cardinality, the ODRNS requirement takes precedence.
+
+
+Cardinality (card. column) specifies how many times an element may or must appear:
+
+Value
+Meaning
+1..1
+Exactly once — mandatory, exactly one occurrence
+1..n
+One or more - mandatory, may repeat
+0..1
+Zero or one — optional, at most one occurrence
+0..n
+Zero or more — optional, may repeat
+
+Requirements that are not used in the ODRNS application are either marked as NOT USED in the ODRNS Appl. column or omitted from the tables entirely. The absence of a requirement from a table indicates that it is not used in the ODRNS application.
+
+
+<mets> root element
+The METS root element establishes the container for the information package and declares all namespaces and schema locations used in the document.
+
+ID
+Name, Location & Description
+Card & Level
+ODRNS Appl.
+
+<mets> — The root element of the METS document. Establishes the container for the information package. All namespace declarations (xmlns:) and schema location references (xsi:schemaLocation) are declared on this element. The METS schema permits arbitrary extension attributes via xsd:anyAttribute, which enables the CSIP and SIP extension namespaces (csip:, sip:).
+1..1
+MUST
+Used
+CSIP1
+Package Identifier
+mets/@OBJID
+Used to specify a unique identity designation for the information package in the XML document. The identity SHALL be the same as the package name (root folder name). The identity SHALL not start with a digit. Example: "SIP_2026_000001_dol_2025_3033"
+1..1
+MUST
+MUST
+SIP1
+Package Name
+mets/@LABEL
+Used to provide a short human-readable description of the contents of the information package. SHALL be set to a descriptive phrase identifying the packaged document. Example: "Files and metadata for digital preservation of G/SPS/N/CAN/1591"
+0..1
+MAY
+MUST
+CSIP2
+Content Category
+mets/@TYPE
+Used to specify the category of the content held in the information package, drawn from the E-ARK controlled vocabulary VocabularyContentCategory. When set to "OTHER", the attribute csip:OTHERTYPE MUST also be present. SHALL be set to "OTHER".
+1..1
+MUST
+MUST
+CSIP3
+Other Content Category
+mets/@csip:OTHERTYPE
+Used to specify the content category when mets/@TYPE is set to OTHER. Not subject to schema validation. SHALL be set to WTO Official Document. Example: WTO Official Document
+0..1
+SHOULD
+MUST
+CSIP4
+Content Information Type Specification
+mets/@csip:CONTENTINFORMATIONTYPE
+Used to specify the content information type specification used to structure the information in the package, drawn from the E-ARK controlled vocabulary ContentInformationTypeSpecification. When set to "OTHER", the attribute csip:OTHERCONTENTINFORMATIONTYPE MUST also be present.
+0..1
+SHOULD
+NOT USED
+CSIP5
+Other Content Information Type Specification
+mets/@csip:OTHERCONTENTINFORMATIONTYPE
+Used to specify the content information type specification when csip:CONTENTINFORMATIONTYPE is set to "OTHER". Not subject to schema validation.
+0..1
+SHOULD
+NOT USED
+CSIP6 SIP2
+METS Profile
+mets/@PROFILE
+Used to specify a URL reference to the METS profile that the document conforms to. SHALL be set to the E-ARK SIP profile URI. Example: "https://earksip.dilcis.eu/profile/E-ARK-SIP-v2-2-0.xml"
+1..1
+MUST
+MUST
+
+<metsHdr>
+The METS header also describes the agents associated with the information package. These include the software used to create the package, the system from which the packaged information originates, the record creator, the submitting organisation or individual, a contact person, and the receiving repository.
+
+Dates and Package Type
+ID
+Name, Location & Description
+Card & Level
+ODRNS Appl.
+
+<metsHdr> — The METS header element captures metadata about the METS document itself, not the digital object the METS document encodes. It records information about the creation and modification of the package, its status and type, and the agents associated with it.
+1..1
+MUST
+MUST
+CSIP7
+Package Creation Datetime
+metsHdr/@CREATEDATE
+Records the date and time the package was created. The creation date MUST be recorded in ISO 8601 [ISO_8601] format including timezone. Example: "2026-03-15T10:30:00+01:00"
+1..1
+MUST
+MUST
+CSIP8
+Package Last Modification Datetime
+metsHdr/@LASTMODDATE
+Records the date and time the package was last modified. MUST be recorded in ISO 8601 [ISO_8601] format including timezone. MUST be used if the package has been modified after its initial creation. Example: "2026-04-22T14:15:00+01:00"
+0..1
+SHOULD
+MUST
+if modified
+SIP3
+Package Status
+metsHdr/@RECORDSTATUS
+Records the status of the package. If not set, the value is assumed to be "NEW". Value is drawn from the E-ARK controlled vocabulary VocabularyStatus, available at https://earksip.dilcis.eu/schema/SIPVocabularyRecordStatus.xml. Example: "NEW"
+0..1
+MAY
+MUST
+CSIP9 SIP4
+OAIS Package Type
+metsHdr/@csip:OAISPACKAGETYPE
+Specifies the OAIS type of the information package. Value is drawn from the E-ARK controlled vocabulary VocabularyOAISPackageType. SHALL be set to "SIP".
+1..1
+MUST
+MUST
+
+Submission Agreement and Reference Codes
+ID
+Name, Location & Description
+Card & Level
+ODRNS Appl.
+SIP5
+Submission Agreement
+metsHdr/altRecordID[@TYPE='SUBMISSIONAGREEMENT']
+A reference to the Submission Agreement associated with the package. @TYPE is used with the value "SUBMISSIONAGREEMENT". Example: "RA 13-2011/5329; 2012-04-12" or "http://submissionagreement.kb.se/dnr331-1144-2011/20120711/"
+0..1
+MAY
+NOT USED
+SIP6
+Previous Submission Agreement
+metsHdr/altRecordID[@TYPE='PREVIOUSSUBMISSIONAGREEMENT']
+An optional reference to a previous submission agreement(s) which the information may have belonged to. @TYPE is used with the value "PREVIOUSSUBMISSIONAGREEMENT". Example: "FM 12-2387/12726, 2007-09-19" or "http://submissionagreement.kb.se/dnr331-1144-2011/20120711/"
+0..n
+MAY
+NOT USED
+SIP7
+Archival Reference Code
+metsHdr/altRecordID[@TYPE='REFERENCECODE']
+An optional reference code indicating where in the archival hierarchy the package shall be placed in the OAIS. @TYPE is used with the value "REFERENCECODE". Example: "FM 12-2387/12726, 2007-09-19"
+0..1
+MAY
+NOT USED
+SIP8
+Previous Archival Reference Code
+metsHdr/altRecordID[@TYPE='PREVIOUSREFERENCECODE']
+In cases where the SIP originates from other institutions maintaining a reference code structure, this element can be used to record these reference codes and therefore support the provenance of the package when a whole archival description is not submitted with the submission. @TYPE is used with the value "PREVIOUSREFERENCECODE". Example: "SE/FM/123/123.1/123.1.3"
+0..n
+MAY
+NOT USED
+
+Software Agent
+ID
+Name, Location & Description
+Card & Level
+ODRNS Appl.
+CSIP10
+Agent
+metsHdr/agent
+A wrapper element that records the software used to create the information package. This element is repeatable and SHALL be used to record all software and scripts used in the creation of the package.
+1..n
+MUST
+MUST
+CSIP11
+Agent Role
+metsHdr/agent/@ROLE
+Defines the role of the agent. SHALL be set to "CREATOR".
+1..1
+MUST
+MUST
+CSIP12
+Agent Type
+metsHdr/agent/@TYPE
+Defines the type of the agent. SHALL be set to the fixed value "OTHER". When set to "OTHER", the attribute @OTHERTYPE MUST also be present.
+1..1
+MUST
+MUST
+CSIP13
+Agent Other Type
+metsHdr/agent/@OTHERTYPE
+Defines the other type of the agent when @TYPE is set to "OTHER". SHALL be set to the fixed value "SOFTWARE".
+1..1
+MUST
+MUST
+CSIP14
+Agent Name
+metsHdr/agent/name
+Records the name of the software used to create the package. Example: "sipCreationProgramme"
+1..1
+MUST
+MUST
+CSIP15
+Agent Additional Information
+metsHdr/agent/note
+Records the version number of the software used to create the package. Example: "1.0.0"
+1..1
+MUST
+MUST
+CSIP16
+Classification of Agent Additional Information
+metsHdr/agent/note/@csip:NOTETYPE
+Classifies the information in the note element. SHALL be set to the fixed value "SOFTWARE VERSION".
+1..1
+MUST
+MUST
+
+Archival Creator Agent
+ID
+Name, Location &amp; Description
+Card & Level
+ODRNS Appl.
+SIP9
+Archival Creator Agent
+metsHdr/agent
+A wrapper element used to encode the name of the organisation that originally created the data being transferred.
+0..1
+MAY
+MUST
+SIP10
+Archival Creator Agent Role
+metsHdr/agent/@ROLE
+Defines the role of the agent. SHALL be set to "ARCHIVIST". According to METS, "ARCHIVIST" is the person(s) or institution(s) responsible for the document/collection.
+1..1
+MUST
+MUST
+SIP11
+Archival Creator Agent Type
+metsHdr/agent/@TYPE
+Defines the type of the agent. SHALL be set to "ORGANIZATION".
+1..1
+MUST
+MUST
+SIP12
+Archival Creator Agent Name
+metsHdr/agent/name
+Records the name of the organisation that originally created the data being transferred. SHALL be set to the name of the record creator. Example: "World Trade Organization"
+0..n
+MAY
+MUST
+SIP13
+Archival Creator Agent Additional Information
+metsHdr/agent/note
+Records an identification code for the record creator. SHALL be set to the WTO ISNI. Example: "ISNI:0000000514498628"
+0..1
+MAY
+MUST
+SIP14
+Classification of Archival Creator Agent Additional Information
+metsHdr/agent/note/@csip:NOTETYPE
+Classifies the information in the note element. SHALL be set to the fixed value "IDENTIFICATIONCODE".
+1..1
+MUST
+MUST
+
+Submitting Agent
+ID
+Name, Location &amp; Description
+Card & Level
+ODRNS Appl.
+SIP15
+Submitting Agent
+metsHdr/agent
+A wrapper element used to identify the organisation or individual responsible for creating and submitting the information package.
+1..1
+MUST
+MUST
+SIP16
+Submitting Agent Role
+metsHdr/agent/@ROLE
+Defines the role of the agent. SHALL be set to "CREATOR".
+1..1
+MUST
+MUST
+SIP17
+Submitting Agent Type
+metsHdr/agent/@TYPE
+Defines the type of the agent. SHALL be set to "ORGANIZATION" when the submitting agent is a section or unit, or "INDIVIDUAL" when the submitting agent is a specific staff member.
+1..1
+MUST
+MUST
+SIP18
+Submitting Agent Name
+metsHdr/agent/name
+Records the name of the submitting agent. SHALL be set to the name of the submitting section or individual. Example: "World Trade Organization. Languages, Documentation and Information Management Division. Official Documents and Registry of Notifications Section" or "Skamandros, Cassandra"
+1..1
+MUST
+MUST
+SIP19
+Submitting Agent Additional Information
+metsHdr/agent/note
+Records an identification code for the submitting agent. When the submitting agent is the section, SHALL be set to the ODRNS organisational code. When the submitting agent is an individual, SHALL be set to the UUID assigned to that individual in the Agent Registry. Example: "ORG:1963" or "UUID:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+0..1
+MAY
+MUST
+SIP20
+Classification of Submitting Agent Additional Information
+metsHdr/agent/note/@csip:NOTETYPE
+Classifies the information in the note element. SHALL be set to the fixed value "IDENTIFICATIONCODE".
+1..1
+MUST
+MUST
+
+Contact Person Agent
+ID
+Name, Location &amp; Description
+Card & Level
+ODRNS Appl.
+SIP21
+Contact Person Agent
+metsHdr/agent
+A wrapper element used to encode the name of the contact person at the submitting organisation responsible for the information package.
+0..n
+MAY
+MUST
+SIP22
+Contact Person Agent Role
+metsHdr/agent/@ROLE
+Defines the role of the agent. SHALL be set to "CREATOR".
+1..1
+MUST
+MUST
+SIP23
+Contact Person Agent Type
+metsHdr/agent/@TYPE
+Defines the type of the agent. SHALL be set to "INDIVIDUAL".
+1..1
+MUST
+MUST
+SIP24
+Contact Person Agent Name
+metsHdr/agent/name
+Records the name of the contact person. SHALL be set to the name of the contact person in the format last name, first name. Example: "Skamandros, Cassandra"
+1..1
+MUST
+MUST
+SIP25
+Contact Person Agent Additional Information
+metsHdr/agent/note
+Records contact details for the contact person. Include telephone number and email address. Example: "Phone: +41 22 739 XXXX, Email: cassandra.skamandros@wto.org"
+0..n
+MAY
+MUST
+
+Preservation Agent
+ID
+Name, Location &amp; Description
+Card & Level
+ODRNS Appl.
+SIP26
+Preservation Agent
+metsHdr/agent
+A wrapper element used to identify the receiving organisation or section responsible for the long-term preservation of the information package.
+0..1
+MAY
+MUST
+SIP27
+Preservation Agent Role
+metsHdr/agent/@ROLE
+Defines the role of the agent. SHALL be set to "PRESERVATION".
+1..1
+MUST
+MUST
+SIP28
+Preservation Agent Type
+metsHdr/agent/@TYPE
+Defines the type of the agent. SHALL be set to "ORGANIZATION".
+1..1
+MUST
+MUST
+SIP29
+Preservation Agent Name
+metsHdr/agent/name
+Records the name of the receiving organisation or section. SHALL be set to "World Trade Organization. Languages, Documentation and Information Management Division. Official Documents and Registry of Notifications Section".
+1..1
+MUST
+MUST
+SIP30
+Preservation Agent Additional Information
+metsHdr/agent/note
+Records an identification code for the preservation agent. SHALL be set to the ODRNS organisational code. Example: "ORG:1963"
+0..1
+MAY
+MUST
+SIP31
+Classification of Preservation Agent Additional Information
+metsHdr/agent/note/@csip:NOTETYPE
+Classifies the information in the note element. SHALL be set to the fixed value "IDENTIFICATIONCODE".
+1..1
+MUST
+MUST
+
+Source System Agent
+ID
+Name, Location &amp; Description
+Card & Level
+ODRNS Appl.
+ODRNS1
+Source System Agent
+metsHdr/agent
+A wrapper element used to record the source system from which the packaged information was exported. This element is an ODRNS extension and has no corresponding requirement in E-ARK CSIP or SIP.
+0..n
+MAY
+MUST
+ODRNS2
+Source System Agent Role
+metsHdr/agent/@ROLE
+Defines the role of the agent. SHALL be set to "OTHER".
+1..1
+MUST
+MUST
+ODRNS3
+Source System Agent Other Role
+metsHdr/agent/@OTHERROLE
+Specifies the role of the agent when @ROLE is set to "OTHER". SHALL be set to "PRODUCER".
+0..1
+SHOULD
+MUST
+ODRNS4
+Source System Agent Type
+metsHdr/agent/@TYPE
+Defines the type of the agent. SHALL be set to "OTHER". When set to "OTHER", the attribute @OTHERTYPE MUST also be present.
+1..1
+MUST
+MUST
+ODRNS5
+Source System Agent Other Type
+metsHdr/agent/@OTHERTYPE
+Specifies the type of the agent when @TYPE is set to "OTHER". SHALL be set to "SOFTWARE".
+1..1
+MUST
+MUST
+ODRNS6
+Source System Agent Name
+metsHdr/agent/name
+Records the name of the source system from which the packaged information was exported. SHALL be set to the official name of the source system. Example: "Documents Online"
+1..1
+MUST
+MUST
+ODRNS7
+Source System Agent Additional Information
+metsHdr/agent/note
+Records the version number of the source system. Note: the version number of Documents Online needs to be determined. Example: "2.0"
+0..1
+MAY
+MUST
+ODRNS8
+Classification of Source System Agent Additional Information
+metsHdr/agent/note/@csip:NOTETYPE
+Classifies the information in the note element. SHALL be set to the fixed value "SOFTWARE VERSION".
+1..1
+MUST
+MUST
+
+
+
+<dmdSec> Descriptive Metadata Section
+ID
+Name, Location & Description
+Card & Level
+ODRNS Appl.
+CSIP17
+Descriptive Metadata
+dmdSec
+Used to reference and describe an XML file with descriptive metadata from Documents Online (i.e. DOME.xml file).
+0..n
+MAY
+MUST
+CSIP18
+Descriptive Metadata Identifier
+dmdSec/@ID
+A unique identifier for the dmdSec element. The identifier must be unique within the package and must not start with a digit. It SHOULD follow the format uuid-{UUID} [RFC9562]. Example: "uuid-{UUID}"
+1..1
+MUST
+MUST
+CSIP19
+Descriptive Metadata Creation Datetime
+dmdSec/@CREATED
+Records the date and time the descriptive metadata was created. MUST be recorded in ISO 8601 [ISO_8601] format including timezone. Example: "2026-03-15T10:30:00+01:00"
+1..1
+MUST
+MUST
+CSIP20
+Status of the Descriptive Metadata
+dmdSec/@STATUS
+Records the status of the descriptive metadata. Value is drawn from the E-ARK controlled vocabulary VocabularyStatus. Example: "CURRENT"
+0..1
+MAY
+MUST
+CSIP21
+Reference to the Descriptive Metadata File
+dmdSec/mdRef
+A wrapper element used to reference the file containing the descriptive metadata. In the ODRNS application this references the DOME.xml file. mdWrap MUST NOT be used.
+0..1
+MAY
+MUST
+CSIP22
+Type of Locator
+dmdSec/mdRef/@LOCTYPE
+Specifies the type of locator used to reference the descriptive metadata file. SHALL be set to "URL".
+1..1
+MUST
+MUST
+CSIP23
+Type of Link
+dmdSec/mdRef/@xlink:type
+Specifies the type of XLink used to reference the descriptive metadata file. SHALL be set to "simple".
+1..1
+MUST
+MUST
+CSIP24
+Resource Location
+dmdSec/mdRef/@xlink:href
+The path to the descriptive metadata file, relative to the SIP root folder. SHALL be set to the relative path of the DOME.xml file. Example: "metadata/descriptive/DOME.xml"
+1..1
+MUST
+MUST
+CSIP25
+Type of Metadata
+dmdSec/mdRef/@MDTYPE
+Specifies the type of descriptive metadata contained in the referenced file. Values are defined as an enumeration in the METS schema. When set to "OTHER", the attribute @OTHERMDTYPE MUST also be present. SHALL be set to "OTHER" as DOME does not correspond to any of the defined METS metadata types.
+1..1
+MUST
+MUST
+CSIP26
+Other Type of Metadata
+dmdSec/mdRef/@OTHERMDTYPE
+Specifies the type of descriptive metadata when @MDTYPE is set to "OTHER". Not subject to schema validation. SHALL be set to "DOME".
+0..1
+SHOULD
+MUST
+CSIP27
+File Size
+dmdSec/mdRef/@SIZE
+Records the size of the descriptive metadata file in bytes. Example: "2048"
+1..1
+MUST
+MUST
+CSIP28
+File Creation Datetime
+dmdSec/mdRef/@CREATED
+Records the date and time the descriptive metadata file was created. MUST be recorded in ISO 8601 [ISO_8601] format including timezone. Example: "2026-03-15T10:30:00+01:00"
+1..1
+MUST
+MUST
+CSIP29
+File Checksum
+dmdSec/mdRef/@CHECKSUM
+Records the checksum value of the descriptive metadata file. Example: "{SHA-256}"
+1..1
+MUST
+MUST
+CSIP30
+File Checksum Type
+dmdSec/mdRef/@CHECKSUMTYPE
+Specifies the algorithm used to calculate the checksum. Value is drawn from the METS checksum type enumeration. SHALL be set to "SHA-256".
+1..1
+MUST
+MUST
+
+<amdSec> Administrative Metadata Section
+ID
+Name, Location & Description
+Card & Level
+ODRNS Appl.
+CSIP31
+Administrative Metadata
+amdSec
+A wrapper element for administrative metadata, including preservation metadata and rights metadata.
+0..1
+MAY
+MUST
+
+
+Preservation Metadata
+ID
+Name, Location & Description
+Card & Level
+ODRNS Appl.
+CSIP32
+Digital Provenance Metadata
+amdSec/digiprovMD
+A wrapper element used to reference and describe an XML file with preservation metadata in accordance with the PREMIS standard. This element is repeatable — one instance per PREMIS file.
+0..n
+MAY
+MUST
+CSIP33
+Digital Provenance Metadata Identifier
+amdSec/digiprovMD/@ID
+A unique identifier for the digiprovMD element. The identifier must be unique within the package and must not start with a digit. SHALL follow the format digiprovMD-premis-{nnn}. Example: "digiprovMD-premis-001"
+1..1
+MUST
+MUST
+CSIP34
+Status of the Digital Provenance Metadata
+amdSec/digiprovMD/@STATUS
+Records the status of the preservation metadata. Value is drawn from the E-ARK controlled vocabulary VocabularyStatus. Example: "CURRENT"
+0..1
+MAY
+MUST
+CSIP35
+Reference to the Digital Provenance Metadata File
+amdSec/digiprovMD/mdRef
+A wrapper element used to reference the file containing the preservation metadata. In the ODRNS application this references a PREMIS XML file. mdWrap MUST NOT be used.
+0..1
+MAY
+MUST
+CSIP36
+Type of Locator
+amdSec/digiprovMD/mdRef/@LOCTYPE
+Specifies the type of locator used to reference the preservation metadata file. SHALL be set to "URL".
+1..1
+MUST
+MUST
+CSIP37
+Type of Link
+amdSec/digiprovMD/mdRef/@xlink:type
+Specifies the type of XLink used to reference the preservation metadata file. SHALL be set to "simple".
+1..1
+MUST
+MUST
+CSIP38
+Resource Location
+amdSec/digiprovMD/mdRef/@xlink:href
+The path to the preservation metadata file, relative to the SIP root folder. SHALL be set to the relative path of the PREMIS XML file. Example: "metadata/preservation/PREMIS.xml"
+1..1
+MUST
+MUST
+CSIP39
+Type of Metadata
+amdSec/digiprovMD/mdRef/@MDTYPE
+Specifies the type of preservation metadata contained in the referenced file. Values are defined as an enumeration in the METS schema. SHALL be set to "PREMIS".
+1..1
+MUST
+MUST
+CSIP40
+File MIME Type
+amdSec/digiprovMD/mdRef/@MIMETYPE
+Specifies the MIME type of the preservation metadata file. SHALL be set to "text/xml".
+1..1
+MUST
+MUST
+CSIP41
+File Size
+amdSec/digiprovMD/mdRef/@SIZE
+Records the size of the preservation metadata file in bytes. Example: "4096"
+1..1
+MUST
+MUST
+CSIP42
+File Creation Datetime
+amdSec/digiprovMD/mdRef/@CREATED
+Records the date and time the preservation metadata file was created. MUST be recorded in ISO 8601 [ISO_8601] format including timezone. Example: "2026-03-15T10:30:00+01:00"
+1..1
+MUST
+MUST
+CSIP43
+File Checksum
+amdSec/digiprovMD/mdRef/@CHECKSUM
+Records the checksum value of the preservation metadata file. Example: "{SHA-256}"
+1..1
+MUST
+MUST
+CSIP44
+File Checksum Type
+amdSec/digiprovMD/mdRef/@CHECKSUMTYPE
+Specifies the algorithm used to calculate the checksum. Value is drawn from the METS checksum type enumeration VocabularyChecksumType. SHALL be set to "SHA-256".
+1..1
+MUST
+MUST
+
+Rights Metadata
+ID
+Name, Location & Description
+Card & Level
+ODRNS Appl.
+CSIP45
+Rights Metadata
+amdSec/rightsMD
+A wrapper element used to reference and describe an XML file containing rights metadata for the information package. This element is repeatable.
+0..n
+MAY
+NOT USED
+CSIP46
+Rights Metadata Identifier
+amdSec/rightsMD/@ID
+A unique identifier for the rightsMD element. The identifier must be unique within the package and must not start with a digit. SHALL follow the format rightsMD-{nnn}. Example: "rightsMD-001"
+1..1
+MUST
+NOT USED
+CSIP47
+Status of the Rights Metadata
+amdSec/rightsMD/@STATUS
+Records the status of the rights metadata. Value is drawn from the E-ARK controlled vocabulary VocabularyStatus. Example: "CURRENT"
+0..1
+MAY
+NOT USED
+CSIP48
+Reference to the Rights Metadata File
+amdSec/rightsMD/mdRef
+A wrapper element used to reference the file containing the rights metadata. mdWrap MUST NOT be used.
+0..1
+MAY
+NOT USED
+CSIP49
+Type of Locator
+amdSec/rightsMD/mdRef/@LOCTYPE
+Specifies the type of locator used to reference the rights metadata file. SHALL be set to "URL".
+1..1
+MUST
+NOT USED
+CSIP50
+Type of Link
+amdSec/rightsMD/mdRef/@xlink:type
+Specifies the type of XLink used to reference the rights metadata file. SHALL be set to "simple".
+1..1
+MUST
+NOT USED
+CSIP51
+Resource Location
+amdSec/rightsMD/mdRef/@xlink:href
+The path to the rights metadata file, relative to the SIP root folder. Example: "metadata/other/rights.xml"
+1..1
+MUST
+NOT USED
+CSIP52
+Type of Metadata
+amdSec/rightsMD/mdRef/@MDTYPE
+Specifies the type of rights metadata contained in the referenced file. Values are defined as an enumeration in the METS schema. Valid values include "METSRIGHTS", "PREMIS:RIGHTS", and "OTHER".
+1..1
+MUST
+NOT USED
+CSIP53
+File MIME Type
+amdSec/rightsMD/mdRef/@MIMETYPE
+Specifies the MIME type of the rights metadata file. Example: "text/xml"
+1..1
+MUST
+NOT USED
+CSIP54
+File Size
+amdSec/rightsMD/mdRef/@SIZE
+Records the size of the rights metadata file in bytes. Example: "1024"
+1..1
+MUST
+NOT USED
+CSIP55
+File Creation Datetime
+amdSec/rightsMD/mdRef/@CREATED
+Records the date and time the rights metadata file was created. MUST be recorded in ISO 8601 [ISO_8601] format including timezone. Example: "2026-03-15T10:30:00+01:00"
+1..1
+MUST
+NOT USED
+CSIP56
+File Checksum
+amdSec/rightsMD/mdRef/@CHECKSUM
+Records the checksum value of the rights metadata file. Example: "{SHA-256}"
+1..1
+MUST
+NOT USED
+CSIP57
+File Checksum Type
+amdSec/rightsMD/mdRef/@CHECKSUMTYPE
+Specifies the algorithm used to calculate the checksum. Value is drawn from the METS checksum type enumeration VocabularyChecksumType. Example: "SHA-256"
+1..1
+MUST
+NOT USED
+
+<fileSec> File Section
+The table below shows how the File Section is used to describe and reference the documents/files packaged in the information package — i.e. all content except the files described in the Descriptive Metadata Section and Administrative Metadata Section (i.e. the files in the metadata folder). This application uses only three fixed file groupings: Documentation, Schemas, and Representations.
+
+ID
+Name, Location & Description
+Card & Level
+ODRNS Appl.
+
+<fileSec> — A wrapper element that contains one or more <fileGrp> elements, each grouping a set of files by their function within the package. Each file is described by a <file> element that records its identifier, size, checksum, MIME type, creation datetime, and location.
+1..1
+MUST
+MUST
+CSIP58
+File Section
+mets/fileSec
+Used to list the files contained in the package, organised into the three fixed file groupings. SHALL contain one <fileGrp> element with @USE="Documentation", one with @USE="Schemas", and two <fileGrp> elements with @USE="Representations/rep_1" and @USE="Representations/rep_2" corresponding to the two representations in the package.
+1..1
+MUST
+MUST
+CSIP59
+File Section Identifier
+mets/fileSec/@ID
+An xml:id identifier for the <fileSec> element used for internal references within the METS document. It MUST be unique within the METS document and MUST NOT start with a digit. It SHOULD follow the format uuid-{UUID} [RFC9562]. Example: "uuid-{UUID}"
+1..1
+MUST
+MUST
+
+
+File Group: Documentation
+The Documentation file group lists the files contained in the documentation folder of the information package. These are supporting materials that provide additional context or clarification about the data in the package — for example, the DOL Cataloguing Manual, the DOME guide, value lists, scripts used in the creation of the package, and the additionalPackageInfo.xml file (if used).
+
+ID
+Name, Location & Description
+Card & Level
+ODRNS Appl.
+CSIP60
+Documentation File Groupmets/fileSec/fileGrp[@USE='Documentation'] A wrapper element listing the files contained in the documentation folder of the information package.
+1..n
+MUST
+MUST
+CSIP65
+Documentation File Group Identifiermets/fileSec/fileGrp[@USE='Documentation']/@ID An xml:id identifier for the Documentation <fileGrp> element used for internal references within the METS document. It MUST be unique within the METS document and MUST NOT start with a digit. It SHOULD follow the format uuid-{UUID} [RFC9562]. Example: "uuid-{UUID}"
+1..1
+MUST
+MUST
+CSIP64
+Documentation File Group Usemets/fileSec/fileGrp[@USE='Documentation']/@USE Specifies the function of the file group. The value names the folder structure to the data. Value is drawn from the E-ARK controlled vocabulary VocabularyFileGrpAndStructMapDivisionLabel. SHALL be set to the fixed value "Documentation".
+1..1
+MUST
+MUST
+CSIP61
+Documentation File Group Administrative Metadata Referencemets/fileSec/fileGrp[@USE='Documentation']/@ADMID If administrative metadata has been provided at the Documentation file group level, this attribute references the administrative metadata section by ID.
+0..1
+MAY
+NOT USED
+CSIP66
+Filemets/fileSec/fileGrp[@USE='Documentation']/file A child element of the Documentation <fileGrp> describing an individual documentation file. One <file> element MUST be present for each file in the documentation folder.
+1..n
+MUST
+MUST
+CSIP67
+File Identifiermets/fileSec/fileGrp[@USE='Documentation']/file/@ID An xml:id identifier for the <file> element used for internal references within the METS document. It MUST be unique within the METS document and MUST NOT start with a digit. It SHOULD follow the format uuid-{UUID} [RFC9562]. Example: "uuid-{UUID}"
+1..1
+MUST
+MUST
+CSIP68
+File MIME Typemets/fileSec/fileGrp[@USE='Documentation']/file/@MIMETYPE The MIME type of the referenced file. SHALL be drawn from the IANA Media Type list [IANA_MEDIA_TYPES]. See File Format References in §7.13 for the MIME types associated with each format.
+1..1
+MUST
+MUST
+CSIP69
+File Sizemets/fileSec/fileGrp[@USE='Documentation']/file/@SIZE Records the size of the referenced file in bytes. Example: "524288"
+1..1
+MUST
+MUST
+CSIP70
+File Creation Datetimemets/fileSec/fileGrp[@USE='Documentation']/file/@CREATED Records the date and time the referenced file was created. MUST be recorded in ISO 8601 [ISO_8601] format including timezone. Example: "2026-03-15T10:30:00+01:00"
+1..1
+MUST
+MUST
+CSIP71
+File Checksummets/fileSec/fileGrp[@USE='Documentation']/file/@CHECKSUM Records the checksum value of the referenced file. Example: "{SHA-256}"
+1..1
+MUST
+MUST
+CSIP72
+File Checksum Typemets/fileSec/fileGrp[@USE='Documentation']/file/@CHECKSUMTYPE Specifies the algorithm used to calculate the checksum. Value is drawn from the METS checksum type enumeration VocabularyChecksumType. SHALL be set to "SHA-256".
+1..1
+MUST
+MUST
+CSIP73
+File Original Identificationmets/fileSec/fileGrp[@USE='Documentation']/file/@OWNERID If an identifier for the file was supplied by the owner, it MAY be recorded in this attribute.
+0..1
+MAY
+NOT USED
+CSIP74
+File Reference to Administrative Metadatamets/fileSec/fileGrp[@USE='Documentation']/file/@ADMID If administrative metadata has been provided for the file, this attribute references the file's administrative metadata by ID.
+0..1
+MAY
+NOT USED
+CSIP75
+File Reference to Descriptive Metadatamets/fileSec/fileGrp[@USE='Documentation']/file/@DMDID If descriptive metadata has been provided for the file, this attribute references the file's descriptive metadata by ID.
+0..1
+MAY
+NOT USED
+CSIP76
+File Locatormets/fileSec/fileGrp[@USE='Documentation']/file/FLocat A wrapper element specifying the location of the referenced file. The location is given as a relative path within the package using XLink attributes.
+1..1
+MUST
+MUST
+CSIP77
+Type of Locatormets/fileSec/fileGrp[@USE='Documentation']/file/FLocat/@LOCTYPE Specifies the type of locator used to reference the file. SHALL be set to "URL".
+1..1
+MUST
+MUST
+CSIP78
+Type of Linkmets/fileSec/fileGrp[@USE='Documentation']/file/FLocat/@xlink:type Specifies the type of XLink used to reference the file. SHALL be set to "simple".
+1..1
+MUST
+MUST
+CSIP79
+Resource Locationmets/fileSec/fileGrp[@USE='Documentation']/file/FLocat/@xlink:href The path to the referenced file, relative to the SIP root folder. SHALL be set to the relative path of the file within the documentation folder. Examples: "documentation/2025_3033_en_pdfa_val_verapdf.xml" [veraPDF validation report for the English PDF/A]; "documentation/DOL_Cataloguing_Manual_v3.pdf" [DOL Cataloguing Manual]; "documentation/DOL_valueList1.xlsx" [DOL value list]
+1..1
+MUST
+MUST
+
+
+File Group: Schemas
+The Schemas file group lists the XML schema files contained in the schemas folder of the information package. All schemas used in the information package SHALL be placed here.
+
+ID
+Name, Location & Description
+Card & Level
+ODRNS Appl.
+CSIP113
+Schemas File Group
+mets/fileSec/fileGrp[@USE='Schemas']
+A wrapper element listing the XML schema files contained in the schemas folder of the information package.
+1..n
+MUST
+MUST
+CSIP65
+Schemas File Group Identifier
+mets/fileSec/fileGrp[@USE='Schemas']/@ID
+An xml:id identifier for the Schemas <fileGrp> element used for internal references within the METS document. It MUST be unique within the METS document and MUST NOT start with a digit. It SHOULD follow the format uuid-{UUID} [RFC9562]. Example: "uuid-{UUID}"
+1..1
+MUST
+MUST
+CSIP64
+Schemas File Group Use
+mets/fileSec/fileGrp[@USE='Schemas']/@USE
+Specifies the function of the file group. The value names the folder structure to the data. Value is drawn from the E-ARK controlled vocabulary VocabularyFileGrpAndStructMapDivisionLabel. SHALL be set to the fixed value "Schemas".
+1..1
+MUST
+MUST
+CSIP61
+Schemas File Group Administrative Metadata Reference
+mets/fileSec/fileGrp[@USE='Schemas']/@ADMID
+If administrative metadata has been provided at the Schemas file group level, this attribute references the administrative metadata section by ID.
+0..1
+MAY
+NOT USED
+CSIP66
+File
+mets/fileSec/fileGrp[@USE='Schemas']/file
+A child element of the Schemas <fileGrp> describing an individual schema file. One <file> element MUST be present for each file in the schemas folder.
+1..n
+MUST
+MUST
+CSIP67
+File Identifier
+mets/fileSec/fileGrp[@USE='Schemas']/file/@ID
+An xml:id identifier for the <file> element used for internal references within the METS document. It MUST be unique within the METS document and MUST NOT start with a digit. It SHOULD follow the format uuid-{UUID} [RFC9562]. Example: "uuid-{UUID}"
+1..1
+MUST
+MUST
+CSIP68
+File MIME Type
+mets/fileSec/fileGrp[@USE='Schemas']/file/@MIMETYPE
+The MIME type of the referenced schema file. SHALL be drawn from the IANA Media Type list [IANA_MEDIA_TYPES]. For XML schema files the value SHALL be set to "text/xml".
+1..1
+MUST
+MUST
+CSIP69
+File Size
+mets/fileSec/fileGrp[@USE='Schemas']/file/@SIZE
+Records the size of the referenced schema file in bytes. Example: "18432"
+1..1
+MUST
+MUST
+CSIP70
+File Creation Datetime
+mets/fileSec/fileGrp[@USE='Schemas']/file/@CREATED
+Records the date and time the referenced schema file was created. MUST be recorded in ISO 8601 [ISO_8601] format including timezone. Example: "2026-03-15T10:30:00+01:00"
+1..1
+MUST
+MUST
+CSIP71
+File Checksum
+mets/fileSec/fileGrp[@USE='Schemas']/file/@CHECKSUM
+Records the checksum value of the referenced schema file. Example: "{SHA-256}"
+1..1
+MUST
+MUST
+CSIP72
+File Checksum Type
+mets/fileSec/fileGrp[@USE='Schemas']/file/@CHECKSUMTYPE
+Specifies the algorithm used to calculate the checksum. Value is drawn from the METS checksum type enumeration VocabularyChecksumType. SHALL be set to "SHA-256".
+1..1
+MUST
+MUST
+CSIP73
+File Original Identification
+mets/fileSec/fileGrp[@USE='Schemas']/file/@OWNERID
+If an identifier for the file was supplied by the owner, it MAY be recorded in this attribute.
+0..1
+MAY
+NOT USED
+CSIP74
+File Reference to Administrative Metadata
+mets/fileSec/fileGrp[@USE='Schemas']/file/@ADMID
+If administrative metadata has been provided for the file, this attribute references the file's administrative metadata by ID.
+0..1
+MAY
+NOT USED
+CSIP75
+File Reference to Descriptive Metadata
+mets/fileSec/fileGrp[@USE='Schemas']/file/@DMDID
+If descriptive metadata has been provided for the file, this attribute references the file's descriptive metadata by ID.
+0..1
+MAY
+NOT USED
+CSIP76
+File Locator
+mets/fileSec/fileGrp[@USE='Schemas']/file/FLocat
+A wrapper element specifying the location of the referenced schema file. The location is given as a relative path within the package using XLink attributes.
+1..1
+MUST
+MUST
+CSIP77
+Type of Locator
+mets/fileSec/fileGrp[@USE='Schemas']/file/FLocat/@LOCTYPE
+Specifies the type of locator used to reference the file. SHALL be set to "URL".
+1..1
+MUST
+MUST
+CSIP78
+Type of Link
+mets/fileSec/fileGrp[@USE='Schemas']/file/FLocat/@xlink:type
+Specifies the type of XLink used to reference the file. SHALL be set to "simple".
+1..1
+MUST
+MUST
+CSIP79
+Resource Location
+mets/fileSec/fileGrp[@USE='Schemas']/file/FLocat/@xlink:href
+The path to the referenced schema file, relative to the SIP root folder. SHALL be set to the relative path of the file within the schemas folder. Examples: "schemas/mets.xsd" [METS schema]; "schemas/DILCISExtensionMETS.xsd" [DILCIS CSIP extension schema]; "schemas/DILCISExtensionSIPMETS.xsd" [DILCIS SIP extension schema]; "schemas/xlink.xsd" [XLink schema]; "schemas/dome.xsd" [DOME metadata schema]
+1..1
+MUST
+MUST
+
+
+File Group: Representations / rep_1
+The rep_1 file group lists the source/original files of official documents — i.e. files in DOC or DOCX format. Each language version (English, French, Spanish) is organised as a subfolder under representations/rep_1/data/.
+
+ID
+Name, Location & Description
+Card & Level
+ODRNS Appl.
+CSIP114
+Representations File Group (rep_1)
+mets/fileSec/fileGrp[@USE='Representations/rep_1']
+A wrapper element listing the source/original files of official documents contained in the representations/rep_1 folder of the information package.
+1..1
+MAY
+MUST
+CSIP65
+Representations File Group Identifier
+mets/fileSec/fileGrp[@USE='Representations/rep_1']/@ID
+An xml:id identifier for the rep_1 <fileGrp> element used for internal references within the METS document. It MUST be unique within the METS document and MUST NOT start with a digit. It SHOULD follow the format uuid-{UUID} [RFC9562]. Example: "uuid-{UUID}"
+1..1
+MUST
+MUST
+CSIP64
+Representations File Group Use
+mets/fileSec/fileGrp[@USE='Representations/rep_1']/@USE
+Specifies the function of the file group. The value names the folder structure to the data. Value is drawn from the E-ARK controlled vocabulary VocabularyFileGrpAndStructMapDivisionLabel, with the representation name appended after the literal value "Representations/". SHALL be set to the fixed value "Representations/rep_1".
+1..1
+MUST
+MUST
+CSIP62
+Content Information Type Specification
+mets/fileSec/fileGrp[@USE='Representations/rep_1']/@csip:CONTENTINFORMATIONTYPE
+Specifies the content information type specification used to structure the information in the representation. Value is drawn from the E-ARK controlled vocabulary ContentInformationTypeSpecification. When set to "OTHER", the attribute csip:OTHERCONTENTINFORMATIONTYPE MUST also be present. SHALL be set to "OTHER".
+0..1
+SHOULD
+MUST
+CSIP63
+Other Content Information Type Specification
+mets/fileSec/fileGrp[@USE='Representations/rep_1']/@csip:OTHERCONTENTINFORMATIONTYPE
+Specifies the content information type specification when csip:CONTENTINFORMATIONTYPE is set to "OTHER". Not subject to schema validation. SHALL be set to "WTO Official Document - Source".
+0..1
+SHOULD
+MUST
+CSIP61
+Representations File Group Administrative Metadata Reference
+mets/fileSec/fileGrp[@USE='Representations/rep_1']/@ADMID
+If administrative metadata has been provided at the rep_1 file group level, this attribute references the administrative metadata section by ID.
+0..1
+MAY
+NOT USED
+CSIP66
+File
+mets/fileSec/fileGrp[@USE='Representations/rep_1']/file
+A child element of the rep_1 <fileGrp> describing an individual source/original file of an official document. One <file> element MUST be present for each file in the representations/rep_1 folder. Examples: "2025_3033_en.docx" [English source file of G/SPS/N/CAN/1591]; "2025_3033_fr.docx" [French source file]; "2025_3033_es.docx" [Spanish source file].
+1..n
+MUST
+MUST
+CSIP67
+File Identifier
+mets/fileSec/fileGrp[@USE='Representations/rep_1']/file/@ID
+An xml:id identifier for the <file> element used for internal references within the METS document. It MUST be unique within the METS document and MUST NOT start with a digit. It SHOULD follow the format uuid-{UUID} [RFC9562]. Example: "uuid-{UUID}"
+1..1
+MUST
+MUST
+CSIP68
+File MIME Type
+mets/fileSec/fileGrp[@USE='Representations/rep_1']/file/@MIMETYPE
+The MIME type of the referenced file. SHALL be drawn from the IANA Media Type list [IANA_MEDIA_TYPES]. For DOCX source files the value SHALL be set to "application/vnd.openxmlformats-officedocument.wordprocessingml.document".
+1..1
+MUST
+MUST
+CSIP69
+File Size
+mets/fileSec/fileGrp[@USE='Representations/rep_1']/file/@SIZE
+Records the size of the referenced file in bytes. Example: "524288"
+1..1
+MUST
+MUST
+CSIP70
+File Creation Datetime
+mets/fileSec/fileGrp[@USE='Representations/rep_1']/file/@CREATED
+Records the date and time the referenced file was created. MUST be recorded in ISO 8601 [ISO_8601] format including timezone. Example: "2026-03-15T10:30:00+01:00"
+1..1
+MUST
+MUST
+CSIP71
+File Checksum
+mets/fileSec/fileGrp[@USE='Representations/rep_1']/file/@CHECKSUM
+Records the checksum value of the referenced file. Example: "{SHA-256}"
+1..1
+MUST
+MUST
+CSIP72
+File Checksum Type
+mets/fileSec/fileGrp[@USE='Representations/rep_1']/file/@CHECKSUMTYPE
+Specifies the algorithm used to calculate the checksum. Value is drawn from the METS checksum type enumeration VocabularyChecksumType. SHALL be set to "SHA-256".
+1..1
+MUST
+MUST
+CSIP73
+File Original Identification
+mets/fileSec/fileGrp[@USE='Representations/rep_1']/file/@OWNERID
+Records the WTO document symbol as the owner-supplied identifier for the file. SHALL be set to the WTO document symbol of the official document. Example: "G/SPS/N/CAN/1591"
+0..1
+MAY
+MUST
+CSIP74
+File Reference to Administrative Metadata
+mets/fileSec/fileGrp[@USE='Representations/rep_1']/file/@ADMID
+References the <digiprovMD> element(s) containing the PREMIS preservation metadata for this file. SHALL be set to the ID of the shared <digiprovMD> element.
+0..1
+MAY
+MUST
+CSIP75
+File Reference to Descriptive Metadata
+mets/fileSec/fileGrp[@USE='Representations/rep_1']/file/@DMDID
+References the <dmdSec> element containing the DOME descriptive metadata for this file. SHALL be set to the ID of the shared <dmdSec> element.
+0..1
+MAY
+MUST
+CSIP76
+File Locator
+mets/fileSec/fileGrp[@USE='Representations/rep_1']/file/FLocat
+A wrapper element specifying the location of the referenced file. The location is given as a relative path within the package using XLink attributes.
+1..1
+MUST
+MUST
+CSIP77
+Type of Locator
+mets/fileSec/fileGrp[@USE='Representations/rep_1']/file/FLocat/@LOCTYPE
+Specifies the type of locator used to reference the file. SHALL be set to "URL".
+1..1
+MUST
+MUST
+CSIP78
+Type of Link
+mets/fileSec/fileGrp[@USE='Representations/rep_1']/file/FLocat/@xlink:type
+Specifies the type of XLink used to reference the file. SHALL be set to "simple".
+1..1
+MUST
+MUST
+CSIP79
+Resource Location
+mets/fileSec/fileGrp[@USE='Representations/rep_1']/file/FLocat/@xlink:href
+The path to the referenced file, relative to the SIP root folder. SHALL be set to the relative path of the file within the representations/rep_1 folder. Examples: "representations/rep_1/data/en/2025_3033_en.docx" [English source file of G/SPS/N/CAN/1591]; "representations/rep_1/data/fr/2025_3033_fr.docx" [French source file of G/SPS/N/CAN/1591]; "representations/rep_1/data/es/2025_3033_es.docx" [Spanish source file of G/SPS/N/CAN/1591].
+1..1
+MUST
+MUST
+
+
+File Group: Representations / rep_2
+The rep_2 file group lists the PDF/A derivative files of official documents — i.e. the final published versions in PDF format. Each language version (English, French, Spanish) and any notification attachments are organised as subfolders under representations/rep_2/data/.
+
+ID
+Name, Location & Description
+Card & Level
+ODRNS Appl.
+CSIP114
+Representations File Group (rep_2)
+mets/fileSec/fileGrp[@USE='Representations/rep_2']
+A wrapper element listing the PDF/A derivative files of official documents contained in the representations/rep_2 folder of the information package.
+1..1
+MAY
+MUST
+CSIP65
+Representations File Group Identifier
+mets/fileSec/fileGrp[@USE='Representations/rep_2']/@ID
+An xml:id identifier for the rep_2 <fileGrp> element used for internal references within the METS document. It MUST be unique within the METS document and MUST NOT start with a digit. It SHOULD follow the format uuid-{UUID} [RFC9562]. Example: "uuid-{UUID}"
+1..1
+MUST
+MUST
+CSIP64
+Representations File Group Use
+mets/fileSec/fileGrp[@USE='Representations/rep_2']/@USE
+Specifies the function of the file group. The value names the folder structure to the data. Value is drawn from the E-ARK controlled vocabulary VocabularyFileGrpAndStructMapDivisionLabel, with the representation name appended after the literal value "Representations/". SHALL be set to the fixed value "Representations/rep_2".
+1..1
+MUST
+MUST
+CSIP62
+Content Information Type Specification
+mets/fileSec/fileGrp[@USE='Representations/rep_2']/@csip:CONTENTINFORMATIONTYPE
+Specifies the content information type specification used to structure the information in the representation. Value is drawn from the E-ARK controlled vocabulary ContentInformationTypeSpecification. When set to "OTHER", the attribute csip:OTHERCONTENTINFORMATIONTYPE MUST also be present. SHALL be set to "OTHER".
+0..1
+SHOULD
+MUST
+CSIP63
+Other Content Information Type Specification
+mets/fileSec/fileGrp[@USE='Representations/rep_2']/@csip:OTHERCONTENTINFORMATIONTYPE
+Specifies the content information type specification when csip:CONTENTINFORMATIONTYPE is set to "OTHER". Not subject to schema validation. SHALL be set to "WTO Official Document - Derivative".
+0..1
+SHOULD
+MUST
+CSIP61
+Representations File Group Administrative Metadata Reference
+mets/fileSec/fileGrp[@USE='Representations/rep_2']/@ADMID
+If administrative metadata has been provided at the rep_2 file group level, this attribute references the administrative metadata section by ID.
+0..1
+MAY
+NOT USED
+CSIP66
+File
+mets/fileSec/fileGrp[@USE='Representations/rep_2']/file
+A child element of the rep_2 <fileGrp> describing an individual PDF/A derivative file of an official document. One <file> element MUST be present for each file in the representations/rep_2 folder. Examples: "2025_3033_en.pdf" [English PDF/A derivative of G/SPS/N/CAN/1591]; "2025_3033_fr.pdf" [French PDF/A derivative]; "2025_3033_es.pdf" [Spanish PDF/A derivative].
+1..n
+MUST
+MUST
+CSIP67
+File Identifier
+mets/fileSec/fileGrp[@USE='Representations/rep_2']/file/@ID
+An xml:id identifier for the <file> element used for internal references within the METS document. It MUST be unique within the METS document and MUST NOT start with a digit. It SHOULD follow the format uuid-{UUID} [RFC9562]. Example: "uuid-{UUID}"
+1..1
+MUST
+MUST
+CSIP68
+File MIME Type
+mets/fileSec/fileGrp[@USE='Representations/rep_2']/file/@MIMETYPE
+The MIME type of the referenced file. SHALL be drawn from the IANA Media Type list [IANA_MEDIA_TYPES]. For PDF/A derivative files the value SHALL be set to "application/pdf".
+1..1
+MUST
+MUST
+CSIP69
+File Size
+mets/fileSec/fileGrp[@USE='Representations/rep_2']/file/@SIZE
+Records the size of the referenced file in bytes. Example: "625281"
+1..1
+MUST
+MUST
+CSIP70
+File Creation Datetime
+mets/fileSec/fileGrp[@USE='Representations/rep_2']/file/@CREATED
+Records the date and time the referenced file was created. MUST be recorded in ISO 8601 [ISO_8601] format including timezone. Example: "2026-03-15T10:30:00+01:00"
+1..1
+MUST
+MUST
+CSIP71
+File Checksum
+mets/fileSec/fileGrp[@USE='Representations/rep_2']/file/@CHECKSUM
+Records the checksum value of the referenced file. Example: "{SHA-256}"
+1..1
+MUST
+MUST
+CSIP72
+File Checksum Type
+mets/fileSec/fileGrp[@USE='Representations/rep_2']/file/@CHECKSUMTYPE
+Specifies the algorithm used to calculate the checksum. Value is drawn from the METS checksum type enumeration VocabularyChecksumType. SHALL be set to "SHA-256".
+1..1
+MUST
+MUST
+CSIP73
+File Original Identification
+mets/fileSec/fileGrp[@USE='Representations/rep_2']/file/@OWNERID
+Records the WTO document symbol as the owner-supplied identifier for the file. SHALL be set to the WTO document symbol of the official document. Example: "G/SPS/N/CAN/1591"
+0..1
+MAY
+MUST
+CSIP74
+File Reference to Administrative Metadata
+mets/fileSec/fileGrp[@USE='Representations/rep_2']/file/@ADMID
+References the <digiprovMD> element(s) containing the PREMIS preservation metadata for this file. SHALL be set to the ID of the shared <digiprovMD> element.
+0..1
+MAY
+MUST
+CSIP75
+File Reference to Descriptive Metadata
+mets/fileSec/fileGrp[@USE='Representations/rep_2']/file/@DMDID
+References the <dmdSec> element containing the DOME descriptive metadata for this file. SHALL be set to the ID of the shared <dmdSec> element.
+0..1
+MAY
+MUST
+CSIP76
+File Locator
+mets/fileSec/fileGrp[@USE='Representations/rep_2']/file/FLocat
+A wrapper element specifying the location of the referenced file. The location is given as a relative path within the package using XLink attributes.
+1..1
+MUST
+MUST
+CSIP77
+Type of Locator
+mets/fileSec/fileGrp[@USE='Representations/rep_2']/file/FLocat/@LOCTYPE
+Specifies the type of locator used to reference the file. SHALL be set to "URL".
+1..1
+MUST
+MUST
+CSIP78
+Type of Link
+mets/fileSec/fileGrp[@USE='Representations/rep_2']/file/FLocat/@xlink:type
+Specifies the type of XLink used to reference the file. SHALL be set to "simple".
+1..1
+MUST
+MUST
+CSIP79
+Resource Location
+mets/fileSec/fileGrp[@USE='Representations/rep_2']/file/FLocat/@xlink:href
+The path to the referenced file, relative to the SIP root folder. SHALL be set to the relative path of the file within the representations/rep_2 folder. Examples: "representations/rep_2/data/en/2025_3033_en.pdf" [English PDF/A derivative of G/SPS/N/CAN/1591]; "representations/rep_2/data/fr/2025_3033_fr.pdf" [French PDF/A derivative of G/SPS/N/CAN/1591]; "representations/rep_2/data/es/2025_3033_es.pdf" [Spanish PDF/A derivative of G/SPS/N/CAN/1591]; "representations/rep_2/data/attachments/25_01731_00_e.pdf" [PDF/A derivative of an English accompanying attachment]; "representations/rep_2/data/attachments/25_01731_00_f.pdf" [PDF/A derivative of a French accompanying attachment].
+1..1
+MUST
+MUST
+
+
+<structMap> Structural Map
+The <structMap> element is the only mandatory element in the METS specification and describes the highest-level structure of the information package. In the ODRNS application the structural map mirrors the physical folder structure of the SIP, grouping the Metadata, Documentation, Schemas, and Representations divisions under a single root division, and pointing to the two representation sub-divisions (rep_1 and rep_2). No representation-level METS.xml files are created; a single root-level METS_{JOB_ID}.xml describes the complete package.
+
+ID
+Name, Location & Description
+Card & Level
+ODRNS Appl.
+CSIP80
+Structural Map mets/structMap — The only METS element that is always mandatory. The ODRNS application uses exactly one structural map — the mandatory CSIP structural map with @TYPE="PHYSICAL" and @LABEL="CSIP". Additional structural maps are not used in the ODRNS application.
+1..n
+MUST
+MUST
+CSIP81
+Structural Map Type mets/structMap/@TYPE — Specifies the type of the structural map. Value is drawn from the E-ARK controlled vocabulary VocabularyStructMapType. SHALL be set to the fixed value "PHYSICAL".
+1..1
+MUST
+MUST
+CSIP82
+Structural Map Label mets/structMap/@LABEL — Specifies the label of the structural map. Value is drawn from the E-ARK controlled vocabulary VocabularyStructMapLabel. SHALL be set to the fixed value "CSIP".
+1..1
+MUST
+MUST
+CSIP83
+Structural Map Identifier mets/structMap/@ID — A unique xml:id identifier for the <structMap> element. It MUST be unique within the METS document and MUST NOT start with a digit. SHALL follow the format struct-map-{JOB_ID}. Example: "struct-map-2025_3033"
+1..1
+MUST
+MUST
+CSIP84
+Root Division mets/structMap[@LABEL='CSIP']/div — The root division of the CSIP structural map. MUST be present. Acts as a wrapper for the Metadata, Documentation, Schemas, and Representations divisions.
+1..1
+MUST
+MUST
+CSIP85
+Root Division Identifier mets/structMap[@LABEL='CSIP']/div/@ID — A unique xml:id identifier for the root <div> element. It MUST be unique within the METS document and MUST NOT start with a digit. SHALL follow the format struct-map-root-div-{JOB_ID}. Example: "struct-map-root-div-2025_3033"
+1..1
+MUST
+MUST
+CSIP88
+Metadata Division mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Metadata'] — A wrapper element. A sub-division of the root <div> grouping all references to descriptive and administrative metadata for the package. The @LABEL attribute SHALL be set to "Metadata".
+1..1
+MUST
+MUST
+CSIP89
+Metadata Division Identifier mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Metadata']/@ID — A unique xml:id identifier for the Metadata <div> element. It MUST be unique within the METS document and MUST NOT start with a digit. SHALL follow the format struct-map-metadata-div-{JOB_ID}. Example: "struct-map-metadata-div-2025_3033"
+1..1
+MUST
+MUST
+CSIP90
+Metadata Division Label mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Metadata']/@LABEL — The label of the Metadata division. SHALL be set to the fixed value "Metadata".
+1..1
+MUST
+MUST
+CSIP91
+Metadata Division Administrative Metadata Reference mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Metadata']/@ADMID — References the administrative metadata for the package. Same value as the reference ID(s) in the <amdSec> [CSIP33]. Multiple IDs MAY be listed. Example: "digiprovMD-premis-001"
+0..1
+SHOULD
+MUST
+CSIP92
+Metadata Division Descriptive Metadata Reference mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Metadata']/@DMDID — References the descriptive metadata for the package. Same value as the reference ID in the <dmdSec> [CSIP17]. Example: "dmdSec-dome-001"
+0..1
+SHOULD
+MUST
+CSIP93
+Documentation Division mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Documentation'] — A wrapper element. A sub-division of the root <div> grouping all references to files in the documentation folder. The @LABEL attribute SHALL be set to "Documentation".
+0..1
+SHOULD
+MUST
+CSIP94
+Documentation Division Identifier mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Documentation']/@ID — A unique xml:id identifier for the Documentation <div> element. It MUST be unique within the METS document and MUST NOT start with a digit. SHALL follow the format struct-map-documentation-div-{JOB_ID}. Example: "struct-map-documentation-div-2025_3033"
+1..1
+MUST
+MUST
+CSIP95
+Documentation Division Label mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Documentation']/@LABEL — The label of the Documentation division. SHALL be set to the fixed value "Documentation".
+1..1
+MUST
+MUST
+CSIP96
+Documentation File Pointer mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Documentation']/fptr — One <fptr> element per file in the documentation folder. The @FILEID attribute SHALL reference the corresponding <file> element ID in the <fileSec>. Example: FILEID="uuid-{UUID}"
+1..n
+MUST
+MUST
+CSIP97
+Schemas Division mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Schemas'] — A wrapper element. A sub-division of the root <div> grouping all references to files in the schemas folder. The @LABEL attribute SHALL be set to "Schemas".
+0..1
+SHOULD
+MUST
+CSIP98
+Schemas Division Identifier mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Schemas']/@ID — A unique xml:id identifier for the Schemas <div> element. It MUST be unique within the METS document and MUST NOT start with a digit. SHALL follow the format struct-map-schemas-div-{JOB_ID}. Example: "struct-map-schemas-div-2025_3033"
+1..1
+MUST
+MUST
+CSIP99
+Schemas Division Label mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Schemas']/@LABEL — The label of the Schemas division. SHALL be set to the fixed value "Schemas".
+1..1
+MUST
+MUST
+CSIP100
+Schemas File Pointer mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Schemas']/fptr — One <fptr> element per file in the schemas folder. The @FILEID attribute SHALL reference the corresponding <file> element ID in the <fileSec>. Example: FILEID="uuid-{UUID}"
+1..n
+MUST
+MUST
+CSIP101
+Representations Division mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Representations'] — A wrapper element. A sub-division of the root <div> grouping all references to the package representations. The @LABEL attribute SHALL be set to "Representations".
+0..1
+SHOULD
+MUST
+CSIP102
+Representations Division Identifier mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Representations']/@ID — A unique xml:id identifier for the Representations <div> element. It MUST be unique within the METS document and MUST NOT start with a digit. SHALL follow the format struct-map-representations-div-{JOB_ID}. Example: "struct-map-representations-div-2025_3033"
+1..1
+MUST
+MUST
+CSIP103
+Representations Division Label mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Representations']/@LABEL — The label of the Representations division. SHALL be set to the fixed value "Representations".
+1..1
+MUST
+MUST
+CSIP104
+Content Division File References mets/structMap[@LABEL='CSIP']/div/div/fptr — File pointers for packages where content files are referenced directly in the structMap without representations. Not applicable to the ODRNS application, which always uses representations.
+0..n
+MAY
+NOT USED
+CSIP105
+Content Division File Reference mets/structMap[@LABEL='CSIP']/div/div/fptr/@FILEID — The @FILEID attribute referencing a <file> element in the <fileSec>. Not applicable to the ODRNS application.
+1..1
+MUST
+NOT USED
+CSIP106
+Representation Division mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Representations']/div — One <div> element per representation. In the ODRNS application there are exactly two representation divisions — one for rep_1 (source files) and one for rep_2 (PDF/A derivatives).
+1..n
+MUST
+MUST
+CSIP107
+Representation Division Identifier mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Representations']/div/@ID — A unique xml:id identifier for each representation <div> element. It MUST be unique within the METS document and MUST NOT start with a digit. SHALL follow the format struct-map-{rep_folder}-div-{JOB_ID}. Examples: "struct-map-rep_1-div-2025_3033" and "struct-map-rep_2-div-2025_3033"
+1..1
+MUST
+MUST
+CSIP108
+Representation Division Label mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Representations']/div/@LABEL — The label of each representation division. SHALL be set to the path of the representation folder relative to the SIP root. Examples: "representations/rep_1" and "representations/rep_2"
+1..1
+MUST
+MUST
+CSIP109
+Representation METS Pointer mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Representations']/div/mptr — A METS pointer element referencing a representation-level METS file. Not used in the ODRNS application. The ODRNS application uses a single root-level METS_{JOB_ID}.xml file to describe all representations. Representation-level METS.xml files are not created.
+1..1
+MUST
+NOT USED
+CSIP110
+Representation METS Pointer Resource Location mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Representations']/div/mptr/@xlink:href — Path to the representation METS file. Not used in the ODRNS application. See CSIP109.
+1..1
+MUST
+NOT USED
+CSIP111
+Representation METS Pointer Link Type mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Representations']/div/mptr/@xlink:type — Not used in the ODRNS application. See CSIP109.
+1..1
+MUST
+NOT USED
+CSIP112
+Representation METS Pointer Locator Type mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Representations']/div/mptr/@LOCTYPE — Not used in the ODRNS application. See CSIP109.
+1..1
+MUST
+NOT USED
+
+PREMIS Preservation Metadata
+This section specifies how PREMIS 3.0 preservation metadata SHALL be created and structured within a WTO ODRNS Submission Information Package (SIP). It forms part of the ODRNS application profile and SHALL be read in conjunction with the E-ARK Common Specification for Preservation Metadata [CS_PREMIS], version 1.0.1, the PREMIS Data Dictionary for Preservation Metadata [PREMIS], version 3.0, on which it is based. Where this section is silent, [CS_PREMIS] applies.
+
+
+Purpose
+Preservation metadata is the information a repository uses to support the long-term preservation of digital objects — maintaining their viability, authenticity, integrity, and renderability over time. In the ODRNS application, preservation metadata serves two related purposes: it records the technical characteristics of the digital objects packaged in the SIP at the time of submission, and it establishes a provenance record of the actions taken on those objects before and during ingest. The standard used for preservation metadata in this application is Preservation Metadata: Implementation Strategies (PREMIS), maintained by the Library of Congress, and implemented in accordance with the E-ARK Common Specification for Preservation Metadata [CS_PREMIS]. Although this section specifies PREMIS usage in the context of SIP creation, the same specifications are intended to apply to preservation actions undertaken after ingest. Where preservation actions are carried out within the repository — such as format migration, fixity checking, or normalisation — these SHOULD also be recorded using PREMIS, and the specifications set out here are expected to extend accordingly to the Archival Information Package (AIP), the details of which will be addressed in a future AIP specification.
+
+The PREMIS data model
+PREMIS is organised around four entity types, each of which can be recorded in the PREMIS XML document:
+Object — a discrete unit of information subject to preservation. In PREMIS 3.0, objects may be of entity type Intellectual Entity (a set of content treated as a single unit, such as a WTO official document), Representation (the set of files needed for a complete rendition of the intellectual entity), File (a named sequence of bytes known to an operating system), or Bitstream (data within a file with meaningful preservation properties). Bitstreams are not used in the ODRNS application.
+Event — an action that involves or affects at least one object or agent known to the repository, such as format identification, checksum calculation, or ingest.
+Agent — a person, organisation, or software system associated with events in the life of an object, or with rights attached to an object.
+Rights — an assertion of one or more rights or permissions pertaining to an object or agent.
+The entities are linked by identifiers: events reference the objects they affect and the agents that performed them; agents may be linked to rights statements; objects carry relationships to other objects and to the events that created or transformed them.
+
+Placement in the SIP
+Each SIP SHALL contain exactly one PREMIS XML document. It SHALL be placed in the metadata/preservation/ folder and named according to the convention {JOB_ID}_premis.xml (e.g. 2025_3033_premis.xml). The PREMIS document SHALL be referenced from the <amdSec> of the METS document via the <digiprovMD> element, as specified in section 5.7.1. The PREMIS XML schema (premis.xsd) SHALL be included in the schemas/ folder of the SIP.
+
+Use of PREMIS
+The tables in this section follow the structure of [CS_PREMIS] and use the same requirement IDs where applicable. Requirement IDs prefixed PM are drawn directly from [CS_PREMIS]; the Card & Level column reflects the cardinality and conformance level as defined in [CS_PREMIS], while the ODRNS Appl. column specifies how the requirement is applied in this profile, which may differ from [CS_PREMIS]. Requirement IDs prefixed ODPM are defined by the ODRNS application profile and have no counterpart in [CS_PREMIS]; the Card & Level column reflects the ODRNS application requirement for these entries. For the full normative context, readers should consult [CS_PREMIS] and the PREMIS Data Dictionary [PREMIS] alongside this section.
+
+Use of the PREMIS root element (element premis)
+The PREMIS XML document’s root element <premis> describes the container for the information being preserved. It defines the PREMIS version and the namespace and schema location declarations required for validation.
+
+ID
+Name, Location & Description
+Card & Level
+ODRNS Appl.
+PM1
+PREMIS version premis/@version
+The version of PREMIS used in the document. SHALL be set to the fixed value “3.0”.
+1..1 MUST
+MUST
+ODPM1
+PREMIS namespace premis/@xmlns
+The default PREMIS namespace declaration. SHALL be set to “http://www.loc.gov/premis/v3”.
+1..1 MUST
+MUST
+ODPM2
+XLink namespace premis/@xmlns:xlink
+The XLink namespace declaration, required for linking between PREMIS entities. SHALL be set to “http://www.w3.org/1999/xlink”.
+1..1 MUST
+MUST
+ODPM3
+XML Schema Instance namespace premis/@xmlns:xsi
+The XML Schema Instance namespace declaration, required for schema validation. SHALL be set to “http://www.w3.org/2001/XMLSchema-instance”.
+1..1 MUST
+MUST
+ODPM4
+Schema location premis/@xsi:schemaLocation
+The location of the PREMIS XML schema. SHALL be set to “http://www.loc.gov/premis/v3 schemas/premis.xsd”, referencing the local copy included in the SIP schemas/ folder.
+1..1 MUST
+MUST
+
+Location of XML schema
+When using XML schemas, the availability of external schema resources cannot be guaranteed over the long term or in restricted operating environments. It is therefore recommended that a local copy of all XML schema resources be included in the SIP.
+
+ID
+Name, Location & Description
+Card & Level
+ODRNS Appl.
+ODPM5
+Local PREMIS schema copy schemas/premis.xsd
+A local copy of the PREMIS XML schema SHALL be included in the schemas/ folder of the SIP. This ensures the PREMIS document can be validated independently of external network resources. When the schema has been included in the package, links to the schema document SHALL refer to the relative path of the schema file within the package (i.e. schemas/premis.xsd). The schema is available from the Library of Congress at http://www.loc.gov/standards/premis/premis.xsd.
+1..1 MUST
+MUST
+
+
+Metadata for an object of entity type “Intellectual Entity”
+For each WTO official document packaged in a SIP, one object is created with the entity type Intellectual Entity. This object represents the document as a single intellectual unit for purposes of management and description, identified by its UUID. Exactly one Intellectual Entity SHALL be present per SIP.
+
+ID
+Name, Location & Description
+Card & Level
+ODRNS Appl.
+PM2
+Object category object[@xsi:type=’intellectualEntity’]
+The object category is mandatory and follows the vocabulary “Object Category” defined in PREMIS. Exactly one intellectualEntity object SHALL be present per SIP, representing the packaged WTO official document. See: vocPREMISObjectCategory
+1..1 MUST
+MUST
+PM3
+Object identification object/objectIdentifier
+The object is given an identification to be easily identifiable. Exactly one objectIdentifier element SHALL be present.
+1..1 MUST
+MUST
+PM4
+Type of identification object/objectIdentifier/objectIdentifierType
+The identification follows a specific schema. SHALL be set to “UUID”. See also: 
+vocPREMISIdentifierTypes
+
+1..1 MUST
+MUST
+PM5
+Identification value object/objectIdentifier/objectIdentifierValue
+The identification value expressed according to the identification type given in PM4. SHALL be a UUID version 4 [RFC9562] in its standard form without prefix. SHALL be generated at the time of SIP creation. Example: “{UUID}”
+1..1 MUST
+MUST
+PM6
+Environment function description object/environmentFunction
+A grouping element for the description of the environment function. Software environment information is recorded at the representation level. See section relevant section.
+1..n MUST
+NOT USED
+PM7–PM13
+See PM6.
+—
+NOT USED
+
+Note: A decision is required on whether to maintain a persistent registry at the repository level mapping UUIDs to WTO document symbols and JOB_IDs. Such a registry would facilitate the identification and recovery of objects in the event that they become separated from their package, and would support future migration and repackaging activities.
+
+Action Point: Decide whether to maintain a persistent UUID — WTO document symbol — JOB_ID registry at the repository level, and whether a simple Excel file is sufficient for this purpose. Consider whether the registry should also record object type (Intellectual Entity, Representation, File) and file description to facilitate identification and recovery.
+
+
+Metadata for an object of entity type “Representation”
+For each representation in the SIP, one object is created with the entity type Representation. In the ODRNS application, exactly two representation objects SHALL be present per SIP: rep_1 (source files) and rep_2 (PDF/A derivatives and attachments). Each representation object is identified by its UUID and carries information about the significant properties of the representation, the creating or converting software, and the relationship between the representation and that software.
+
+rep_1 — Source files
+The following requirements apply to all file objects in rep_1. The example used throughout is rep_1 (UUID: {UUID}). The same pattern SHALL be applied to all other files in rep_1.
+
+ID
+Name, Location & Description
+Card & Level
+ODRNS Appl.
+PM14
+Object category object[@xsi:type=’representation’]
+The object category is mandatory and follows the vocabulary “Object Category” defined in PREMIS. In the ODRNS application, exactly two representation objects SHALL be present per SIP: rep_1 and rep_2. See: 
+vocPREMISObjectCategory
+1..1 MUST
+MUST
+PM15
+Object identification object/objectIdentifier
+The object is given an identification to be easily identifiable. Exactly one objectIdentifier element SHALL be present.
+1..1 MUST
+MUST
+PM16
+Type of identification object/objectIdentifier/objectIdentifierType
+The identification follows a specific schema. SHALL be set to “UUID”. See also: vocPREMISIdentifierTypes
+1..1 MUST
+MUST
+PM17
+Identification value object/objectIdentifier/objectIdentifierValue
+The identification value expressed according to the identification type given in PM16. SHALL be a UUID version 4 [RFC9562] in its standard form without prefix. SHALL be generated at the time of SIP creation. Example rep_1: “{UUID}” Example rep_2: “{UUID}”
+1..1 MUST
+MUST
+PM18
+Significant properties object/significantProperties
+The object might carry significant properties that can be expressed. In the ODRNS application, significant properties are recorded at the file level. See section 6.4.4.
+0..n SHOULD
+NOT USED at representation level
+PM19
+Type of significant property object/significantProperties/significantPropertiesType
+See PM18.
+1..1 MUST
+NOT USED at representation level
+PM20
+Value of the significant property object/significantProperties/significantPropertiesValue
+See PM18.
+1..1 MUST
+NOT USED at representation level
+PM21
+Relationship with the software object/relationship
+The connection between a digital object and the rendering software is established with relationships. In the ODRNS application, creating and converting software is recorded at the file level. See relevant section.
+1..n MUST
+NOT USED at representation level
+PM22–PM27
+See PM21.
+—
+NOT USED at representation level
+
+
+rep_2 — PDF/A derivatives and attachments
+The following requirements apply to all file objects in rep_2. The example used throughout is rep_2 (UUID: {UUID}). The same pattern SHALL be applied to all other files in rep_2. The requirements are identical to those for rep_1 (section 6.4.3.1) with the exception of PM17 where the UUID example differs.
+The requirements for PM14 through PM27 are identical to those in section 6.4.3.1, with PM17 using UUID: {UUID} for rep_2.
+
+
+Metadata for an object of entity type “File”
+For each digital file in the SIP, one object is created with the entity type File. A file object SHALL be present for every file in both rep_1 and rep_2. The requirements are described once for each representation type with a representative example; the same pattern SHALL be applied to all files within that representation.
+
+File objects in rep_1
+The following requirements apply to all file objects in rep_1. The example used throughout is 2025_3033_en.docx. The same pattern SHALL be applied to all other files in rep_1.
+
+ID
+Name, Location & Description
+Card & Level
+ODRNS Appl.
+PM28
+Object category object[@xsi:type=’file’]
+The object category is mandatory and follows the vocabulary “Object Category” defined in PREMIS. One file object SHALL be created for each individual file in rep_1 and rep_2. Example: <object xsi:type=“file”> See: https://id.loc.gov/vocabulary/preservation/objectCategory.html
+1..1 MUST
+MUST
+PM29
+Object identification object/objectIdentifier
+The object is given an identification to facilitate easy identification. One objectIdentifier element using a UUID SHALL be present. Additional identifiers MAY be added. 
+1..n MUST
+SHOULD
+PM30
+Type of identification object/objectIdentifier/objectIdentifierType
+The identification follows a specific schema. SHALL be set to “UUID”. Example: <objectIdentifierType>UUID</objectIdentifierType> See also: vocPREMISIdentifierTypes
+1..1 MUST
+MUST
+PM31
+Identification value object/objectIdentifier/objectIdentifierValue
+The identification value expressed according to the identification type given in PM30. SHALL be a UUID version 4 [RFC9562] in its standard form without prefix. SHALL be generated at the time of SIP creation. Example: <objectIdentifierValue>{UUID}</objectIdentifierValue>
+1..1 MUST
+MUST
+PM32
+Object characteristics object/objectCharacteristics
+The object has characteristics that are important for the preservation of the digital object. This is a grouping element containing fixity, format, creating application, and extended characterisation information. Example: <objectCharacteristics>...</objectCharacteristics>
+1..n MUST
+MUST
+PM33
+Fixity of the digital object object/objectCharacteristics/fixity
+The checksum of the digital object. SHALL be recorded for all files in rep_1 and rep_2 using the SHA-256 algorithm. Example: "5e858e0b4fbf2f9218afa080201059a1e39[…]"
+0..n SHOULD
+MUST
+PM34
+Fixity algorithm object/objectCharacteristics/fixity/messageDigestAlgorithm
+The algorithm used for calculating the checksum. SHALL be set to “SHA-256”. See also: cryptographicHashFunctions
+1..1 MUST
+MUST
+PM35
+Fixity value object/objectCharacteristics/fixity/messageDigest
+The calculated checksum. Example: <messageDigest>{SHA-256}</messageDigest>
+1..1 MUST
+MUST
+PM36
+Fixity originator object/objectCharacteristics/fixity/messageDigestOriginator
+The originator of the message digest. SHALL be set to the agentIdentifierValue of the agent that calculated the checksum, as recorded in the PREMIS Agent Registry. Example: <messageDigestOriginator>{UUID}</messageDigestOriginator>
+0..1 MAY
+MUST
+PM37
+File format object/objectCharacteristics/format
+The file format of the file. SHALL be recorded for all files in rep_1 and rep_2 using both the format designation and the format registry elements.
+0..1 SHOULD
+MUST
+
+
+File objects in rep_2
+The following requirements apply to all file objects in rep_2. The example used throughout is 2025_3033_en.pdf. The same pattern SHALL be applied to all other files in rep_2.
+
+ID
+Name, Location & Description
+Card & Level
+ODRNS Appl.
+PM28
+Object category object[@xsi:type=’file’]
+One file object SHALL be created for each individual file in rep_2. Example: <object xsi:type=“file”> See: vocPREMISObjectCategory
+1..1 MUST
+MUST
+PM29
+Object identification object/objectIdentifier
+One objectIdentifier element using a UUID SHALL be present. Additional identifiers MAY be added. Example: <objectIdentifier><objectIdentifierType>UUID</objectIdentifierType><objectIdentifierValue>{UUID}</objectIdentifierValue></objectIdentifier>
+1..n MUST
+SHOULD
+PM30
+Type of identification object/objectIdentifier/objectIdentifierType
+SHALL be set to “UUID”. Example: <objectIdentifierType>UUID</objectIdentifierType> See also: vocPREMISIdentifierTypes
+1..1 MUST
+MUST
+PM31
+Identification value object/objectIdentifier/objectIdentifierValue
+SHALL be a UUID version 4 [RFC9562] in its standard form without prefix. Example: <objectIdentifierValue>{UUID}</objectIdentifierValue>
+1..1 MUST
+MUST
+PM32
+Object characteristics object/objectCharacteristics
+Grouping element containing fixity, format, creating application, and extended characterisation information.
+1..n MUST
+MUST
+PM33
+Fixity of the digital object object/objectCharacteristics/fixity
+SHALL be recorded using the SHA-256 algorithm. Example: <fixity><messageDigestAlgorithm>SHA-256</messageDigestAlgorithm><messageDigest>{SHA-256}</messageDigest><messageDigestOriginator>{UUID}</messageDigestOriginator></fixity>
+0..n SHOULD
+MUST
+PM34
+Fixity algorithm object/objectCharacteristics/fixity/messageDigestAlgorithm
+SHALL be set to “SHA-256”. See also: https://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions.html
+1..1 MUST
+MUST
+PM35
+Fixity value object/objectCharacteristics/fixity/messageDigest
+The calculated checksum. Example: <messageDigest>{SHA-256}</messageDigest>
+1..1 MUST
+MUST
+PM36
+Fixity originator object/objectCharacteristics/fixity/messageDigestOriginator
+SHALL be set to the agentIdentifierValue of the agent that calculated the checksum. Example: <messageDigestOriginator>{UUID}</messageDigestOriginator>
+0..1 MAY
+MUST
+PM37
+File format object/objectCharacteristics/format
+SHALL be recorded using both the format designation and the format registry elements.
+0..1 SHOULD
+MUST
+PM38
+File format name grouping object/objectCharacteristics/format/formatDesignation
+Grouping element for file format name and version. Example: <formatDesignation><formatName>Acrobat PDF/A - Portable Document Format</formatName><formatVersion>2b</formatVersion></formatDesignation>
+0..1 SHOULD
+MUST
+PM39
+File format name object/objectCharacteristics/format/formatDesignation/formatName
+SHALL be set to the relevant PRONOM registry file format name. Example: <formatName>Acrobat PDF/A - Portable Document Format</formatName>
+1..1 MUST
+MUST
+PM40
+File format version object/objectCharacteristics/format/formatDesignation/formatVersion
+SHALL be set to the relevant PRONOM registry file format version where available. Example: <formatVersion>2b</formatVersion>
+0..1 SHOULD
+SHOULD
+PM41
+File format registry grouping object/objectCharacteristics/format/formatRegistry
+SHALL reference the PRONOM registry. Example: <formatRegistry><formatRegistryName>PRONOM</formatRegistryName><formatRegistryKey>fmt/477</formatRegistryKey><formatRegistryRole>specification</formatRegistryRole></formatRegistry>
+0..1 SHOULD
+MUST
+PM42
+File format registry name object/objectCharacteristics/format/formatRegistry/formatRegistryName
+SHALL be set to “PRONOM”. See also: http://www.nationalarchives.gov.uk/PRONOM/Default.aspx Example: <formatRegistryName>PRONOM</formatRegistryName>
+1..1 MUST
+MUST
+PM43
+File format registry key object/objectCharacteristics/format/formatRegistry/formatRegistryKey
+SHALL be set to the relevant PRONOM PUID. Example PDF/A-2b: <formatRegistryKey>fmt/477</formatRegistryKey>
+1..1 MUST
+MUST
+PM44
+File format registry role object/objectCharacteristics/format/formatRegistry/formatRegistryRole
+SHALL be set to “specification”. See also: https://id.loc.gov/vocabulary/preservation/formatRegistryRole.html Example: <formatRegistryRole>specification</formatRegistryRole>
+0..1 MAY
+MUST
+PM45
+Creating application object/objectCharacteristics/creatingApplication
+Grouping element for information about the application that created the file. SHOULD be recorded for all files in rep_2 if known.
+0..n MAY
+SHOULD
+PM46
+Name of creating application object/objectCharacteristics/creatingApplication/creatingApplicationName
+SHOULD be taken from the PRONOM registry where possible. Example: <creatingApplicationName>WTO_PDFtoPDFA_Conversion.cs</creatingApplicationName>
+1..1 MUST
+MUST
+PM47
+Version of creating application object/objectCharacteristics/creatingApplication/creatingApplicationVersion
+SHOULD be taken from the PRONOM registry where possible. Example: <creatingApplicationVersion>v1.0.0</creatingApplicationVersion>
+0..1 MAY
+SHOULD
+PM48
+Date of creation by the application object/objectCharacteristics/creatingApplication/dateCreatedByApplication
+SHOULD be recorded if known. SHALL follow the ISO 8601 date format YYYY-MM-DD. Example: <dateCreatedByApplication>2025-02-28</dateCreatedByApplication>
+0..1 MAY
+SHOULD
+PM49
+Extended information regarding creating application object/objectCharacteristics/creatingApplication/creatingApplicationExtension
+MAY be used if additional characterisation information about the creating application is available.
+0..n MAY
+MAY
+PM50
+Extended information about the characteristics object/objectCharacteristics/objectCharacteristicsExtension
+MAY be used if technical characterisation has been performed.
+0..1 MAY
+MAY
+PM51
+Original name object/originalName
+SHOULD be recorded as a relative filepath where the filename in the SIP differs from the filename as originally received. Example: <originalName>English\G\SPS\NCAN1591.pdf</originalName>
+0..1 SHOULD
+SHOULD
+PM52
+Storage object/storage
+SHOULD be recorded to point to the physical storage location of the SIP prior to ingest.
+0..n MAY
+SHOULD
+PM53
+The location of the content object/storage/contentLocation
+SHOULD be recorded as the path to the file on the storage medium prior to ingest. Example: <contentLocation><contentLocationType>NTFS</contentLocationType><contentLocationValue>\SIPs\2025_3033\representations\rep_2\data\2025_3033_en.pdf</contentLocationValue></contentLocation>
+0..1 COULD
+SHOULD
+PM54
+Type of location object/storage/contentLocation/contentLocationType
+SHALL be set to “NTFS” for Windows external hard drives. See also: https://id.loc.gov/vocabulary/preservation/contentLocationType.html Example: <contentLocationType>NTFS</contentLocationType>
+1..1 MUST
+MUST
+PM55
+Location object/storage/contentLocation/contentLocationValue
+SHALL be recorded as the relative file path. Example: <contentLocationValue>\SIPs\2025_3033\representations\rep_2\data\2025_3033_en.pdf</contentLocationValue>
+1..1 MUST
+SHOULD
+PM56
+Storage medium object/storage/storageMedium
+SHOULD be recorded to identify the physical storage medium. See also: https://id.loc.gov/vocabulary/preservation/storageMedium.html Example: <storageMedium>hard disk</storageMedium>
+0..1 MAY
+SHOULD
+PM57
+Relationship with other objects or events object/relationship
+SHALL be used to record the structural relationship between each file and its parent representation.
+0..n SHOULD
+MUST
+PM58
+Type of relationship object/relationship/relationshipType
+SHALL be set to “structural”. See also: https://id.loc.gov/vocabulary/preservation/relationshipType.html Example: <relationshipType>structural</relationshipType>
+1..1 MUST
+MUST
+PM59
+Subtype of the relationship object/relationship/relationshipSubType
+SHALL be set to “is included in”. See also: https://id.loc.gov/vocabulary/preservation/relationshipSubType.html Example: <relationshipSubType>is included in</relationshipSubType>
+1..1 MUST
+MUST
+PM60
+Identifier to related object object/relationship/relatedObjectIdentifier
+SHALL reference the UUID of the parent representation object rep_2. Example: <relatedObjectIdentifier><relatedObjectIdentifierType>UUID</relatedObjectIdentifierType><relatedObjectIdentifierValue>{UUID}</relatedObjectIdentifierValue></relatedObjectIdentifier>
+1..n MUST
+MUST
+PM61
+Type of identifier object/relationship/relatedObjectIdentifier/relatedObjectIdentifierType
+SHALL be set to “UUID”. See also: vocPREMISIdentifierTypes 
+Example: <relatedObjectIdentifierType>UUID</relatedObjectIdentifierType>
+1..1 MUST
+MUST
+PM62
+Identification of the related object object/relationship/relatedObjectIdentifier/relatedObjectIdentifierValue
+SHALL be the UUID of the parent representation object rep_2. Example: <relatedObjectIdentifierValue>{UUID}</relatedObjectIdentifierValue>
+1..1 MUST
+MUST
+PM63
+Identifier to related event object/relationship/relatedEventIdentifier
+SHOULD be used to link the file object to relevant preservation events.
+0..n SHOULD
+SHOULD
+PM64
+Type of identifier object/relationship/relatedEventIdentifier/relatedObjectIdentifierType
+SHALL be set to “UUID”. See also: vocPREMISIdentifierTypes 
+Example: <relatedObjectIdentifierType>UUID</relatedObjectIdentifierType>
+1..1 MUST
+MUST
+PM65
+Identification of the related event object/relationship/relatedEventIdentifier/relatedEventIdentifierValue
+SHALL be the UUID of the related event as recorded in the PREMIS document. Example: <relatedEventIdentifierValue>{UUID_messageDigestCalculation_event}</relatedEventIdentifierValue>
+1..1 MUST
+MUST
+PM66
+Rights statement identification object/linkingRightsStatementIdentifier
+MAY be used to link the file object to a rights statement. Not currently used in the ODRNS application.
+0..n COULD
+COULD
+PM67
+Rights statement identifier type object/linkingRightsStatementIdentifier/linkingRightsStatementIdentifierType
+If the identification has been locally created the value “local” is used. See also: vocPREMISIdentifierTypes
+1..1 MUST
+COULD. Not currently used in the ODRNS application.
+PM68
+Rights statement identifier value object/linkingRightsStatementIdentifier/linkingRightsStatementIdentifierValue
+The identification value of the rights statement connected with the digital object.
+1..1 MUST
+COULD. Not currently used in the ODRNS application.
+
+
+Metadata for an agent
+When there are events stored pertaining to the digital objects, the agents performing the events are described. In the ODRNS application, one agent object SHALL be present for each agent referenced in a PREMIS event. All agents SHALL be registered in the PREMIS Agent Registry (PREMIS_Agent_Registry_v0-3.xlsx) before use. The agent registry serves as the authoritative source for agent identifiers and ensures consistency across all PREMIS documents produced by ODRNS. The agent UUID recorded in a PREMIS event SHALL always refer to the agent that was active at the time the event was performed, even if that agent has subsequently been retired in the registry. Retired agents SHALL never be removed from the registry.
+
+ID
+Name, Location & Description
+Card & Level
+ODRNS Appl.
+PM69
+Agent
+agent
+An agent connected with an event carried out involving a digital object. One agent element SHALL be present for each agent referenced in a PREMIS event. All agents SHALL be registered in the PREMIS Agent Registry (PREMIS_Agent_Registry_v0-3.xlsx) before use.
+0..n SHOULD
+MUST
+PM70
+Agent identification agent/agentIdentifier
+The agent is given an identification to be easily identifiable. Exactly one agentIdentifier element SHALL be present, using a UUID as registered in the PREMIS Agent Registry (PREMIS_Agent_Registry_v0-3.xlsx). Example: <agentIdentifier><agentIdentifierType>UUID</agentIdentifierType><agentIdentifierValue>{UUID}</agentIdentifierValue></agentIdentifier> 
+[Skamandros, Cassandra]
+1..n MUST
+MUST
+PM71
+Type of identification agent/agentIdentifier/agentIdentifierType
+SHALL be set to “UUID”. See also: vocPREMISIdentifierTypes
+ Example: <agentIdentifierType>UUID</agentIdentifierType>
+1..1 MUST
+MUST
+PM72
+Identification value agent/agentIdentifier/agentIdentifierValue
+SHALL be the UUID of the agent as registered in the PREMIS Agent Registry (PREMIS_Agent_Registry_v0-3.xlsx). Example: <agentIdentifierValue>{UUID}</agentIdentifierValue> [Skamandros, Cassandra]
+1..1 MUST
+MUST
+PM73
+Agent name agent/agentName
+The name of the agent in a human-understandable form. SHALL be taken from the PREMIS Agent Registry (PREMIS_Agent_Registry_v0-3.xlsx). Example: <agentName>Skamandros, Cassandra</agentName>
+1..1 MUST
+MUST
+PM74
+Agent type agent/agentType
+The specific type of agent defined with the vocabulary “Agent Type”. SHALL be taken from the PREMIS Agent Registry (PREMIS_Agent_Registry_v0-3.xlsx). See also: vocPREMISAgentType
+Example:”person"
+1..1 MUST
+MUST
+PM75
+Agent version agent/agentVersion
+If the agent is software, the version SHALL be recorded. SHALL be taken from the PREMIS Agent Registry (PREMIS_Agent_Registry_v0-3.xlsx). Example: <agentVersion>6.8.0</agentVersion>
+0..1 SHOULD
+SHOULD
+PM76
+Agent note agent/agentNote
+A short descriptive note about the agent. SHOULD be taken from the PREMIS Agent Registry (PREMIS_Agent_Registry_v0-3.xlsx). Example: <agentNote>SHA-256 checksum calculation and file format identification tool.</agentNote>
+0..1 MAY
+SHOULD
+PM77
+Rights for the agent agent/linkingRightsStatementIdentifier
+When rights are granted for the agent to carry out an event, the agent is linked to those rights statements. Not currently used in the ODRNS application.
+0..n SHOULD
+NOT USED
+PM78
+Rights statement identifier type agent
+/linkingRightsStatementIdentifier
+/linkingRightsStatementIdentifierType
+The type of rights statement identifier following a vocabulary. If the identification has been locally created the value “local” is used. See also: vocPREMISIdentifierTypes
+1..1 MUST
+NOT USED
+PM79
+Rights statement identifier value agent
+/linkingRightsStatementIdentifier
+/linkingRightsStatementIdentifierValue
+The identification value of the rights statement connected with the agent.
+1..1 MUST
+NOT USED
+
+
+
+
+Metadata for an event
+Preservation events record actions that have been performed on or in relation to the digital objects in the SIP. In the ODRNS application, one event element SHALL be present for each preservation action performed on the digital objects in the scope of the SIP. Each event SHALL be linked to the agent that performed it and to the object(s) upon which it was performed. All event types SHALL use values from the Library of Congress PREMIS Event Type vocabulary (https://id.loc.gov/vocabulary/preservation/eventType.html).
+
+ID
+Name, Location & Description
+Card & Level
+ODRNS Appl.
+PM80
+Event event 
+Each preservation action performed on or in relation to a digital object is recorded as a separate event. In the ODRNS application, one event element SHALL be present for each preservation action performed on the digital objects in the scope of the SIP.
+0..n SHOULD
+MUST
+PM81
+Event identification event/eventIdentifier 
+The event is given an identification to be easily identifiable. Exactly one eventIdentifier element SHALL be present, using a UUID v4 as the identifier value. Example: <eventIdentifier><eventIdentifierType>UUID</eventIdentifierType><eventIdentifierValue>{UUID}</eventIdentifierValue></eventIdentifier>
+1..n MUST
+MUST
+PM82
+Type of identification event/eventIdentifier/eventIdentifierType 
+The identification follows a specific schema. In the ODRNS application the value SHALL always be UUID.
+1..1 MUST
+MUST
+PM83
+Identification value event/eventIdentifier/eventIdentifierValue 
+The identification value expressed according to the identification type given in the Type of identification element. In the ODRNS application the value SHALL be a UUID v4. Example: <eventIdentifierValue>{UUID}</eventIdentifierValue>
+1..1 MUST
+MUST
+PM84
+Event type event/eventType 
+The specific type of event is defined with the vocabulary Event Type. In the ODRNS application the value SHALL be taken from the PREMIS Event Type vocabulary as listed in the table above. See also: https://id.loc.gov/vocabulary/preservation/eventType.html
+1..1 MUST
+MUST
+PM85
+Time for the event event/eventDateTime 
+The date and time the event was carried out. In the ODRNS application the value SHALL be expressed as a full UTC datetime in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ. Example: <eventDateTime>2025-10-24T09:00:00Z</eventDateTime>
+1..1 MUST
+MUST
+PM86
+Outcome of the event event/eventOutcomeInformation/eventOutcome 
+The outcome of the event is defined with the vocabulary Event Outcome. In the ODRNS application the value SHALL be taken from the PREMIS Event Outcome Vocabulary as listed in the table above. If the outcome is fail or warning, an eventOutcomeDetailNote SHALL be present describing the reason in sufficient detail to support diagnosis and audit. See also: https://id.loc.gov/vocabulary/preservation/eventOutcome.html
+1..1 MUST
+MUST
+PM87
+Agent performing the event event/linkingAgentIdentifier 
+The agent carrying out the event. In the ODRNS application, one linkingAgentIdentifier element SHALL be present for each agent involved in the event. The agent SHALL be registered in the PREMIS Agent Registry (PREMIS_Agent_Registry_v0-3.xlsx) before use.
+0..n SHOULD
+MUST
+PM88
+Agent identifier type event/linkingAgentIdentifier/linkingAgentIdentifierType 
+The type of agent identifier following a vocabulary. In the ODRNS application the value SHALL always be UUID.
+1..1 MUST
+MUST
+PM89
+Agent identifier value event/linkingAgentIdentifier/linkingAgentIdentifierValue 
+The identification value of the agent connected with the event. In the ODRNS application the value SHALL be the UUID of the agent as registered in the PREMIS Agent Registry (PREMIS_Agent_Registry_v0-3.xlsx). Example: <linkingAgentIdentifierValue>{UUID}</linkingAgentIdentifierValue> [Skamandros, Cassandra]
+1..1 MUST
+MUST
+PM90
+Object affected by the event event/linkingObjectIdentifier 
+The object the event has affected. In the ODRNS application, one linkingObjectIdentifier element SHALL be present linking the event to the PREMIS object upon which the action was performed.
+0..n SHOULD
+MUST
+PM91
+Object identifier type event/linkingObjectIdentifier/linkingObjectIdentifierType 
+The type of the object identifier following a vocabulary. In the ODRNS application the value SHALL always be UUID.
+1..1 MUST
+MUST
+PM92
+Object identifier value event/linkingObjectIdentifier/linkingObjectIdentifierValue 
+The identification value of the object connected with the event. In the ODRNS application the value SHALL be the UUID of the PREMIS object as assigned in the SIP. Example: <linkingObjectIdentifierValue>{UUID}</linkingObjectIdentifierValue> [2025_3033_en.pdf]
+1..1 MUST
+MUST
+
+
+Metadata for rights
+Rights statements describe the intellectual property rights applicable to one or more digital objects managed in the repository. The rightsGranted element is optional but SHOULD be included where specific acts (e.g. dissemination, reproduction) are to be recorded.
+If a rightsStatement (PM93) is used, only then are the child elements indicated as MUST mandatory. If PM93 is not used, these requirements do not apply.
+Note: The inclusion of rights metadata in the ODRNS application has not yet been decided. The requirements in this section are provisional and should be reviewed once a decision has been reached following discussion within LDIMD/ODRNS.
+
+ID
+Name, Location & Description
+Card & Level
+ODRNS Appl.
+PM93
+Rights statement rights/rightsStatement — A set of metadata that describes the rights applicable to one or more digital objects. Each rights statement is identified by a unique identifier and specifies the basis for the rights and any acts granted or restricted.
+0..n MAY
+MAY
+PM94
+Rights statement identifier rights/rightsStatement/rightsStatementIdentifier — The identifier of the rights statement.
+1..1 MUST
+MAY
+PM95
+Rights statement identifier type rights/rightsStatement/rightsStatementIdentifier/rightsStatementIdentifierType — The type of identifier used for the rights statement. If locally assigned, the value “local” SHALL be used.
+1..1 MUST
+MAY
+PM96
+Rights statement identifier value rights/rightsStatement/rightsStatementIdentifier/rightsStatementIdentifierValue — The identification value of the rights statement. In the ODRNS application, this SHALL be a UUID v4. Example: <rightsStatementIdentifierValue>{UUID}</rightsStatementIdentifierValue>
+1..1 MUST
+MAY
+PM97
+Rights basis rights/rightsStatement/rightsBasis — The basis on which the rights are held. SHALL be taken from a controlled vocabulary. Suggested values: “copyright”, “license”, “statute”, “other”. See also: http://id.loc.gov/vocabulary/preservation/rightsBasis.html
+1..1 MUST
+MAY
+PM98
+Rights granted rights/rightsStatement/rightsGranted — Describes an act that is granted or restricted under the rights statement. SHOULD be included where specific acts are to be recorded.
+0..n SHOULD
+MAY
+PM99
+Act rights/rightsStatement/rightsGranted/act — The act that is granted or restricted, e.g. dissemination, reproduction, migration. SHALL be taken from a controlled vocabulary. See also: http://id.loc.gov/vocabulary/preservation/act.html
+1..1 MUST
+MAY
+PM100
+Restriction rights/rightsStatement/rightsGranted/restriction — Any restriction on the act granted. Typical values: “allow” or “disallow”.
+0..n 
+MAY
+MAY
+PM101
+Linking object identifier rights/rightsStatement/linkingObjectIdentifier — Links the rights statement to one or more digital objects to which it applies. Not currently used in the ODRNS application.
+0..n SHOULD
+NOT USED
+PM102
+Linking object identifier type rights/rightsStatement/linkingObjectIdentifier/linkingObjectIdentifierType — The type of object identifier.
+1..1 MUST
+NOT USED
+PM103
+Linking object identifier value rights/rightsStatement/linkingObjectIdentifier/linkingObjectIdentifierValue — The identification value of the object connected with the rights statement.
+1..1 MUST
+NOT USED
+
+
+
+Vocabularies
+This section lists the controlled vocabularies used in the METS.xml document. DILCIS IP vocabularies are defined and maintained by the DILCIS Board. ODRNS vocabularies are defined for use within the WTO Official Documents digital preservation programme.
+
+VocabularyOAISPackageType
+Used to specify the type of information package in accordance with the OAIS reference model.
+Source: https://earkcsip.dilcis.eu/schema/CSIPVocabularyOAISPackageType.xml
+Used in METS.xml.
+
+Value
+Description
+SIP
+Submission Information Package — an information package submitted to an OAIS repository.
+AIP
+Archival Information Package — an information package stored in an OAIS repository.
+DIP
+Dissemination Information Package — an information package delivered to a consumer.
+AIU
+Archival Information Unit — the smallest object that can be stored in the digital archive.
+AIC
+Archival Information Collection — a collection of multiple archival packages.
+
+VocabularyAgentOtherType
+Used to specify the type of agent when the standard METS agent type values are not applicable.
+Source: https://earkcsip.dilcis.eu/schema/CSIPVocabularyAgentOtherType.xml
+Used in METS.xml.
+
+Value
+Description
+SOFTWARE
+The agent is of type software — a program used in the process of creating the information package.
+
+VocabularyContentCategory
+Used to specify the content category of the information package.
+Source: https://earkcsip.dilcis.eu/schema/CSIPVocabularyContentCategory.xml
+Used in METS.xml.
+
+Value
+Description
+Textual works – Print
+Books, musical compositions, etc.
+Textual works – Digital
+Electronic books, etc.
+Textual works – Electronic Serials
+Digital serials.
+Digital Musical Composition (score-based representations)
+Musical notation in digital form.
+Photographs – Print
+Printed photos.
+Photographs – Digital
+Digital photos.
+Other Graphic Images – Print
+Posters, maps, architectural drawings, etc.
+Other Graphic Images – Digital
+Other graphic digital images.
+Microforms
+Scaled-down reproductions of documents.
+Audio – On Tangible Medium (digital or analog)
+Audio on tangible medium.
+Audio – Media-independent (digital)
+Media-independent audio in digital form.
+Motion Pictures – Digital and Physical Media
+Theatrically released films.
+Video – File-based and Physical Media
+File-based and physical videos.
+Software
+Software, electronic gaming and learning.
+Datasets
+Data encoded in a defined structure.
+Geospatial Data
+Geospatial data.
+Databases
+Databases in flat files or as SIARD.
+Websites
+Archived web content.
+Collection
+An aggregation of resources.
+Event
+Non-persistent, time-based occurrences.
+Interactive resource
+Resources requiring user interaction.
+Physical object
+An inanimate, three-dimensional object or substance.
+Service
+A system providing one or more functions.
+Mixed
+The package contains a mix of content types.
+Other
+A term other than those present in the vocabulary is used.
+
+ContentInformationTypeSpecification
+Used to specify which specification has been used to structure the information in the package.
+Source: https://earkcsip.dilcis.eu/schema/CSIPVocabularyContentInformationType.xml
+Used in METS.xml.
+
+Value
+Description
+ERMS
+A predecessor to the CITS specification for Electronic Records Management Systems.
+SIARD1
+A relational database described with SIARD version 1.
+SIARD2
+A relational database described with SIARD version 2.
+SIARDDK
+A relational database described with SIARD version DK.
+GeoData
+A predecessor to the CITS specification for Geodata.
+citscarchival_v1_0
+Version 1.0 of the CITS specification for Archival Information.
+citserms_v2_1
+Version 2.1 of the CITS specification for Electronic Records Management Systems.
+citspremis_v1_0
+Version 1.0 of the CITS specification for Preservation Metadata using PREMIS.
+MIXED
+A mixed set of content types is described.
+OTHER
+Another specification is used.
+
+VocabularyStatus
+Used to specify the status of the descriptive or administrative metadata.
+Source: https://earkcsip.dilcis.eu/schema/CSIPVocabularyStatus.xml
+Used in METS.xml.
+
+Value
+Description
+CURRENT
+This version is currently in use.
+SUPERSEDED
+This version has been replaced by a newer version.
+
+VocabularyFileGrpAndStructMapDivisionLabel
+Used to specify the type of file group or structural map division in the information package.
+Source: https://earkcsip.dilcis.eu/schema/CSIPVocabularyFileGrpAndStructMapDivisionLabel.xml
+Used in METS.xml.
+
+Value
+Description
+Documentation
+The file group or structural division contains documentation.
+Schemas
+The file group or structural division contains XML schemas.
+Representations
+The file group or structural division contains data or representation data.
+Metadata
+The structural division contains metadata.
+
+VocabularyStructMapType
+Used to specify the type of structural map used to describe the structure of the information package.
+Source: https://earkcsip.dilcis.eu/schema/CSIPVocabularyStructMapType.xml
+Used in METS.xml.
+
+Value
+Description
+PHYSICAL
+A physical structural description is made.
+
+VocabularyNoteType
+Used to classify the information recorded in the note element of an agent.
+Source: https://earkcsip.dilcis.eu/schema/CSIPVocabularyNoteType.xml
+Used in METS.xml.
+
+Value
+Description
+SOFTWARE VERSION
+Indicates that the note describes the version of a software agent.
+IDENTIFICATIONCODE
+Indicates that the note describes the identification code of an agent.
+
+VocabularyChecksumType
+Used to specify the checksum algorithm applied to files referenced in the METS document. Values are defined as an enumeration in the METS schema.
+Used in METS.xml.
+
+Value
+Description
+Adler-32
+Adler-32 was used to generate the checksum.
+CRC32
+CRC32 was used to generate the checksum.
+HAVAL
+HAVAL was used to generate the checksum.
+MD5
+MD5 was used to generate the checksum.
+MNP
+MNP was used to generate the checksum.
+SHA-1
+SHA-1 was used to generate the checksum.
+SHA-256
+SHA-256 was used to generate the checksum.
+SHA-384
+SHA-384 was used to generate the checksum.
+SHA-512
+SHA-512 was used to generate the checksum.
+TIGER
+TIGER was used to generate the checksum.
+WHIRLPOOL
+WHIRLPOOL was used to generate the checksum.
+
+PREMIS Vocabularies
+The following vocabulary tables list the controlled values used in PREMIS metadata within the ODRNS application. Only values used in the ODRNS application are listed. Values marked as NOT USED are included for completeness.
+
+vocPREMISObjectCategory
+Source: https://id.loc.gov/vocabulary/preservation/objectCategory.html Used in: object/@xsi:type
+Value
+Description
+intellectualEntity
+A set of content treated as a single intellectual unit for purposes of management and description. In the ODRNS application, corresponds to a WTO official document.
+representation
+A set of files needed for a complete and reasonable rendition of an Intellectual Entity. In the ODRNS application, corresponds to rep_1 (source files) and rep_2 (PDF/A derivatives and attachments).
+file
+A named and ordered sequence of bytes known to an operating system. In the ODRNS application, one file object is created for each individual file in rep_1 and rep_2.
+bitstream
+Contiguous or non-contiguous data within a file that has meaningful preservation properties. NOT USED in the ODRNS application.
+
+
+vocPREMISIdentifierTypes
+Source: https://id.loc.gov/vocabulary/identifiers.html Used in: object/objectIdentifier/objectIdentifierType, event/eventIdentifier/eventIdentifierType, agent/agentIdentifier/agentIdentifierType
+Value
+Description
+UUID
+Universally Unique Identifier [RFC9562]. Used as the identifier type for all PREMIS objects, events, and agents in the ODRNS application. SHALL be version 4, in standard form without prefix.
+
+vocPREMISFormatRegistryRole
+Source: https://id.loc.gov/vocabulary/preservation/formatRegistryRole.html Used in: object/objectCharacteristics/format/formatRegistry/formatRegistryRole
+Value
+Description
+specification
+The registry entry is the authoritative specification for the format. Used in the ODRNS application for all PRONOM registry references.
+validation
+The registry entry is used for validation purposes. Not used in the ODRNS application.
+
+
+vocPREMISContentLocationType
+Source: https://id.loc.gov/vocabulary/preservation/contentLocationType.html Used in: object/storage/contentLocation/contentLocationType
+Value
+Description
+byte offset
+An integer indicating the distance from the beginning of the object up until a given element or point, used to index into a string or file as a zero-based number of bytes.
+EXT3
+Third extended filesystem, a journalled file system commonly used in Linux operating systems.
+handle
+A persistent identifier assigned by the Handle System, used to identify and locate digital objects.
+NTFS
+New Technology File System, the standard file system of Windows NT and later versions. Used in the ODRNS application for Windows external hard drives.
+physical storage location
+A description of a physical storage location such as a room, cabinet, or shelf.
+RFID
+Radio Frequency Identification, used to identify physical storage media.
+shelfmark
+A physical location identifier such as a library shelf mark.
+Uniform Resource Identifier
+A URI identifying the location of the digital content.
+
+
+vocPREMISStorageMedium
+Source: https://id.loc.gov/vocabulary/preservation/storageMedium.html Used in: object/storage/storageMedium
+Value
+Description
+hard disk
+A medium for storing and retrieving digital information, primarily computer data. It consists of one or more rigid (hence “hard”) rapidly rotating discs (often referred to as platters), coated with magnetic material and with magnetic heads arranged to write data to the surfaces and read it from them.
+magnetic tape
+A medium for magnetic recording, made of a thin magnetizable coating on a long, narrow strip of plastic.
+TSM
+A storage medium (IBM Tivoli Storage Manager or TSM), which is a centralized, policy-based, enterprise class, data backup and recovery software.
+
+
+vocPREMISRelationshipType
+Source: https://id.loc.gov/vocabulary/preservation/relationshipType.html Used in: object/relationship/relationshipType
+Value
+Description
+dependency
+A relationship where one object is dependent on another object. This exists when an object requires another object to support its function, delivery, rendering, execution, or the coherence of its content. This may happen, for example, when a content file requires specific software or hardware to be rendered; similarly, when an environment object depends on other environment objects; or when a content file depends on another file, such as its font definition or stylesheet.
+derivation
+A relationship in which one object is the result of a replication or transformation performed on the related object. The intellectual content of the resulting object is the same, but the object’s instantiation, and possibly its format, are different. This also applies to disk images, which are replications of the contents of a disk.
+logical
+A conceptual relationship between environments where one environment object is more or less specific than the other.
+reference
+A relationship in which one object provides documentation for another.
+replacement
+A relationship which shows the superseding of an environment object by a more recent one.
+structural
+A relationship between parts of an object. This is essential preservation metadata, because if a preservation repository can’t put the pieces of a digital object back together, it hasn’t preserved the object.
+
+
+vocPREMISRelationshipSubtype
+Source: https://id.loc.gov/vocabulary/preservation/relationshipSubType.html Used in: object/relationship/relationshipSubType
+Value
+Description
+compressed from
+A relationship between an object that has been encoded in a way so that it can be stored or transmitted in significantly fewer bits. Has a reciprocal relationship of compressedTo. URI: http://id.loc.gov/vocabulary/preservation/relationshipSubType/cmf
+compressed to
+A relationship between an object and another object that is encoded in a way that it can be stored or transmitted in significantly fewer bits. Has a reciprocal relationship of compressedFrom. URI: http://id.loc.gov/vocabulary/preservation/relationshipSubType/cmt
+deploys
+A relationship between an environment object that is run on another environment object, e.g. an operating system that runs a piece of software. Has a reciprocal relationship of isDeployedOn. URI: http://id.loc.gov/vocabulary/preservation/relationshipSubType/dpe
+documents
+A relationship between information about an environment object and the environment object itself. Has a reciprocal relationship of isDocumentedIn. URI: http://id.loc.gov/vocabulary/preservation/relationshipSubType/doc
+emulates
+A relationship between an environment object and another where the described environment is used to emulate another. Has a reciprocal relationship of isEmulatedBy. URI: http://id.loc.gov/vocabulary/preservation/relationshipSubType/emu
+encrypted from
+A relationship between an object and another object from which it was derived that is encoded in a way that it is in an unrecognizable (encrypted) form. Has a reciprocal relationship of encryptedTo. URI: http://id.loc.gov/vocabulary/preservation/relationshipSubType/enf
+encrypted to
+A relationship between an object and another object in an encrypted form. Has a reciprocal relationship of encryptedFrom. URI: http://id.loc.gov/vocabulary/preservation/relationshipSubType/ent
+generalizes
+A relationship between an environment object and another where the described object is a more general description than the more specific related environment. Has a reciprocal relationship of specializes. URI: http://id.loc.gov/vocabulary/preservation/relationshipSubType/gen
+has Part
+The object contains the related object when these are the same object category. Has a reciprocal relationship of isPartOf. URI: http://id.loc.gov/vocabulary/preservation/relationshipSubType/hsp
+has Root
+For a representation only, the related object is the file that must be processed first in order to render the representation. URI: http://id.loc.gov/vocabulary/preservation/relationshipSubType/hsr
+has Sibling
+The object shares a common parent with the related object. URI: http://id.loc.gov/vocabulary/preservation/relationshipSubType/hsi
+has Source
+A relationship in which the object is derived from the related object as a result of a transformation. Has a reciprocal relationship of isSourceOf. URI: http://id.loc.gov/vocabulary/preservation/relationshipSubType/hss
+includes
+A relationship in which the described object includes the referenced object, when objects have different object categories. Has a reciprocal relationship of isIncludedIn. URI: http://id.loc.gov/vocabulary/preservation/relationshipSubType/inc
+is Compatible With
+A relationship between an environment object and another where the described object is compatible with another environment. URI: http://id.loc.gov/vocabulary/preservation/relationshipSubType/icw
+is Deployed On
+A relationship between an environment object that runs on another environment object. Has a reciprocal relationship of deploys. URI: http://id.loc.gov/vocabulary/preservation/relationshipSubType/idp
+is Documented In
+A relationship between an environment object and the information that documents it. Has a reciprocal relationship of documents. URI: http://id.loc.gov/vocabulary/preservation/relationshipSubType/idc
+is Emulated By
+A relationship between an environment object and another where the described environment is emulated by another. Has a reciprocal relationship of emulates. URI: http://id.loc.gov/vocabulary/preservation/relationshipSubType/iem
+is Included In
+A relationship in which the described object is included in the referenced object, when the objects have different object categories. Has a reciprocal relationship of includes. URI: http://id.loc.gov/vocabulary/preservation/relationshipSubType/isi
+is Part Of
+A relationship in which the object is contained in the related object when these are the same object category. Has a reciprocal relationship of hasPart. URI: http://id.loc.gov/vocabulary/preservation/relationshipSubType/isp
+is Represented By
+A relationship in which an abstract intellectual entity is represented as a file or representation or a software agent is represented by an environment object. Has a reciprocal relationship of represents. URI: http://id.loc.gov/vocabulary/preservation/relationshipSubType/isr
+is Required By
+The relationship of an environment object to a file or representation, where the environment is required by the other objects to render or run. Has a reciprocal relationship of requires. URI: http://id.loc.gov/vocabulary/preservation/relationshipSubType/irq
+is Source Of
+The related object is a version of the source object created by a transformation. Has a reciprocal relationship of hasSource. URI: http://id.loc.gov/vocabulary/preservation/relationshipSubType/iso
+is Superseded By
+A relationship between an environment object and another where the described object has been replaced by another. Has a reciprocal relationship of supersedes. URI: http://id.loc.gov/vocabulary/preservation/relationshipSubType/iss
+represents
+A relationship in which a file or representation is captured in an abstract intellectual entity description that it represents. Has a reciprocal relationship of isRepresentedBy. URI: http://id.loc.gov/vocabulary/preservation/relationshipSubType/rep
+requires
+The relationship of an object to another object, where it requires a particular environment or non-environment object to be rendered or to be run. Has a reciprocal relationship of isRequiredBy. URI: http://id.loc.gov/vocabulary/preservation/relationshipSubType/req
+specializes
+A relationship between an environment object and another where the described object provides specific characteristics, while the related environment is more generic. Has a reciprocal relationship of generalizes. URI: http://id.loc.gov/vocabulary/preservation/relationshipSubType/spe
+supersedes
+A relationship between an environment object and another where the described object replaces another. Has a reciprocal relationship of isSupersededBy. URI: http://id.loc.gov/vocabulary/preservation/relationshipSubType/sup
+
+
+vocPREMISAgentType
+Source: https://id.loc.gov/vocabulary/preservation/agentType.html Used in: agent/agentType
+Value
+Description
+hardware
+The part of a computer that is fixed and cannot be altered without replacement or physical modification, e.g. motherboard, expansion cards. Not used in the ODRNS application. URI: http://id.loc.gov/vocabulary/preservation/agentType/har
+organization
+A social group which distributes tasks for a collective goal. Used in the ODRNS application for the ODRNS section. URI: http://id.loc.gov/vocabulary/preservation/agentType/org
+person
+An individual human being. Used in the ODRNS application for ODRNS staff performing quality control. URI: http://id.loc.gov/vocabulary/preservation/agentType/per
+software
+The collection of computer programs and related data that provide the instructions telling a computer what to do. Used in the ODRNS application for DROID, veraPDF, Aspose.PDF, GENERICMalwareScan, and Microsoft Word. URI: http://id.loc.gov/vocabulary/preservation/agentType/sof
+
+vocPREMISEventType
+Source: https://id.loc.gov/vocabulary/preservation/eventType.html
+Value
+Definition
+creation
+The process of creating a new object. URI: http://id.loc.gov/vocabulary/preservation/eventType/cre
+deletion
+The process of permanently and wilfully removing an object in a repository. URI: http://id.loc.gov/vocabulary/preservation/eventType/del
+filename change
+The process of modifying a filename. URI: http://id.loc.gov/vocabulary/preservation/eventType/fil
+fixity check
+The process of verifying that an object has not been changed in a given period. URI: http://id.loc.gov/vocabulary/preservation/eventType/fix
+format identification
+The process of determining the object’s file format and version. URI: http://id.loc.gov/vocabulary/preservation/eventType/for
+ingestion
+The process of adding objects to a preservation repository. More detail can be gained by utilising “Ingestion Start” and “Ingestion End” rather than this one event. URI: http://id.loc.gov/vocabulary/preservation/eventType/ing
+message digest calculation
+The process by which a message digest (“hash”) is created. URI: http://id.loc.gov/vocabulary/preservation/eventType/mes
+migration
+The act of transforming an object from one file format(s) into another file format(s). URI: http://id.loc.gov/vocabulary/preservation/eventType/mig
+validation
+The process of comparing an object with a standard and noting compliance or exceptions. URI: http://id.loc.gov/vocabulary/preservation/eventType/val
+virus check
+The process of scanning a file for malicious programs. URI: http://id.loc.gov/vocabulary/preservation/eventType/vir
+
+vocPREMISEventOutcome
+Source: https://id.loc.gov/vocabulary/preservation/eventOutcome.html
+Value
+Definition
+fail
+The event did not succeed in producing the intended result. URI: http://id.loc.gov/vocabulary/preservation/eventOutcome/fai
+success
+The event succeeded in having its intended result. URI: http://id.loc.gov/vocabulary/preservation/eventOutcome/suc
+warning
+A warning was generated by the event, indicating that it needs to be evaluated. Also includes partial success, e.g. a Schematron validation message like “you should probably include this information if you can”. URI: http://id.loc.gov/vocabulary/preservation/eventOutcome/war
+
+
+
+ODRNS Vocabularies
+The following identifier prefixes are defined for use within the ODRNS implementation when recording agent identification codes in the metsHdr/agent/note element.
+
+Value
+Description
+ISNI:
+International Standard Name Identifier. Used for the WTO as record creator. Example: "ISNI:0000000514498628".
+ORG:
+ODRNS organisational code. Used for the submitting section and preservation agent. Example: "ORG:1963".
+UUID:
+Universally Unique Identifier [RFC9562]. Used for individual staff members in the Agent Registry. Example: "UUID:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx".
+
+File Naming Conventions
+This subsection consolidates all file and folder naming conventions used in the ODRNS application. These conventions ensure that files can be identified, attributed to their intellectual entity, and located within the SIP or AIP, even if separated from their original context. 
+
+The JOB_ID — described in section 5.2.1 — is the common identifier used in most filenames within the SIP.
+
+Package-level folders
+
+Element
+Naming convention
+Example
+SIP root folder
+SIP_{YearOfSubmission}_{6-digit_sequential_number}_dol_{JOB_ID}
+SIP_2026_000001_dol_2025_3033
+AIP root folder
+AIP_OffDocs_{EYYYY}_{nnnnn} (full convention to be documented in the future AIP specification)
+AIP_OffDocs_2026_00001
+
+
+Content files (rep_1 and rep_2)
+Main document files in rep_1 (source) and rep_2 (PDF/A derivatives) follow either of two patterns depending on whether the document is single-part or multi-part:
+Element
+Naming convention
+Example
+Main document file (single-part)
+{JOB_ID}_{lang}.{ext}
+2025_3033_en.docx
+Main document file (multi-part)
+{JOB_ID}_{PART_NUMBER}_{lang}.{ext}
+2025_3033_01_en.docx
+Trilingual file (single-part)
+{JOB_ID}_mul.{ext}
+2025_3033_mul.pdf
+Trilingual file (multi-part)
+{JOB_ID}_{PART_NUMBER}_mul.{ext}
+2025_3033_01_mul.pdf
+
+Where:
+JOB_ID — defined in §5.2.1.
+PART_NUMBER — two-digit zero-padded sequential number identifying the part (01, …). Omitted for single-part documents.
+lang — two-letter language code (see Language code mapping below).
+ext — file extension (e.g. docx, pdf).
+
+Attachment files preserve their original filenames as supplied by the source system. They are typically of the form:
+Element
+Naming convention
+Example
+Attachment
+{year}_{document_no}_{suffix}_{lang}.{ext} (preserved from source)
+25_01731_00_e.pdf
+
+The convention is not redefined by ODRNS — the filenames are kept as-is from the originating system. Attachment language coverage is variable (English, French, Spanish, or another language tagged _x).
+
+Metadata files
+Element
+Naming convention
+Example / Location
+METS document
+METS_{JOB_ID}.xml
+METS_2025_3033.xml / SIP root
+DOME XML
+{JOB_ID}_dome.xml
+2025_3033_dome.xml / metadata/descriptive/
+PREMIS XML
+{JOB_ID}_premis.xml
+2025_3033_premis.xml / metadata/preservation/
+
+Throughout this specification, generic references to METS.xml in the body text refer to the METS document of the package. The actual filename on disk follows the convention METS_{JOB_ID}.xml.
+
+Documentation files
+Element
+Naming convention
+Example
+veraPDF validation report
+{filename}_pdfa_val_verapdf.xml (where {filename} is the base name of the validated PDF/A file, without extension)
+2025_3033_en_pdfa_val_verapdf.xml; 25_01731_00_e_pdfa_val_verapdf.xml
+DROID report
+{JOB_ID}_droid_report.csv
+2025_3033_droid_report.csv
+ODRNS additional package info
+additionalPackageInfo.xml (fixed name)
+additionalPackageInfo.xml / documentation/
+
+veraPDF reports are placed in the documentation/ folder and named after the file they validate (one report per PDF/A file). The DROID report is generated once per SIP and placed in the documentation/ folder. The ODRNSadditionalPackageInfo file, when used, is placed in the documentation/ folder with the fixed name (see §7.13 File Format References for the normative requirement to use DROID or an equivalent PRONOM-compatible identification tool).
+
+
+Language code mapping
+Main document files (rep_1 and rep_2) use two-letter language codes. Attachments retain their original source-system filenames, which use one-letter language codes.
+Language
+Two-letter code (main files)
+One-letter code (attachments)
+English
+en
+e
+French
+fr
+f
+Spanish
+es
+s
+Multilingual (main files only)
+mul
+—
+Other (attachments only)
+—
+x
+
+Note: The naming conventions listed above represent those currently established in the ODRNS application. As the digital preservation programme evolves, additional file types and naming conventions may be introduced. Any new conventions SHALL be documented in this subsection.
+
+File Format References
+The PRONOM file format registry [PRONOM] is used to identify file formats in the file format identification attributes (@MIMETYPE, @sip:FILEFORMATNAME, @sip:FILEFORMATVERSION, @sip:FILEFORMATREGISTRY, @sip:FILEFORMATKEY) of <file> elements describing source and derivative files. The table below lists the expected formats and their PRONOM identifiers used in the ODRNS application.
+
+File extension
+PRONOM Format Name
+Version
+PRONOM PUID
+MIME Type
+.doc
+Microsoft Word Document
+97-2003
+fmt/40
+application/msword
+.docx
+Microsoft Word for Windows
+2007 onwards
+fmt/412
+application/vnd.openxmlformats-officedocument.wordprocessingml.document
+.xls
+Microsoft Excel 97 Workbook (xls)
+97 onwards
+fmt/61
+application/vnd.ms-excel
+.xlsx
+Microsoft Excel for Windows
+2007 onwards
+fmt/214
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+.mdb
+Microsoft Access Database
+1.0
+fmt/1805
+application/vnd.ms-access
+.mdb
+Microsoft Access Database
+2.0
+x-fmt/66
+application/vnd.ms-access
+.mdb
+Microsoft Access Database
+95
+x-fmt/238
+application/vnd.ms-access
+.mdb
+Microsoft Access Database
+97
+x-fmt/239
+application/vnd.ms-access
+.mdb
+Microsoft Access Database
+2000
+x-fmt/240
+application/vnd.ms-access
+.mdb
+Microsoft Access Database
+2002
+x-fmt/241
+application/vnd.ms-access
+.wpf
+WordPerfect
+4.0/4.1/4.2
+fmt/949
+application/vnd.wordperfect
+.pdf
+Acrobat PDF/A - Portable Document Format
+PDF/A-1a
+fmt/95
+application/pdf
+.pdf
+Acrobat PDF/A - Portable Document Format
+PDF/A-1b
+fmt/354
+application/pdf
+.pdf
+Acrobat PDF/A - Portable Document Format
+PDF/A-2a
+fmt/476
+application/pdf
+.pdf
+Acrobat PDF/A - Portable Document Format
+PDF/A-2b
+fmt/477
+application/pdf
+.pdf
+Acrobat PDF/A - Portable Document Format
+PDF/A-2u
+fmt/478
+application/pdf
+.pdf
+Acrobat PDF/A - Portable Document Format
+PDF/A-3a
+fmt/479
+application/pdf
+.pdf
+Acrobat PDF/A - Portable Document Format
+PDF/A-3b
+fmt/480
+application/pdf
+.pdf
+Acrobat PDF/A - Portable Document Format
+PDF/A-3u
+fmt/481
+application/pdf
+.pdf
+Acrobat PDF/A - Portable Document Format
+PDF/A-4
+fmt/1910
+application/pdf
+.pdf
+Acrobat PDF/A - Portable Document Format
+PDF/A-4e
+fmt/1911
+application/pdf
+.pdf
+Acrobat PDF/A - Portable Document Format
+PDF/A-4f
+fmt/1912
+application/pdf
+.xml
+Extensible Markup Language
+1.0
+fmt/101
+text/xml
+.py
+Python Source Code File
+(any)
+fmt/938
+text/x-python
+
+Note: The file formats listed above are those expected to be encountered in the WTO Official Documents repository based on current knowledge. In practice, file formats present in source files (rep_1) and derivative files (rep_2) SHALL be determined using [DROID] or an equivalent PRONOM-compatible identification tool. Any additional formats identified that are not already listed here SHALL be added to this table, along with their PRONOM Format Name, version, PUID, and MIME Type.
+
+
+References
+References are divided into Normative References — specifications that MUST be followed to comply with this document — and Informative References — background reading and related standards that inform but do not govern this specification. Inline citations use bracketed labels such as [RFC2119] and [EARKCSIP]
+
+
+Normative References
+[CS_PREMIS]DILCIS Board, "E-ARK Common Specification for Preservation Metadata using PREMIS", Version 1.0.1, 17 May 2024. <https://citspremis.dilcis.eu/specification/CS_Preservation_metadata_v1_0_1.pdf>
+[EARKAIP]DILCIS Board, "Specification for Archival Information Packages (E-ARK AIP)", Version 2.2.0, 17 May 2024. <https://earkaip.dilcis.eu/>
+[EARKCSIP]DILCIS Board, "Common Specification for Information Packages (CSIP)", Version 2.2.0, 17 May 2024. <https://earkcsip.dilcis.eu/>
+[EARKSIP]DILCIS Board, "Specification for Submission Information Packages (E-ARK SIP)", Version 2.2.0, 17 May 2024. <https://earksip.dilcis.eu/>
+[IANA_MEDIA_TYPES]Internet Assigned Numbers Authority, "Media Types Registry". <https://www.iana.org/assignments/media-types/media-types.xhtml>
+[ISO_8601]International Organization for Standardization, "Data elements and interchange formats — Information interchange — Representation of dates and times", ISO 8601, 2019. <https://www.iso.org/standard/70907.html>
+[METS]Library of Congress, "Metadata Encoding and Transmission Standard (METS) Schema", Version 1.12.1, October 2019. <https://www.loc.gov/standards/mets/mets.xsd>
+[PREMIS]PREMIS Editorial Committee, "Data Dictionary for Preservation Metadata: PREMIS version 3.0", Library of Congress, June 2015 (revised November 2015). <http://www.loc.gov/standards/premis/v3/premis-3-0-final.pdf>
+[DROID]The National Archives, "DROID (Digital Record Object Identification)", file format identification software. <https://github.com/digital-preservation/droid>
+[PRONOM]The National Archives, "PRONOM: Technical Registry of File Formats". <https://www.nationalarchives.gov.uk/pronom/>
+[RFC2119]Bradner, S., "Key words for use in RFCs to Indicate Requirement Levels", BCP 14, RFC 2119, March 1997. <https://www.rfc-editor.org/rfc/rfc2119>
+[RFC9562]Davis, K., Leach, P., Salz, R., and B. Slattery, "Universally Unique IDentifiers (UUIDs)", RFC 9562, May 2024. <https://www.rfc-editor.org/rfc/rfc9562>
+
+Informative References
+[FI_METADATA]National Digital Preservation Services of Finland, "Metadata Requirements and Preparing Content for Digital Preservation", Version 1.7.6, 5 March 2024. <https://urn.fi/urn:nbn:fi-fe2020100578094>
+[NLN-SIP]National Library of Norway Digital Preservation, "SIP 1.0 (E-ARK) Specification". <https://digitalpreservation.no/docs/dps/sip/1.0/>
+[SE_SPEC]Riksarkivet [Swedish National Archives], "Tillämpning av E-ARK CSIP och E-ARK SIP förerlämnande till Riksarkivet", Version 1.0, March 2023. < Riksarkivets tillämpning av E-ARK CSIP och E-ARK SIP (för överlämnande till Riksarkivet)>

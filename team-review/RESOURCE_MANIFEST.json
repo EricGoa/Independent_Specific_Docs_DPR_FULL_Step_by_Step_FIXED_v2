@@ -1,0 +1,26 @@
+{
+  "2026_011922_premis_conformance_review.xlsx": {
+    "sha512": "eda79f9c3c35b2303b6df650cf3af6141da931528d50e27fa0b34b7096ef68f563bf6d71e92a67c5c617317f919f64aa8ea4f9f1ebc6bef328e103d2dc648ec0",
+    "size_bytes": 80709
+  },
+  "2026_011922_ocfl_inventory_review.txt": {
+    "sha512": "ba55548508c22ba05b00ef0aa685c4417e2ce0746112689478516050ad8bf0dca41c1f989ecb4cb4843b4edbf57f7a4b3fdd7fc96e01aaaef8d3b3b8c830efe4",
+    "size_bytes": 6002
+  },
+  "premis_preservation_metadata_profile.html": {
+    "sha512": "7719c1c202756910a4387d35cab194864d7e444aa0c6c5d1c44a77cc1cac20d98676b45ee58a9029a1043230f9cdba56539fc2885709269917b90a404eeeba13",
+    "size_bytes": 302564
+  },
+  "OD_E_ARK_CSIP_SIP_Specification_v02-12 (2).docx": {
+    "sha512": "7fc3e02d3d906313a70517f854148d59bc428769dd0ac75bf5f3b888b9637ea6aa3bea4d4cfbf9af9819ae18fbfac99010e89bcb7ac0df527ab06f64f1e7c2f6",
+    "size_bytes": 322788
+  },
+  "dol-metadata-v-03.xsd": {
+    "sha512": "f0c95073d0c571ff89cb965e21a5c3adaa27ab7de71850acc53a3d88395668b6fc76f8ca0167c5649c852497e60399049180f1d355c48fdfa04575fc3c604cfa",
+    "size_bytes": 15898
+  },
+  "dol-metadata-v-03 (1).xsd": {
+    "sha512": "f0c95073d0c571ff89cb965e21a5c3adaa27ab7de71850acc53a3d88395668b6fc76f8ca0167c5649c852497e60399049180f1d355c48fdfa04575fc3c604cfa",
+    "size_bytes": 15898
+  }
+}

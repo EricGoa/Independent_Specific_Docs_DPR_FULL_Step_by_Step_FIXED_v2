@@ -1,0 +1,775 @@
+{
+  "E001a": {
+    "params": ["file"],
+    "description": {
+       "en": "OCFL Object root contains unexpected file: %s"
+    }
+  },
+  "E001b": {
+    "params": ["dir"],
+    "description": {
+       "en": "OCFL Object root contains unexpected directory: %s"
+    }
+  },
+  "E001c": {
+    "params": ["entry"],
+    "description": {
+       "en": "OCFL Object root contains unexpected entry that isn't a file or directory: %s"
+    }
+  },
+  "E002": {
+    "description": {
+       "en": "NOTE - E002 is redundant to more specific errors E003, E004, E005, E006."
+    }
+  },
+  "E003a": {
+    "params": ["assumed_version"],
+    "description": {
+       "en": "OCFL Object version declaration file is missing (assuming version %s)"
+    }
+  },
+  "E003b": {
+    "params": ["files", "using_version"],
+    "description": {
+       "en": "OCFL Object includes more that one file that looks like an object declaration (got %s), using version %s"
+    }
+  },
+  "E003c": {
+    "params": ["assumed_version"],
+    "description": {
+       "en": "OCFL Object includes one or more object declaration files (starting 0=) but no valid version number could be extracted from any of them (assuming version %s)"
+    }
+  },
+  "E003d": {
+    "params": ["path"],
+    "description": {
+       "en": "OCFL Storage Root hierarchy includes directory %s with more that one file that looks like an object declaration, ignoring"
+    }
+  },
+  "E003e": {
+    "params": ["path"],
+    "description": {
+       "en": "No OCFL Object to validate at path %s. The root of an OCFL Object must be a directory containing an object declaration"
+    }
+  },
+  "E004a": {
+    "params": ["path", "version"],
+    "description": {
+       "en": "OCFL Storage Root hierarchy includes directory %s with an object declaration giving unknown version %s, ignoring"
+    }
+  },
+  "E004b": {
+    "params": ["path", "declaration"],
+    "description": {
+       "en": "OCFL Storage Root hierarchy includes directory %s with an unrecognized object declaration %s, ignoring"
+    }
+  },
+  "E006": {
+    "params": ["filename"],
+    "description": {
+      "en": "The OCFL object conformance declaration filename must be 0=ocfl_object_, followed by the OCFL specification version number, got %s instead"
+    }
+  },
+  "E007": {
+    "params": ["filename"],
+    "description": {
+       "en": "OCFL Object declaration file %s contents do not match file name without leading 0= (the 'dvalue')"
+    }
+  },
+  "E008": {
+    "params": ["where"],
+    "description": {
+       "en": "OCFL Object %s inventory versions block does not contain any versions, there must be at least version 1"
+    }
+  },
+  "E009": {
+    "params": ["where"],
+    "description": {
+       "en": "OCFL Object %s inventory versions block does not contain v1 or a zero padded equivalent"
+    }
+  },
+  "E010": {
+    "params": ["where"],
+    "description": {
+       "en": "OCFL Object %s inventory versions block includes an out-of-sequence version"
+    }
+  },
+  "E015": {
+    "params": ["where", "entry"],
+    "description": {
+       "en": "OCFL Object version directory %s includes an illegal file (%s)"
+    }
+  },
+  "E017": {
+    "params": ["where"],
+    "description": {
+       "en": "OCFL Object %s inventory contentDirectory must be a string and must not contain a forward slash (/)"
+    }
+  },
+  "E018": {
+    "params": ["where"],
+    "description": {
+       "en": "OCFL Object %s inventory contentDirectory must not be either . or .."
+    }
+  },
+  "E019": {
+    "params": ["where"],
+    "description": {
+       "en": "OCFL Object %s inventory sets contentDirectory whereas it was not set in the first version inventory"
+    }
+  },
+  "E020": {
+    "params": ["where", "version_content_directory", "root_content_directory"],
+    "description": {
+       "en": "OCFL Object %s inventory contentDirectory %s does not match root contentDirectory %s"
+    }
+  },
+  "E023a": {
+    "params": ["where", "extra_files"],
+    "description": {
+       "en": "OCFL Object includes one or more files that are not mentioned in the  %s inventory manifest (%s)"
+    }
+  },
+  "E023b": {
+    "params": ["where", "missing_filepaths"],
+    "description": {
+       "en": "OCFL Object %s manifest does not include files listed in previous version manifests (%s)"
+    }
+  },
+  "E024": {
+    "params": ["where", "path"],
+    "description": {
+       "en": "OCFL Object version %s content directory includes empty path %s"
+    }
+  },
+  "E025a": {
+    "params": ["where", "digest_algorithm"],
+    "description": {
+       "en": "OCFL Object %s inventory `digestAlgorithm` attribute not an allowed digest type (got '%s')"
+    }
+  },
+  "E025b": {
+    "params": ["where", "digest", "algorithm"],
+    "description": {
+       "en": "OCFL Object %s inventory manifest block includes a digest (%s) that doesn't have the correct form for the %s algorithm"
+    }
+  },
+  "E026a": {
+    "params": ["where", "digest"],
+    "description": {
+       "en": "OCFL Object %s inventory uses unknown digest type %s"
+    }
+  },
+  "E033": {
+    "params": ["where", "explanation"],
+    "description": {
+      "en": "OCFL Object %s inventory is not valid JSON (%s)"
+    }
+  },
+  "E036a": {
+    "params": ["where"],
+    "description": {
+       "en": "OCFL Object %s inventory missing `id` attribute"
+    }
+  },
+  "E036b": {
+    "params": ["where"],
+    "description": {
+       "en": "OCFL Object %s inventory missing `type` attribute"
+    }
+  },
+  "E036c": {
+    "params": ["where"],
+    "description": {
+       "en": "OCFL Object %s inventory missing `digestAlgorithm` attribute"
+    }
+  },
+  "E036d": {
+    "params": ["where"],
+    "description": {
+       "en": "OCFL Object %s inventory missing `head` attribute"
+    }
+  },
+  "E037a": {
+    "params": ["where"],
+    "description": {
+       "en": "OCFL Object %s inventory `id` attribute is empty or badly formed"
+    }
+  },
+  "E037b": {
+    "params": ["where", "version_id", "root_id"],
+    "description": {
+       "en": "OCFL Object %s inventory id `%s` does not match the value in the root inventory `%s`"
+    }
+  },
+  "E038a": {
+    "params": ["where", "expected", "got"],
+    "description": {
+       "en": "OCFL Object %s inventory `type` attribute has wrong value (expected %s, got %s)"
+    }
+  },
+  "E038b": {
+    "params": ["where", "got", "assumed_spec_version"],
+    "description": {
+       "en": "OCFL Object %s inventory `type` attribute does not look like a valid specification URI (got %s), will proceed as if using version %s"
+    }
+  },
+  "E038c": {
+    "params": ["where", "got", "assumed_spec_version"],
+    "description": {
+       "en": "OCFL Object %s inventory `type` attribute has an unsupported specification version number (%s), will proceed as if using version %s"
+    }
+  },
+  "E038d": {
+    "params": ["where"],
+    "description": {
+       "en": "OCFL Object %s inventory `type` attribute does not have a string value"
+    }
+  },
+  "E040": {
+    "params": ["where", "got", "expected"],
+    "description": {
+       "en": "OCFL Object %s inventory head attribute doesn't match versions (got %s, expected %s)"
+    }
+  },
+  "E041a": {
+    "params": ["where"],
+    "description": {
+       "en": "OCFL Object %s inventory missing `manifest` attribute"
+    }
+  },
+  "E041b": {
+    "params": ["where"],
+    "description": {
+       "en": "OCFL Object %s inventory missing `versions` attribute"
+    }
+  },
+  "E041c": {
+    "params": ["where"],
+    "description": {
+       "en": "OCFL Object %s inventory manifest block is not a JSON object"
+    }
+  },
+  "E042a": {
+    "params": ["where", "path"],
+    "description": {
+       "en": "OCFL Object %s inventory manifest includes invalid content path %s"
+    }
+  },
+  "E042b": {
+    "params": ["where", "path"],
+    "description": {
+       "en": "OCFL Object %s inventory manifest includes content path %s with invalid version directory"
+    }
+  },
+  "E042c": {
+    "params": ["where", "path", "content_directory"],
+    "description": {
+       "en": "OCFL Object %s inventory manifest includes invalid content path %s that doesn't match the content directory name %s"
+    }
+  },
+  "E044": {
+    "params": ["where"],
+    "description": {
+       "en": "OCFL Object %s inventory versions block is not a JSON object"
+    }
+  },
+  "E046a": {
+    "params": ["version_dir"],
+    "description": {
+       "en": "OCFL Object root inventory describes version %s but no corresponding version directory is present"
+    }
+  },
+  "E046b": {
+    "params": ["dir"],
+    "description": {
+       "en": "OCFL Object includes directory %s that looks like a version directory but isn't a valid version in the inventory"
+    }
+  },
+  "E048": {
+    "params": ["where", "version"],
+    "description": {
+       "en": "OCFL Object %s inventory %s version block does not include a created date or it is malformed"
+    }
+  },
+  "E048c": {
+    "params": ["where", "version"],
+    "description": {
+       "en": "OCFL Object %s inventory %s version block does not include a state block"
+    }
+  },
+  "E049a": {
+    "params": ["where", "version"],
+    "description": {
+       "en": "OCFL Object %s inventory %s version block created date SHOULD include a timezone designator"
+    }
+  },
+  "E049b": {
+    "params": ["where", "version"],
+    "description": {
+       "en": "OCFL Object %s inventory %s version block created date SHOULD be granular to the seconds level"
+    }
+  },
+  "E049c": {
+    "params": ["where", "version", "description"],
+    "description": {
+       "en": "OCFL Object %s inventory %s version block has bad created date, must be IS8601 (%s)"
+    }
+  },
+  "E049d": {
+    "params": ["where", "version"],
+    "description": {
+       "en": "OCFL Object %s inventory %s version block created value is not a JSON string"
+    }
+  },
+  "E050a": {
+    "params": ["where", "digests"],
+    "description": {
+       "en": "OCFL Object %s inventory state refers to one or more digests that are not in the manifest (%s)"
+    }
+  },
+  "E050c": {
+    "params": ["where", "version"],
+    "description": {
+       "en": "OCFL Object %s inventory %s version block state block is not a JSON object"
+    }
+  },
+  "E050d": {
+    "params": ["where", "version", "digest"],
+    "description": {
+       "en": "OCFL Object %s inventory %s version state block includes a bad digest (%s)"
+    }
+  },
+  "E050e": {
+    "params": ["where", "version", "digest"],
+    "description": {
+       "en": "OCFL Object %s inventory %s version block state block value for digest %s is not list"
+    }
+  },
+  "E050f": {
+    "params": ["where", "version", "digest"],
+    "description": {
+       "en": "OCFL Object %s inventory version %s state includes digest value %s that is not listed in the manifest block"
+    }
+  },
+  "E051": {
+    "description": {
+       "en": "NOTE - E051 is essentially a processing instruction and can't be tested for."
+    }
+  },
+  "E052": {
+    "params": ["where", "version", "path"],
+    "description": {
+       "en": "OCFL Object %s inventory %s version block state block includes an invalid path %s that starts or ends with /"
+    }
+  },
+  "E053": {
+    "params": ["where", "version", "path"],
+    "description": {
+       "en": "OCFL Object %s inventory %s version block state block includes an invalid path %s that includes . .. or //"
+    }
+  },
+  "E054a": {
+    "params": ["where", "version"],
+     "description": {
+       "en": "OCFL Object %s inventory %s version block has user key with value that isn't a JSON object"
+    }
+  },
+  "E054b": {
+    "params": ["where", "version"],
+     "description": {
+       "en": "OCFL Object %s inventory %s version block has user/name key with value that isn't a string"
+    }
+  },
+  "E054c": {
+    "params": ["where", "version"],
+    "description": {
+       "en": "OCFL Object %s inventory %s version block has user/address key with value that isn't a string"
+    }
+  },
+  "E056a": {
+    "params": ["where"],
+    "description": {
+       "en": "OCFL Object %s inventory includes a fixity key with value that isn't a JSON object"
+    }
+  },
+  "E056b": {
+    "params": ["where", "algorithm"],
+    "description": {
+       "en": "OCFL Object %s inventory fixity block includes a key that is not a known digest algorithm name: %s"
+    }
+  },
+  "E057a": {
+    "params": ["where", "algorithm"],
+    "description": {
+       "en": "OCFL Object %s inventory fixity block entry for digest algorithm name %s is not a JSON object"
+    }
+  },
+  "E057b": {
+    "params": ["where", "algorithm", "digest"],
+    "description": {
+       "en": "OCFL Object %s inventory fixity block entry for digest algorithm %s includes digest %s which has the wrong form"
+    }
+  },
+  "E057c": {
+    "params": ["where", "algorithm", "digest"],
+    "description": {
+       "en": "OCFL Object %s inventory fixity block entry for digest algorithm %s, digest %s is not a JSON list"
+    }
+  },
+  "E057d": {
+    "params": ["where", "algorithm", "digest", "path"],
+    "description": {
+       "en": "OCFL Object %s inventory fixity block entry for digest algorithm %s, digest %s includes a content path %s that is not in the manifest"
+    }
+  },
+  "E058a": {
+    "params": ["where", "path"],
+    "description": {
+       "en": "OCFL Object %s inventory is missing sidecar digest file at %s"
+    }
+  },
+  "E058b": {
+    "params": ["inv_digest_file"],
+    "description": {
+       "en": "Cannot extract digest type from inventory digest file name %s"
+    }
+  },
+  "E060": {
+    "params": ["inv_file", "actual", "recorded", "inv_digest_file"],
+    "description": {
+       "en": "Mismatch between actual and recorded inventory digests for %s (calculated %s but read %s from %s)"
+    }
+  },
+  "E061": {
+    "params": ["description"],
+    "description": {
+       "en": "Cannot extract digest from inventory digest file (%s)"
+    }
+  },
+  "E063": {
+    "description": {
+       "en": "OCFL Object root inventory is missing"
+    }
+  },
+  "E064": {
+    "params": ["root_inv_file", "inv_file"],
+    "description": {
+       "en": "Object root inventory and copy in last version MUST be identical but are not (%s and %s)"
+    }
+  },
+  "E066a": {
+    "params": ["prior_head", "where"],
+    "description": {
+       "en": "OCFL Object inventory for %s doesn't have a subset of version blocks of inventory for %s"
+    }
+  },
+ "E066b": {
+    "params": ["prior_head", "version" , "where", "logical_paths", "only_in"],
+    "description": {
+       "en": "OCFL Object %s inventory %s version state doesn't have same logical paths as same version in %s inventory (paths %s only in %s inventory)"
+    }
+  },
+  "E066c": {
+    "params": ["prior_head", "version", "logical_path", "prior_content", "where", "current_content"],
+    "description": {
+       "en": "OCFL Object %s inventory %s version state has logical path %s that maps to content path %s, but in %s inventory it maps to content path %s"
+    }
+  },
+  "E066d": {
+      "params": ["where", "version", "digest", "logical_files", "prior_head"],
+      "description": {
+         "en": "OCFL Object %s inventory %s version state has digest %s (mapping to logical files %s) that does not appear in the %s inventory"
+      }
+  },
+  "E066e": {
+      "params": ["prior_head", "version", "digest", "logical_files", "where"],
+      "description": {
+         "en": "OCFL Object %s inventory %s version state has digest %s (mapping to logical files %s) that does not appear in the %s inventory"
+      }
+  },
+  "E067": {
+    "params": ["entry"],
+    "description": {
+       "en": "OCFL Object extensions direct contains an unexpected non-directory entry: %s"
+    }
+  },
+  "E069a": {
+    "params": ["root"],
+    "description": {
+      "en": "OCFL Storage Root %s lacks required 0= declaration file"
+    }
+  },
+  "E069b": {
+    "params": ["root"],
+    "description": {
+      "en": "OCFL Storage Root %s has more than one 0= declaration file"
+    }
+  },
+  "E069c": {
+    "params": ["root", "namaste_file"],
+    "description": {
+      "en": "OCFL Storage Root %s has unrecognized 0= declaration file %s"
+    }
+  },
+  "E069d": {
+    "params": ["root", "declared_spec_version", "expected_spec_version"],
+    "description": {
+      "en": "OCFL Storage Root %s 0= declaration is for spec version %s, not %s as expected"
+    }
+  },
+  "E069e": {
+    "params": ["root", "namaste_file"],
+    "description": {
+      "en": "OCFL Storage Root %s required declaration file %s has invalid content"
+    }
+  },
+  "E070a": {
+    "params": ["root", "message"],
+    "description": {
+      "en": "OCFL Storage Root %s includes ocfl_layout.json with unknown layout %s"
+    }
+  },
+  "E070b": {
+    "params": ["root", "message"],
+    "description": {
+      "en": "OCFL Storage Root %s has an ocfl_layout.json file that isn't a JSON object"
+    }
+  },
+  "E070c": {
+    "params": ["root", "message"],
+    "description": {
+      "en": "OCFL Storage Root %s Storage root %s has layout file doesn't have required extension and description string entries"
+    }
+  },
+  "E071": {
+    "params": ["root", "layout_name"],
+    "description": {
+      "en": "OCFL Storage Root %s includes ocfl_layout.json with unknown layout %s"
+    }
+  },
+  "E072": {
+    "params": ["path"],
+    "description": {
+       "en": "OCFL storage root hierarchy include directory %s with at least one file but no object declaration. Such additional files are not allowed"
+    }
+  },
+  "E073": {
+    "params": ["path"],
+    "description": {
+       "en": "OCFL storage root hierarchy contains an empty directory: %s"
+    }
+  },
+  "E086": {
+    "params": ["entry"],
+    "description": {
+       "en": "OCFL Storage Root extensions direct contains an unexpected non-directory entry: %s"
+    }
+  },
+  "E087": {
+    "description": {
+       "en": "NOTE - E087 is a processing instruction and can't be tested for"
+    }
+  },
+  "E088": {
+    "description": {
+       "en": "NOTE - E088 is redundant to more specific errors E072 and E073"
+    }
+  },
+  "E090": {
+    "description": {
+       "en": "NOTE - E090 is a processing instruction and can't be tested for"
+    }
+  },
+  "E091": {
+    "params": ["where", "digest"],
+    "description": {
+       "en": "OCFL Object %s inventory manifest file list for digest %s is not a JSON array"
+    }
+  },
+  "E092a": {
+    "params": ["where", "digest_algorithm", "digest", "content_path", "content_digest"],
+    "description": {
+       "en": "OCFL Object %s inventory manifest using digest algorithm %s has digest %s for file %s which doesn't match calculated digest %s for that file"
+    }
+  },
+  "E092b": {
+    "params": ["where", "content_path"],
+    "description": {
+       "en": "OCFL Object %s inventory manifest refers to a file path that is not present in the object (%s)"
+    }
+  },
+  "E093a": {
+    "params": ["where", "digest_algorithm", "digest", "content_path", "content_digest"],
+    "description": {
+       "en": "OCFL Object %s inventory fixity block for digest algorithm %s has digest %s for file %s which doesn't match calculated digest %s for that file"
+    }
+  },
+  "E093b": {
+    "params": ["where", "digest_algorithm", "digest", "content_path"],
+    "description": {
+       "en": "OCFL Object %s inventory fixity block for digest algorithm %s has digest %s for a file %s which does not exist in the object"
+    }
+  },
+  "E094": {
+    "params": ["where", "version"],
+    "description": {
+       "en": "OCFL Object %s inventory %s version block has message key with value that isn't a string"
+    }
+  },
+  "E095a": {
+    "params": ["where", "version", "path"],
+    "description": {
+       "en": "OCFL Object %s inventory version %s state has logical path %s used more than once"
+    }
+  },
+  "E095b": {
+    "params": ["where", "version", "path"],
+    "description": {
+       "en": "OCFL Object %s inventory version %s state has logical path %s used as both a directory and a file path."
+    }
+  },
+  "E096": {
+    "params": ["where", "digest"],
+    "description": {
+       "en": "OCFL Object %s inventory manifest block includes digest %s more than once with different normalizations"
+    }
+  },
+  "E097": {
+    "params": ["where", "algorithm", "digest"],
+    "description": {
+       "en": "OCFL Object %s inventory fixity block for digest algorithm %s, includes digest %s more than once with different normalizations"
+    }
+  },
+  "E099": {
+    "params": ["where", "path"],
+    "description": {
+       "en": "OCFL Object %s inventory manifest content path %s includes invalid element ., .., or empty (//)."
+    }
+  },
+  "E100": {
+    "params": ["where", "path"],
+    "description": {
+       "en": "OCFL Object %s inventory manifest content path %s must not begin or end with /."
+    }
+  },
+  "E101a": {
+    "params": ["where", "path"],
+    "description": {
+       "en": "OCFL Object %s inventory manifest content path %s is repeated"
+    }
+  },
+  "E101b": {
+    "params": ["where", "path"],
+    "description": {
+       "en": "OCFL Object %s inventory manifest content path %s used as both a directory and a file path"
+    }
+  },
+  "E103": {
+    "params": ["where", "this_spec_version", "prev_version_dir", "prev_spec_version"],
+    "description": {
+        "en": "OCFL Object %s inventory conforms to specification version %s which is an earlier version than the %s inventory which conforms to specification version %s"
+    }
+  },
+  "E107": {
+    "params": ["where", "digests"],
+    "description": {
+        "en": "OCFL Object %s inventory manifest contains digest(s) (%s) that are not used in the object state"
+    }
+  },
+  "E111": {
+    "params": ["where"],
+    "description": {
+      "en": "OCFL Object %s inventory includes a fixity key with value that isn't a JSON object"
+    }
+  },
+
+  "W001": {
+    "params": ["where"],
+    "description": {
+       "en": "OCFL Object %s inventory version numbers SHOULD NOT be zero-padded"
+    },
+    "spec": "Implementations SHOULD use version directory names constructed without zero-padding the version number, ie. v1, v2, v3, etc."
+  },
+  "W002": {
+    "params": ["where", "entry"],
+    "description": {
+       "en": "OCFL Object version directory %s SHOULD NOT contain any directory except the designated content directory (found %s)"
+    },
+    "spec": "The version directory SHOULD NOT contain any directories other than the designated content sub-directory. Once created, the contents of a version directory are expected to be immutable"
+  },
+  "W003": {
+    "params": ["where"],
+    "description": {
+       "en": "OCFL Object version directory %s SHOULD NOT contain an empty content directory"
+    },
+    "spec": "Version directories must contain a designated content sub-directory if the version contains files to be preserved, and SHOULD NOT contain this sub-directory otherwise"
+  },
+  "W004": {
+    "params": ["where"],
+    "description": {
+       "en": "OCFL Object %s inventory SHOULD use sha512 but uses sha256 as the DigestAlgorithm"
+    },
+    "spec": "For content-addressing, OCFL Objects SHOULD use sha512"
+  },
+  "W005": {
+    "params": ["where", "id"],
+    "description": {
+       "en": "OCFL Object %s inventory id SHOULD be a URI (got %s)"
+    },
+    "spec": "The OCFL Object Inventory id SHOULD be a URI"
+  },
+  "W007a": {
+    "params": ["where", "version"],
+    "description": {
+       "en": "OCFL Object %s inventory %s version block SHOULD include a message key"
+    },
+    "spec": "In the OCFL Object Inventory, the JSON object describing an OCFL Version, SHOULD include the message and user keys"
+  },
+  "W007b": {
+    "params": ["where", "version"],
+    "description": {
+       "en": "OCFL Object %s inventory %s version block SHOULD include a user key"
+    }
+  },
+  "W008": {
+    "params": ["where", "version"],
+    "description": {
+       "en": "OCFL Object %s inventory %s version block user description SHOULD have an address"
+    },
+    "spec": "In the OCFL Object Inventory, in the version block, the value of the user key SHOULD contain an address key, address"
+  },
+  "W009": {
+    "params": ["where", "version"],
+    "description": {
+       "en": "OCFL Object %s inventory %s version block user description SHOULD be a mailto: or person identifier URI"
+    },
+    "spec": "In the OCFL Object Inventory, in the version block, the address value SHOULD be a URI: either a mailto URI [RFC6068] with the e-mail address of the user or a URL to a personal identifier, e.g., an ORCID iD."
+  },
+  "W010": {
+    "params": ["where"],
+    "description": {
+       "en": "OCFL Object %s SHOULD have an inventory file but does not"
+    },
+    "spec": "In addition to the inventory in the OCFL Object Root, every version directory SHOULD include an inventory file that is an Inventory of all content for versions up to and including that particular version"
+  },
+  "W011": {
+    "params": ["key", "version" , "prior_head", "where"],
+    "description": {
+       "en": "OCFL Object version metadata '%s' for %s in %s inventory does not match that in %s inventory"
+    },
+    "spec": "In the case that prior version directories include an inventory file, the values of the created, message and user keys in each version block in each prior inventory file SHOULD have the same values as the corresponding keys in the corresponding version block in the current inventory file"
+  },
+  "W013": {
+    "params": ["entry"],
+    "description": {
+       "en": "OCFL Object includes unregistered extension directory '%s'"
+    }
+  },
+  "W901": {
+    "params": ["entry"],
+    "description": {
+       "en": "OCFL Storage Root includes unregistered extension directory '%s'"
+    }
+  }
+}

@@ -9,7 +9,7 @@ import json
 import shutil
 import sys
 import uuid
-from workflow_common import write_record, digest, safe_relative
+from workflow_common import write_record, digest, safe_relative, registered_uuid
 from dataclasses import asdict, dataclass
 from datetime import datetime, timezone
 from pathlib import Path
@@ -37,6 +37,7 @@ class FileRecord:
     sha512_staged: str
     fixity_verified: bool
     size_bytes: int
+    prepared_at: str = ""
 
 @dataclass
 class ObjectRecord:
@@ -112,11 +113,11 @@ def stage_file(*, source, destination, role, language, original_path=None):
         destination.unlink(missing_ok=True)
         raise PocError(f"Fixity mismatch after copy: {source} -> {destination}")
     return FileRecord(
-        file_id=str(uuid.uuid4()), role=role, language=language,
+        file_id=registered_uuid(next(p for p in destination.parents if p.name == "representations").parent,"file",str(destination.resolve())+staged_hash), role=role, language=language,
         original_name=Path(original_path).name if original_path else source.name, original_path=original_path or str(source.resolve()),
         staged_name=destination.name, staged_path=str(destination.resolve()),
         sha512_source=src_hash, sha512_staged=staged_hash,
-        fixity_verified=True, size_bytes=source.stat().st_size,
+        fixity_verified=True, size_bytes=source.stat().st_size, prepared_at=utc_now(),
     )
 
 def load_existing_object_record(obj_dir, job_id):
@@ -176,7 +177,7 @@ def process_row(row, input_dir, preparation_dir):
 
     obj_dir = create_structure(preparation_dir, job_id)
     old = load_existing_object_record(obj_dir, job_id)
-    folder_uuid = old.folder_uuid if old and old.folder_uuid else str(uuid.uuid4())
+    folder_uuid = old.folder_uuid if old and old.folder_uuid else registered_uuid(obj_dir,"intellectualEntity","object")
     created_at = old.created_at if old else utc_now()
     files = list(old.files) if old else []
 

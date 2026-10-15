@@ -1,0 +1,108 @@
+INDEPENDENT SPECIFIC DOCS DPR — FULL COMMAND-BY-COMMAND PACKAGE
+================================================================
+
+This package is intentionally MANUAL:
+ONE JOB_ID -> ONE COMMAND -> inspect -> next command.
+There is no workflow controller and no automatic continuation.
+
+Copy the package contents into:
+C:\Users\Gao\Downloads\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2
+
+The package contains the Python scripts needed for the manual PoC stages.
+Keep your existing external dependencies:
+- DprPdfaConverter\ (compiled converter project)
+- DOME_POC\dol-metadata-v-03-poc.xsd
+- Aspose licence
+- veraPDF
+- DROID + bundled Java
+- SQL/ODBC access to DOL2DB
+
+EXAMPLE JOB
+===========
+JOB_ID: 2025_001251
+DMS Job ID for metadata: 1251.25
+
+Open:
+cd "C:\Users\Gao\Downloads\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2"
+
+STEP 1 — FIND/COPY/PREPARE ONE JOB
+This part should:
+First, change the criteria from document create date to lastchange date, in order to include metadata pure change too;
+Second, include the Notification attachment
+==================================
+python specific_step1.py --root "C:\Users\Gao\Downloads\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2" --job-id 2025_001251
+
+This directly queries DOL2DB, pairs PDF + authoring source by language/basename,
+copies only this job's files to input, creates a one-job CSV with the exact
+PoC1 columns job_id/language/pdf_file/source_file, and runs PoC1. Then it STOPS.
+
+STEP 2 — DROID SOURCE CHARACTERIZATION
+======================================
+python poc5_droid.py --preparation-dir "C:\Users\Gao\Downloads\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\preparation" --job-id 2025_001251 --java "C:\Users\Gao\Downloads\droid-binary-6.8.1-bin-win64-with-jre\jre\bin\java.exe" --droid-jar "C:\Users\Gao\Downloads\droid-binary-6.8.1-bin-win64-with-jre\droid-command-line-6.8.1.jar"
+
+STEP 3 — PDF/A CONVERSION
+=========================
+python poc2_aspose.py --preparation-dir "C:\Users\Gao\Downloads\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\preparation" --job-id 2025_001251 --converter-project "C:\Users\Gao\Downloads\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\DprPdfaConverter\DprPdfaConverter.csproj" --license "C:\Users\Gao\Downloads\PdfComplianceCheck\PdfComplianceCheck\PdfComplianceCheck\Aspose.PDF.NET 2.lic"
+
+STEP 4 — VERAPDF VALIDATION
+===========================
+python poc3_verapdf.py --preparation-dir "C:\Users\Gao\Downloads\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\preparation" --job-id 2025_001251 --verapdf "C:\Program Files\Verapdf\verapdf.bat"
+
+STEP 5 — AUTOMATED QA
+=====================
+python poc4_qa.py --preparation-dir "C:\Users\Gao\Downloads\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\preparation" --job-id 2025_001251
+
+STEP 6 — METADATA / DOME / PREMIS / METS
+This part should:
+First, DOME file should be compliance with the DOME-DOL Crosswalk;
+Second, PREMIS file needs to be totally done;
+Third, METS file need to be totally done.
+=========================================
+python poc6_metadata.py --preparation-dir "C:\Users\Gao\Downloads\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\preparation" --dms-job-id 1251.25 --server "Pekan.ext.wto, 14133" --database "DOL2DB" --xsd "C:\Users\Gao\Downloads\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\DOME_POC\dol-metadata-v-03-poc.xsd" --driver "ODBC Driver 17 for SQL Server"
+
+Conversion rule:
+2025_001251 -> 1251.25
+2026_010238 -> 10238.26
+
+STEP 7 — BAGIT SIP
+This part should:
+First, run-update the PREMIS and METS again;
+Second, include the bagit details sent by Torsten
+==================
+python poc7_bagit.py --preparation-dir "C:\Users\Gao\Downloads\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\preparation" --staging-dir "C:\Users\Gao\Downloads\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\staging" --job-id 2025_001251 --contact-name "Eric Gao"
+
+Existing bags are preserved. Identical reruns reuse them. For an incremental
+arrival, use a distinct staging root, e.g. staging\batch_002, consistently
+for PoC7, PoC8 and PoC9. --replace-existing cannot delete a package.
+
+STEP 8 — INDEPENDENT INGEST VERIFICATION
+This part should:
+Run-update the PREMIS and METS again
+========================================
+python poc8_ingest_worker.py --staging-dir "C:\Users\Gao\Downloads\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\staging" --job-id 2025_001251 --ingest-records-dir "C:\Users\Gao\Downloads\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\ingest-records"
+
+STEP 9 — OCFL / AIP
+This part should:
+First, run-update the PREMIS and METS again;
+Second, Include the ocfl-verification python script Torsten had
+===================
+python poc9_ocfl_ingest.py --staging-dir "C:\Users\Gao\Downloads\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\staging" --aip-root "C:\Users\Gao\Downloads\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\AIP" --job-id 2025_001251 --ingest-records-dir "C:\Users\Gao\Downloads\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\ingest-records" --workspace-dir "C:\Users\Gao\Downloads\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\ocfl-workspace" --user-name "Eric Gao"
+
+STEP 10 — REFRESH DPR MASTER
+============================
+python poc_monitor.py --preparation-dir "C:\Users\Gao\Downloads\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\preparation" --staging-dir "C:\Users\Gao\Downloads\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\staging" --ingest-records-dir "C:\Users\Gao\Downloads\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\ingest-records" --aip-root "C:\Users\Gao\Downloads\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\AIP" --excel "C:\Users\Gao\Downloads\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\DPR_Master.xlsx"
+
+IMPORTANT
+=========
+Run each command separately. A PASS does not launch the next command.
+If a document failed at a later stage yesterday, you may start from that stage
+after confirming the earlier evidence/object state is still valid.
+
+INCREMENTAL WORKFLOW
+====================
+Rerun Step1, DROID, PoC2, PoC3, PoC4 and PoC6 for the job. Completed files
+are reused after fixity checks. DROID characterizes newly received files.
+Use a new --staging-dir for each changed package, and the same explicit
+--ingest-records-dir across PoC8 and PoC9. PoC9 appends v2, v3, etc.,
+retaining previous versions and logical files. Identical ingest adds no version.
+See WORKFLOW_ANALYSIS.md for record compatibility, tests and limitations.

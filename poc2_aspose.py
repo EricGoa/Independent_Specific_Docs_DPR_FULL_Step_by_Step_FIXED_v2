@@ -21,7 +21,7 @@ import json
 import subprocess
 import sys
 import uuid
-from workflow_common import load, write_record, verify, received_pdfs, source_paths, master_for
+from workflow_common import load, write_record, verify, received_pdfs, source_paths, master_for, registered_uuid
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -189,11 +189,12 @@ def main() -> int:
                     (f.get("file_id") for f in poc1.get("files", []) if Path(f.get("staged_path", "")).resolve() == source.resolve()),
                     None,
                 ),
+                "completed_at": utc_now(),
                 "source_role": source_record["role"],
                 "language": source_record["language"],
                 "source_path": str(source.resolve()),
                 "source_sha512": source_sha512,
-                "master_file_id": str(uuid.uuid4()),
+                "master_file_id": registered_uuid(obj_dir,"file",str(master.resolve())+master_sha512),
                 "master_path": str(master.resolve()),
                 "master_sha512": master_sha512,
                 "master_size_bytes": master.stat().st_size,

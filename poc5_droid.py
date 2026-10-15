@@ -33,7 +33,7 @@ import os
 import subprocess
 import sys
 import uuid
-from workflow_common import source_paths, load, write_record, verify
+from workflow_common import source_paths, load, write_record, verify, registered_uuid
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -368,7 +368,7 @@ def main():
         ("droid_driver_log", driver),
     ]:
         evidence.append({
-            "file_id": str(uuid.uuid4()),
+            "file_id": registered_uuid(obj,"file",str(p.resolve())+sha512(p)),
             "role": role,
             "relative_path": p.relative_to(obj).as_posix(),
             "size_bytes": p.stat().st_size,

@@ -193,6 +193,10 @@ def validate_bag_structure(bag_root: Path, expected_job_id: str):
             f"BagIt-Version is {one(bagit, 'BagIt-Version')!r}, expected PoC value '0.97'"
         )
 
+    if one(info,"DPR-Object-UUID"):
+        if one(info,"Internal-Sender-Identifier") != expected_job_id: errors.append("Internal-Sender-Identifier/JOB_ID mismatch")
+        return {"errors":errors,"warnings":warnings,"bagit":bagit,"bag_info":info}
+
     ext_id = one(info, "External-Identifier")
     if ext_id != expected_job_id:
         errors.append(
@@ -237,11 +241,12 @@ def policy_checks(bag_root: Path, job_id: str):
             "transient _src working file(s) present in staged SIP: " + ", ".join(srcs)
         )
 
-    required_metadata = [
+    modern = (bag_root / "data" / f"{job_id}_mets.xml").exists()
+    required_metadata = ([f"data/metadata/descriptive/{job_id}_dome.xml", f"data/metadata/preservation/{job_id}_premis.xml", f"data/{job_id}_mets.xml"] if modern else [
         f"data/metadata/{job_id}_dome.xml",
         f"data/metadata/{job_id}_premis.xml",
         f"data/metadata/{job_id}_mets.xml",
-    ]
+    ])
     for rp in required_metadata:
         if rp not in payload_files:
             errors.append(f"required Step-6 metadata absent from payload: {rp}")
@@ -267,6 +272,8 @@ def main():
     )
     ap.add_argument("--staging-dir", required=True)
     ap.add_argument("--job-id", required=True)
+    ap.add_argument("--aip-root",type=Path)
+    ap.add_argument("--allow-legacy-package",action="store_true",help="Explicit compatibility mode; legacy identity rules")
     ap.add_argument(
         "--held-dir",
         help="Directory for failed bags. Default: sibling 'held' directory."
@@ -365,6 +372,15 @@ def main():
     errors.extend(policy_errors)
     warnings.extend(policy_warnings)
 
+    modern = one(structural["bag_info"],"DPR-Object-UUID") is not None
+    if modern:
+        try:
+            from profile_workflow import check_contract
+            check_contract(bag_root,args.job_id,args.aip_root or staging.parent/"AIP")
+        except Exception as exc:
+            errors.append(str(exc))
+    elif not args.allow_legacy_package:
+        errors.append("Legacy bag identity scheme requires --allow-legacy-package; rebuild a new profile SIP for normal ingest")
     passed = len(errors) == 0
 
     record = {
@@ -388,6 +404,8 @@ def main():
             "PoC 7 producer record was not used as authority."
         ),
         "bag_path_at_start": str(bag_root),
+        "sip_uuid": one(structural["bag_info"],"External-Identifier") if modern else None,
+        "object_uuid": one(structural["bag_info"],"DPR-Object-UUID"),
         "external_identifier": one(structural["bag_info"], "External-Identifier"),
         "internal_sender_identifier": one(
             structural["bag_info"], "Internal-Sender-Identifier"
@@ -421,6 +439,8 @@ def main():
 
     if passed:
         record["bag_path_after_verification"] = str(bag_root)
+        if modern:
+            write_record(records_dir / f"{args.job_id}_{record['sip_uuid']}_poc8_ingest_verification_record.json", record)
         write_record(record_path, record)
 
         print()

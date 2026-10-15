@@ -1,0 +1,125 @@
+{
+  "job_id": "2026_000001",
+  "created_at": "2026-10-15T10:51:21.782274Z",
+  "qa_status": "AUTO_QA_CLEAR",
+  "governing_principle": "fidelity, not enhancement",
+  "source": {
+    "file_id": "1b884a14-0806-4af4-b669-52ac6455a814",
+    "path": "C:\\Users\\Gao\\AppData\\Local\\Temp\\dpr-synthetic-_1yhwndh\\preparation\\2026_000001\\representations\\rep_2\\data\\attachments\\synthetic_notification_fr.pdf",
+    "sha512": "3dfdbd7746f15e4b97e960adec1f0edbe4b9a3dc3d933061685f564cd45443f134f5ab9d38339ecf5428ec9b05af397782ae2aec2b81cba9b250e68ec7193827"
+  },
+  "master": {
+    "file_id": "2a50f4c6-13c7-4185-af12-6eca3e9f8859",
+    "path": "C:\\Users\\Gao\\AppData\\Local\\Temp\\dpr-synthetic-_1yhwndh\\preparation\\2026_000001\\representations\\rep_2\\data\\attachments\\preservation\\1b884a14-0806-4af4-b669-52ac6455a814.pdf",
+    "sha512": "3dfdbd7746f15e4b97e960adec1f0edbe4b9a3dc3d933061685f564cd45443f134f5ab9d38339ecf5428ec9b05af397782ae2aec2b81cba9b250e68ec7193827",
+    "verapdf_validated": true,
+    "verapdf_requested_flavour": "2b"
+  },
+  "qa_report_file_id": "af98954a-b17d-4d5c-9d8a-8f39da9a2365",
+  "automated_checks": {
+    "automated_qa_clear": true,
+    "flags": [],
+    "checks": {
+      "page_count": {
+        "pass": true,
+        "source_page_count": 1,
+        "master_page_count": 1
+      },
+      "text_word_multiset": {
+        "pass": true,
+        "normalisation": "Unicode NFC + casefold + Unicode word-token multiset; order ignored",
+        "source_stats": {
+          "word_count": 0,
+          "unique_word_count": 0,
+          "character_count_after_extraction": 1
+        },
+        "master_stats": {
+          "word_count": 0,
+          "unique_word_count": 0,
+          "character_count_after_extraction": 1
+        },
+        "equal": true,
+        "removed_word_instances": 0,
+        "added_word_instances": 0,
+        "removed_sample": [],
+        "added_sample": [],
+        "sample_truncated": false
+      },
+      "descriptive_metadata": {
+        "pass": true,
+        "fields": {
+          "Title": {
+            "pass": true,
+            "source": "synthetic_notification_fr.pdf",
+            "master": "synthetic_notification_fr.pdf"
+          },
+          "Author": {
+            "pass": true,
+            "source": "",
+            "master": ""
+          },
+          "Subject": {
+            "pass": true,
+            "source": "",
+            "master": ""
+          },
+          "Keywords": {
+            "pass": true,
+            "source": "",
+            "master": ""
+          }
+        },
+        "ignored_technical_fields": [
+          "Producer",
+          "Creator technical changes",
+          "CreationDate",
+          "ModDate",
+          "PDF version"
+        ]
+      },
+      "tagged_state": {
+        "pass": true,
+        "source_has_struct_tree": false,
+        "master_has_struct_tree": false,
+        "note": "PoC checks presence/absence of StructTreeRoot only; it does not compare structure-tree semantics."
+      },
+      "navigational_structures": {
+        "pass": true,
+        "bookmarks": {
+          "equal": true,
+          "source_count": 0,
+          "master_count": 0,
+          "source": [],
+          "master": []
+        },
+        "internal_links": {
+          "equal": true,
+          "source_count": 0,
+          "master_count": 0,
+          "source": [],
+          "master": []
+        },
+        "external_links": {
+          "equal": true,
+          "source_count": 0,
+          "master_count": 0,
+          "source": [],
+          "master": []
+        }
+      }
+    }
+  },
+  "human_adjudication": {
+    "required": false,
+    "status": "NOT_REQUIRED_BY_AUTOMATED_FLAGS",
+    "reviewer": null,
+    "decision": null,
+    "reason": null
+  },
+  "relationship": {
+    "type": "isQaReportOf",
+    "report_file_id": "af98954a-b17d-4d5c-9d8a-8f39da9a2365",
+    "master_file_id": "2a50f4c6-13c7-4185-af12-6eca3e9f8859"
+  },
+  "note": "Automated QA flags differences but never auto-rejects. This PoC does not perform visual review. A flagged master must be human-adjudicated before the object can proceed."
+}

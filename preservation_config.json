@@ -1,0 +1,62 @@
+{
+  "draft": true,
+  "notice": "Provisional testing configuration. Replace operator and tool versions before production use.",
+  "operator": {
+    "uuid": "4ac9d885-1e26-443f-8c26-fd9c2246d309",
+    "name": "Synthetic Preservation Operator",
+    "email": "preservation-test@example.invalid",
+    "type": "person",
+    "note": "Synthetic test identity; not a WTO staff identity"
+  },
+  "agents": {
+    "preparation": {
+      "uuid": "6d83b86d-0f4e-4058-9022-abd917a10ead",
+      "name": "poc1_builder.py",
+      "type": "software",
+      "version": "source-set SHA-256:f244ce3690ae59cbdda50180f54e4610fc1915ee356ff12a6ddf7650faebe5ec",
+      "note": "Provisional registry; source-set fingerprint for poc1_builder.py, workflow_common.py. Not an approved production release tag."
+    },
+    "metadata": {
+      "uuid": "1ae3a1c1-df90-45d7-a7b5-7394bb36cd52",
+      "name": "poc6_metadata.py",
+      "type": "software",
+      "version": "source-set SHA-256:f51d3b2f4b04265bd38a9528e467d8c963d5bf8cfb3a1a7967a105f2a48c1a9c",
+      "note": "Provisional registry; source-set fingerprint for poc6_metadata.py, workflow_common.py, profile_workflow.py. Not an approved production release tag."
+    },
+    "validation": {
+      "uuid": "9285cba9-72d6-46aa-b8fa-bcc6a72e5675",
+      "name": "poc3_verapdf.py",
+      "type": "software",
+      "version": "source-set SHA-256:c62bfd27cadcd5b743758ba4ebd6adbf4c5dc97ad12da12df7563e1928e3c26b",
+      "note": "Provisional registry; source-set fingerprint for poc3_verapdf.py, workflow_common.py. Not an approved production release tag."
+    },
+    "qa": {
+      "uuid": "bcf562f5-11c5-4d5a-b563-f7c6ebc03265",
+      "name": "poc4_qa.py",
+      "type": "software",
+      "version": "source-set SHA-256:0d25154e9afd46af5ea517ec59a27ce7d0cca6736fd33897696a630d9626e329",
+      "note": "Provisional registry; source-set fingerprint for poc4_qa.py, workflow_common.py. Not an approved production release tag."
+    },
+    "ingest": {
+      "uuid": "c4fb7f51-422a-4057-8151-fa826a3eec5a",
+      "name": "poc9_ocfl_ingest.py",
+      "type": "software",
+      "version": "source-set SHA-256:6a682a1c27c7d7dcce72ab55eb4a6dfddb3b0f5a0bc9825c1a381ab87be65a61",
+      "note": "Provisional registry; source-set fingerprint for poc9_ocfl_ingest.py, workflow_common.py, profile_workflow.py. Not an approved production release tag."
+    },
+    "converter": {
+      "uuid": "e2434f97-0079-455e-a549-9bd739765478",
+      "name": "Aspose.PDF for .NET",
+      "type": "software",
+      "version": "25.10.0",
+      "note": "Confirmed from DprPdfaConverter.csproj; profile C++ label needs correction"
+    },
+    "droid": {
+      "uuid": "9f99e52f-e362-4f43-9883-6554b11d6e82",
+      "name": "DROID",
+      "type": "software",
+      "version": "UNCONFIGURED (set installed tool and signature versions)",
+      "note": "Draft registry; strict profile disabled until verified"
+    }
+  }
+}

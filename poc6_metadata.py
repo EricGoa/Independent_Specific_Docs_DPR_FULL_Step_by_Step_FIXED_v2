@@ -63,6 +63,7 @@ def preservation_job_id(v):
 
 QUERY = r"""
 SELECT
+    h.ID AS [CatHeaderId],
     CONCAT('20',RIGHT(CAST(h.DmsJobId AS varchar(30)),2),'_',
       RIGHT('000000'+LEFT(CAST(h.DmsJobId AS varchar(30)),
       CHARINDEX('.',CAST(h.DmsJobId AS varchar(30)))-1),6)) AS [Job ID],
@@ -185,6 +186,7 @@ def retained_files(obj,droid):
             if not p.is_file(): continue
             if "record-history" in p.relative_to(obj).parts: continue
             n=p.name.lower()
+            if n.endswith("_profile_state.json"): continue
             if working_pdf(p.relative_to(obj)): continue
             if top == "documentation" and ("_poc" in n or n.endswith("_driver.txt") or n.endswith("_droid_profile.droid") or n.endswith("_droid_characterization.json")): continue
             rp=p.relative_to(obj).as_posix()
@@ -281,6 +283,14 @@ def main():
     ap.add_argument("--database",required=True)
     ap.add_argument("--driver",default="ODBC Driver 18 for SQL Server")
     ap.add_argument("--xsd",required=True)
+    ap.add_argument("--profile",action="store_true",help="Use the team draft PREMIS/METS and DOME v0.3 profile")
+    ap.add_argument("--aip-root",type=Path)
+    ap.add_argument("--agent-registry",type=Path)
+    ap.add_argument("--java",type=Path)
+    ap.add_argument("--droid-jar",type=Path)
+    ap.add_argument("--strict-profile",action="store_true")
+    ap.add_argument("--corrections",type=Path)
+    ap.add_argument("--batch-id")
     args=ap.parse_args()
     try:
         job=preservation_job_id(args.dms_job_id)
@@ -289,6 +299,9 @@ def main():
         recs,droid=require_prior(obj,job)
         row=extract(args.server,args.database,args.driver,args.dms_job_id)
         if row.get("Job ID","").strip()!=job: raise RuntimeError("SQL/Python JOB_ID conversion mismatch")
+        if args.profile:
+            from profile_workflow import metadata as profile_metadata
+            return profile_metadata(args,obj,job,recs,droid,row)
         metadata=obj/"metadata"; docs=obj/"documentation"; metadata.mkdir(exist_ok=True); docs.mkdir(exist_ok=True)
         previous=load(docs/f"{job}_poc6_metadata_record.json")
         prior_sql=load(docs/f"{job}_dome_sql_extraction.json")

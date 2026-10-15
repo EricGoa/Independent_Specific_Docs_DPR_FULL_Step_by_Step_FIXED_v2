@@ -148,3 +148,18 @@ def safe_relative(root, relative):
 def working_pdf(relative):
     relative = Path(relative)
     return "attachments" not in relative.parts and relative.name.lower().endswith("_src.pdf")
+
+def registered_uuid(obj_dir, kind, key):
+    """Mint/check/register before returning an identifier; one writer per job."""
+    obj_dir=Path(obj_dir)
+    path=obj_dir.parent.parent/'.registries/uuid-registry.json'
+    data=load(path,{'entries':{},'keys':{}})
+    registry_key=obj_dir.name+':stage:'+kind+':'+str(key)
+    if registry_key in data['keys']: return data['keys'][registry_key]
+    value=str(uuid.uuid4())
+    if value in data['entries']: raise RuntimeError('UUID collision; hold for review')
+    from datetime import datetime, timezone
+    data['entries'][value]={'entity_type':kind,'job_id':obj_dir.name,'symbol':'','description':str(key),'minted_at':datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace('+00:00','Z'),'minted_by':'workflow stage'}
+    data['keys'][registry_key]=value
+    write_record(path,data)
+    return value

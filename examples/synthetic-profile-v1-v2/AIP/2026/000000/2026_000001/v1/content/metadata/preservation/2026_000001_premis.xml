@@ -1,0 +1,1293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<premis xmlns="http://www.loc.gov/premis/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.0" xsi:schemaLocation="http://www.loc.gov/premis/v3 ../../schemas/premis.xsd">
+  <object xsi:type="intellectualEntity">
+    <objectIdentifier>
+      <objectIdentifierType>UUID</objectIdentifierType>
+      <objectIdentifierValue>9b66703b-cb8a-4e19-a4c2-3409e8d3766b</objectIdentifierValue>
+    </objectIdentifier>
+    <objectIdentifier>
+      <objectIdentifierType>JOB_ID</objectIdentifierType>
+      <objectIdentifierValue>2026_000001</objectIdentifierValue>
+    </objectIdentifier>
+    <relationship>
+      <relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/str">structural</relationshipType>
+      <relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/inc">includes</relationshipSubType>
+      <relatedObjectIdentifier>
+        <relatedObjectIdentifierType>UUID</relatedObjectIdentifierType>
+        <relatedObjectIdentifierValue>4a57af9c-ef8a-44f3-829d-8c93d94408fe</relatedObjectIdentifierValue>
+      </relatedObjectIdentifier>
+    </relationship>
+    <relationship>
+      <relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/str">structural</relationshipType>
+      <relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/inc">includes</relationshipSubType>
+      <relatedObjectIdentifier>
+        <relatedObjectIdentifierType>UUID</relatedObjectIdentifierType>
+        <relatedObjectIdentifierValue>6de8e2a9-7f0a-45d1-807d-f61c5df3d234</relatedObjectIdentifierValue>
+      </relatedObjectIdentifier>
+    </relationship>
+  </object>
+  <object xsi:type="representation">
+    <objectIdentifier>
+      <objectIdentifierType>UUID</objectIdentifierType>
+      <objectIdentifierValue>4a57af9c-ef8a-44f3-829d-8c93d94408fe</objectIdentifierValue>
+    </objectIdentifier>
+    <objectIdentifier>
+      <objectIdentifierType>filepath</objectIdentifierType>
+      <objectIdentifierValue>representations/rep_1</objectIdentifierValue>
+    </objectIdentifier>
+    <relationship>
+      <relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/str">structural</relationshipType>
+      <relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/isi">is Included In</relationshipSubType>
+      <relatedObjectIdentifier>
+        <relatedObjectIdentifierType>UUID</relatedObjectIdentifierType>
+        <relatedObjectIdentifierValue>9b66703b-cb8a-4e19-a4c2-3409e8d3766b</relatedObjectIdentifierValue>
+      </relatedObjectIdentifier>
+    </relationship>
+    <relationship>
+      <relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/str">structural</relationshipType>
+      <relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/inc">includes</relationshipSubType>
+      <relatedObjectIdentifier>
+        <relatedObjectIdentifierType>UUID</relatedObjectIdentifierType>
+        <relatedObjectIdentifierValue>3aea459d-d489-48a5-90ed-12dc1ac64bf1</relatedObjectIdentifierValue>
+      </relatedObjectIdentifier>
+    </relationship>
+  </object>
+  <object xsi:type="representation">
+    <objectIdentifier>
+      <objectIdentifierType>UUID</objectIdentifierType>
+      <objectIdentifierValue>6de8e2a9-7f0a-45d1-807d-f61c5df3d234</objectIdentifierValue>
+    </objectIdentifier>
+    <objectIdentifier>
+      <objectIdentifierType>filepath</objectIdentifierType>
+      <objectIdentifierValue>representations/rep_2</objectIdentifierValue>
+    </objectIdentifier>
+    <relationship>
+      <relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/str">structural</relationshipType>
+      <relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/isi">is Included In</relationshipSubType>
+      <relatedObjectIdentifier>
+        <relatedObjectIdentifierType>UUID</relatedObjectIdentifierType>
+        <relatedObjectIdentifierValue>9b66703b-cb8a-4e19-a4c2-3409e8d3766b</relatedObjectIdentifierValue>
+      </relatedObjectIdentifier>
+    </relationship>
+    <relationship>
+      <relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/str">structural</relationshipType>
+      <relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/inc">includes</relationshipSubType>
+      <relatedObjectIdentifier>
+        <relatedObjectIdentifierType>UUID</relatedObjectIdentifierType>
+        <relatedObjectIdentifierValue>0767cec1-2cc3-4755-884e-772345a7c9ad</relatedObjectIdentifierValue>
+      </relatedObjectIdentifier>
+    </relationship>
+    <relationship>
+      <relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/str">structural</relationshipType>
+      <relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/inc">includes</relationshipSubType>
+      <relatedObjectIdentifier>
+        <relatedObjectIdentifierType>UUID</relatedObjectIdentifierType>
+        <relatedObjectIdentifierValue>672459a8-503d-4689-a014-d503087b9c3b</relatedObjectIdentifierValue>
+      </relatedObjectIdentifier>
+    </relationship>
+    <relationship>
+      <relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/str">structural</relationshipType>
+      <relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/inc">includes</relationshipSubType>
+      <relatedObjectIdentifier>
+        <relatedObjectIdentifierType>UUID</relatedObjectIdentifierType>
+        <relatedObjectIdentifierValue>ebab14f4-5bec-4871-8cf7-ddfa5050b9d0</relatedObjectIdentifierValue>
+      </relatedObjectIdentifier>
+    </relationship>
+  </object>
+  <object xsi:type="file">
+    <objectIdentifier>
+      <objectIdentifierType>UUID</objectIdentifierType>
+      <objectIdentifierValue>3aea459d-d489-48a5-90ed-12dc1ac64bf1</objectIdentifierValue>
+    </objectIdentifier>
+    <objectIdentifier>
+      <objectIdentifierType>filepath</objectIdentifierType>
+      <objectIdentifierValue>representations/rep_1/data/en/2026_000001_en.docx</objectIdentifierValue>
+    </objectIdentifier>
+    <objectCharacteristics>
+      <compositionLevel>0</compositionLevel>
+      <fixity>
+        <messageDigestAlgorithm authority="cryptographicHashFunctions" authorityURI="http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions" valueURI="http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions/sha512">SHA-512</messageDigestAlgorithm>
+        <messageDigest>50fa4d216a539812de36ab018cdb357aa8af791067f3eac90ca0939acbf9adba14b72c839ef23198ffb008c83e0727e77d9205739891b59ee406d2fd636ec7d7</messageDigest>
+        <messageDigestOriginator>166184de-c99c-4c24-8cb1-bbabca44c6c0</messageDigestOriginator>
+      </fixity>
+      <size>143</size>
+      <format>
+        <formatDesignation>
+          <formatName>Synthetic</formatName>
+        </formatDesignation>
+        <formatRegistry>
+          <formatRegistryName authority="local">PRONOM</formatRegistryName>
+          <formatRegistryKey>fmt/18</formatRegistryKey>
+          <formatRegistryRole authority="formatRegistryRole" authorityURI="http://id.loc.gov/vocabulary/preservation/formatRegistryRole" valueURI="http://id.loc.gov/vocabulary/preservation/formatRegistryRole/spe">specification</formatRegistryRole>
+        </formatRegistry>
+      </format>
+    </objectCharacteristics>
+    <originalName>synthetic_dol_en.docx</originalName>
+    <relationship>
+      <relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/str">structural</relationshipType>
+      <relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/isi">is Included In</relationshipSubType>
+      <relatedObjectIdentifier>
+        <relatedObjectIdentifierType>UUID</relatedObjectIdentifierType>
+        <relatedObjectIdentifierValue>4a57af9c-ef8a-44f3-829d-8c93d94408fe</relatedObjectIdentifierValue>
+      </relatedObjectIdentifier>
+    </relationship>
+  </object>
+  <object xsi:type="file">
+    <objectIdentifier>
+      <objectIdentifierType>UUID</objectIdentifierType>
+      <objectIdentifierValue>0767cec1-2cc3-4755-884e-772345a7c9ad</objectIdentifierValue>
+    </objectIdentifier>
+    <objectIdentifier>
+      <objectIdentifierType>filepath</objectIdentifierType>
+      <objectIdentifierValue>representations/rep_2/data/attachments/notice.pdf</objectIdentifierValue>
+    </objectIdentifier>
+    <objectCharacteristics>
+      <compositionLevel>0</compositionLevel>
+      <fixity>
+        <messageDigestAlgorithm authority="cryptographicHashFunctions" authorityURI="http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions" valueURI="http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions/sha512">SHA-512</messageDigestAlgorithm>
+        <messageDigest>6e1badced1d60689aedfeb83d7e330fe8c787a59df59c84efcfc311255a60c96d08bd5071ddaa1830cbcfaee49f064c0dbc6f4a6dbc5e24af470c8a1aefd0f11</messageDigest>
+        <messageDigestOriginator>166184de-c99c-4c24-8cb1-bbabca44c6c0</messageDigestOriginator>
+      </fixity>
+      <size>454</size>
+      <format>
+        <formatDesignation>
+          <formatName>Synthetic</formatName>
+        </formatDesignation>
+        <formatRegistry>
+          <formatRegistryName authority="local">PRONOM</formatRegistryName>
+          <formatRegistryKey>fmt/18</formatRegistryKey>
+          <formatRegistryRole authority="formatRegistryRole" authorityURI="http://id.loc.gov/vocabulary/preservation/formatRegistryRole" valueURI="http://id.loc.gov/vocabulary/preservation/formatRegistryRole/spe">specification</formatRegistryRole>
+        </formatRegistry>
+      </format>
+    </objectCharacteristics>
+    <relationship>
+      <relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/str">structural</relationshipType>
+      <relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/isi">is Included In</relationshipSubType>
+      <relatedObjectIdentifier>
+        <relatedObjectIdentifierType>UUID</relatedObjectIdentifierType>
+        <relatedObjectIdentifierValue>6de8e2a9-7f0a-45d1-807d-f61c5df3d234</relatedObjectIdentifierValue>
+      </relatedObjectIdentifier>
+    </relationship>
+  </object>
+  <object xsi:type="file">
+    <objectIdentifier>
+      <objectIdentifierType>UUID</objectIdentifierType>
+      <objectIdentifierValue>672459a8-503d-4689-a014-d503087b9c3b</objectIdentifierValue>
+    </objectIdentifier>
+    <objectIdentifier>
+      <objectIdentifierType>filepath</objectIdentifierType>
+      <objectIdentifierValue>representations/rep_2/data/attachments/preservation/0767cec1-2cc3-4755-884e-772345a7c9ad.pdf</objectIdentifierValue>
+    </objectIdentifier>
+    <objectCharacteristics>
+      <compositionLevel>0</compositionLevel>
+      <fixity>
+        <messageDigestAlgorithm authority="cryptographicHashFunctions" authorityURI="http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions" valueURI="http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions/sha512">SHA-512</messageDigestAlgorithm>
+        <messageDigest>6e1badced1d60689aedfeb83d7e330fe8c787a59df59c84efcfc311255a60c96d08bd5071ddaa1830cbcfaee49f064c0dbc6f4a6dbc5e24af470c8a1aefd0f11</messageDigest>
+        <messageDigestOriginator>e2434f97-0079-455e-a549-9bd739765478</messageDigestOriginator>
+      </fixity>
+      <size>454</size>
+      <format>
+        <formatDesignation>
+          <formatName>Unidentified (draft profile gap)</formatName>
+        </formatDesignation>
+      </format>
+      <creatingApplication>
+        <creatingApplicationName>Aspose.PDF for .NET</creatingApplicationName>
+        <creatingApplicationVersion>25.10.0</creatingApplicationVersion>
+        <dateCreatedByApplication>2026-10-15T10:51:16.881847Z</dateCreatedByApplication>
+      </creatingApplication>
+    </objectCharacteristics>
+    <relationship>
+      <relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/str">structural</relationshipType>
+      <relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/isi">is Included In</relationshipSubType>
+      <relatedObjectIdentifier>
+        <relatedObjectIdentifierType>UUID</relatedObjectIdentifierType>
+        <relatedObjectIdentifierValue>6de8e2a9-7f0a-45d1-807d-f61c5df3d234</relatedObjectIdentifierValue>
+      </relatedObjectIdentifier>
+    </relationship>
+    <relationship>
+      <relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/der">derivation</relationshipType>
+      <relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/hss">has Source</relationshipSubType>
+      <relatedObjectIdentifier>
+        <relatedObjectIdentifierType>UUID</relatedObjectIdentifierType>
+        <relatedObjectIdentifierValue>0767cec1-2cc3-4755-884e-772345a7c9ad</relatedObjectIdentifierValue>
+      </relatedObjectIdentifier>
+      <relatedEventIdentifier>
+        <relatedEventIdentifierType>UUID</relatedEventIdentifierType>
+        <relatedEventIdentifierValue>758822b7-39f4-409e-8579-5ac1ed051f8a</relatedEventIdentifierValue>
+      </relatedEventIdentifier>
+    </relationship>
+  </object>
+  <object xsi:type="file">
+    <objectIdentifier>
+      <objectIdentifierType>UUID</objectIdentifierType>
+      <objectIdentifierValue>ebab14f4-5bec-4871-8cf7-ddfa5050b9d0</objectIdentifierValue>
+    </objectIdentifier>
+    <objectIdentifier>
+      <objectIdentifierType>filepath</objectIdentifierType>
+      <objectIdentifierValue>representations/rep_2/data/en/2026_000001_en.pdf</objectIdentifierValue>
+    </objectIdentifier>
+    <objectCharacteristics>
+      <compositionLevel>0</compositionLevel>
+      <fixity>
+        <messageDigestAlgorithm authority="cryptographicHashFunctions" authorityURI="http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions" valueURI="http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions/sha512">SHA-512</messageDigestAlgorithm>
+        <messageDigest>2d7129ab6de623a1dd8952818ce2dabcb4a9d81c74c8d11716abe2d87b502aa4824561ce87e5a118de6a63f010f1fe295a1963b35dae9850dcd8525ff63673d1</messageDigest>
+        <messageDigestOriginator>e2434f97-0079-455e-a549-9bd739765478</messageDigestOriginator>
+      </fixity>
+      <size>470</size>
+      <format>
+        <formatDesignation>
+          <formatName>Unidentified (draft profile gap)</formatName>
+        </formatDesignation>
+      </format>
+      <creatingApplication>
+        <creatingApplicationName>Aspose.PDF for .NET</creatingApplicationName>
+        <creatingApplicationVersion>25.10.0</creatingApplicationVersion>
+        <dateCreatedByApplication>2026-10-15T10:51:16.899091Z</dateCreatedByApplication>
+      </creatingApplication>
+    </objectCharacteristics>
+    <relationship>
+      <relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/str">structural</relationshipType>
+      <relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/isi">is Included In</relationshipSubType>
+      <relatedObjectIdentifier>
+        <relatedObjectIdentifierType>UUID</relatedObjectIdentifierType>
+        <relatedObjectIdentifierValue>6de8e2a9-7f0a-45d1-807d-f61c5df3d234</relatedObjectIdentifierValue>
+      </relatedObjectIdentifier>
+    </relationship>
+    <relationship>
+      <relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/der">derivation</relationshipType>
+      <relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/hss">has Source</relationshipSubType>
+      <relatedObjectIdentifier>
+        <relatedObjectIdentifierType>UUID</relatedObjectIdentifierType>
+        <relatedObjectIdentifierValue>a20be245-1e33-4627-b254-b69ecb10c575</relatedObjectIdentifierValue>
+      </relatedObjectIdentifier>
+      <relatedEventIdentifier>
+        <relatedEventIdentifierType>UUID</relatedEventIdentifierType>
+        <relatedEventIdentifierValue>8d698431-4ae6-41bc-b633-22d7faa7167c</relatedEventIdentifierValue>
+      </relatedEventIdentifier>
+    </relationship>
+  </object>
+  <object xsi:type="file">
+    <objectIdentifier>
+      <objectIdentifierType>UUID</objectIdentifierType>
+      <objectIdentifierValue>9f474b86-88a6-4c15-84bf-c5d3ba9de396</objectIdentifierValue>
+    </objectIdentifier>
+    <objectIdentifier>
+      <objectIdentifierType>filepath</objectIdentifierType>
+      <objectIdentifierValue>documentation/0767cec1-2cc3-4755-884e-772345a7c9ad_conv_aspose.xml</objectIdentifierValue>
+    </objectIdentifier>
+    <objectCharacteristics>
+      <compositionLevel>0</compositionLevel>
+      <fixity>
+        <messageDigestAlgorithm authority="cryptographicHashFunctions" authorityURI="http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions" valueURI="http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions/sha512">SHA-512</messageDigestAlgorithm>
+        <messageDigest>78a666d7cb36e392c315b0f5826481835711667e96b53e9c0dfbb819c89f02b6db48973312c0878dfff68dc672e7115384cf584c61d8f7a26ee501b8dd5cfdb9</messageDigest>
+        <messageDigestOriginator>166184de-c99c-4c24-8cb1-bbabca44c6c0</messageDigestOriginator>
+      </fixity>
+      <size>13</size>
+      <format>
+        <formatDesignation>
+          <formatName>Unidentified (draft profile gap)</formatName>
+        </formatDesignation>
+      </format>
+    </objectCharacteristics>
+    <relationship>
+      <relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/dep">dependency</relationshipType>
+      <relationshipSubType authority="local">isConversionLogOf</relationshipSubType>
+      <relatedObjectIdentifier>
+        <relatedObjectIdentifierType>UUID</relatedObjectIdentifierType>
+        <relatedObjectIdentifierValue>672459a8-503d-4689-a014-d503087b9c3b</relatedObjectIdentifierValue>
+      </relatedObjectIdentifier>
+      <relatedEventIdentifier>
+        <relatedEventIdentifierType>UUID</relatedEventIdentifierType>
+        <relatedEventIdentifierValue>758822b7-39f4-409e-8579-5ac1ed051f8a</relatedEventIdentifierValue>
+      </relatedEventIdentifier>
+    </relationship>
+  </object>
+  <object xsi:type="file">
+    <objectIdentifier>
+      <objectIdentifierType>UUID</objectIdentifierType>
+      <objectIdentifierValue>83af0f6c-2e26-4766-bd03-74ecf01072ee</objectIdentifierValue>
+    </objectIdentifier>
+    <objectIdentifier>
+      <objectIdentifierType>filepath</objectIdentifierType>
+      <objectIdentifierValue>documentation/0767cec1-2cc3-4755-884e-772345a7c9ad_qa_pypdf.json</objectIdentifierValue>
+    </objectIdentifier>
+    <objectCharacteristics>
+      <compositionLevel>0</compositionLevel>
+      <fixity>
+        <messageDigestAlgorithm authority="cryptographicHashFunctions" authorityURI="http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions" valueURI="http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions/sha512">SHA-512</messageDigestAlgorithm>
+        <messageDigest>e222557859db285e16b724c6adf8651620d0191374f64e50fdbad5d1b60ced47b1529df31a21325d460125d02132b6c5e2f947c64b0bfe4fd6752b0c04e18aad</messageDigest>
+        <messageDigestOriginator>bcf562f5-11c5-4d5a-b563-f7c6ebc03265</messageDigestOriginator>
+      </fixity>
+      <size>4154</size>
+      <format>
+        <formatDesignation>
+          <formatName>Unidentified (draft profile gap)</formatName>
+        </formatDesignation>
+      </format>
+    </objectCharacteristics>
+    <relationship>
+      <relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/dep">dependency</relationshipType>
+      <relationshipSubType authority="local">isQaReportOf</relationshipSubType>
+      <relatedObjectIdentifier>
+        <relatedObjectIdentifierType>UUID</relatedObjectIdentifierType>
+        <relatedObjectIdentifierValue>672459a8-503d-4689-a014-d503087b9c3b</relatedObjectIdentifierValue>
+      </relatedObjectIdentifier>
+      <relatedEventIdentifier>
+        <relatedEventIdentifierType>UUID</relatedEventIdentifierType>
+        <relatedEventIdentifierValue>da1c1f67-1c49-4989-b22e-28d9fba964c9</relatedEventIdentifierValue>
+      </relatedEventIdentifier>
+    </relationship>
+  </object>
+  <object xsi:type="file">
+    <objectIdentifier>
+      <objectIdentifierType>UUID</objectIdentifierType>
+      <objectIdentifierValue>b655a64d-af1f-4fce-9f1a-0922664945c5</objectIdentifierValue>
+    </objectIdentifier>
+    <objectIdentifier>
+      <objectIdentifierType>filepath</objectIdentifierType>
+      <objectIdentifierValue>documentation/0767cec1-2cc3-4755-884e-772345a7c9ad_val_verapdf.xml</objectIdentifierValue>
+    </objectIdentifier>
+    <objectCharacteristics>
+      <compositionLevel>0</compositionLevel>
+      <fixity>
+        <messageDigestAlgorithm authority="cryptographicHashFunctions" authorityURI="http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions" valueURI="http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions/sha512">SHA-512</messageDigestAlgorithm>
+        <messageDigest>7e1e2eb50d56e52ea789e2d07a3a842be85d0c151b5fcc73e20e493ab26ed116af573842f5ceb2153fda07d49e6102427e8d6dad7baca67489f7055ce406c889</messageDigest>
+        <messageDigestOriginator>9285cba9-72d6-46aa-b8fa-bcc6a72e5675</messageDigestOriginator>
+      </fixity>
+      <size>78</size>
+      <format>
+        <formatDesignation>
+          <formatName>Unidentified (draft profile gap)</formatName>
+        </formatDesignation>
+      </format>
+    </objectCharacteristics>
+    <relationship>
+      <relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/dep">dependency</relationshipType>
+      <relationshipSubType authority="local">isValidationReportOf</relationshipSubType>
+      <relatedObjectIdentifier>
+        <relatedObjectIdentifierType>UUID</relatedObjectIdentifierType>
+        <relatedObjectIdentifierValue>672459a8-503d-4689-a014-d503087b9c3b</relatedObjectIdentifierValue>
+      </relatedObjectIdentifier>
+      <relatedEventIdentifier>
+        <relatedEventIdentifierType>UUID</relatedEventIdentifierType>
+        <relatedEventIdentifierValue>732ef1da-5d63-42ca-a142-d2c7809de5d7</relatedEventIdentifierValue>
+      </relatedEventIdentifier>
+    </relationship>
+  </object>
+  <object xsi:type="file">
+    <objectIdentifier>
+      <objectIdentifierType>UUID</objectIdentifierType>
+      <objectIdentifierValue>571f3ab0-cf8d-44a2-830e-1f1fe4f8fde5</objectIdentifierValue>
+    </objectIdentifier>
+    <objectIdentifier>
+      <objectIdentifierType>filepath</objectIdentifierType>
+      <objectIdentifierValue>documentation/2026_000001_1_droid_export.csv</objectIdentifierValue>
+    </objectIdentifier>
+    <objectCharacteristics>
+      <compositionLevel>0</compositionLevel>
+      <fixity>
+        <messageDigestAlgorithm authority="cryptographicHashFunctions" authorityURI="http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions" valueURI="http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions/sha512">SHA-512</messageDigestAlgorithm>
+        <messageDigest>8a405542e11b2adfd49f87f36e090801f70ac0824db09ac31e5d863cf7fe2116d6524c10779d4c9f9e586962f1ccd0af462aab15e0cbfe4073ca76127e6df4fd</messageDigest>
+        <messageDigestOriginator>9f99e52f-e362-4f43-9883-6554b11d6e82</messageDigestOriginator>
+      </fixity>
+      <size>589</size>
+      <format>
+        <formatDesignation>
+          <formatName>Unidentified (draft profile gap)</formatName>
+        </formatDesignation>
+      </format>
+    </objectCharacteristics>
+  </object>
+  <object xsi:type="file">
+    <objectIdentifier>
+      <objectIdentifierType>UUID</objectIdentifierType>
+      <objectIdentifierValue>b4f57d65-38bd-4c10-9aac-6f0b871ccb83</objectIdentifierValue>
+    </objectIdentifier>
+    <objectIdentifier>
+      <objectIdentifierType>filepath</objectIdentifierType>
+      <objectIdentifierValue>documentation/2026_000001_dome_sql_extraction.json</objectIdentifierValue>
+    </objectIdentifier>
+    <objectCharacteristics>
+      <compositionLevel>0</compositionLevel>
+      <fixity>
+        <messageDigestAlgorithm authority="cryptographicHashFunctions" authorityURI="http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions" valueURI="http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions/sha512">SHA-512</messageDigestAlgorithm>
+        <messageDigest>e605aa88dc3629b0ec35cf7ef970d299f0ecc79951462d2f92adeefe49a92bf3d5a291bb3b16f462fae541b6fcd90e1c245f7dfdad67726a4e55da8e0ee13ea8</messageDigest>
+        <messageDigestOriginator>166184de-c99c-4c24-8cb1-bbabca44c6c0</messageDigestOriginator>
+      </fixity>
+      <size>278</size>
+      <format>
+        <formatDesignation>
+          <formatName>Unidentified (draft profile gap)</formatName>
+        </formatDesignation>
+      </format>
+    </objectCharacteristics>
+  </object>
+  <object xsi:type="file">
+    <objectIdentifier>
+      <objectIdentifierType>UUID</objectIdentifierType>
+      <objectIdentifierValue>d13823e1-7fd8-42bd-98f1-573f99367bc3</objectIdentifierValue>
+    </objectIdentifier>
+    <objectIdentifier>
+      <objectIdentifierType>filepath</objectIdentifierType>
+      <objectIdentifierValue>documentation/2026_000001_en_conv_aspose.xml</objectIdentifierValue>
+    </objectIdentifier>
+    <objectCharacteristics>
+      <compositionLevel>0</compositionLevel>
+      <fixity>
+        <messageDigestAlgorithm authority="cryptographicHashFunctions" authorityURI="http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions" valueURI="http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions/sha512">SHA-512</messageDigestAlgorithm>
+        <messageDigest>78a666d7cb36e392c315b0f5826481835711667e96b53e9c0dfbb819c89f02b6db48973312c0878dfff68dc672e7115384cf584c61d8f7a26ee501b8dd5cfdb9</messageDigest>
+        <messageDigestOriginator>166184de-c99c-4c24-8cb1-bbabca44c6c0</messageDigestOriginator>
+      </fixity>
+      <size>13</size>
+      <format>
+        <formatDesignation>
+          <formatName>Unidentified (draft profile gap)</formatName>
+        </formatDesignation>
+      </format>
+    </objectCharacteristics>
+    <relationship>
+      <relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/dep">dependency</relationshipType>
+      <relationshipSubType authority="local">isConversionLogOf</relationshipSubType>
+      <relatedObjectIdentifier>
+        <relatedObjectIdentifierType>UUID</relatedObjectIdentifierType>
+        <relatedObjectIdentifierValue>ebab14f4-5bec-4871-8cf7-ddfa5050b9d0</relatedObjectIdentifierValue>
+      </relatedObjectIdentifier>
+      <relatedEventIdentifier>
+        <relatedEventIdentifierType>UUID</relatedEventIdentifierType>
+        <relatedEventIdentifierValue>8d698431-4ae6-41bc-b633-22d7faa7167c</relatedEventIdentifierValue>
+      </relatedEventIdentifier>
+    </relationship>
+  </object>
+  <object xsi:type="file">
+    <objectIdentifier>
+      <objectIdentifierType>UUID</objectIdentifierType>
+      <objectIdentifierValue>83748737-8c99-425f-9a18-214fb1fee204</objectIdentifierValue>
+    </objectIdentifier>
+    <objectIdentifier>
+      <objectIdentifierType>filepath</objectIdentifierType>
+      <objectIdentifierValue>documentation/2026_000001_en_qa_pypdf.json</objectIdentifierValue>
+    </objectIdentifier>
+    <objectCharacteristics>
+      <compositionLevel>0</compositionLevel>
+      <fixity>
+        <messageDigestAlgorithm authority="cryptographicHashFunctions" authorityURI="http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions" valueURI="http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions/sha512">SHA-512</messageDigestAlgorithm>
+        <messageDigest>5d99022516e2bdf76fd11a8111bf83a60cfdb75777e6516bc68179855eb37c5bf22d36d13758c9c5659f0705a85ead3ae8338b530a3b335e7e4e420a4f46a7d3</messageDigest>
+        <messageDigestOriginator>bcf562f5-11c5-4d5a-b563-f7c6ebc03265</messageDigestOriginator>
+      </fixity>
+      <size>4132</size>
+      <format>
+        <formatDesignation>
+          <formatName>Unidentified (draft profile gap)</formatName>
+        </formatDesignation>
+      </format>
+    </objectCharacteristics>
+    <relationship>
+      <relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/dep">dependency</relationshipType>
+      <relationshipSubType authority="local">isQaReportOf</relationshipSubType>
+      <relatedObjectIdentifier>
+        <relatedObjectIdentifierType>UUID</relatedObjectIdentifierType>
+        <relatedObjectIdentifierValue>ebab14f4-5bec-4871-8cf7-ddfa5050b9d0</relatedObjectIdentifierValue>
+      </relatedObjectIdentifier>
+      <relatedEventIdentifier>
+        <relatedEventIdentifierType>UUID</relatedEventIdentifierType>
+        <relatedEventIdentifierValue>2ec69921-1dfe-4782-9eee-e26c3d652a75</relatedEventIdentifierValue>
+      </relatedEventIdentifier>
+    </relationship>
+  </object>
+  <object xsi:type="file">
+    <objectIdentifier>
+      <objectIdentifierType>UUID</objectIdentifierType>
+      <objectIdentifierValue>df650f03-555a-4a88-a15f-657d903fd461</objectIdentifierValue>
+    </objectIdentifier>
+    <objectIdentifier>
+      <objectIdentifierType>filepath</objectIdentifierType>
+      <objectIdentifierValue>documentation/2026_000001_en_val_verapdf.xml</objectIdentifierValue>
+    </objectIdentifier>
+    <objectCharacteristics>
+      <compositionLevel>0</compositionLevel>
+      <fixity>
+        <messageDigestAlgorithm authority="cryptographicHashFunctions" authorityURI="http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions" valueURI="http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions/sha512">SHA-512</messageDigestAlgorithm>
+        <messageDigest>7e1e2eb50d56e52ea789e2d07a3a842be85d0c151b5fcc73e20e493ab26ed116af573842f5ceb2153fda07d49e6102427e8d6dad7baca67489f7055ce406c889</messageDigest>
+        <messageDigestOriginator>9285cba9-72d6-46aa-b8fa-bcc6a72e5675</messageDigestOriginator>
+      </fixity>
+      <size>78</size>
+      <format>
+        <formatDesignation>
+          <formatName>Unidentified (draft profile gap)</formatName>
+        </formatDesignation>
+      </format>
+    </objectCharacteristics>
+    <relationship>
+      <relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/dep">dependency</relationshipType>
+      <relationshipSubType authority="local">isValidationReportOf</relationshipSubType>
+      <relatedObjectIdentifier>
+        <relatedObjectIdentifierType>UUID</relatedObjectIdentifierType>
+        <relatedObjectIdentifierValue>ebab14f4-5bec-4871-8cf7-ddfa5050b9d0</relatedObjectIdentifierValue>
+      </relatedObjectIdentifier>
+      <relatedEventIdentifier>
+        <relatedEventIdentifierType>UUID</relatedEventIdentifierType>
+        <relatedEventIdentifierValue>73efb9e5-f572-4dc8-835d-c7b122b385f3</relatedEventIdentifierValue>
+      </relatedEventIdentifier>
+    </relationship>
+  </object>
+  <object xsi:type="file">
+    <objectIdentifier>
+      <objectIdentifierType>UUID</objectIdentifierType>
+      <objectIdentifierValue>e83a66de-8ff1-488e-adfd-907caca7ab1e</objectIdentifierValue>
+    </objectIdentifier>
+    <objectIdentifier>
+      <objectIdentifierType>filepath</objectIdentifierType>
+      <objectIdentifierValue>metadata/descriptive/2026_000001_dome.xml</objectIdentifierValue>
+    </objectIdentifier>
+    <objectCharacteristics>
+      <compositionLevel>0</compositionLevel>
+      <fixity>
+        <messageDigestAlgorithm authority="cryptographicHashFunctions" authorityURI="http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions" valueURI="http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions/sha512">SHA-512</messageDigestAlgorithm>
+        <messageDigest>2fa5929358e2186219416599cbd0b04e5eebb96f6ffe7bbfafb3e6042cb0cb84fe1b65127d2dca509c6883ca850eb7b23841d8156e2df481856ab358bbaba919</messageDigest>
+        <messageDigestOriginator>166184de-c99c-4c24-8cb1-bbabca44c6c0</messageDigestOriginator>
+      </fixity>
+      <size>652</size>
+      <format>
+        <formatDesignation>
+          <formatName>Extensible Markup Language</formatName>
+          <formatVersion>1.0</formatVersion>
+        </formatDesignation>
+        <formatRegistry>
+          <formatRegistryName authority="local">PRONOM</formatRegistryName>
+          <formatRegistryKey>fmt/101</formatRegistryKey>
+          <formatRegistryRole authority="formatRegistryRole" authorityURI="http://id.loc.gov/vocabulary/preservation/formatRegistryRole" valueURI="http://id.loc.gov/vocabulary/preservation/formatRegistryRole/spe">specification</formatRegistryRole>
+        </formatRegistry>
+      </format>
+    </objectCharacteristics>
+  </object>
+  <object xsi:type="file">
+    <objectIdentifier>
+      <objectIdentifierType>UUID</objectIdentifierType>
+      <objectIdentifierValue>a20be245-1e33-4627-b254-b69ecb10c575</objectIdentifierValue>
+    </objectIdentifier>
+    <objectCharacteristics>
+      <compositionLevel>0</compositionLevel>
+      <fixity>
+        <messageDigestAlgorithm authority="cryptographicHashFunctions" authorityURI="http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions" valueURI="http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions/sha512">SHA-512</messageDigestAlgorithm>
+        <messageDigest>2d7129ab6de623a1dd8952818ce2dabcb4a9d81c74c8d11716abe2d87b502aa4824561ce87e5a118de6a63f010f1fe295a1963b35dae9850dcd8525ff63673d1</messageDigest>
+        <messageDigestOriginator>6d83b86d-0f4e-4058-9022-abd917a10ead</messageDigestOriginator>
+      </fixity>
+      <size>470</size>
+      <format>
+        <formatDesignation>
+          <formatName>Synthetic</formatName>
+        </formatDesignation>
+        <formatRegistry>
+          <formatRegistryName authority="local">PRONOM</formatRegistryName>
+          <formatRegistryKey>fmt/18</formatRegistryKey>
+          <formatRegistryRole authority="formatRegistryRole" authorityURI="http://id.loc.gov/vocabulary/preservation/formatRegistryRole" valueURI="http://id.loc.gov/vocabulary/preservation/formatRegistryRole/spe">specification</formatRegistryRole>
+        </formatRegistry>
+      </format>
+    </objectCharacteristics>
+    <originalName>synthetic_dol_en.pdf</originalName>
+  </object>
+  <event>
+    <eventIdentifier>
+      <eventIdentifierType>UUID</eventIdentifierType>
+      <eventIdentifierValue>d51e67fc-2f1e-4796-a150-f7ae1fa9cc54</eventIdentifierValue>
+    </eventIdentifier>
+    <eventType authority="eventType" authorityURI="http://id.loc.gov/vocabulary/preservation/eventType" valueURI="http://id.loc.gov/vocabulary/preservation/eventType/ins">ingestion start</eventType>
+    <eventDateTime>2026-10-15T10:51:16Z</eventDateTime>
+    <eventDetailInformation>
+      <eventDetail>ingestion start (DPM102)</eventDetail>
+    </eventDetailInformation>
+    <eventOutcomeInformation>
+      <eventOutcome authority="eventOutcome" authorityURI="http://id.loc.gov/vocabulary/preservation/eventOutcome" valueURI="http://id.loc.gov/vocabulary/preservation/eventOutcome/suc">success</eventOutcome>
+    </eventOutcomeInformation>
+    <linkingAgentIdentifier>
+      <linkingAgentIdentifierType>UUID</linkingAgentIdentifierType>
+      <linkingAgentIdentifierValue>6d83b86d-0f4e-4058-9022-abd917a10ead</linkingAgentIdentifierValue>
+      <linkingAgentRole authority="eventRelatedAgentRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/exe">executing program</linkingAgentRole>
+    </linkingAgentIdentifier>
+    <linkingAgentIdentifier>
+      <linkingAgentIdentifierType>UUID</linkingAgentIdentifierType>
+      <linkingAgentIdentifierValue>4ac9d885-1e26-443f-8c26-fd9c2246d309</linkingAgentIdentifierValue>
+      <linkingAgentRole authority="eventRelatedAgentRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/aut">authorizer</linkingAgentRole>
+    </linkingAgentIdentifier>
+    <linkingObjectIdentifier>
+      <linkingObjectIdentifierType>UUID</linkingObjectIdentifierType>
+      <linkingObjectIdentifierValue>9b66703b-cb8a-4e19-a4c2-3409e8d3766b</linkingObjectIdentifierValue>
+    </linkingObjectIdentifier>
+  </event>
+  <event>
+    <eventIdentifier>
+      <eventIdentifierType>UUID</eventIdentifierType>
+      <eventIdentifierValue>570e309e-f026-46a5-8243-619ff9459523</eventIdentifierValue>
+    </eventIdentifier>
+    <eventType authority="eventType" authorityURI="http://id.loc.gov/vocabulary/preservation/eventType" valueURI="http://id.loc.gov/vocabulary/preservation/eventType/mes">message digest calculation</eventType>
+    <eventDateTime>2026-10-15T10:51:16Z</eventDateTime>
+    <eventDetailInformation>
+      <eventDetail>message digest calculation (DPM103)</eventDetail>
+    </eventDetailInformation>
+    <eventOutcomeInformation>
+      <eventOutcome authority="eventOutcome" authorityURI="http://id.loc.gov/vocabulary/preservation/eventOutcome" valueURI="http://id.loc.gov/vocabulary/preservation/eventOutcome/suc">success</eventOutcome>
+    </eventOutcomeInformation>
+    <linkingAgentIdentifier>
+      <linkingAgentIdentifierType>UUID</linkingAgentIdentifierType>
+      <linkingAgentIdentifierValue>6d83b86d-0f4e-4058-9022-abd917a10ead</linkingAgentIdentifierValue>
+      <linkingAgentRole authority="eventRelatedAgentRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/exe">executing program</linkingAgentRole>
+    </linkingAgentIdentifier>
+    <linkingAgentIdentifier>
+      <linkingAgentIdentifierType>UUID</linkingAgentIdentifierType>
+      <linkingAgentIdentifierValue>4ac9d885-1e26-443f-8c26-fd9c2246d309</linkingAgentIdentifierValue>
+      <linkingAgentRole authority="eventRelatedAgentRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/aut">authorizer</linkingAgentRole>
+    </linkingAgentIdentifier>
+    <linkingObjectIdentifier>
+      <linkingObjectIdentifierType>UUID</linkingObjectIdentifierType>
+      <linkingObjectIdentifierValue>3aea459d-d489-48a5-90ed-12dc1ac64bf1</linkingObjectIdentifierValue>
+    </linkingObjectIdentifier>
+  </event>
+  <event>
+    <eventIdentifier>
+      <eventIdentifierType>UUID</eventIdentifierType>
+      <eventIdentifierValue>57d921a8-4033-4fd6-ad54-012409d0b7d4</eventIdentifierValue>
+    </eventIdentifier>
+    <eventType authority="eventType" authorityURI="http://id.loc.gov/vocabulary/preservation/eventType" valueURI="http://id.loc.gov/vocabulary/preservation/eventType/fix">fixity check</eventType>
+    <eventDateTime>2026-10-15T10:51:16Z</eventDateTime>
+    <eventDetailInformation>
+      <eventDetail>fixity check (DPM104)</eventDetail>
+    </eventDetailInformation>
+    <eventOutcomeInformation>
+      <eventOutcome authority="eventOutcome" authorityURI="http://id.loc.gov/vocabulary/preservation/eventOutcome" valueURI="http://id.loc.gov/vocabulary/preservation/eventOutcome/suc">success</eventOutcome>
+    </eventOutcomeInformation>
+    <linkingAgentIdentifier>
+      <linkingAgentIdentifierType>UUID</linkingAgentIdentifierType>
+      <linkingAgentIdentifierValue>6d83b86d-0f4e-4058-9022-abd917a10ead</linkingAgentIdentifierValue>
+      <linkingAgentRole authority="eventRelatedAgentRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/exe">executing program</linkingAgentRole>
+    </linkingAgentIdentifier>
+    <linkingAgentIdentifier>
+      <linkingAgentIdentifierType>UUID</linkingAgentIdentifierType>
+      <linkingAgentIdentifierValue>4ac9d885-1e26-443f-8c26-fd9c2246d309</linkingAgentIdentifierValue>
+      <linkingAgentRole authority="eventRelatedAgentRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/aut">authorizer</linkingAgentRole>
+    </linkingAgentIdentifier>
+    <linkingObjectIdentifier>
+      <linkingObjectIdentifierType>UUID</linkingObjectIdentifierType>
+      <linkingObjectIdentifierValue>3aea459d-d489-48a5-90ed-12dc1ac64bf1</linkingObjectIdentifierValue>
+    </linkingObjectIdentifier>
+  </event>
+  <event>
+    <eventIdentifier>
+      <eventIdentifierType>UUID</eventIdentifierType>
+      <eventIdentifierValue>02516797-06a0-4264-8f7a-b5173ff15143</eventIdentifierValue>
+    </eventIdentifier>
+    <eventType authority="eventType" authorityURI="http://id.loc.gov/vocabulary/preservation/eventType" valueURI="http://id.loc.gov/vocabulary/preservation/eventType/mes">message digest calculation</eventType>
+    <eventDateTime>2026-10-15T10:51:16Z</eventDateTime>
+    <eventDetailInformation>
+      <eventDetail>message digest calculation (DPM103)</eventDetail>
+    </eventDetailInformation>
+    <eventOutcomeInformation>
+      <eventOutcome authority="eventOutcome" authorityURI="http://id.loc.gov/vocabulary/preservation/eventOutcome" valueURI="http://id.loc.gov/vocabulary/preservation/eventOutcome/suc">success</eventOutcome>
+    </eventOutcomeInformation>
+    <linkingAgentIdentifier>
+      <linkingAgentIdentifierType>UUID</linkingAgentIdentifierType>
+      <linkingAgentIdentifierValue>6d83b86d-0f4e-4058-9022-abd917a10ead</linkingAgentIdentifierValue>
+      <linkingAgentRole authority="eventRelatedAgentRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/exe">executing program</linkingAgentRole>
+    </linkingAgentIdentifier>
+    <linkingAgentIdentifier>
+      <linkingAgentIdentifierType>UUID</linkingAgentIdentifierType>
+      <linkingAgentIdentifierValue>4ac9d885-1e26-443f-8c26-fd9c2246d309</linkingAgentIdentifierValue>
+      <linkingAgentRole authority="eventRelatedAgentRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/aut">authorizer</linkingAgentRole>
+    </linkingAgentIdentifier>
+    <linkingObjectIdentifier>
+      <linkingObjectIdentifierType>UUID</linkingObjectIdentifierType>
+      <linkingObjectIdentifierValue>0767cec1-2cc3-4755-884e-772345a7c9ad</linkingObjectIdentifierValue>
+    </linkingObjectIdentifier>
+  </event>
+  <event>
+    <eventIdentifier>
+      <eventIdentifierType>UUID</eventIdentifierType>
+      <eventIdentifierValue>7f270681-6273-4e7f-8caf-540a84fd7fe1</eventIdentifierValue>
+    </eventIdentifier>
+    <eventType authority="eventType" authorityURI="http://id.loc.gov/vocabulary/preservation/eventType" valueURI="http://id.loc.gov/vocabulary/preservation/eventType/fix">fixity check</eventType>
+    <eventDateTime>2026-10-15T10:51:16Z</eventDateTime>
+    <eventDetailInformation>
+      <eventDetail>fixity check (DPM104)</eventDetail>
+    </eventDetailInformation>
+    <eventOutcomeInformation>
+      <eventOutcome authority="eventOutcome" authorityURI="http://id.loc.gov/vocabulary/preservation/eventOutcome" valueURI="http://id.loc.gov/vocabulary/preservation/eventOutcome/suc">success</eventOutcome>
+    </eventOutcomeInformation>
+    <linkingAgentIdentifier>
+      <linkingAgentIdentifierType>UUID</linkingAgentIdentifierType>
+      <linkingAgentIdentifierValue>6d83b86d-0f4e-4058-9022-abd917a10ead</linkingAgentIdentifierValue>
+      <linkingAgentRole authority="eventRelatedAgentRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/exe">executing program</linkingAgentRole>
+    </linkingAgentIdentifier>
+    <linkingAgentIdentifier>
+      <linkingAgentIdentifierType>UUID</linkingAgentIdentifierType>
+      <linkingAgentIdentifierValue>4ac9d885-1e26-443f-8c26-fd9c2246d309</linkingAgentIdentifierValue>
+      <linkingAgentRole authority="eventRelatedAgentRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/aut">authorizer</linkingAgentRole>
+    </linkingAgentIdentifier>
+    <linkingObjectIdentifier>
+      <linkingObjectIdentifierType>UUID</linkingObjectIdentifierType>
+      <linkingObjectIdentifierValue>0767cec1-2cc3-4755-884e-772345a7c9ad</linkingObjectIdentifierValue>
+    </linkingObjectIdentifier>
+  </event>
+  <event>
+    <eventIdentifier>
+      <eventIdentifierType>UUID</eventIdentifierType>
+      <eventIdentifierValue>766e8763-7e7d-4fa2-96f1-decbd04e46bf</eventIdentifierValue>
+    </eventIdentifier>
+    <eventType authority="eventType" authorityURI="http://id.loc.gov/vocabulary/preservation/eventType" valueURI="http://id.loc.gov/vocabulary/preservation/eventType/mes">message digest calculation</eventType>
+    <eventDateTime>2026-10-15T10:51:16Z</eventDateTime>
+    <eventDetailInformation>
+      <eventDetail>message digest calculation (DPM103)</eventDetail>
+    </eventDetailInformation>
+    <eventOutcomeInformation>
+      <eventOutcome authority="eventOutcome" authorityURI="http://id.loc.gov/vocabulary/preservation/eventOutcome" valueURI="http://id.loc.gov/vocabulary/preservation/eventOutcome/suc">success</eventOutcome>
+    </eventOutcomeInformation>
+    <linkingAgentIdentifier>
+      <linkingAgentIdentifierType>UUID</linkingAgentIdentifierType>
+      <linkingAgentIdentifierValue>e2434f97-0079-455e-a549-9bd739765478</linkingAgentIdentifierValue>
+      <linkingAgentRole authority="eventRelatedAgentRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/exe">executing program</linkingAgentRole>
+    </linkingAgentIdentifier>
+    <linkingAgentIdentifier>
+      <linkingAgentIdentifierType>UUID</linkingAgentIdentifierType>
+      <linkingAgentIdentifierValue>4ac9d885-1e26-443f-8c26-fd9c2246d309</linkingAgentIdentifierValue>
+      <linkingAgentRole authority="eventRelatedAgentRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/aut">authorizer</linkingAgentRole>
+    </linkingAgentIdentifier>
+    <linkingObjectIdentifier>
+      <linkingObjectIdentifierType>UUID</linkingObjectIdentifierType>
+      <linkingObjectIdentifierValue>672459a8-503d-4689-a014-d503087b9c3b</linkingObjectIdentifierValue>
+    </linkingObjectIdentifier>
+  </event>
+  <event>
+    <eventIdentifier>
+      <eventIdentifierType>UUID</eventIdentifierType>
+      <eventIdentifierValue>29864e53-99dd-427d-bbc0-d19c4e3b4faf</eventIdentifierValue>
+    </eventIdentifier>
+    <eventType authority="eventType" authorityURI="http://id.loc.gov/vocabulary/preservation/eventType" valueURI="http://id.loc.gov/vocabulary/preservation/eventType/mes">message digest calculation</eventType>
+    <eventDateTime>2026-10-15T10:51:16Z</eventDateTime>
+    <eventDetailInformation>
+      <eventDetail>message digest calculation (DPM103)</eventDetail>
+    </eventDetailInformation>
+    <eventOutcomeInformation>
+      <eventOutcome authority="eventOutcome" authorityURI="http://id.loc.gov/vocabulary/preservation/eventOutcome" valueURI="http://id.loc.gov/vocabulary/preservation/eventOutcome/suc">success</eventOutcome>
+    </eventOutcomeInformation>
+    <linkingAgentIdentifier>
+      <linkingAgentIdentifierType>UUID</linkingAgentIdentifierType>
+      <linkingAgentIdentifierValue>e2434f97-0079-455e-a549-9bd739765478</linkingAgentIdentifierValue>
+      <linkingAgentRole authority="eventRelatedAgentRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/exe">executing program</linkingAgentRole>
+    </linkingAgentIdentifier>
+    <linkingAgentIdentifier>
+      <linkingAgentIdentifierType>UUID</linkingAgentIdentifierType>
+      <linkingAgentIdentifierValue>4ac9d885-1e26-443f-8c26-fd9c2246d309</linkingAgentIdentifierValue>
+      <linkingAgentRole authority="eventRelatedAgentRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/aut">authorizer</linkingAgentRole>
+    </linkingAgentIdentifier>
+    <linkingObjectIdentifier>
+      <linkingObjectIdentifierType>UUID</linkingObjectIdentifierType>
+      <linkingObjectIdentifierValue>ebab14f4-5bec-4871-8cf7-ddfa5050b9d0</linkingObjectIdentifierValue>
+    </linkingObjectIdentifier>
+  </event>
+  <event>
+    <eventIdentifier>
+      <eventIdentifierType>UUID</eventIdentifierType>
+      <eventIdentifierValue>758822b7-39f4-409e-8579-5ac1ed051f8a</eventIdentifierValue>
+    </eventIdentifier>
+    <eventType authority="eventType" authorityURI="http://id.loc.gov/vocabulary/preservation/eventType" valueURI="http://id.loc.gov/vocabulary/preservation/eventType/nor">normalization</eventType>
+    <eventDateTime>2026-10-15T10:51:16Z</eventDateTime>
+    <eventDetailInformation>
+      <eventDetail>normalisation (DPM106)</eventDetail>
+    </eventDetailInformation>
+    <eventDetailInformation>
+      <eventDetail>target_level: PDF/A-2b</eventDetail>
+    </eventDetailInformation>
+    <eventOutcomeInformation>
+      <eventOutcome authority="eventOutcome" authorityURI="http://id.loc.gov/vocabulary/preservation/eventOutcome" valueURI="http://id.loc.gov/vocabulary/preservation/eventOutcome/suc">success</eventOutcome>
+      <eventOutcomeDetail>
+        <eventOutcomeDetailNote>SYNTHETIC_COPY</eventOutcomeDetailNote>
+      </eventOutcomeDetail>
+    </eventOutcomeInformation>
+    <linkingAgentIdentifier>
+      <linkingAgentIdentifierType>UUID</linkingAgentIdentifierType>
+      <linkingAgentIdentifierValue>e2434f97-0079-455e-a549-9bd739765478</linkingAgentIdentifierValue>
+      <linkingAgentRole authority="eventRelatedAgentRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/exe">executing program</linkingAgentRole>
+    </linkingAgentIdentifier>
+    <linkingAgentIdentifier>
+      <linkingAgentIdentifierType>UUID</linkingAgentIdentifierType>
+      <linkingAgentIdentifierValue>4ac9d885-1e26-443f-8c26-fd9c2246d309</linkingAgentIdentifierValue>
+      <linkingAgentRole authority="eventRelatedAgentRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/aut">authorizer</linkingAgentRole>
+    </linkingAgentIdentifier>
+    <linkingObjectIdentifier>
+      <linkingObjectIdentifierType>UUID</linkingObjectIdentifierType>
+      <linkingObjectIdentifierValue>0767cec1-2cc3-4755-884e-772345a7c9ad</linkingObjectIdentifierValue>
+      <linkingObjectRole authority="eventRelatedObjectRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole/sou">source</linkingObjectRole>
+    </linkingObjectIdentifier>
+    <linkingObjectIdentifier>
+      <linkingObjectIdentifierType>UUID</linkingObjectIdentifierType>
+      <linkingObjectIdentifierValue>672459a8-503d-4689-a014-d503087b9c3b</linkingObjectIdentifierValue>
+      <linkingObjectRole authority="eventRelatedObjectRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole/out">outcome</linkingObjectRole>
+    </linkingObjectIdentifier>
+    <linkingObjectIdentifier>
+      <linkingObjectIdentifierType>UUID</linkingObjectIdentifierType>
+      <linkingObjectIdentifierValue>9f474b86-88a6-4c15-84bf-c5d3ba9de396</linkingObjectIdentifierValue>
+      <linkingObjectRole authority="eventRelatedObjectRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole/out">outcome</linkingObjectRole>
+    </linkingObjectIdentifier>
+  </event>
+  <event>
+    <eventIdentifier>
+      <eventIdentifierType>UUID</eventIdentifierType>
+      <eventIdentifierValue>8d698431-4ae6-41bc-b633-22d7faa7167c</eventIdentifierValue>
+    </eventIdentifier>
+    <eventType authority="eventType" authorityURI="http://id.loc.gov/vocabulary/preservation/eventType" valueURI="http://id.loc.gov/vocabulary/preservation/eventType/nor">normalization</eventType>
+    <eventDateTime>2026-10-15T10:51:16Z</eventDateTime>
+    <eventDetailInformation>
+      <eventDetail>normalisation (DPM106)</eventDetail>
+    </eventDetailInformation>
+    <eventDetailInformation>
+      <eventDetail>target_level: PDF/A-2b</eventDetail>
+    </eventDetailInformation>
+    <eventOutcomeInformation>
+      <eventOutcome authority="eventOutcome" authorityURI="http://id.loc.gov/vocabulary/preservation/eventOutcome" valueURI="http://id.loc.gov/vocabulary/preservation/eventOutcome/suc">success</eventOutcome>
+      <eventOutcomeDetail>
+        <eventOutcomeDetailNote>SYNTHETIC_COPY</eventOutcomeDetailNote>
+      </eventOutcomeDetail>
+    </eventOutcomeInformation>
+    <linkingAgentIdentifier>
+      <linkingAgentIdentifierType>UUID</linkingAgentIdentifierType>
+      <linkingAgentIdentifierValue>e2434f97-0079-455e-a549-9bd739765478</linkingAgentIdentifierValue>
+      <linkingAgentRole authority="eventRelatedAgentRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/exe">executing program</linkingAgentRole>
+    </linkingAgentIdentifier>
+    <linkingAgentIdentifier>
+      <linkingAgentIdentifierType>UUID</linkingAgentIdentifierType>
+      <linkingAgentIdentifierValue>4ac9d885-1e26-443f-8c26-fd9c2246d309</linkingAgentIdentifierValue>
+      <linkingAgentRole authority="eventRelatedAgentRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/aut">authorizer</linkingAgentRole>
+    </linkingAgentIdentifier>
+    <linkingObjectIdentifier>
+      <linkingObjectIdentifierType>UUID</linkingObjectIdentifierType>
+      <linkingObjectIdentifierValue>a20be245-1e33-4627-b254-b69ecb10c575</linkingObjectIdentifierValue>
+      <linkingObjectRole authority="eventRelatedObjectRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole/sou">source</linkingObjectRole>
+    </linkingObjectIdentifier>
+    <linkingObjectIdentifier>
+      <linkingObjectIdentifierType>UUID</linkingObjectIdentifierType>
+      <linkingObjectIdentifierValue>ebab14f4-5bec-4871-8cf7-ddfa5050b9d0</linkingObjectIdentifierValue>
+      <linkingObjectRole authority="eventRelatedObjectRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole/out">outcome</linkingObjectRole>
+    </linkingObjectIdentifier>
+    <linkingObjectIdentifier>
+      <linkingObjectIdentifierType>UUID</linkingObjectIdentifierType>
+      <linkingObjectIdentifierValue>d13823e1-7fd8-42bd-98f1-573f99367bc3</linkingObjectIdentifierValue>
+      <linkingObjectRole authority="eventRelatedObjectRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole/out">outcome</linkingObjectRole>
+    </linkingObjectIdentifier>
+  </event>
+  <event>
+    <eventIdentifier>
+      <eventIdentifierType>UUID</eventIdentifierType>
+      <eventIdentifierValue>732ef1da-5d63-42ca-a142-d2c7809de5d7</eventIdentifierValue>
+    </eventIdentifier>
+    <eventType authority="eventType" authorityURI="http://id.loc.gov/vocabulary/preservation/eventType" valueURI="http://id.loc.gov/vocabulary/preservation/eventType/val">validation</eventType>
+    <eventDateTime>2026-10-15T10:51:16Z</eventDateTime>
+    <eventDetailInformation>
+      <eventDetail>validation (DPM107)</eventDetail>
+    </eventDetailInformation>
+    <eventDetailInformation>
+      <eventDetail>validation_profile: PDF/A-2B</eventDetail>
+    </eventDetailInformation>
+    <eventOutcomeInformation>
+      <eventOutcome authority="eventOutcome" authorityURI="http://id.loc.gov/vocabulary/preservation/eventOutcome" valueURI="http://id.loc.gov/vocabulary/preservation/eventOutcome/suc">success</eventOutcome>
+    </eventOutcomeInformation>
+    <linkingAgentIdentifier>
+      <linkingAgentIdentifierType>UUID</linkingAgentIdentifierType>
+      <linkingAgentIdentifierValue>9285cba9-72d6-46aa-b8fa-bcc6a72e5675</linkingAgentIdentifierValue>
+      <linkingAgentRole authority="eventRelatedAgentRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/exe">executing program</linkingAgentRole>
+    </linkingAgentIdentifier>
+    <linkingAgentIdentifier>
+      <linkingAgentIdentifierType>UUID</linkingAgentIdentifierType>
+      <linkingAgentIdentifierValue>4ac9d885-1e26-443f-8c26-fd9c2246d309</linkingAgentIdentifierValue>
+      <linkingAgentRole authority="eventRelatedAgentRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/aut">authorizer</linkingAgentRole>
+    </linkingAgentIdentifier>
+    <linkingObjectIdentifier>
+      <linkingObjectIdentifierType>UUID</linkingObjectIdentifierType>
+      <linkingObjectIdentifierValue>672459a8-503d-4689-a014-d503087b9c3b</linkingObjectIdentifierValue>
+      <linkingObjectRole authority="eventRelatedObjectRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole/sou">source</linkingObjectRole>
+    </linkingObjectIdentifier>
+    <linkingObjectIdentifier>
+      <linkingObjectIdentifierType>UUID</linkingObjectIdentifierType>
+      <linkingObjectIdentifierValue>b655a64d-af1f-4fce-9f1a-0922664945c5</linkingObjectIdentifierValue>
+      <linkingObjectRole authority="eventRelatedObjectRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole/out">outcome</linkingObjectRole>
+    </linkingObjectIdentifier>
+  </event>
+  <event>
+    <eventIdentifier>
+      <eventIdentifierType>UUID</eventIdentifierType>
+      <eventIdentifierValue>73efb9e5-f572-4dc8-835d-c7b122b385f3</eventIdentifierValue>
+    </eventIdentifier>
+    <eventType authority="eventType" authorityURI="http://id.loc.gov/vocabulary/preservation/eventType" valueURI="http://id.loc.gov/vocabulary/preservation/eventType/val">validation</eventType>
+    <eventDateTime>2026-10-15T10:51:16Z</eventDateTime>
+    <eventDetailInformation>
+      <eventDetail>validation (DPM107)</eventDetail>
+    </eventDetailInformation>
+    <eventDetailInformation>
+      <eventDetail>validation_profile: PDF/A-2B</eventDetail>
+    </eventDetailInformation>
+    <eventOutcomeInformation>
+      <eventOutcome authority="eventOutcome" authorityURI="http://id.loc.gov/vocabulary/preservation/eventOutcome" valueURI="http://id.loc.gov/vocabulary/preservation/eventOutcome/suc">success</eventOutcome>
+    </eventOutcomeInformation>
+    <linkingAgentIdentifier>
+      <linkingAgentIdentifierType>UUID</linkingAgentIdentifierType>
+      <linkingAgentIdentifierValue>9285cba9-72d6-46aa-b8fa-bcc6a72e5675</linkingAgentIdentifierValue>
+      <linkingAgentRole authority="eventRelatedAgentRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/exe">executing program</linkingAgentRole>
+    </linkingAgentIdentifier>
+    <linkingAgentIdentifier>
+      <linkingAgentIdentifierType>UUID</linkingAgentIdentifierType>
+      <linkingAgentIdentifierValue>4ac9d885-1e26-443f-8c26-fd9c2246d309</linkingAgentIdentifierValue>
+      <linkingAgentRole authority="eventRelatedAgentRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/aut">authorizer</linkingAgentRole>
+    </linkingAgentIdentifier>
+    <linkingObjectIdentifier>
+      <linkingObjectIdentifierType>UUID</linkingObjectIdentifierType>
+      <linkingObjectIdentifierValue>ebab14f4-5bec-4871-8cf7-ddfa5050b9d0</linkingObjectIdentifierValue>
+      <linkingObjectRole authority="eventRelatedObjectRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole/sou">source</linkingObjectRole>
+    </linkingObjectIdentifier>
+    <linkingObjectIdentifier>
+      <linkingObjectIdentifierType>UUID</linkingObjectIdentifierType>
+      <linkingObjectIdentifierValue>df650f03-555a-4a88-a15f-657d903fd461</linkingObjectIdentifierValue>
+      <linkingObjectRole authority="eventRelatedObjectRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole/out">outcome</linkingObjectRole>
+    </linkingObjectIdentifier>
+  </event>
+  <event>
+    <eventIdentifier>
+      <eventIdentifierType>UUID</eventIdentifierType>
+      <eventIdentifierValue>da1c1f67-1c49-4989-b22e-28d9fba964c9</eventIdentifierValue>
+    </eventIdentifier>
+    <eventType authority="local">qualityReview</eventType>
+    <eventDateTime>2026-10-15T10:51:16Z</eventDateTime>
+    <eventDetailInformation>
+      <eventDetail>qualityReview (DPM108)</eventDetail>
+    </eventDetailInformation>
+    <eventDetailInformation>
+      <eventDetail>sampled: false</eventDetail>
+    </eventDetailInformation>
+    <eventOutcomeInformation>
+      <eventOutcome authority="eventOutcome" authorityURI="http://id.loc.gov/vocabulary/preservation/eventOutcome" valueURI="http://id.loc.gov/vocabulary/preservation/eventOutcome/suc">success</eventOutcome>
+    </eventOutcomeInformation>
+    <linkingAgentIdentifier>
+      <linkingAgentIdentifierType>UUID</linkingAgentIdentifierType>
+      <linkingAgentIdentifierValue>bcf562f5-11c5-4d5a-b563-f7c6ebc03265</linkingAgentIdentifierValue>
+      <linkingAgentRole authority="eventRelatedAgentRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/exe">executing program</linkingAgentRole>
+    </linkingAgentIdentifier>
+    <linkingAgentIdentifier>
+      <linkingAgentIdentifierType>UUID</linkingAgentIdentifierType>
+      <linkingAgentIdentifierValue>4ac9d885-1e26-443f-8c26-fd9c2246d309</linkingAgentIdentifierValue>
+      <linkingAgentRole authority="eventRelatedAgentRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/aut">authorizer</linkingAgentRole>
+    </linkingAgentIdentifier>
+    <linkingObjectIdentifier>
+      <linkingObjectIdentifierType>UUID</linkingObjectIdentifierType>
+      <linkingObjectIdentifierValue>672459a8-503d-4689-a014-d503087b9c3b</linkingObjectIdentifierValue>
+      <linkingObjectRole authority="eventRelatedObjectRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole/sou">source</linkingObjectRole>
+    </linkingObjectIdentifier>
+    <linkingObjectIdentifier>
+      <linkingObjectIdentifierType>UUID</linkingObjectIdentifierType>
+      <linkingObjectIdentifierValue>83af0f6c-2e26-4766-bd03-74ecf01072ee</linkingObjectIdentifierValue>
+      <linkingObjectRole authority="eventRelatedObjectRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole/out">outcome</linkingObjectRole>
+    </linkingObjectIdentifier>
+  </event>
+  <event>
+    <eventIdentifier>
+      <eventIdentifierType>UUID</eventIdentifierType>
+      <eventIdentifierValue>2ec69921-1dfe-4782-9eee-e26c3d652a75</eventIdentifierValue>
+    </eventIdentifier>
+    <eventType authority="local">qualityReview</eventType>
+    <eventDateTime>2026-10-15T10:51:16Z</eventDateTime>
+    <eventDetailInformation>
+      <eventDetail>qualityReview (DPM108)</eventDetail>
+    </eventDetailInformation>
+    <eventDetailInformation>
+      <eventDetail>sampled: false</eventDetail>
+    </eventDetailInformation>
+    <eventOutcomeInformation>
+      <eventOutcome authority="eventOutcome" authorityURI="http://id.loc.gov/vocabulary/preservation/eventOutcome" valueURI="http://id.loc.gov/vocabulary/preservation/eventOutcome/suc">success</eventOutcome>
+    </eventOutcomeInformation>
+    <linkingAgentIdentifier>
+      <linkingAgentIdentifierType>UUID</linkingAgentIdentifierType>
+      <linkingAgentIdentifierValue>bcf562f5-11c5-4d5a-b563-f7c6ebc03265</linkingAgentIdentifierValue>
+      <linkingAgentRole authority="eventRelatedAgentRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/exe">executing program</linkingAgentRole>
+    </linkingAgentIdentifier>
+    <linkingAgentIdentifier>
+      <linkingAgentIdentifierType>UUID</linkingAgentIdentifierType>
+      <linkingAgentIdentifierValue>4ac9d885-1e26-443f-8c26-fd9c2246d309</linkingAgentIdentifierValue>
+      <linkingAgentRole authority="eventRelatedAgentRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/aut">authorizer</linkingAgentRole>
+    </linkingAgentIdentifier>
+    <linkingObjectIdentifier>
+      <linkingObjectIdentifierType>UUID</linkingObjectIdentifierType>
+      <linkingObjectIdentifierValue>ebab14f4-5bec-4871-8cf7-ddfa5050b9d0</linkingObjectIdentifierValue>
+      <linkingObjectRole authority="eventRelatedObjectRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole/sou">source</linkingObjectRole>
+    </linkingObjectIdentifier>
+    <linkingObjectIdentifier>
+      <linkingObjectIdentifierType>UUID</linkingObjectIdentifierType>
+      <linkingObjectIdentifierValue>83748737-8c99-425f-9a18-214fb1fee204</linkingObjectIdentifierValue>
+      <linkingObjectRole authority="eventRelatedObjectRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole/out">outcome</linkingObjectRole>
+    </linkingObjectIdentifier>
+  </event>
+  <event>
+    <eventIdentifier>
+      <eventIdentifierType>UUID</eventIdentifierType>
+      <eventIdentifierValue>2617685d-805c-4353-abe6-96ef233fb5ad</eventIdentifierValue>
+    </eventIdentifier>
+    <eventType authority="eventType" authorityURI="http://id.loc.gov/vocabulary/preservation/eventType" valueURI="http://id.loc.gov/vocabulary/preservation/eventType/fil">filename change</eventType>
+    <eventDateTime>2026-10-15T10:51:17Z</eventDateTime>
+    <eventDetailInformation>
+      <eventDetail>filename change (DPM105)</eventDetail>
+    </eventDetailInformation>
+    <eventOutcomeInformation>
+      <eventOutcome authority="eventOutcome" authorityURI="http://id.loc.gov/vocabulary/preservation/eventOutcome" valueURI="http://id.loc.gov/vocabulary/preservation/eventOutcome/suc">success</eventOutcome>
+    </eventOutcomeInformation>
+    <linkingAgentIdentifier>
+      <linkingAgentIdentifierType>UUID</linkingAgentIdentifierType>
+      <linkingAgentIdentifierValue>6d83b86d-0f4e-4058-9022-abd917a10ead</linkingAgentIdentifierValue>
+      <linkingAgentRole authority="eventRelatedAgentRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/exe">executing program</linkingAgentRole>
+    </linkingAgentIdentifier>
+    <linkingAgentIdentifier>
+      <linkingAgentIdentifierType>UUID</linkingAgentIdentifierType>
+      <linkingAgentIdentifierValue>4ac9d885-1e26-443f-8c26-fd9c2246d309</linkingAgentIdentifierValue>
+      <linkingAgentRole authority="eventRelatedAgentRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/aut">authorizer</linkingAgentRole>
+    </linkingAgentIdentifier>
+    <linkingObjectIdentifier>
+      <linkingObjectIdentifierType>UUID</linkingObjectIdentifierType>
+      <linkingObjectIdentifierValue>3aea459d-d489-48a5-90ed-12dc1ac64bf1</linkingObjectIdentifierValue>
+    </linkingObjectIdentifier>
+  </event>
+  <event>
+    <eventIdentifier>
+      <eventIdentifierType>UUID</eventIdentifierType>
+      <eventIdentifierValue>e08c5ca7-d3f3-4808-8a30-667b70259849</eventIdentifierValue>
+    </eventIdentifier>
+    <eventType authority="eventType" authorityURI="http://id.loc.gov/vocabulary/preservation/eventType" valueURI="http://id.loc.gov/vocabulary/preservation/eventType/mes">message digest calculation</eventType>
+    <eventDateTime>2026-10-15T10:51:17Z</eventDateTime>
+    <eventDetailInformation>
+      <eventDetail>message digest calculation (DPM103)</eventDetail>
+    </eventDetailInformation>
+    <eventOutcomeInformation>
+      <eventOutcome authority="eventOutcome" authorityURI="http://id.loc.gov/vocabulary/preservation/eventOutcome" valueURI="http://id.loc.gov/vocabulary/preservation/eventOutcome/suc">success</eventOutcome>
+    </eventOutcomeInformation>
+    <linkingAgentIdentifier>
+      <linkingAgentIdentifierType>UUID</linkingAgentIdentifierType>
+      <linkingAgentIdentifierValue>6d83b86d-0f4e-4058-9022-abd917a10ead</linkingAgentIdentifierValue>
+      <linkingAgentRole authority="eventRelatedAgentRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/exe">executing program</linkingAgentRole>
+    </linkingAgentIdentifier>
+    <linkingAgentIdentifier>
+      <linkingAgentIdentifierType>UUID</linkingAgentIdentifierType>
+      <linkingAgentIdentifierValue>4ac9d885-1e26-443f-8c26-fd9c2246d309</linkingAgentIdentifierValue>
+      <linkingAgentRole authority="eventRelatedAgentRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/aut">authorizer</linkingAgentRole>
+    </linkingAgentIdentifier>
+    <linkingObjectIdentifier>
+      <linkingObjectIdentifierType>UUID</linkingObjectIdentifierType>
+      <linkingObjectIdentifierValue>a20be245-1e33-4627-b254-b69ecb10c575</linkingObjectIdentifierValue>
+    </linkingObjectIdentifier>
+  </event>
+  <event>
+    <eventIdentifier>
+      <eventIdentifierType>UUID</eventIdentifierType>
+      <eventIdentifierValue>78d15331-5138-4fe8-bb27-9995e1879b0a</eventIdentifierValue>
+    </eventIdentifier>
+    <eventType authority="eventType" authorityURI="http://id.loc.gov/vocabulary/preservation/eventType" valueURI="http://id.loc.gov/vocabulary/preservation/eventType/fix">fixity check</eventType>
+    <eventDateTime>2026-10-15T10:51:17Z</eventDateTime>
+    <eventDetailInformation>
+      <eventDetail>fixity check (DPM104)</eventDetail>
+    </eventDetailInformation>
+    <eventOutcomeInformation>
+      <eventOutcome authority="eventOutcome" authorityURI="http://id.loc.gov/vocabulary/preservation/eventOutcome" valueURI="http://id.loc.gov/vocabulary/preservation/eventOutcome/suc">success</eventOutcome>
+    </eventOutcomeInformation>
+    <linkingAgentIdentifier>
+      <linkingAgentIdentifierType>UUID</linkingAgentIdentifierType>
+      <linkingAgentIdentifierValue>6d83b86d-0f4e-4058-9022-abd917a10ead</linkingAgentIdentifierValue>
+      <linkingAgentRole authority="eventRelatedAgentRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/exe">executing program</linkingAgentRole>
+    </linkingAgentIdentifier>
+    <linkingAgentIdentifier>
+      <linkingAgentIdentifierType>UUID</linkingAgentIdentifierType>
+      <linkingAgentIdentifierValue>4ac9d885-1e26-443f-8c26-fd9c2246d309</linkingAgentIdentifierValue>
+      <linkingAgentRole authority="eventRelatedAgentRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/aut">authorizer</linkingAgentRole>
+    </linkingAgentIdentifier>
+    <linkingObjectIdentifier>
+      <linkingObjectIdentifierType>UUID</linkingObjectIdentifierType>
+      <linkingObjectIdentifierValue>a20be245-1e33-4627-b254-b69ecb10c575</linkingObjectIdentifierValue>
+    </linkingObjectIdentifier>
+  </event>
+  <event>
+    <eventIdentifier>
+      <eventIdentifierType>UUID</eventIdentifierType>
+      <eventIdentifierValue>2cb33392-34ce-461c-8799-4db0590b966b</eventIdentifierValue>
+    </eventIdentifier>
+    <eventType authority="eventType" authorityURI="http://id.loc.gov/vocabulary/preservation/eventType" valueURI="http://id.loc.gov/vocabulary/preservation/eventType/cre">creation</eventType>
+    <eventDateTime>2026-10-15T10:51:17Z</eventDateTime>
+    <eventDetailInformation>
+      <eventDetail>creation (DPM116)</eventDetail>
+    </eventDetailInformation>
+    <eventDetailInformation>
+      <eventDetail>cat_header_id: 123</eventDetail>
+    </eventDetailInformation>
+    <eventOutcomeInformation>
+      <eventOutcome authority="eventOutcome" authorityURI="http://id.loc.gov/vocabulary/preservation/eventOutcome" valueURI="http://id.loc.gov/vocabulary/preservation/eventOutcome/suc">success</eventOutcome>
+    </eventOutcomeInformation>
+    <linkingAgentIdentifier>
+      <linkingAgentIdentifierType>UUID</linkingAgentIdentifierType>
+      <linkingAgentIdentifierValue>166184de-c99c-4c24-8cb1-bbabca44c6c0</linkingAgentIdentifierValue>
+      <linkingAgentRole authority="eventRelatedAgentRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/exe">executing program</linkingAgentRole>
+    </linkingAgentIdentifier>
+    <linkingAgentIdentifier>
+      <linkingAgentIdentifierType>UUID</linkingAgentIdentifierType>
+      <linkingAgentIdentifierValue>4ac9d885-1e26-443f-8c26-fd9c2246d309</linkingAgentIdentifierValue>
+      <linkingAgentRole authority="eventRelatedAgentRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/aut">authorizer</linkingAgentRole>
+    </linkingAgentIdentifier>
+    <linkingObjectIdentifier>
+      <linkingObjectIdentifierType>UUID</linkingObjectIdentifierType>
+      <linkingObjectIdentifierValue>9b66703b-cb8a-4e19-a4c2-3409e8d3766b</linkingObjectIdentifierValue>
+    </linkingObjectIdentifier>
+    <linkingObjectIdentifier>
+      <linkingObjectIdentifierType>UUID</linkingObjectIdentifierType>
+      <linkingObjectIdentifierValue>e83a66de-8ff1-488e-adfd-907caca7ab1e</linkingObjectIdentifierValue>
+      <linkingObjectRole authority="eventRelatedObjectRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole/out">outcome</linkingObjectRole>
+    </linkingObjectIdentifier>
+  </event>
+  <event>
+    <eventIdentifier>
+      <eventIdentifierType>UUID</eventIdentifierType>
+      <eventIdentifierValue>0ee4905c-632a-4d13-8793-bd3442863d4f</eventIdentifierValue>
+    </eventIdentifier>
+    <eventType authority="eventType" authorityURI="http://id.loc.gov/vocabulary/preservation/eventType" valueURI="http://id.loc.gov/vocabulary/preservation/eventType/for">format identification</eventType>
+    <eventDateTime>2026-10-15T10:51:17Z</eventDateTime>
+    <eventDetailInformation>
+      <eventDetail>format identification (DPM109)</eventDetail>
+    </eventDetailInformation>
+    <eventDetailInformation>
+      <eventDetail>batch_id: 91360321-52d9-45eb-aa9e-30cd8df33c1c</eventDetail>
+    </eventDetailInformation>
+    <eventOutcomeInformation>
+      <eventOutcome authority="eventOutcome" authorityURI="http://id.loc.gov/vocabulary/preservation/eventOutcome" valueURI="http://id.loc.gov/vocabulary/preservation/eventOutcome/suc">success</eventOutcome>
+    </eventOutcomeInformation>
+    <linkingAgentIdentifier>
+      <linkingAgentIdentifierType>UUID</linkingAgentIdentifierType>
+      <linkingAgentIdentifierValue>9f99e52f-e362-4f43-9883-6554b11d6e82</linkingAgentIdentifierValue>
+      <linkingAgentRole authority="eventRelatedAgentRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/exe">executing program</linkingAgentRole>
+    </linkingAgentIdentifier>
+    <linkingAgentIdentifier>
+      <linkingAgentIdentifierType>UUID</linkingAgentIdentifierType>
+      <linkingAgentIdentifierValue>4ac9d885-1e26-443f-8c26-fd9c2246d309</linkingAgentIdentifierValue>
+      <linkingAgentRole authority="eventRelatedAgentRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/aut">authorizer</linkingAgentRole>
+    </linkingAgentIdentifier>
+    <linkingObjectIdentifier>
+      <linkingObjectIdentifierType>UUID</linkingObjectIdentifierType>
+      <linkingObjectIdentifierValue>3aea459d-d489-48a5-90ed-12dc1ac64bf1</linkingObjectIdentifierValue>
+    </linkingObjectIdentifier>
+    <linkingObjectIdentifier>
+      <linkingObjectIdentifierType>UUID</linkingObjectIdentifierType>
+      <linkingObjectIdentifierValue>0767cec1-2cc3-4755-884e-772345a7c9ad</linkingObjectIdentifierValue>
+    </linkingObjectIdentifier>
+    <linkingObjectIdentifier>
+      <linkingObjectIdentifierType>UUID</linkingObjectIdentifierType>
+      <linkingObjectIdentifierValue>672459a8-503d-4689-a014-d503087b9c3b</linkingObjectIdentifierValue>
+    </linkingObjectIdentifier>
+    <linkingObjectIdentifier>
+      <linkingObjectIdentifierType>UUID</linkingObjectIdentifierType>
+      <linkingObjectIdentifierValue>ebab14f4-5bec-4871-8cf7-ddfa5050b9d0</linkingObjectIdentifierValue>
+    </linkingObjectIdentifier>
+    <linkingObjectIdentifier>
+      <linkingObjectIdentifierType>UUID</linkingObjectIdentifierType>
+      <linkingObjectIdentifierValue>9f474b86-88a6-4c15-84bf-c5d3ba9de396</linkingObjectIdentifierValue>
+    </linkingObjectIdentifier>
+    <linkingObjectIdentifier>
+      <linkingObjectIdentifierType>UUID</linkingObjectIdentifierType>
+      <linkingObjectIdentifierValue>83af0f6c-2e26-4766-bd03-74ecf01072ee</linkingObjectIdentifierValue>
+    </linkingObjectIdentifier>
+    <linkingObjectIdentifier>
+      <linkingObjectIdentifierType>UUID</linkingObjectIdentifierType>
+      <linkingObjectIdentifierValue>b655a64d-af1f-4fce-9f1a-0922664945c5</linkingObjectIdentifierValue>
+    </linkingObjectIdentifier>
+    <linkingObjectIdentifier>
+      <linkingObjectIdentifierType>UUID</linkingObjectIdentifierType>
+      <linkingObjectIdentifierValue>b4f57d65-38bd-4c10-9aac-6f0b871ccb83</linkingObjectIdentifierValue>
+    </linkingObjectIdentifier>
+    <linkingObjectIdentifier>
+      <linkingObjectIdentifierType>UUID</linkingObjectIdentifierType>
+      <linkingObjectIdentifierValue>d13823e1-7fd8-42bd-98f1-573f99367bc3</linkingObjectIdentifierValue>
+    </linkingObjectIdentifier>
+    <linkingObjectIdentifier>
+      <linkingObjectIdentifierType>UUID</linkingObjectIdentifierType>
+      <linkingObjectIdentifierValue>83748737-8c99-425f-9a18-214fb1fee204</linkingObjectIdentifierValue>
+    </linkingObjectIdentifier>
+    <linkingObjectIdentifier>
+      <linkingObjectIdentifierType>UUID</linkingObjectIdentifierType>
+      <linkingObjectIdentifierValue>df650f03-555a-4a88-a15f-657d903fd461</linkingObjectIdentifierValue>
+    </linkingObjectIdentifier>
+    <linkingObjectIdentifier>
+      <linkingObjectIdentifierType>UUID</linkingObjectIdentifierType>
+      <linkingObjectIdentifierValue>a20be245-1e33-4627-b254-b69ecb10c575</linkingObjectIdentifierValue>
+    </linkingObjectIdentifier>
+    <linkingObjectIdentifier>
+      <linkingObjectIdentifierType>UUID</linkingObjectIdentifierType>
+      <linkingObjectIdentifierValue>571f3ab0-cf8d-44a2-830e-1f1fe4f8fde5</linkingObjectIdentifierValue>
+      <linkingObjectRole authority="eventRelatedObjectRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole/out">outcome</linkingObjectRole>
+    </linkingObjectIdentifier>
+  </event>
+  <event><eventIdentifier><eventIdentifierType>UUID</eventIdentifierType><eventIdentifierValue>b909253b-3c39-44dc-85f4-20ba45b87874</eventIdentifierValue></eventIdentifier><eventType authority="eventType" authorityURI="http://id.loc.gov/vocabulary/preservation/eventType" valueURI="http://id.loc.gov/vocabulary/preservation/eventType/ipc">information package creation</eventType><eventDateTime>2026-10-15T10:51:17Z</eventDateTime><eventDetailInformation><eventDetail>information package creation (DPM111)</eventDetail></eventDetailInformation><eventDetailInformation><eventDetail>sip_id: eca32121-15cb-49e1-82f9-91a2c5a4fba5</eventDetail></eventDetailInformation><eventDetailInformation><eventDetail>selection_basis: new_document</eventDetail></eventDetailInformation><eventDetailInformation><eventDetail>batch_id: 91360321-52d9-45eb-aa9e-30cd8df33c1c</eventDetail></eventDetailInformation><eventDetailInformation><eventDetail>languages: en</eventDetail></eventDetailInformation><eventOutcomeInformation><eventOutcome authority="eventOutcome" authorityURI="http://id.loc.gov/vocabulary/preservation/eventOutcome" valueURI="http://id.loc.gov/vocabulary/preservation/eventOutcome/suc">success</eventOutcome><eventOutcomeDetail><eventOutcomeDetailNote>package type: SIP</eventOutcomeDetailNote></eventOutcomeDetail></eventOutcomeInformation><linkingAgentIdentifier><linkingAgentIdentifierType>UUID</linkingAgentIdentifierType><linkingAgentIdentifierValue>166184de-c99c-4c24-8cb1-bbabca44c6c0</linkingAgentIdentifierValue><linkingAgentRole authority="eventRelatedAgentRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/exe">executing program</linkingAgentRole></linkingAgentIdentifier><linkingAgentIdentifier><linkingAgentIdentifierType>UUID</linkingAgentIdentifierType><linkingAgentIdentifierValue>4ac9d885-1e26-443f-8c26-fd9c2246d309</linkingAgentIdentifierValue><linkingAgentRole authority="eventRelatedAgentRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/aut">authorizer</linkingAgentRole></linkingAgentIdentifier><linkingObjectIdentifier><linkingObjectIdentifierType>UUID</linkingObjectIdentifierType><linkingObjectIdentifierValue>9b66703b-cb8a-4e19-a4c2-3409e8d3766b</linkingObjectIdentifierValue></linkingObjectIdentifier></event><event><eventIdentifier><eventIdentifierType>UUID</eventIdentifierType><eventIdentifierValue>4bceca39-6be4-47e8-92d7-6c96b7ff1520</eventIdentifierValue></eventIdentifier><eventType authority="eventType" authorityURI="http://id.loc.gov/vocabulary/preservation/eventType" valueURI="http://id.loc.gov/vocabulary/preservation/eventType/fix">fixity check</eventType><eventDateTime>2026-10-15T10:51:18Z</eventDateTime><eventDetailInformation><eventDetail>fixity check (DPM112)</eventDetail></eventDetailInformation><eventDetailInformation><eventDetail>sip_id: eca32121-15cb-49e1-82f9-91a2c5a4fba5</eventDetail></eventDetailInformation><eventDetailInformation><eventDetail>package_manifest: manifest-sha512.txt</eventDetail></eventDetailInformation><eventOutcomeInformation><eventOutcome authority="eventOutcome" authorityURI="http://id.loc.gov/vocabulary/preservation/eventOutcome" valueURI="http://id.loc.gov/vocabulary/preservation/eventOutcome/suc">success</eventOutcome><eventOutcomeDetail><eventOutcomeDetailNote>Payload-Oxum: 326027.20</eventOutcomeDetailNote></eventOutcomeDetail></eventOutcomeInformation><linkingAgentIdentifier><linkingAgentIdentifierType>UUID</linkingAgentIdentifierType><linkingAgentIdentifierValue>459f729d-cb6d-4763-963e-de13d6cffe95</linkingAgentIdentifierValue><linkingAgentRole authority="eventRelatedAgentRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/exe">executing program</linkingAgentRole></linkingAgentIdentifier><linkingAgentIdentifier><linkingAgentIdentifierType>UUID</linkingAgentIdentifierType><linkingAgentIdentifierValue>4ac9d885-1e26-443f-8c26-fd9c2246d309</linkingAgentIdentifierValue><linkingAgentRole authority="eventRelatedAgentRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/aut">authorizer</linkingAgentRole></linkingAgentIdentifier><linkingObjectIdentifier><linkingObjectIdentifierType>UUID</linkingObjectIdentifierType><linkingObjectIdentifierValue>9b66703b-cb8a-4e19-a4c2-3409e8d3766b</linkingObjectIdentifierValue></linkingObjectIdentifier></event><event><eventIdentifier><eventIdentifierType>UUID</eventIdentifierType><eventIdentifierValue>bcb0a93b-891f-4169-839d-81b62c91ed66</eventIdentifierValue></eventIdentifier><eventType authority="eventType" authorityURI="http://id.loc.gov/vocabulary/preservation/eventType" valueURI="http://id.loc.gov/vocabulary/preservation/eventType/ipc">information package creation</eventType><eventDateTime>2026-10-15T10:51:18Z</eventDateTime><eventDetailInformation><eventDetail>information package creation (DPM113)</eventDetail></eventDetailInformation><eventDetailInformation><eventDetail>ocfl_version: v1</eventDetail></eventDetailInformation><eventOutcomeInformation><eventOutcome authority="eventOutcome" authorityURI="http://id.loc.gov/vocabulary/preservation/eventOutcome" valueURI="http://id.loc.gov/vocabulary/preservation/eventOutcome/suc">success</eventOutcome><eventOutcomeDetail><eventOutcomeDetailNote>package type: AIP</eventOutcomeDetailNote></eventOutcomeDetail></eventOutcomeInformation><linkingAgentIdentifier><linkingAgentIdentifierType>UUID</linkingAgentIdentifierType><linkingAgentIdentifierValue>459f729d-cb6d-4763-963e-de13d6cffe95</linkingAgentIdentifierValue><linkingAgentRole authority="eventRelatedAgentRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/exe">executing program</linkingAgentRole></linkingAgentIdentifier><linkingAgentIdentifier><linkingAgentIdentifierType>UUID</linkingAgentIdentifierType><linkingAgentIdentifierValue>4ac9d885-1e26-443f-8c26-fd9c2246d309</linkingAgentIdentifierValue><linkingAgentRole authority="eventRelatedAgentRole" authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole" valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/aut">authorizer</linkingAgentRole></linkingAgentIdentifier><linkingObjectIdentifier><linkingObjectIdentifierType>UUID</linkingObjectIdentifierType><linkingObjectIdentifierValue>9b66703b-cb8a-4e19-a4c2-3409e8d3766b</linkingObjectIdentifierValue></linkingObjectIdentifier></event><agent>
+    <agentIdentifier>
+      <agentIdentifierType>UUID</agentIdentifierType>
+      <agentIdentifierValue>6d83b86d-0f4e-4058-9022-abd917a10ead</agentIdentifierValue>
+    </agentIdentifier>
+    <agentName>poc1_builder.py</agentName>
+    <agentType authority="agentType" authorityURI="http://id.loc.gov/vocabulary/preservation/agentType" valueURI="http://id.loc.gov/vocabulary/preservation/agentType/sof">software</agentType>
+    <agentVersion>source-set SHA-256:f244ce3690ae59cbdda50180f54e4610fc1915ee356ff12a6ddf7650faebe5ec</agentVersion>
+    <agentNote>Provisional registry; source-set fingerprint for poc1_builder.py, workflow_common.py. Not an approved production release tag.</agentNote>
+  </agent>
+  <agent>
+    <agentIdentifier>
+      <agentIdentifierType>UUID</agentIdentifierType>
+      <agentIdentifierValue>4ac9d885-1e26-443f-8c26-fd9c2246d309</agentIdentifierValue>
+    </agentIdentifier>
+    <agentName>Synthetic Preservation Operator</agentName>
+    <agentType authority="agentType" authorityURI="http://id.loc.gov/vocabulary/preservation/agentType" valueURI="http://id.loc.gov/vocabulary/preservation/agentType/per">person</agentType>
+    <agentNote>Synthetic test identity; not a WTO staff identity</agentNote>
+  </agent>
+  <agent>
+    <agentIdentifier>
+      <agentIdentifierType>UUID</agentIdentifierType>
+      <agentIdentifierValue>166184de-c99c-4c24-8cb1-bbabca44c6c0</agentIdentifierValue>
+    </agentIdentifier>
+    <agentName>poc6_metadata.py</agentName>
+    <agentType authority="agentType" authorityURI="http://id.loc.gov/vocabulary/preservation/agentType" valueURI="http://id.loc.gov/vocabulary/preservation/agentType/sof">software</agentType>
+    <agentVersion>source-set SHA-256:5146603212fabff811d5f05683560f217b4bb4300fc3b3c5270d6d8ebe349fc4</agentVersion>
+    <agentNote>Provisional registry; source-set fingerprint for poc6_metadata.py, workflow_common.py, profile_workflow.py. Not an approved production release tag.</agentNote>
+  </agent>
+  <agent>
+    <agentIdentifier>
+      <agentIdentifierType>UUID</agentIdentifierType>
+      <agentIdentifierValue>e2434f97-0079-455e-a549-9bd739765478</agentIdentifierValue>
+    </agentIdentifier>
+    <agentName>Aspose.PDF for .NET</agentName>
+    <agentType authority="agentType" authorityURI="http://id.loc.gov/vocabulary/preservation/agentType" valueURI="http://id.loc.gov/vocabulary/preservation/agentType/sof">software</agentType>
+    <agentVersion>25.10.0</agentVersion>
+    <agentNote>Confirmed from DprPdfaConverter.csproj; profile C++ label needs correction</agentNote>
+  </agent>
+  <agent>
+    <agentIdentifier>
+      <agentIdentifierType>UUID</agentIdentifierType>
+      <agentIdentifierValue>bcf562f5-11c5-4d5a-b563-f7c6ebc03265</agentIdentifierValue>
+    </agentIdentifier>
+    <agentName>poc4_qa.py</agentName>
+    <agentType authority="agentType" authorityURI="http://id.loc.gov/vocabulary/preservation/agentType" valueURI="http://id.loc.gov/vocabulary/preservation/agentType/sof">software</agentType>
+    <agentVersion>source-set SHA-256:0d25154e9afd46af5ea517ec59a27ce7d0cca6736fd33897696a630d9626e329</agentVersion>
+    <agentNote>Provisional registry; source-set fingerprint for poc4_qa.py, workflow_common.py. Not an approved production release tag.</agentNote>
+  </agent>
+  <agent>
+    <agentIdentifier>
+      <agentIdentifierType>UUID</agentIdentifierType>
+      <agentIdentifierValue>9285cba9-72d6-46aa-b8fa-bcc6a72e5675</agentIdentifierValue>
+    </agentIdentifier>
+    <agentName>poc3_verapdf.py</agentName>
+    <agentType authority="agentType" authorityURI="http://id.loc.gov/vocabulary/preservation/agentType" valueURI="http://id.loc.gov/vocabulary/preservation/agentType/sof">software</agentType>
+    <agentVersion>source-set SHA-256:c62bfd27cadcd5b743758ba4ebd6adbf4c5dc97ad12da12df7563e1928e3c26b</agentVersion>
+    <agentNote>Provisional registry; source-set fingerprint for poc3_verapdf.py, workflow_common.py. Not an approved production release tag.</agentNote>
+  </agent>
+  <agent>
+    <agentIdentifier>
+      <agentIdentifierType>UUID</agentIdentifierType>
+      <agentIdentifierValue>9f99e52f-e362-4f43-9883-6554b11d6e82</agentIdentifierValue>
+    </agentIdentifier>
+    <agentName>DROID</agentName>
+    <agentType authority="agentType" authorityURI="http://id.loc.gov/vocabulary/preservation/agentType" valueURI="http://id.loc.gov/vocabulary/preservation/agentType/sof">software</agentType>
+    <agentVersion>UNCONFIGURED (set installed tool and signature versions)</agentVersion>
+    <agentNote>Draft registry; strict profile disabled until verified</agentNote>
+  </agent>
+<agent><agentIdentifier><agentIdentifierType>UUID</agentIdentifierType><agentIdentifierValue>459f729d-cb6d-4763-963e-de13d6cffe95</agentIdentifierValue></agentIdentifier><agentName>poc9_ocfl_ingest.py</agentName><agentType authority="agentType" authorityURI="http://id.loc.gov/vocabulary/preservation/agentType" valueURI="http://id.loc.gov/vocabulary/preservation/agentType/sof">software</agentType><agentVersion>source-set SHA-256:d35da52e33676a881ea0da08d6b5487d19d3cb823d8863544bc0d6ec8698f42b</agentVersion><agentNote>Provisional registry; source-set fingerprint for poc9_ocfl_ingest.py, workflow_common.py, profile_workflow.py. Not an approved production release tag.</agentNote></agent></premis>

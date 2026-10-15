@@ -58,7 +58,7 @@ class WorkflowTests(unittest.TestCase):
   with patch.object(p6,'extract',return_value={'Job ID':JOB,'Title - E':'Synthetic test'}): self.assertEqual(self.cli(p6,['--preparation-dir',self.prep,'--dms-job-id','1.26','--server','unused','--database','unused','--xsd',PROJECT/'DOME_POC/dol-metadata-v-03-poc.xsd']),0)
  def ingest(self,batch):
   staging=self.root/batch;records=self.root/'records'
-  for module,args in [(p7,['--preparation-dir',self.prep,'--staging-dir',staging,'--job-id',JOB]),(p8,['--staging-dir',staging,'--ingest-records-dir',records,'--job-id',JOB]),(p9,['--staging-dir',staging,'--ingest-records-dir',records,'--aip-root',self.root/'AIP','--job-id',JOB])]: self.assertEqual(self.cli(module,args),0,module.__name__)
+  for module,args in [(p7,['--preparation-dir',self.prep,'--staging-dir',staging,'--job-id',JOB]),(p8,['--allow-legacy-package','--staging-dir',staging,'--ingest-records-dir',records,'--job-id',JOB]),(p9,['--allow-legacy-package','--staging-dir',staging,'--ingest-records-dir',records,'--aip-root',self.root/'AIP','--job-id',JOB])]: self.assertEqual(self.cli(module,args),0,module.__name__)
   return staging/JOB,self.root/'AIP/2026/000000'/JOB
  def test_mixed_incremental_workflow(self):
   for lg in ('en','fr','es'): self.stage('dol_'+lg+'.pdf',lg,False)

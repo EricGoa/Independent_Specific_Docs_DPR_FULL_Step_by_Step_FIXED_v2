@@ -1,0 +1,4217 @@
+
+
+
+
+
+
+
+
+
+PREMIS preservation metadata — profile
+
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    Table of contents
+   
+  
+  1 Purpose and scope
+  2 Used standards
+  3 Earlier work
+  4 Conventions
+  
+  4.1 Requirement levels
+  4.2 Notation
+  
+  5 Placement and file model
+  6 Provenance outside PREMIS
+  
+  6.1 Excluded facts
+  6.2 The OCFL inventory
+  6.3 The OCFL logs/ directory
+  6.4 The UUID registry
+  6.5 The run report
+  
+  7 Specifications
+  
+  7.1 General rules
+  7.2 Root element
+  7.3 Object
+  
+  7.3.1 Intellectual entity
+  7.3.2 Representation
+  7.3.3 File
+  7.3.4 Relationship catalogue
+  
+  7.4 Event
+  
+  7.4.1 Event catalogue
+  
+  7.5 Agent
+  7.6 Rights
+  
+  8 Controlled vocabularies
+  
+  8.1 PREMIS vocabularies
+  
+  8.1.1 vocPREMISObjectCategory
+  8.1.2 vocPREMISIdentifierTypes
+  8.1.3 vocPREMISHashFunction
+  8.1.4 vocPREMISFormatRegistry
+  8.1.5 vocPREMISRelationship
+  8.1.6 vocPREMISEventType
+  8.1.7 vocPREMISEventOutcome
+  8.1.8 vocPREMISLinkingRole
+  8.1.9 vocPREMISAgentType
+  
+  8.2 ODRNS vocabularies
+  
+  8.2.1 vocODRNSSelectionBasis
+  8.2.2 vocODRNSEventDetail
+  8.2.3 vocODRNSLanguage
+  8.2.4 vocODRNSAgentIdentifierPrefix (informative)
+  
+  
+  9 Modification by version type
+  10 Worked examples
+  
+  10.1 Example 1 — v1: English posted (new_document)
+  10.2 Example 2 — v2: French posted
+  10.3 Example 3 — v3: metadata change (metadata_change)
+  
+  11 Consequential changes to other documents
+  12 Open items
+  13 Glossary
+  14 References
+  
+
+
+
+
+
+
+
+
+PREMIS preservation metadata — profile
+Package PREMIS file for DOL SIPs and AIP versions
+
+
+
+
+
+
+    
+    Author
+    
+             Torsten Fratzke 
+          
+  
+    
+  
+    
+  
+  
+
+
+
+
+
+Classification: Internal · Status: v0.4 Draft, not issued · UUID: 77a9a258-b35b-4121-af6f-3e91ed7fc602 · Created: 2026-10-07 · Modified: 2026-10-13
+
+
+
+
+
+
+Note
+
+
+
+Work in progress. This profile is being developed alongside the first iteration of the pipeline (the proof of concept), as the packages it produces are reviewed against it step by step. Rules, examples and controlled values are adjusted as that review proceeds. Drafts are numbered v0.n; v1.0 will be the approved edition, issued when the pipeline goes live. Until then, any requirement may change.
+
+
+
+
+1 Purpose and scope
+This profile specifies how [PREMIS] preservation metadata is created and structured in the DOL digital preservation pipeline (described in [DPR-WORKFLOW]): in each SIP the pipeline builds, and in each AIP version it commits to the DPR/AIP repository. It governs every component of the pipeline that writes PREMIS. Beyond validity against the PREMIS 3.0 schema, it sets the constraints specific to this repository: the semantic units required, their controlled vocabularies and their permitted values.
+Writing sides. The specifications distinguish two sides of the pipeline by function, not by implementation: the preparation side, steps 0–7 of the workflow, ending with the bagged SIP; and the ingest side, steps 8–9, from bag verification to the OCFL commit. Each side may be implemented by any number of scripts. The software named on an event as its executing program is the software that did the work: the script itself where it acts directly, or the tool it calls where that tool performs the act, as for conversion, validation and format identification (see the Event catalogue).
+Three artefacts in the AIP describe it, each with a distinct job:
+
+PREMIS (metadata/preservation/{JOB_ID}_premis.xml) — preservation description, chiefly provenance: what the package holds, how each held byte came to be, and who or what acted on it.
+METS ({JOB_ID}_mets.xml) — structure: the file inventory of the package, the representation divisions, and the references to DOME and PREMIS.
+The OCFL inventory (inventory.json) — versioning and storage fixity: which bytes make up each version, their SHA-512 digests, and the commit of each version (created, user, message).
+
+Description of the document itself is the DOME record’s, at metadata/descriptive/{JOB_ID}_dome.xml, and is outside this profile.
+PREMIS is the authoritative record of the lineage of the held content: how each held byte came to be. Tool reports and logs held in the package (validation, QA, format identification, conversion) are evidence linked from PREMIS events, not separate records of lineage. The commit of each version is recorded in the inventory; operations on the stored object after commit are recorded in the OCFL object’s logs/; facts that never became held lineage are recorded in the run report (see Provenance outside PREMIS).
+Versions and editions. In this profile, version means an OCFL version: a state of the object’s stored content, created by any change — a language added, a re-issue, a descriptive metadata change, a correction (see Modification by version type). It is not an edition of the document. Each language version of a document arrives as it is published in DOL, and each arrival creates a new version; the languages held in each version are recorded on SIP creation (DPM111), and completeness is not awaited.
+Out of scope. Not governed by this profile: the root METS, governed by [METS-PROFILE]; the content of the DOME record; representation-level PREMIS, which is not written, the root METS being compound ([METS-PROFILE], DME2); extraction of technical metadata (file properties such as page count, fonts or colour spaces). Outside release 1 of the pipeline, and so not specified here: PREMIS for legacy material, environments and obsolescence-driven migration, and events the repository performs on a held AIP, such as fixity audits (see Open items).
+Amendment. This profile is amended as the pipeline, the repository or the preservation requirements change. Each amendment is issued as a new edition of this document, with its version and modified date updated. Requirement identifiers are allocate-once (see Specifications): an identifier, once cited, never comes to denote a different requirement. PREMIS files already committed to OCFL are not rewritten when the profile changes; later OCFL versions append to them under the edition then in force (DPM4).
+
+
+2 Used standards
+The PREMIS file is written, read and checked under the standards below: those this profile applies, those it draws on without applying them, and the local sources whose content it takes.
+Applied. This profile applies the following.
+
+
+
+
+
+
+
+
+Key
+Specification
+Use here
+
+
+
+
+[PREMIS]
+PREMIS Data Dictionary for Preservation Metadata, version 3.0; PREMIS XML schema 3.0
+Data model, semantic units, XML encoding
+
+
+[LoC-PV]
+Library of Congress Preservation Vocabularies
+Controlled values: event types, agent types, relationship types and subtypes, roles, outcomes, hash functions
+
+
+[PRONOM]
+The National Archives (UK), PRONOM technical registry
+Format registry name and keys (DPM54, DPM55)
+
+
+[FIPS180-4]
+NIST FIPS PUB 180-4, Secure Hash Standard (SHS)
+SHA-512, the fixity algorithm (DPM45, DPM46)
+
+
+[BAGIT]
+RFC 8493, The BagIt File Packaging Format (V1.0)
+The SIP as transferred, as a bag under V1.0 or the 0.97 draft; the SHA-512 manifest verified at ingest (DPM112)
+
+
+[METS]
+Metadata Encoding and Transmission Standard, schema 1.12.1
+The root METS that references the PREMIS file
+
+
+[METS-PROFILE]
+METS structural metadata — profile, the companion to this profile, v0.1 (Draft), 2026-10-13
+The root METS: its reference to this file (DME57–DME71) and its rewrite at ingest (DME9)
+
+
+[OCFL]
+Oxford Common File Layout 1.1
+Versioning and storage of the package
+
+
+[RFC2119]
+RFC 2119, Key words for use in RFCs to Indicate Requirement Levels
+Requirement levels (see Conventions)
+
+
+[RFC8174]
+RFC 8174, Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words
+Requirement levels (see Conventions)
+
+
+[RFC3339]
+RFC 3339, Date and Time on the Internet: Timestamps
+eventDateTime and other date-times
+
+
+[RFC3629]
+RFC 3629, UTF-8, a transformation format of ISO 10646
+Encoding of the PREMIS file (DPM13)
+
+
+[RFC6068]
+RFC 6068, The ‘mailto’ URI Scheme
+user/address in the OCFL commit record (DPM14)
+
+
+[UAX15]
+Unicode Standard Annex #15, Unicode Normalization Forms
+Normalization Form C (DPM13)
+
+
+[UUID]
+RFC 9562, Universally Unique IDentifiers
+uuid4 identifiers and the urn:uuid: form
+
+
+
+Drawn on. This profile draws on the following without applying them as requirements.
+
+
+
+
+
+
+
+
+Key
+Specification
+Drawn on for
+
+
+
+
+[CS-PM]
+E-ARK Common Specification for Preservation Metadata using PREMIS, v1.0.1 (2024-05-17)
+The structure of the specification tables; the selection of semantic units
+
+
+[DILCIS-AIP]
+E-ARK Archival Information Package specification, v2.2.0 (2024-05-17)
+AIP preservation metadata; referencing PREMIS from METS
+
+
+[DILCIS-CSIP]
+E-ARK Common Specification for Information Packages, v2.2.0 (2024-05-17)
+Package folder structure; amdSec/digiprovMD referencing
+
+
+[DILCIS-SIP]
+E-ARK Submission Information Package specification, v2.2.0 (2024-05-17)
+The submission package the preparation side builds
+
+
+[PDFA-2]
+ISO 19005-2:2011, PDF/A-2
+The target format of masters, recorded as a value (DPM106, DPM107)
+
+
+[OAIS]
+Reference Model for an Open Archival Information System, CCSDS 650.0-M-2 / ISO 14721:2012
+The terms AIP and SIP, in the Glossary
+
+
+[DPC-HB]
+Digital Preservation Coalition, Digital Preservation Handbook, Glossary
+Definitions in the Glossary
+
+
+
+Local sources. The terms and identities this profile writes are taken from these; each remains the single source of truth for its content.
+
+
+
+
+
+
+
+Source
+Supplies
+
+
+
+
+Workflow document [DPR-WORKFLOW]: Digital Preservation — Workflow Documentation, version 2.5, 2026-10-05
+The pipeline steps (0–9) to which the writing sides and stage scripts are assigned
+
+
+Agent registry ([AGENT-REGISTRY-FILE] at [AGENT-REGISTRY-LOCATION]; placeholder, see Open items)
+Every agent’s identifier (uuid4), name, type and version, and, for a person, the e-mail address written to the OCFL commit record (DPM14); the e-mail address is not written to PREMIS
+
+
+UUID registry ([UUID-REGISTRY] at [UUID-REGISTRY-LOCATION]; placeholder, see Open items)
+Every UUID minted in the repository, reserved once and never reused (DPM9; see The UUID registry)
+
+
+
+Conformance. A PREMIS file conforms to this profile when it is valid against the PREMIS 3.0 schema (DPM10) and meets every requirement at level MUST that applies to it (see Conventions).
+
+
+3 Earlier work
+This profile builds on earlier work on PREMIS and provenance for DOL documents, recorded in:
+
+PREMIS business rules for DOL (LIST_business_rules_DOL_PREMIS.xlsx), last modified 2025-11-20;
+Official Documents E-ARK CSIP and E-ARK SIP Specification (OD_E_ARK_CSIP_SIP_Specification), version 0.2.12, 2026-05-22, chapter PREMIS Preservation Metadata;
+The pmsystem event log: requirements and implementation note (REQ_pmsystem_log_v0-1.qmd), version 0.1.2 (Draft), 2026-07-17;
+Event type master list (event_type_master_list.qmd, dpretv), version 0.24.2, 2026-07-17;
+Relationship master list (relationship_master_list.qmd, dprrel), version 0.4.0, 2026-07-13;
+Selection trigger master list (selection_trigger_master_list.qmd, dprsel), version 0.5.1, 2026-07-13, for its selection-basis values only (now defined under Controlled vocabularies);
+Object identity, dating and storage (object_identity_dating_and_storage.qmd), version v01-00, 2026-07-01, for the identifiers written to PREMIS.
+DOL digital preservation workflow (dol_dpr_workflow.qmd), version 0.1, 2026-07-13: superseded as the workflow reference by [DPR-WORKFLOW].
+
+From its first edition (v0.1, 2026-10-07), this profile supersedes that work. It is the sole statement of the rules for creating and modifying PREMIS in the DOL pipeline, including the decisions taken since those documents were last revised; they are no longer current on PREMIS and are not to be relied on for it. The event log specified in the pmsystem note is not implemented: provenance is recorded in PREMIS, the OCFL inventory and the records set out under Provenance outside PREMIS.
+
+
+4 Conventions
+
+4.1 Requirement levels
+The key words MUST, MUST NOT, SHOULD, SHOULD NOT and MAY in this profile are to be interpreted as described in BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all capitals. In lower case they carry their ordinary meaning and state no requirement.
+
+
+
+
+
+
+
+Level
+Meaning in this profile
+
+
+
+
+MUST
+Required. A PREMIS file, or a pipeline step, that does not meet the requirement does not conform to this profile.
+
+
+MUST condition
+Required when the stated condition holds (e.g. MUST for masters, MUST where PRONOM gives one); not written when it does not.
+
+
+SHOULD
+Recommended. A writer may depart from it in a particular case for a documented reason, having weighed the consequences; the reason is recorded in the run report.
+
+
+MAY
+Optional. Writing it or not are both conformant.
+
+
+NOT USED
+Not written. The pipeline MUST NOT write the unit, and its validation before commit (DPM10) rejects a file that contains one. A unit found in a PREMIS file already committed is disregarded by readers and does not make that file non-conformant. Semantic units of the PREMIS Data Dictionary not cited in the specifications are NOT USED.
+
+
+
+In this edition of the profile every requirement is MUST, conditional MUST or NOT USED; SHOULD and MAY are defined for later amendments.
+
+
+4.2 Notation
+
+{JOB_ID} stands for the object’s JOB_ID (e.g. 2026_012017); premis.xml and METS.xml denote {JOB_ID}_premis.xml and {JOB_ID}_mets.xml by role.
+Values in square brackets and capitals, such as [ENGINE-VERSION], are placeholders for values still to be confirmed (see Open items).
+UUIDs, digests, sizes, times and agent names in examples are illustrative; a digest shortened with … is 128 characters in full.
+Terms are defined in the Glossary.
+
+
+
+
+5 Placement and file model
+One package PREMIS file per SIP and per AIP version. Each SIP carries one PREMIS file, and each AIP version holds one, at the same path: metadata/preservation/{JOB_ID}_premis.xml, relative to the bag’s data/ directory in a SIP and to the OCFL version’s content/ directory in an AIP (e.g. metadata/preservation/2026_012017_premis.xml). The AIP version’s file is the SIP’s with the ingest side’s additions (DPM117).
+File names. The PREMIS file and the root METS carry the object’s JOB_ID as a prefix: {JOB_ID}_premis.xml and {JOB_ID}_mets.xml, the latter at the root of content/. The prefix makes either file identifiable when copied out of its package. The DOME record is held at metadata/descriptive/{JOB_ID}_dome.xml.
+Canonical names. Every held file has a canonical name, built from the JOB_ID and, for a file of one language version, its language code ({lang}, from vocODRNSLanguage). A file acquired from DOL is renamed to its canonical name (DPM105) and keeps its DOL name in originalName (DPM63); a file the pipeline produces is written under its canonical name. Nothing else from DOL, such as its drive, folder path or file name, enters the name. {ext} is the extension of the DOL file, in lower case.
+
+
+
+
+
+
+
+
+File
+Canonical name, relative to data/ in a SIP and content/ in an AIP version
+Example
+
+
+
+
+Authoring source
+representations/rep_1/data/{lang}/{JOB_ID}_{lang}.{ext}
+representations/rep_1/data/en/2026_012017_en.docx
+
+
+Master
+representations/rep_2/data/{lang}/{JOB_ID}_{lang}.pdf
+representations/rep_2/data/en/2026_012017_en.pdf
+
+
+Conversion log
+documentation/{JOB_ID}_{lang}_conv_aspose.xml
+documentation/2026_012017_en_conv_aspose.xml
+
+
+veraPDF report
+documentation/{JOB_ID}_{lang}_val_verapdf.xml
+documentation/2026_012017_en_val_verapdf.xml
+
+
+QA report
+documentation/{JOB_ID}_{lang}_qa_pypdf.json
+documentation/2026_012017_en_qa_pypdf.json
+
+
+DROID report
+documentation/{JOB_ID}_ff_droid.csv (name to confirm; see Open items, DROID report)
+documentation/2026_012017_ff_droid.csv
+
+
+DOME record
+metadata/descriptive/{JOB_ID}_dome.xml
+metadata/descriptive/2026_012017_dome.xml
+
+
+PREMIS
+metadata/preservation/{JOB_ID}_premis.xml
+metadata/preservation/2026_012017_premis.xml
+
+
+METS
+{JOB_ID}_mets.xml
+2026_012017_mets.xml
+
+
+
+The published PDF is not held and has no canonical name; it is described under its DOL name (DPM40).
+Referenced from root METS. The root METS references this file once, with its SHA-512, in mets/amdSec/digiprovMD/mdRef, as [METS-PROFILE] sets out (DME57–DME71): @MDTYPE="PREMIS", @MDTYPEVERSION="3.0", @MIMETYPE="text/xml", @LOCTYPE="URL", @xlink:type="simple", @xlink:href="metadata/preservation/{JOB_ID}_premis.xml", the file’s size in @SIZE, @CHECKSUMTYPE="SHA-512", the file’s SHA-512 in @CHECKSUM, and @STATUS="CURRENT" on digiprovMD.
+Versioned by OCFL, not by file name. Every OCFL version writes a new premis.xml at the same logical path, since every version appends at least its packaging and ingest events (DPM4). The prior bytes remain in the earlier version and are read from that version’s state. A version state holds exactly one PREMIS file, and its name is the same in every version: no file is ever named for a version (2026_012017_premis_v2.xml is forbidden). The version is carried by the OCFL version directory, the inventory, and the AIP creation event (DPM113).
+Schema location. The root element declares the PREMIS 3 namespace and a package-local schema location:
+<premis xmlns="http://www.loc.gov/premis/v3"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.loc.gov/premis/v3 ../../schemas/premis.xsd"
+        version="3.0">
+Encoding. See DPM13.
+Element order. The PREMIS 3.0 schema fixes the entity sequence: objects, then events, then agents, then rights. Within each, elements carried from the predecessor keep their place, and the elements a version adds follow them (DPM4), so that each version’s file begins with its predecessor’s elements, entity by entity. Within the elements one version adds: objects by intellectual entity, then representations, then files in logical-path order, a published PDF (which has no logical path, DPM40) immediately before the master derived from it; events in chronological order; agents in order of first reference. A relationship added to an existing object follows that object’s existing relationships (DPM4). The order carries no semantics; it exists so that two correct writers produce comparable files, and so that a version’s additions can be checked as an extension of its predecessor.
+
+
+6 Provenance outside PREMIS
+PREMIS records the lineage of the held content: the objects, relationships, events and agents defined in this profile’s tables, and nothing else (DPM6). Three other records carry what PREMIS does not: the OCFL inventory, the OCFL object’s logs/ directory, and the run report. Each is a record of a different kind, and none duplicates PREMIS.
+
+6.1 Excluded facts
+
+
+
+
+
+
+
+
+Fact
+Why not in PREMIS
+Recorded in
+
+
+
+
+_src working copies and their purge
+Transient working file; a byte copy of the published PDF, which PREMIS describes directly
+Run report
+
+
+Failed attempts: failed validations, rejecting QA decisions, rejections, masters superseded before commit and their purge, failed bag verifications
+Resolved before the version is committed; not part of the held lineage
+Run report
+
+
+Batch selection and metadata export
+Batch administration; only the selection basis and batch identifier matter to the object
+Run report; the basis and batch_id are carried on SIP creation (DPM111)
+
+
+A re-issue in which no language version changed
+Seals no version, so there is no PREMIS to write
+Run report
+
+
+The commit and accession of each version
+Cannot be recorded inside the version they seal
+OCFL inventory: the version block (created, user, message)
+
+
+The removal of the bag from staging
+Post-commit operation on the staging copy
+OCFL object logs/
+
+
+Completion of the preparation layout; transfer of the bag to staging
+Preparation-side packaging steps with no effect on content; the SIP’s existence is recorded by SIP creation (DPM111) and its receipt by ingest fixity verification (DPM112)
+Run report
+
+
+METS.xml and premis.xml as objects
+Self-reference: PREMIS cannot carry its own digest, and METS changes in the same act
+OCFL inventory
+
+
+Files under schemas/ (premis.xsd and others)
+Standard schemas, identical in every package; not content of the document, and needed to validate PREMIS rather than described by it
+OCFL inventory
+
+
+
+
+
+6.2 The OCFL inventory
+Every OCFL object carries an inventory, inventory.json, at its root, with a digest sidecar (inventory.json.sha512); both are required by [OCFL] §3.6–3.7. OCFL recommends, and this repository keeps, a copy of the inventory as it stood at each version in that version’s directory, so the record of every version survives even if the root inventory is damaged. OCFL software writes the inventory at each commit; it is not a PREMIS document and is not written under this profile’s rules, save for the commit record the ingest side supplies (DPM14). It is, however, the authoritative record of four things PREMIS leaves to it: what each version contains, where its bytes are, the fixity of every file, and the commit of each version.
+
+
+
+
+
+
+
+
+Inventory element
+Records
+What it answers
+
+
+
+
+id
+The object’s identifier, urn:uuid:{object UUID}
+Which object this is; the same UUID as the PREMIS intellectual entity and the root METS @OBJID of the AIP (DPM23)
+
+
+head
+The latest version, e.g. v3
+Which version is current
+
+
+digestAlgorithm
+sha512
+How every digest in the inventory was computed
+
+
+manifest
+Each distinct bitstream’s digest, with the content path where its bytes are stored
+Where a file’s bytes physically are. An unchanged file is stored once, in the version that first wrote it, and carried forward by reference
+
+
+versions/vN/state
+Each logical path in version N, with the digest of its content
+Exactly which files make up version N, and their fixity. Comparing the states of two versions shows what a version added, replaced or removed
+
+
+versions/vN/created
+The date and time version N was committed (RFC 3339)
+When the version entered the repository: the commit and accession of that version
+
+
+versions/vN/user
+The name and e-mail address of the person who authorised the commit of version N
+Who is accountable for the version; the software that committed it is the executing program of the AIP creation event (DPM113)
+
+
+versions/vN/message
+Free text recording why version N was created
+Why the version exists: its selection basis
+
+
+inventory.json.sha512
+The SHA-512 of the inventory itself
+Whether the inventory has been altered
+
+
+
+The inventory copies differ in a defined way. The root inventory is identical to the copy in the latest version directory. Each earlier copy is the inventory as it stood when its version was committed, frozen with that version: it records the object’s versions up to its own, and its version blocks agree with the corresponding blocks of the root inventory ([OCFL] §3.7). For JOB_ID 2026_012017 at v3:
+
+
+
+
+
+
+
+
+
+File
+head
+versions it contains
+manifest covers
+
+
+
+
+v1/inventory.json
+v1
+v1
+bytes written in v1
+
+
+v2/inventory.json
+v2
+v1, v2
+bytes written in v1 and v2
+
+
+v3/inventory.json = root inventory.json
+v3
+v1, v2, v3
+bytes written in v1, v2 and v3
+
+
+
+The root inventory therefore holds the object’s complete history: each version’s state lists every file in that version, not only its changes, and nothing is removed from the manifest when a file is superseded. If the root inventory is damaged, the latest version’s copy replaces it exactly; an earlier copy still gives a complete, digest-verified record of every version up to its own.
+What follows for PREMIS:
+
+Commit and accession. PREMIS does not record the commit of the version that contains it; the version block does (created, user, message).
+Physical location. PREMIS carries no storage (DPM64): the manifest resolves every logical path to its bytes, in whichever version holds them.
+Currency. Whether a file is the current one at a logical path is answered by the head state, not by PREMIS, which keeps describing superseded files (DPM4).
+METS and PREMIS fixity. The digests of METS.xml and premis.xml are recorded only in the inventory, since neither can carry its own.
+Fixity of held files. For every held file the inventory and PREMIS record the same SHA-512 (DPM12); the inventory is the one OCFL tools verify.
+
+
+
+6.3 The OCFL logs/ directory
+The OCFL object root may hold a logs/ directory for records of actions taken on the stored object ([OCFL] §3.8). It sits outside the versions: it is neither versioned nor covered by the inventory’s fixity, and may be added to without creating a version. It records operations after commit that change nothing in the object, beginning with the removal of the bag from staging; its format is to be decided (see Open items).
+
+
+6.4 The UUID registry
+The UUID registry is the repository’s complete list of every UUID ever given: to objects, representations, files (held files, published PDFs, reports, DOME records), events, agents, batches, SIPs and rights statements, including those of attempts that never reached an AIP. It answers whether a UUID has ever been used, and which JOB_ID it belongs to. It is a reservation list, not a provenance record: it never says what was done, only that a UUID exists.
+
+
+
+
+
+
+
+Column
+Content
+
+
+
+
+uuid
+The uuid4, lowercase, without prefix; unique across the file
+
+
+entity_type
+object (the intellectual entity and its AIP, DPM23) · representation · file · event · agent · batch · sip · rights
+
+
+job_id
+The JOB_ID the entity belongs to (for a SIP, the object it was built for); empty for agents and batches
+
+
+symbol
+The WTO document symbol, where known; optional
+
+
+description
+A short human label (for an event, its catalogue name); a recovery aid, never parsed
+
+
+minted_at
+When the UUID was given (RFC 3339, UTC)
+
+
+minted_by
+The agent-registry UUID of the agent that minted it: the software for UUIDs minted by the pipeline, the person who registered the agent for an agent’s UUID
+
+
+
+Illustrative rows for JOB_ID 2026_012017:
+uuid,entity_type,job_id,symbol,description,minted_at,minted_by
+3113aa86-311d-441f-a39b-08ba19065b9e,batch,,,batch run 2026-10-12,2026-10-12T08:30:00Z,4c702ef1-25a4-4917-a4d8-ae794f04592e
+9cad434a-aedd-4955-bc53-1f1e3c1c882a,object,2026_012017,WT/GC/W/849,intellectual entity and AIP,2026-10-12T08:40:03Z,4c702ef1-25a4-4917-a4d8-ae794f04592e
+7831968a-44be-4674-90ba-c92d6eac3264,event,2026_012017,WT/GC/W/849,ingestion start (DPM102),2026-10-12T08:40:03Z,4c702ef1-25a4-4917-a4d8-ae794f04592e
+3aaa37c1-1f81-48f5-8144-cd222bfa84c7,file,2026_012017,WT/GC/W/849,rep_2 en PDF/A-2b master,2026-10-12T08:41:52Z,7fd9510b-004b-4872-9108-fe54e7f4845e
+8db4332b-de6e-4322-bbb6-3e9e5629bc19,sip,2026_012017,WT/GC/W/849,SIP for v1,2026-10-12T08:47:30Z,54cc5403-ca8c-4a2d-b333-c43bde1e90d0
+5d6b1b17-ddf5-413b-aeb6-6b4df0697b06,event,2026_012017,WT/GC/W/849,AIP creation (DPM113),2026-10-12T09:14:01Z,e22bbdab-2da6-454f-8069-3a80e5cd3f4e
+e22bbdab-2da6-454f-8069-3a80e5cd3f4e,agent,,,DPR ingest software 1.0.0,2026-10-01T10:00:00Z,fc59d2c2-beeb-4ffa-8ae6-22f170306f6b
+At about 10,000 documents a year and some 60 UUIDs per new document, the UUID registry grows by several hundred thousand rows a year. That rules out a spreadsheet (row limit; unsafe concurrent writes) and leaves two forms: a CSV file, which needs nothing beyond the pipeline’s scripts, or a table in an SQL Server database, which enforces uniqueness and append-only access itself and stays fast at any size. The columns are the same in either form.
+
+
+6.5 The run report
+The run report is a retained per-batch record outside the AIP (location under DPR/ to decide; see Open items). It records what happened to items and attempts that never became held lineage, and the reason for any departure from a requirement at level SHOULD (see Conventions). It is not a provenance store for objects and never overrides PREMIS.
+
+
+
+7 Specifications
+The information is presented in tabular format. The columns are described below:
+
+
+
+
+
+
+
+Column
+Description
+
+
+
+
+ID
+The requirement identifier, DPMnn. Identifiers are allocate-once: they were numbered in document order when first drafted; a requirement added later takes the next free number and is placed where it belongs; a withdrawn requirement keeps its ID and is marked withdrawn.
+
+
+PREMIS unit
+The number of the semantic unit in the PREMIS Data Dictionary, version 3.0 [PREMIS], that the requirement governs (e.g. 1.1 objectIdentifier, 1.5.4.2.1 formatRegistryName); for an element encoding, the unit it encodes (object/@xsi:type encodes 1.2 objectCategory). — where the requirement governs the file or the process rather than a semantic unit. Catalogue entries cite the parent unit they instantiate.
+
+
+PREMIS obligation
+The obligation the PREMIS Data Dictionary 3.0 gives the cited unit: Mandatory, Optional, or Conditional where it sets a specific condition (e.g. at least one of several sub-units). For a sub-unit, the obligation applies when its container is present. It is the obligation of the unit, not of each occurrence: a second objectIdentifier is optional although the unit is mandatory. — where no unit is cited, and for event catalogue entries, since PREMIS requires no particular event. Where Level is stricter than the PREMIS obligation, the requirement is this profile’s own.
+
+
+Name, location & description
+The requirement name in bold, the element or attribute path within premis.xml in code font (for a process rule, the artefact or pipeline step it governs), and the rule as applied in this profile, with values and examples.
+
+
+Cardinality
+How many times the element may or must occur within its parent; for a process rule, per PREMIS file or per version as stated.
+
+
+Level
+The requirement level (see Conventions).
+
+
+
+Cardinality specifies how many times an element may or must appear:
+
+
+
+Value
+Meaning
+
+
+
+
+1..1
+Exactly once: mandatory, one occurrence
+
+
+1..n
+One or more: mandatory, may repeat
+
+
+0..1
+Zero or one: optional, at most one occurrence
+
+
+0..n
+Zero or more: optional, may repeat
+
+
+
+
+7.1 General rules
+
+
+
+
+
+
+
+
+
+
+
+ID
+PREMIS unit
+PREMIS obligation
+Name, location & description
+Cardinality
+Level
+
+
+
+
+DPM1
+—
+—
+Writing sides — metadata/preservation/{JOB_ID}_premis.xmlThe preparation side writes the PREMIS file for each SIP, complete by the end of step 7; the ingest side extends it at step 9 (the SIP→AIP transformation). Nothing outside these two sides writes PREMIS. PREMIS is updated by versioning: each new version carries a new premis.xml at the same logical path, containing its predecessor’s content plus the version’s additions (DPM2, DPM4); a premis.xml already committed to OCFL is never modified. Events of the repository itself on a held AIP, such as a later fixity audit, are outside release 1 (see Open items).
+—
+MUST
+
+
+DPM2
+—
+—
+Creation from the held predecessor — steps 6–7For v1 the preparation side writes a new file. For v2 and later it reads the head-version premis.xml from the OCFL object and writes the new SIP’s PREMIS as that file plus the elements of the new version (DPM4). It records in every bag, in bag-info.txt, the OCFL version of the object the SIP was built on, as DPR-Predecessor-OCFL-Version: vN, or DPR-Predecessor-OCFL-Version: none for a new object. The ingest side commits the SIP only if the value matches the object’s current state: vN equal to the head in the root inventory.json, or none with no object at the storage path. A missing field or a mismatch holds the bag; a mismatch is resolved by rebuilding the SIP on the current head. The preparation side has read access to DPR/AIP; only the ingest side writes to it.
+—
+MUST
+
+
+DPM3
+—
+—
+Ingest appends, never regenerates — step 9After the bag has been verified (DPM112), its DPR-Predecessor-OCFL-Version confirmed against the object (DPM2), and its identifiers confirmed against the SIP (External-Identifier equal to the SIP’s UUID, as the SIP METS @OBJID and DPM111’s sip_id; Internal-Sender-Identifier equal to the intellectual entity’s JOB_ID; DPR-Object-UUID equal to its UUID; a mismatch holds the bag), the ingest side parses the SIP’s PREMIS and appends the ingest fixity verification (DPM112) and AIP creation (DPM113) events, with a description of each of their executing programs not already described (DPM78). It then validates the result (DPM10), rewrites METS.xml as [METS-PROFILE] sets out (DME9: the new PREMIS digest and size, the AIP package type and identifiers; DPM11), checks digest agreement (DPM12) and commits the version with its commit record (DPM14). A failure at any point holds the bag and commits nothing. Every element received in the SIP’s PREMIS is carried forward unchanged; preparation-side provenance exists nowhere else.
+—
+MUST
+
+
+DPM4
+—
+—
+Append-only across versions — premis/*A version’s PREMIS contains every element of its predecessor, unchanged in content, plus new elements. Existing object, event, agent and rights elements are never deleted or altered, with one exception: a new relationship may be added to an existing object, after its existing relationships (e.g. includes on a representation that gains a file). An object no longer in the head state remains described: it is still held in an earlier version.
+—
+MUST
+
+
+DPM5
+—
+—
+Correction by addition — premis/*A mistaken element is never edited or removed. It is corrected by a new OCFL version, with selection basis premis_correction, whose PREMIS adds a PREMIS correction event (DPM114) identifying the mistaken element and stating the correct value; the mistaken element remains in every version that contained it. A correction is authorised by the operator. Where the correct value names an agent or object not yet described, that agent or object is added in the same version. A reader of PREMIS applies every correction event to the element it identifies; a correction may itself be corrected in the same way. Corrections apply to PREMIS only: a wrong content file or DOME record is replaced through its own version type (for a defective master, master_reconversion), not through a correction.
+—
+MUST
+
+
+DPM6
+—
+—
+Scope of PREMIS — premis/*PREMIS records only the objects, relationships, events, agents and rights statements defined in this profile’s tables. Facts excluded from PREMIS are recorded as set out under Provenance outside PREMIS.
+—
+MUST
+
+
+DPM7
+2.5.1
+Optional
+Successful outcomes only — event/eventOutcomeInformation/eventOutcomeEvery event in PREMIS has the outcome success. An event that succeeded only after warnings or flags were reviewed and accepted (a veraPDF warning at conformance validation, a flagged difference at fidelity review) is success, with an eventOutcomeDetailNote naming each accepted warning or flag, the reviewer and the adjudicated reason. Failed attempts are recorded in the run report (DPM6).
+1..1 per event
+MUST
+
+
+DPM8
+—
+—
+Mint once — every UUID written to PREMISEvery object, representation, file, event, agent, batch, SIP and rights statement has one uuid4, given once and kept permanently, including through corrections (DPM5). A UUID is never given to a second entity, except the object’s UUID, which names both the intellectual entity and its AIP (DPM23): a changed file is a new file with a new UUID, never the identifier of the file it replaces at the same logical path; a new software version is a new agent with a new UUID. Object, representation, file, event, batch and SIP UUIDs are minted by the preparation and ingest sides when the entity is created. The AIP has no UUID of its own: it is identified by the intellectual entity’s UUID, minted by the preparation side with ingestion start (DPM102) in the object’s first version and carried, in urn:uuid: form, as the OCFL inventory id and the root METS @OBJID (DPM23). An AIP version is identified by that UUID and its OCFL version (e.g. v2), without a UUID of its own. Agent UUIDs are minted in the agent registry when the agent is registered and are only copied into PREMIS (DPM81). Every UUID is checked against the UUID registry and entered in it when minted, before it is used (DPM9); a UUID already present halts the item for review and is never resolved by re-minting.
+—
+MUST
+
+
+DPM9
+—
+—
+UUID registry — [UUID-REGISTRY]One append-only registry records every UUID minted in the repository, one row per UUID, with the columns set out under The UUID registry. It is kept as a CSV file or as a table in an SQL Server database (see Open items). A row is appended when the UUID is minted, before it is used; it is never edited or removed, including for UUIDs given to attempts that never reached an AIP. Concurrent writers are serialised: by a file lock for a CSV file; by the database’s transactions for SQL Server, where a unique constraint on uuid also enforces uniqueness and writers are granted insert but not update or delete. The preparation and ingest sides append rows for the UUIDs they mint; whoever registers an agent appends a row for its UUID at registration. The UUID registry reserves identifiers only: what a UUID describes is recorded in PREMIS or in the agent registry.
+1..1 per repository
+MUST
+
+
+DPM10
+—
+—
+Schema validity — metadata/preservation/{JOB_ID}_premis.xml against schemas/premis.xsdThe preparation side validates premis.xml against the package-local PREMIS 3.0 schema before bagging; the ingest side validates it again after appending its events, before commit. Validation uses only the schemas in the package’s schemas/ folder (DPM18, DPM19), and also checks that the file contains no semantic unit at level NOT USED (see Conventions). An invalid file halts the item on the preparation side; on the ingest side it commits nothing and holds the bag.Example: a file object carrying storage is valid against the PREMIS 3.0 schema, but storage is NOT USED in this profile (DPM64), so the file fails this check.
+—
+MUST
+
+
+DPM11
+—
+—
+PREMIS and METS change together — mets/amdSec/digiprovMD/mdRef/@CHECKSUMEvery version writes a new premis.xml (DPM1), whose SHA-512 differs from its predecessor’s; the root METS reference to it (@CHECKSUM, and @SIZE where given) is therefore rewritten in the same act, and the two are committed in the same OCFL version. The rest of the METS rewrite is governed by [METS-PROFILE] (DME9).
+—
+MUST
+
+
+DPM12
+1.5.2.2
+Mandatory
+Agreement with the OCFL inventory and the predecessor — object/objectCharacteristics/fixity/messageDigestBefore commit, the ingest side checks that PREMIS agrees with the OCFL inventory on the held files, and with the predecessor’s PREMIS:(a) every file in the new version, except {JOB_ID}_mets.xml, metadata/preservation/{JOB_ID}_premis.xml and the files under schemas/, is described in PREMIS by a file object with the same filepath (DPM41) and the same SHA-512;(b) every file held in the new version or any earlier one — each logical path with each SHA-512 it has had in any version’s state, except {JOB_ID}_mets.xml, metadata/preservation/{JOB_ID}_premis.xml and the files under schemas/ — is described by a file object with that filepath and SHA-512 (a superseded file; see Superseded files), and every file object with a filepath is one of them;(c) every master new in the version whose derivation (DPM75) relates it to a published PDF already described in the predecessor belongs to a master_reconversion version, and its normalisation names the master it supersedes (DPM106);(d) in v2 and later, every object, event and agent element of the head version’s premis.xml is present in the new one, unchanged except for relationships added after an object’s existing ones (DPM4).If any check fails, nothing is committed and the bag is held. METS.xml, premis.xml and the files under schemas/ are not described in PREMIS; their fixity is recorded in the inventory only.
+1..1 per held file
+MUST
+
+
+DPM13
+—
+—
+Encoding — metadata/preservation/{JOB_ID}_premis.xmlEncoded in UTF-8 [RFC3629] without a byte-order mark, opening with the XML declaration <?xml version="1.0" encoding="UTF-8"?>; text in Unicode Normalization Form C [UAX15]; LF line endings. Values copied from other sources (DOL file names in originalName, values taken from DOME) are normalised to NFC when written.
+—
+MUST
+
+
+DPM14
+—
+—
+Commit record — inventory.json: versions/vN/created, user, messageThe commit record is the block the OCFL inventory holds for each version. It is not PREMIS: the commit is recorded in the inventory, not as a PREMIS event (Provenance outside PREMIS). The ingest side writes it at commit:• created — the commit time, in UTC [RFC3339] with the Z designator (e.g. 2026-10-12T09:14:03Z);• user/name — the name of the person who authorised the commit: the authorizer of the version’s AIP creation event (DPM113), as registered in the agent registry;• user/address — a mailto: URI [RFC6068] with that person’s e-mail address, as registered in the agent registry. This follows [OCFL] §3.5.3.1, under which user identifies the person committing the version; the software that commits it is recorded in PREMIS as the executing program of the AIP creation event;• message — the version’s selection basis, a space, an em dash, a space, and a short description (e.g. new_document — initial ingest (en)).Because PREMIS records the same facts in its own events, the commit record must agree with the version’s premis.xml:• Agent — user/name and user/address equal the name and e-mail address in the agent-registry row of the authorizer of the version’s AIP creation event (DPM113), identified by its linkingAgentIdentifierValue;• Selection basis — the selection basis at the start of message equals the selection_basis value in the eventDetail of the version’s SIP creation event (DPM111);• Time — the eventDateTime of the version’s AIP creation event is no later than created. The two are not equal: the event is written into premis.xml before the version is committed.The ingest side checks all three before commit; a failure commits nothing and holds the bag.
+1..1 per version
+MUST
+
+
+DPM117
+—
+—
+PREMIS of the AIP version — metadata/preservation/{JOB_ID}_premis.xml as committed at step 9The premis.xml committed in an AIP version created from a SIP is the SIP’s premis.xml with exactly these additions, appended by the ingest side: the ingest fixity verification event (DPM112), the AIP creation event (DPM113), and a description of each executing program of those two events not already described (DPM78). Nothing else differs from the SIP’s file. It is the file read as the predecessor by the next version (DPM2).
+1..1 per AIP version created from a SIP
+MUST
+
+
+
+
+
+7.2 Root element
+The complete root element is shown under Placement and file model and in Example 1.
+
+
+
+
+
+
+
+
+
+
+
+ID
+PREMIS unit
+PREMIS obligation
+Name, location & description
+Cardinality
+Level
+
+
+
+
+DPM15
+—
+—
+PREMIS version — premis/@versionSet to 3.0.Example: <premis … version="3.0">
+1..1
+MUST
+
+
+DPM16
+—
+—
+PREMIS namespace — premis/@xmlnsDeclared as the default namespace, set to http://www.loc.gov/premis/v3; PREMIS elements are written without a prefix, and xsi:type values are given unprefixed (file, representation, intellectualEntity), resolving to the PREMIS types through the default namespace.Example: <premis xmlns="http://www.loc.gov/premis/v3" …>; then <object xsi:type="file">
+1..1
+MUST
+
+
+DPM17
+—
+—
+XML Schema Instance namespace — premis/@xmlns:xsiSet to http://www.w3.org/2001/XMLSchema-instance.Example: xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+1..1
+MUST
+
+
+DPM18
+—
+—
+Schema location — premis/@xsi:schemaLocationSet to http://www.loc.gov/premis/v3 ../../schemas/premis.xsd: the package-local copy, by its path relative to metadata/preservation/.Example: xsi:schemaLocation="http://www.loc.gov/premis/v3 ../../schemas/premis.xsd"
+1..1
+MUST
+
+
+DPM19
+—
+—
+Local schema copy — schemas/premis.xsdA copy of the PREMIS 3.0 schema is held in the package schemas/ folder, so the PREMIS file can be validated wherever the package is, without network access, in restricted environments, and after the schema’s published location has changed or disappeared (cf. [DILCIS-CSIP]). The 3.0 schema is self-contained: it imports no other schema (3.0 removed the XLink reference). Although a SIP otherwise carries only new and changed files, every SIP carries the schemas/ folder, so that the premis.xml and METS.xml it carries resolve their schemas within the bag; OCFL stores identical bytes once. The copy is the Library of Congress file https://www.loc.gov/standards/premis/v3/premis.xsd, PREMIS schema version 3.0 of 2016-01-18, byte-identical in every package: 52845 bytes, LF line endings, SHA-512 f0feb6d7d30a0f27ffd53dadb976ded9fde56adbe339fac0d2cb43352966c768103001c44d1dd0a013c89323f3ca81557f4ddf106629134d82ac9f0587de07c5. A package whose schemas/premis.xsd differs is held. The other schemas held under schemas/ are set by [METS-PROFILE] (DME12, Associated schema files).
+1..1 per package
+MUST
+
+
+
+
+
+7.3 Object
+Objects are written in the order intellectual entity, representations, files (Placement and file model, Element order). Each category is specified below, followed by the relationships between objects (Relationship catalogue).
+
+7.3.1 Intellectual entity
+One intellectual entity per AIP, representing the WTO official document. It is written in the object’s first version and does not change thereafter (DPM4): in release 1, every document posts in DOL with at least one authoring source and one PDF, so both representations, and both includes relationships, exist from the first version, even when only one language has posted.
+
+
+
+
+
+
+
+
+
+
+
+ID
+PREMIS unit
+PREMIS obligation
+Name, location & description
+Cardinality
+Level
+
+
+
+
+DPM20
+1.2
+Mandatory
+Object category — object[@xsi:type='intellectualEntity']Exactly one per PREMIS file.
+1..1
+MUST
+
+
+DPM21
+1.1
+Mandatory
+Object identification — object/objectIdentifierTwo identifiers, in this order: the UUID (DPM22, DPM23), then the JOB_ID (DPM24).
+2..2
+MUST
+
+
+DPM22
+1.1.1
+Mandatory
+Type of identification — object/objectIdentifier/objectIdentifierTypeSet to UUID in the first identifier.
+1..1
+MUST
+
+
+DPM23
+1.1.2
+Mandatory
+Identification value — object/objectIdentifier/objectIdentifierValueThe object’s UUID: a UUID version 4 [UUID] in its standard lowercase form, without prefix. The same UUID identifies the AIP and its OCFL object: it is the root METS @OBJID and the OCFL inventory id, which carry it in urn:uuid: form. This is the one case where a UUID names more than one entity; it is allowed because the intellectual entity and its AIP correspond one-to-one for the life of the object. The object folder is named by the JOB_ID (DPM24), not by this UUID. Each SIP has its own UUID (DPM8), which the SIP’s root METS carries as @OBJID until the ingest side replaces it with the object’s UUID at the SIP→AIP transformation.Example: 9cad434a-aedd-4955-bc53-1f1e3c1c882a
+1..1
+MUST
+
+
+DPM24
+1.1
+Mandatory
+JOB_ID identifier — object/objectIdentifier[objectIdentifierType='JOB_ID']Second identifier: type JOB_ID, value the JOB_ID: the four-digit year, an underscore and a six-digit zero-padded number (YYYY_NNNNNN, e.g. 2026_012017).
+1..1
+MUST
+
+
+DPM25
+1.13
+Optional
+Relationships — object/relationshipRepresentation membership, as set out in the Relationship catalogue (DPM71).
+2..2
+MUST
+
+
+DPM26
+1.9, 1.10
+Optional
+Environment description — object/environmentFunction, object/environmentDesignationNot used in this profile: the intellectual entity is the document, not a computing environment. Software that acts on content is recorded as an agent, and on masters as creatingApplication (DPM57).
+—
+NOT USED
+
+
+
+
+
+7.3.2 Representation
+Two representations per AIP: rep_1 (authoring sources, kept as-is) and rep_2 (PDF/A preservation masters and attachments). Both are written in the object’s first version and receive new includes relationships as files are added (DPM4).
+
+
+
+
+
+
+
+
+
+
+
+ID
+PREMIS unit
+PREMIS obligation
+Name, location & description
+Cardinality
+Level
+
+
+
+
+DPM27
+1.2
+Mandatory
+Object category — object[@xsi:type='representation']Exactly two per PREMIS file.
+2..2
+MUST
+
+
+DPM28
+1.1
+Mandatory
+Object identification — object/objectIdentifierTwo identifiers, in this order: the UUID (DPM29, DPM30), then the filepath (DPM41).
+2..2
+MUST
+
+
+DPM29
+1.1.1
+Mandatory
+Type of identification — object/objectIdentifier/objectIdentifierTypeSet to UUID in the first identifier.
+1..1
+MUST
+
+
+DPM30
+1.1.2
+Mandatory
+Identification value — object/objectIdentifier/objectIdentifierValueA UUID version 4, without prefix, minted on the preparation side in the object’s first version and kept thereafter (DPM8).Example: 864aaa6f-ea0f-40d4-a83d-4be03b108e55 (rep_2)
+1..1
+MUST
+
+
+DPM31
+1.4
+Optional
+Significant properties — object/significantPropertiesNot used: a representation’s role is given by its filepath (rep_1, rep_2) and defined by this profile, and is not a significant property in the PREMIS sense; the masters’ target format is recorded on each file and its conformance validation event.
+—
+NOT USED
+
+
+DPM32
+1.4.1
+Optional
+Type of significant property — object/significantProperties/significantPropertiesTypeNot used; see DPM31.
+—
+NOT USED
+
+
+DPM33
+1.4.2
+Conditional
+Value of the significant property — object/significantProperties/significantPropertiesValueNot used; see DPM31.
+—
+NOT USED
+
+
+DPM34
+1.13
+Optional
+Relationship with rendering or creating software — object/relationshipNot recorded at representation level; see DPM26.
+—
+NOT USED
+
+
+DPM35
+1.13
+Optional
+Relationships — object/relationshipMembership in the intellectual entity and of its files, as set out in the Relationship catalogue (DPM72, DPM73).
+2..n
+MUST
+
+
+
+
+
+7.3.3 File
+One file object per held file (content, documentation, descriptive metadata, reports) and per published PDF of a held master (DPM40). A held file superseded at its path stays described (DPM4; see Superseded files). METS.xml, premis.xml and the files under schemas/ are not described (DPM12).
+
+
+
+
+
+
+
+
+
+
+
+ID
+PREMIS unit
+PREMIS obligation
+Name, location & description
+Cardinality
+Level
+
+
+
+
+DPM36
+1.2
+Mandatory
+Object category — object[@xsi:type='file']One per held file and per published PDF.
+1..n
+MUST
+
+
+DPM37
+1.1
+Mandatory
+Object identification — object/objectIdentifierFor every file object the UUID (DPM38, DPM39); for every held file, then the filepath (DPM41), in that order.
+1..2
+MUST
+
+
+DPM38
+1.1.1
+Mandatory
+Type of identification — object/objectIdentifier/objectIdentifierTypeSet to UUID in the first identifier.
+1..1
+MUST
+
+
+DPM39
+1.1.2
+Mandatory
+Identification value — object/objectIdentifier/objectIdentifierValueThe file’s UUID (file_id in the workflow): a UUID version 4, without prefix, minted when the file first exists in the pipeline: at step 1 for files acquired from DOL (authoring sources and published PDFs), at step 3 for masters, and when produced for reports, logs and DOME. New bytes at an existing path are a new file with a new UUID (DPM8).Example: 3aaa37c1-1f81-48f5-8144-cd222bfa84c7 (the English master)
+1..1
+MUST
+
+
+DPM40
+—
+—
+Published PDF, described not held — object[@xsi:type='file']The published PDF from which a master is derived is described as a file object without a filepath identifier. Its UUID is the one minted for it at step 1; its fixity is the digest struck at extraction; its originalName is the DOL file name. A published PDF is described once: where a later version acquires a published PDF whose SHA-512 equals that of one already described, no new object is written, and no master is derived from it again except in a master_reconversion version (DPM106); a published PDF whose digest differs is a new object with a new UUID (DPM8). None is written where no master is derived from a published PDF (see Open items, conversion skipped).Example: 66a05ffa-9f3c-4f65-a8ed-0eb84c4e31b2, originalName WTGCWT849.pdf
+0..n
+MUST
+
+
+DPM41
+1.1
+Mandatory
+Filepath identifier — object/objectIdentifier[objectIdentifierType='filepath']Type filepath. For a held file, the value is its OCFL logical path: relative to the version’s content/ directory, /-separated, without version prefix (e.g. representations/rep_2/data/en/2026_012017_en.pdf). For a representation, the value is the path of its folder on the same basis (e.g. representations/rep_2); being a folder, it does not appear in the inventory state.
+1..1
+MUST
+
+
+DPM42
+1.5
+Mandatory
+Object characteristics — object/objectCharacteristicsOne per file object.
+1..1
+MUST
+
+
+DPM43
+1.5.1
+Optional
+Composition level — object/objectCharacteristics/compositionLevelSet to 0.
+1..1
+MUST
+
+
+DPM44
+1.5.2
+Optional
+Fixity — object/objectCharacteristics/fixityOne SHA-512 fixity per file object: for a held file, over its bytes as placed in the SIP, which are the bytes the OCFL inventory records (DPM12); for a published PDF, over its bytes as extracted (DPM40).
+1..1
+MUST
+
+
+DPM45
+1.5.2.1
+Mandatory
+Fixity algorithm — object/objectCharacteristics/fixity/messageDigestAlgorithmSet to SHA-512 (LoC cryptographic hash functions vocabulary).
+1..1
+MUST
+
+
+DPM46
+1.5.2.2
+Mandatory
+Fixity value — object/objectCharacteristics/fixity/messageDigestLowercase hexadecimal, 128 characters.Example: c9f0f895fb98ab9159f51fd0297e236d… (shortened here; 128 characters in full)
+1..1
+MUST
+
+
+DPM47
+1.5.2.3
+Optional
+Fixity originator — object/objectCharacteristics/fixity/messageDigestOriginatorThe agent-registry UUID of the agent that calculated the digest: where the file has a digest calculation event (DPM103), that event’s executing program; otherwise the stage script that wrote the file and computed its digest before bagging. The agent is described in the PREMIS file (DPM78).Example: the UUID of [SCRIPT-STEP-1] for a file extracted from DOL; of [SCRIPT-STEP-4] for a veraPDF report it wrote
+1..1
+MUST
+
+
+DPM48
+1.5.3
+Optional
+Size — object/objectCharacteristics/sizeThe size in bytes, as an integer, of the same bytes the fixity covers (DPM44).Example: 511870
+1..1
+MUST
+
+
+DPM49
+1.5.4
+Mandatory
+File format — object/objectCharacteristics/formatOne format per file object, from the format identification of the version that adds the file (DPM109), recorded with both the format designation and the format registry. Where DROID returns no identification or more than one, the item is held for review; the operator’s resolution is recorded in the format identification event’s outcome detail note (DPM7, DPM109). Two files the pipeline writes itself in a fixed format are recorded without identification: the DROID report, Comma Separated Values, PRONOM x-fmt/18; and the DOME record, Extensible Markup Language 1.0, PRONOM fmt/101.
+1..1
+MUST
+
+
+DPM50
+1.5.4.1
+Conditional
+File format name grouping — object/objectCharacteristics/format/formatDesignationAlways written, together with the registry grouping (DPM53).
+1..1
+MUST
+
+
+DPM51
+1.5.4.1.1
+Mandatory
+File format name — …/formatDesignation/formatNameThe PRONOM format name as reported by DROID.Example: Acrobat PDF/A - Portable Document Format
+1..1
+MUST
+
+
+DPM52
+1.5.4.1.2
+Optional
+File format version — …/formatDesignation/formatVersionThe PRONOM format version, where PRONOM gives one for the identified format; absent otherwise.Example: 2b
+0..1
+MUST where PRONOM gives one
+
+
+DPM53
+1.5.4.2
+Conditional
+File format registry grouping — object/objectCharacteristics/format/formatRegistryAlways written, together with the name grouping (DPM50).
+1..1
+MUST
+
+
+DPM54
+1.5.4.2.1
+Mandatory
+File format registry name — …/formatRegistry/formatRegistryNameSet to PRONOM.
+1..1
+MUST
+
+
+DPM55
+1.5.4.2.2
+Mandatory
+File format registry key — …/formatRegistry/formatRegistryKeyThe PUID reported by DROID.Example: fmt/477 (PDF/A-2b)
+1..1
+MUST
+
+
+DPM56
+1.5.4.2.3
+Optional
+File format registry role — …/formatRegistry/formatRegistryRoleSet to specification (LoC Format Registry Role, @valueURI http://id.loc.gov/vocabulary/preservation/formatRegistryRole/spe): the PRONOM entry is the format’s reference record. validation profile is not used: validation is DPM107’s.Example: specification
+1..1
+MUST
+
+
+DPM57
+1.5.5
+Optional
+Creating application — object/objectCharacteristics/creatingApplicationFor masters only: the conversion engine (Aspose.PDF for C++) that wrote the master, not the WTO program that calls it. Not recorded for other files: the software that produced a report, log or DOME record is the executing program of the event that produced it. Not written where conversion was skipped (see Open items).
+0..1
+MUST for masters
+
+
+DPM58
+1.5.5.1
+Optional
+Name of creating application — …/creatingApplication/creatingApplicationNameThe engine’s vendor and product edition, as registered in the agent registry; the same as the agentName of the engine agent, the executing program of the normalisation event (DPM106). The edition is part of the identity: the .NET, Java and C++ editions of Aspose.PDF are distinct products.Example: Aspose.PDF for C++
+1..1
+MUST
+
+
+DPM59
+1.5.5.2
+Optional
+Version of creating application — …/creatingApplication/creatingApplicationVersionThe exact version string from that edition’s own version stream, as registered; the same as the engine agent’s agentVersion.Example: [ENGINE-VERSION] (to be confirmed; a version from another edition does not apply)
+1..1
+MUST
+
+
+DPM60
+1.5.5.3
+Optional
+Date of creation by the application — …/creatingApplication/dateCreatedByApplicationRFC 3339 date-time in UTC (Z), to the second; the same as the eventDateTime of the normalisation event (DPM106).Example: 2026-10-12T08:41:52Z
+1..1
+MUST
+
+
+DPM61
+1.5.5.4
+Optional
+Extended creating-application information — …/creatingApplication/creatingApplicationExtensionNot used: name, version and date suffice; conversion settings are event details of the normalisation (DPM106).
+—
+NOT USED
+
+
+DPM62
+1.5.7
+Optional
+Extended characteristics — object/objectCharacteristics/objectCharacteristicsExtensionNot used: extraction of technical metadata is out of scope (see Purpose and scope).
+—
+NOT USED
+
+
+DPM63
+1.6
+Optional
+Original name — object/originalNameThe DOL file name: on every published PDF, and on every held file renamed from its DOL name (DPM105). Not written on files produced by the pipeline (masters, reports, logs, DOME), which have no DOL name of their own.Example: WTGCWT849.pdf
+0..1
+MUST on published PDFs and renamed files
+
+
+DPM64
+1.7
+Optional
+Storage — object/storageNot recorded: where the bytes are stored is the storage layer’s concern, resolved through the OCFL inventory manifest. Recording it would tie PREMIS to the storage layout, which committed PREMIS could not follow if the storage changed (DPM4). A held file’s location within the object is its filepath identifier (DPM41).
+—
+NOT USED
+
+
+DPM65
+1.13
+Optional
+Relationship with other objects or events — object/relationshipAs set out in the Relationship catalogue: every held file in a representation carries DPM74; masters carry DPM75; veraPDF and QA reports carry DPM76 and DPM77; a held conversion log carries DPM118. Files outside the representations carry no other relationship; DOME and the DROID report carry none.
+0..n
+MUST where the catalogue specifies
+
+
+DPM66
+1.13.1
+Mandatory
+Type of relationship — object/relationship/relationshipTypestructural, derivation or dependency, from the LoC relationship type vocabulary.Example: derivation
+1..1
+MUST
+
+
+DPM67
+1.13.2
+Mandatory
+Subtype of the relationship — object/relationship/relationshipSubTypeFrom the LoC relationship subtype vocabulary, or a local subtype defined in the Relationship catalogue.Example: has Source
+1..1
+MUST
+
+
+DPM68
+1.13.3
+Mandatory
+Identifier to related object — object/relationship/relatedObjectIdentifierType UUID; value the related object’s UUID. The related object is described in the same PREMIS file.Example: 66a05ffa-9f3c-4f65-a8ed-0eb84c4e31b2 (the English published PDF)
+1..1
+MUST
+
+
+DPM69
+1.13.4
+Optional
+Identifier to related event — object/relationship/relatedEventIdentifierOn derivation and dependency relationships: type UUID; value the UUID of the event that produced the relationship (normalisation, DPM106, for has Source; conformance validation, DPM107, for a veraPDF report; fidelity review, DPM108, for a QA report; normalisation, DPM106, for a conversion log). The event is in the same PREMIS file.Example: 6310d573-4066-4796-8c3c-6bcff1f956fc (the normalisation)
+0..1
+MUST on derivation and dependency
+
+
+DPM70
+1.15
+Optional
+Rights statement link — object/linkingRightsStatementIdentifierNot used in this profile: rights are not written (see Rights).
+—
+NOT USED
+
+
+
+
+
+7.3.4 Relationship catalogue
+The object relationships this profile writes. Structural relationships are recorded in both directions; derivation and dependency relationships are recorded on the subject object only, and their inverses are not written. Every relationship identifies the related object by its UUID (relatedObjectIdentifierType UUID).
+
+
+
+
+
+
+
+
+
+
+
+ID
+PREMIS unit
+PREMIS obligation
+Name, location & description
+Cardinality
+Level
+
+
+
+
+DPM71
+1.13
+Optional
+Representation membership — object[@xsi:type='intellectualEntity']/relationshipstructural / includes, related object each representation.Example: 864aaa6f-ea0f-40d4-a83d-4be03b108e55 (rep_2)
+2..2 per intellectual entity
+MUST
+
+
+DPM72
+1.13
+Optional
+Inclusion in the intellectual entity — object[@xsi:type='representation']/relationshipstructural / is Included In, related object the intellectual entity.Example: 9cad434a-aedd-4955-bc53-1f1e3c1c882a
+1..1 per representation
+MUST
+
+
+DPM73
+1.13
+Optional
+File membership — object[@xsi:type='representation']/relationshipstructural / includes, related object each held file of the representation. Appended to the representation as files are added (DPM4); an includes to a file later superseded at its path is kept (see Superseded files).Example: 3aaa37c1-1f81-48f5-8144-cd222bfa84c7 (the English master)
+1..n per representation
+MUST
+
+
+DPM74
+1.13
+Optional
+Inclusion in a representation — object[@xsi:type='file']/relationshipstructural / is Included In, related object the representation holding the file. Files under metadata/ and documentation/ (DOME, the veraPDF, QA and DROID reports, the conversion log) belong to no representation and carry none.Example: 864aaa6f-ea0f-40d4-a83d-4be03b108e55 (rep_2)
+1..1 per held file in a representation
+MUST
+
+
+DPM75
+1.13
+Optional
+Derivation from the published PDF — object[@xsi:type='file']/relationship on a masterderivation / has Source, related object the published PDF (DPM40), related event the normalisation (DPM106). Not written where conversion was skipped (see Open items).Example: related object 66a05ffa-9f3c-4f65-a8ed-0eb84c4e31b2 (the English published PDF), related event 6310d573-4066-4796-8c3c-6bcff1f956fc (the normalisation)
+1..1 per converted master
+MUST
+
+
+DPM76
+1.13
+Optional
+Validation report — object[@xsi:type='file']/relationship on a veraPDF reportdependency / isValidationReportOf (local subtype), related object the master, related event the conformance validation (DPM107).Example: related object 3aaa37c1-1f81-48f5-8144-cd222bfa84c7 (the English master)
+1..1 per veraPDF report
+MUST
+
+
+DPM77
+1.13
+Optional
+QA report — object[@xsi:type='file']/relationship on a QA reportdependency / isQaReportOf (local subtype), related object the master, related event the fidelity review (DPM108).Example: related object 3aaa37c1-1f81-48f5-8144-cd222bfa84c7 (the English master)
+1..1 per QA report
+MUST
+
+
+DPM118
+1.13
+Optional
+Conversion log — object[@xsi:type='file']/relationship on a conversion logdependency / isConversionLogOf (local subtype), related object the master, related event the normalisation (DPM106). Written where a conversion log is held (see Open items, Conversion program).Example: related object 3aaa37c1-1f81-48f5-8144-cd222bfa84c7 (the English master), related event 6310d573-4066-4796-8c3c-6bcff1f956fc (the normalisation)
+1..1 per held conversion log
+MUST
+
+
+
+Local subtypes carry @authority="local" until this profile’s namespace is defined, when they gain @authorityURI and @valueURI in it (see Open items). Document-to-document relationships (addenda, revisions, corrigenda) are not written: each such document is a separate AIP with its own PREMIS.
+
+
+
+7.4 Event
+General requirements for every event. The events this profile writes, and when, are specified in the Event catalogue that follows.
+
+
+
+
+
+
+
+
+
+
+
+ID
+PREMIS unit
+PREMIS obligation
+Name, location & description
+Cardinality
+Level
+
+
+
+
+DPM87
+—
+—
+Event — eventEvery event written is an occurrence of an entry in the Event catalogue (DPM102–DPM114, DPM116); no other event is written (DPM6).
+1..n
+MUST
+
+
+DPM88
+2.1
+Mandatory
+Event identification — event/eventIdentifierExactly one.
+1..1
+MUST
+
+
+DPM89
+2.1.1
+Mandatory
+Type of identification — event/eventIdentifier/eventIdentifierTypeSet to UUID.
+1..1
+MUST
+
+
+DPM90
+2.1.2
+Mandatory
+Identification value — event/eventIdentifier/eventIdentifierValueA UUID version 4, without prefix, minted when the event is written (DPM8).Example: 6310d573-4066-4796-8c3c-6bcff1f956fc
+1..1
+MUST
+
+
+DPM91
+2.2
+Mandatory
+Event type — event/eventTypeThe type given in the event’s catalogue entry. LoC event types carry @authority, @authorityURI and @valueURI; the one local type (DPM108) carries @authority="local" until this profile’s namespace is defined (see Open items).Example: normalization, @valueURI http://id.loc.gov/vocabulary/preservation/eventType/nor
+1..1
+MUST
+
+
+DPM92
+2.3
+Mandatory
+Time of the event — event/eventDateTimeThe time the event completed: RFC 3339 date-time in UTC (Z), to the second.Example: 2026-10-12T08:41:52Z
+1..1
+MUST
+
+
+DPM93
+2.4.1
+Optional
+Catalogue name — event/eventDetailInformation[1]/eventDetailThe first event detail, exactly one, gives the event’s catalogue name and ID; it distinguishes events that share an event type (two fixity checks; two information package creations). The ID is written permanently into preserved PREMIS, which is one reason IDs are allocate-once. Further details follow, each in its own eventDetailInformation, as the catalogue entry specifies.Example: normalisation (DPM106)
+1..n
+MUST
+
+
+DPM94
+2.5.1
+Optional
+Outcome of the event — event/eventOutcomeInformation/eventOutcomesuccess (DPM7).
+1..1
+MUST
+
+
+DPM95
+2.5.2.1
+Optional
+Outcome detail note — event/eventOutcomeInformation/eventOutcomeDetail/eventOutcomeDetailNoteAs the catalogue entry specifies.Example: none (a normalisation whose engine reported no alterations)
+0..1
+MUST where the catalogue specifies one
+
+
+DPM96
+2.6, 2.6.3
+Optional
+Agent performing the event — event/linkingAgentIdentifierOne per agent involved, each with a linkingAgentRole. Every event links its executing program (executing program) and the operator who authorised it (authorizer); a person who carried out the act is linked as implementer. On the normalisation (DPM106), the executing program is the conversion engine.Example: executing program
+2..n
+MUST
+
+
+DPM97
+2.6.1
+Mandatory
+Agent identifier type — event/linkingAgentIdentifier/linkingAgentIdentifierTypeSet to UUID.
+1..1
+MUST
+
+
+DPM98
+2.6.2
+Mandatory
+Agent identifier value — event/linkingAgentIdentifier/linkingAgentIdentifierValueThe agent’s UUID in the agent registry; the agent is described in the same PREMIS file (DPM78).Example: 197ae01e-806e-41b9-b752-cb7f82580503 (the engine)
+1..1
+MUST
+
+
+DPM99
+2.7, 2.7.3
+Optional
+Object affected by the event — event/linkingObjectIdentifierOne per object the event acted on or produced. Where the event transforms or produces, each object it transforms, examines or produces has a linkingObjectRole of source or outcome; otherwise no role is given. The intellectual entity, linked by DPM110 and DPM116 to place the event, has no role.Example: source (the published PDF of a normalisation)
+1..n
+MUST
+
+
+DPM100
+2.7.1
+Mandatory
+Object identifier type — event/linkingObjectIdentifier/linkingObjectIdentifierTypeSet to UUID.
+1..1
+MUST
+
+
+DPM101
+2.7.2
+Mandatory
+Object identifier value — event/linkingObjectIdentifier/linkingObjectIdentifierValueThe linked object’s UUID; the object is described in the same PREMIS file.Example: 3aaa37c1-1f81-48f5-8144-cd222bfa84c7 (the English master)
+1..1
+MUST
+
+
+
+
+7.4.1 Event catalogue
+The events this profile writes. Unless stated otherwise, the agents are the software that performed the step (executing program) and the operator who authorised the run (authorizer).
+
+
+
+
+
+
+
+
+
+
+
+ID
+PREMIS unit
+PREMIS obligation
+Name, location & description
+Cardinality
+Level
+
+
+
+
+DPM102
+2.2
+—
+Ingestion start — event[eventType='ingestion start']Written once per AIP, in v1: by the run that first acquires a language version for a JOB_ID with no AIP, and mints the object’s UUID. Not repeated in later versions. Linked object: the intellectual entity. Side: preparation.
+1..1 per AIP
+MUST
+
+
+DPM103
+2.2
+—
+Digest calculation — event[eventType='message digest calculation']The SHA-512 struck on a file when it first exists in the pipeline: on each rep_1 file and each published PDF as extracted from DOL, and on each master as created. Its executing program is the file’s fixity originator (DPM47). Linked object: the file. Side: preparation.
+1 per extracted file and per master
+MUST
+
+
+DPM104
+2.2
+—
+Copy fixity verification — event[eventType='fixity check']The copy out of DOL re-hashed and verified against its digest calculation (DPM103). Linked object: the file (for a published PDF, the object describing it). Side: preparation.
+1 per extracted file
+MUST
+
+
+DPM105
+2.2
+—
+Filename change — event[eventType='filename change']A held file renamed from its DOL name to its canonical name (Placement and file model, Canonical names). Linked object: the file. Side: preparation.
+1 per renamed held file
+MUST
+
+
+DPM106
+2.2
+—
+Normalisation — event[eventType='normalization']Conversion of a published PDF to its PDF/A preservation master by the WTO conversion program. Linked objects: the published PDF (source), the master (outcome) and, where one is held, the conversion log (outcome). Executing program: the conversion engine, Aspose.PDF for C++ (DPM57). Event detail: target_level: PDF/A-2b. Outcome detail note: the alterations and removals reported by the engine, or none. In a master_reconversion version, further details: supersedes: <UUID>, the master replaced; reason: <the defect found>; and, where a conversion parameter was changed, parameter: <name>: <value>. Not written where conversion was skipped (see Open items). Side: preparation.Example: target_level: PDF/A-2b
+1 per converted master
+MUST
+
+
+DPM107
+2.2
+—
+Conformance validation — event[eventType='validation']The passing veraPDF validation of a master. Linked objects: the master (source), the veraPDF report (outcome). Executing program: veraPDF. Event detail: validation_profile: PDF/A-2B, the veraPDF profile applied; its version is that of the veraPDF agent (DPM84). Outcome detail note: the accepted warnings, reviewer and reason, where warnings were accepted. Side: preparation.Example: validation_profile: PDF/A-2B
+1 per master
+MUST
+
+
+DPM108
+2.2
+—
+Fidelity review — event[eventType='qualityReview']The accepting QA decision on a master’s fidelity to its source. Local event type (no LoC equivalent; see Open items for its namespace). Linked objects: the master (source), the QA report (outcome). Executing program: the QA stage script ([SCRIPT-STEP-5]), whose tagged release pins the comparison libraries it uses (pypdf, pdfminer.six); where sampled for manual review, also the reviewer as implementer. Event detail: sampled: true or false. Outcome detail note: the adjudicated reason for any flagged difference. Side: preparation.Example: sampled: false
+1 per converted master
+MUST
+
+
+DPM109
+2.2
+—
+Format identification — event[eventType='format identification']The identification of the files in this version’s SIP, other than the DOME record (DPM49), together with the published PDFs of its new masters, which are identified in the same run but not held. DROID runs per batch; its report is generated per JOB_ID, so each package holds only its own results. Written per object. Linked objects: each file object identified (no role); the DROID report for this JOB_ID (outcome), which also lists the published PDFs (DPM40). Executing program: DROID, its version including the signature file (DPM84). Event detail: batch_id: <UUID>. Outcome detail note: the operator’s resolution of any file DROID could not identify uniquely (DPM49). Side: preparation.Example: batch_id: 3113aa86-311d-441f-a39b-08ba19065b9e; outcome the DROID report at documentation/2026_012017_ff_droid.csv
+1 per version that adds a file object other than a DOME record
+MUST
+
+
+DPM116
+2.2
+—
+Descriptive metadata creation — event[eventType='creation']The object’s first DOME record, written in v1. Linked objects: the intellectual entity (no role); the DOME file (outcome). Executing program: the DOME script. Event detail: cat_header_id: <value>, the DOL catalogue record ID (CatHeaderId) from which the DOME record was built, through which DOL links the metadata fields used; DOME does not contain it, so this is its only record in the package. Side: preparation.Example: cat_header_id: [DOL-RECORD-ID]
+1..1 per AIP
+MUST
+
+
+DPM110
+2.2
+—
+Descriptive metadata revision — event[eventType='metadata modification']A DOME record written in v2 or later, replacing the previous one at its path (see Superseded files). Linked objects: the intellectual entity (no role); the new DOME file (outcome); the previous DOME file (source). Executing program: the DOME script. Event detail: cat_header_id: <value>, as for DPM116. Side: preparation.Example: cat_header_id: [DOL-RECORD-ID]
+1 per DOME file written after v1
+MUST
+
+
+DPM111
+2.2
+—
+SIP creation — event[eventType='information package creation']The SIP built at step 7; the last event written on the preparation side. Linked object: the intellectual entity. Event details, each in its own eventDetailInformation: sip_id: <UUID>, the SIP’s own UUID (DPM8, DPM23); selection_basis: <value>, from vocODRNSSelectionBasis (see Controlled vocabularies); batch_id: <UUID>; languages: <language codes>, the language versions held in the version once committed, comma-separated (e.g. en, es); for a re-issue or a master reconversion, changed_languages: <language codes>. Outcome detail note: package type: SIP. Side: preparation.Example: sip_id: 8db4332b-de6e-4322-bbb6-3e9e5629bc19; selection_basis: new_document; batch_id: 3113aa86-311d-441f-a39b-08ba19065b9e; languages: en
+1..1 per version created from a SIP
+MUST
+
+
+DPM112
+2.2
+—
+Ingest fixity verification — event[eventType='fixity check']The bag verified against its SHA-512 manifest on receipt at step 8 (verified outcome only). Linked object: the intellectual entity. Event details, each in its own eventDetailInformation: sip_id: <UUID>, the SIP whose bag was verified (as in DPM111); package_manifest: manifest-sha512.txt. Outcome detail note: the bag’s Payload-Oxum. Side: ingest.Example: sip_id: 8db4332b-de6e-4322-bbb6-3e9e5629bc19; outcome detail note Payload-Oxum: 1468230.7
+1..1 per version created from a SIP
+MUST
+
+
+DPM113
+2.2
+—
+AIP creation — event[eventType='information package creation']The AIP version written to OCFL at step 9. Linked object: the intellectual entity, whose UUID also names the AIP (DPM23). Event detail: ocfl_version: vN. Outcome detail note: package type: AIP. Its authorizer and time agree with the version’s commit record (DPM14). Side: ingest.Example: ocfl_version: v1
+1..1 per version
+MUST
+
+
+DPM114
+2.2
+—
+PREMIS correction — event[eventType='metadata modification']Corrects one mistaken element of the PREMIS record (DPM5). Linked object: the object whose description is corrected, or the intellectual entity where the mistaken element belongs to an event or an agent. Agents: the stage script that writes PREMIS ([SCRIPT-STEP-6], executing program); the operator (authorizer); the person who identified the mistake, where different (implementer). Event details, each in its own eventDetailInformation: corrects: <object, event or agent> <UUID>; element: <path of the mistaken element, relative to the corrected entity>; recorded: <the mistaken value>; correct: <the correct value>; reason: <why the value was wrong>. One event per corrected element. A mistaken correction is itself corrected by a further correction naming it (corrects: event <UUID>). Side: preparation.Example: corrects: object 3aaa37c1-1f81-48f5-8144-cd222bfa84c7; element: objectCharacteristics/size; recorded: 511870; correct: 511807; reason: size of the published PDF recorded for the master (illustrative)
+0..n per version; at least one in a premis_correction version
+MUST
+
+
+
+
+
+
+7.5 Agent
+Every agent linked by an event or named as a fixity originator is described once per PREMIS file, copied from its row in the agent registry when it is first described. An agent described in an earlier version is carried forward unchanged (DPM4) and not described again; a later version adds only agents not yet described. A later change to an agent’s row in the agent registry does not alter its PREMIS description; a mistaken description is corrected by DPM5. An agent’s UUID always identifies the agent as it was when the event was performed; a retired agent is never removed from the agent registry. Each software version is a distinct agent.
+
+
+
+
+
+
+
+
+
+
+
+ID
+PREMIS unit
+PREMIS obligation
+Name, location & description
+Cardinality
+Level
+
+
+
+
+DPM78
+—
+—
+Agent — agentOne per agent linked by any event in the file, or named as a fixity originator (DPM47), described once.
+1..n
+MUST
+
+
+DPM79
+3.1
+Mandatory
+Agent identification — agent/agentIdentifierExactly one, the agent-registry UUID.
+1..1
+MUST
+
+
+DPM80
+3.1.1
+Mandatory
+Type of identification — agent/agentIdentifier/agentIdentifierTypeSet to UUID.
+1..1
+MUST
+
+
+DPM81
+3.1.2
+Mandatory
+Identification value — agent/agentIdentifier/agentIdentifierValueThe agent’s UUID in the agent registry, without prefix. The PREMIS writer never mints agent identifiers.Example: 4c702ef1-25a4-4917-a4d8-ae794f04592e (the step 1 stage script, [SCRIPT-STEP-1])
+1..1
+MUST
+
+
+DPM82
+3.2
+Optional
+Agent name — agent/agentNameAs in the agent registry.Example: Aspose.PDF for C++
+1..1
+MUST
+
+
+DPM83
+3.3
+Optional
+Agent type — agent/agentTypeAs in the agent registry, from the LoC agent type vocabulary: software, person, organization, hardware.Example: software
+1..1
+MUST
+
+
+DPM84
+3.4
+Optional
+Agent version — agent/agentVersionFor software, the exact version string as registered. For DROID it includes the signature-file version: a new signature file is a new agent with a new UUID, as is any new software version. Absent for persons and organisations. For software developed for the pipeline, each stage script is a separate agent, cited by step ([SCRIPT-STEP-n]) until production names are fixed (see Open items); its version identifies a tagged release of that script in its source repository, so that the code that acted can be retrieved, and the agent registry’s note gives the repository. Scripts that only orchestrate, schedule or monitor the stages are not agents.Example: 6.8.1; signature file V122 (illustrative)
+0..1
+MUST for software
+
+
+DPM85
+3.5
+Optional
+Agent note — agent/agentNoteAs in the agent registry, where it has one; absent otherwise.
+0..1
+MUST where the agent registry has one
+
+
+DPM86
+3.8
+Optional
+Rights for the agent — agent/linkingRightsStatementIdentifierNot used in this profile: rights are not written (see Rights).
+—
+NOT USED
+
+
+
+
+
+7.6 Rights
+
+
+
+
+
+
+
+
+
+
+
+ID
+PREMIS unit
+PREMIS obligation
+Name, location & description
+Cardinality
+Level
+
+
+
+
+DPM115
+4
+Optional
+Rights — rightsNot written in this profile, pending the decision on restriction status at ingest and the derestriction pattern (see Open items).
+—
+NOT USED
+
+
+
+
+
+
+8 Controlled vocabularies
+This section lists the controlled vocabularies used in the package PREMIS file. Only the values this profile writes are listed; a value not listed is not written. The vocabularies fall into two groups: PREMIS vocabularies, named vocPREMIS…, take their values from PREMIS and [LoC-PV]; ODRNS vocabularies, named vocODRNS…, are local to this profile, or listed for reference where marked informative. Values from [LoC-PV] carry @authority, @authorityURI and @valueURI (DPM91); local values carry @authority="local" until this profile’s namespace is defined (see Open items), except identifier types, which are written as plain values (vocPREMISIdentifierTypes). Every @valueURI listed was checked against [LoC-PV] on 2026-10-12. A value from [LoC-PV] is written exactly as its authorised label, including case (e.g. is Included In, has Source).
+
+8.1 PREMIS vocabularies
+
+8.1.1 vocPREMISObjectCategory
+Source: PREMIS 3.0 schema types, corresponding to [LoC-PV] Object Category. Used in: object/@xsi:type.
+
+
+
+
+
+
+
+
+Value
+Use in this profile
+Rules
+
+
+
+
+intellectualEntity
+The WTO official document; one per PREMIS file
+DPM20
+
+
+representation
+rep_1 (authoring sources) and rep_2 (PDF/A preservation masters and attachments)
+DPM27
+
+
+file
+Each held file, and each published PDF
+DPM36
+
+
+
+bitstream is not used.
+
+
+8.1.2 vocPREMISIdentifierTypes
+Source: local. Written as plain values, without @authority, @authorityURI or @valueURI (decided 2026-10-12); no term is taken from the LoC Standard Identifiers scheme. Used in: objectIdentifierType, eventIdentifierType, agentIdentifierType, linkingAgentIdentifierType, linkingObjectIdentifierType, relatedObjectIdentifierType, relatedEventIdentifierType.
+
+
+
+
+
+
+
+
+Value
+Use in this profile
+Rules
+
+
+
+
+UUID
+A UUID version 4 [UUID], lowercase, without prefix; the identifier of every object, event and agent
+DPM22, DPM29, DPM38, DPM80, DPM89
+
+
+JOB_ID
+The object’s local identifier, YYYY_NNNNNN; second identifier of the intellectual entity
+DPM24
+
+
+filepath
+A held file’s OCFL logical path, or a representation’s folder
+DPM41
+
+
+
+
+
+8.1.3 vocPREMISHashFunction
+Source: [LoC-PV] Cryptographic Hash Functions, http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions; algorithm [FIPS180-4]. Used in: fixity/messageDigestAlgorithm.
+
+
+
+
+
+
+
+
+
+Value
+Use in this profile
+@valueURI
+Rules
+
+
+
+
+SHA-512
+The only fixity algorithm, for every file object
+http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions/sha512
+DPM45
+
+
+
+
+
+8.1.4 vocPREMISFormatRegistry
+Source: [PRONOM] for registry name and keys; [LoC-PV] Format Registry Role, http://id.loc.gov/vocabulary/preservation/formatRegistryRole, for the role. Used in: format/formatRegistry.
+
+
+
+
+
+
+
+
+
+
+Element
+Value
+Use in this profile
+@valueURI
+Rules
+
+
+
+
+formatRegistryName
+PRONOM
+The only format registry
+—
+DPM54
+
+
+formatRegistryKey
+a PUID, e.g. fmt/477
+As reported by DROID
+—
+DPM55
+
+
+formatRegistryRole
+specification
+The PRONOM entry is the format’s reference record
+http://id.loc.gov/vocabulary/preservation/formatRegistryRole/spe
+DPM56
+
+
+
+Formats expected in release 1, as DROID reports them; DROID decides, and a format not listed is recorded as identified:
+
+
+
+
+
+
+
+
+
+Files
+PRONOM format name
+Version
+PUID
+
+
+
+
+Authoring sources (rep_1)
+Microsoft Word for Windows
+2007 onwards
+fmt/412
+
+
+Published PDFs
+Acrobat PDF 1.7 - Portable Document Format
+1.7
+fmt/276
+
+
+Masters (rep_2)
+Acrobat PDF/A - Portable Document Format
+2b
+fmt/477
+
+
+DOME record, veraPDF reports, conversion logs
+Extensible Markup Language
+1.0
+fmt/101
+
+
+DROID report
+Comma Separated Values
+—
+x-fmt/18
+
+
+QA report
+JSON Data Interchange Format
+—
+fmt/817
+
+
+
+
+
+8.1.5 vocPREMISRelationship
+Source: [LoC-PV] Relationship Type, http://id.loc.gov/vocabulary/preservation/relationshipType, and Relationship Subtype, http://id.loc.gov/vocabulary/preservation/relationshipSubType; local subtypes as marked. Used in: object/relationship.
+
+
+
+
+
+
+
+
+
+
+Type
+Subtype
+Use in this profile
+Subtype @valueURI
+Rules
+
+
+
+
+structural
+includes
+Intellectual entity → representation; representation → file
+http://id.loc.gov/vocabulary/preservation/relationshipSubType/inc
+DPM71, DPM73
+
+
+structural
+is Included In
+Representation → intellectual entity; file → representation
+http://id.loc.gov/vocabulary/preservation/relationshipSubType/isi
+DPM72, DPM74
+
+
+derivation
+has Source
+Master → published PDF
+http://id.loc.gov/vocabulary/preservation/relationshipSubType/hss
+DPM75
+
+
+dependency
+isValidationReportOf (local)
+veraPDF report → master
+local
+DPM76
+
+
+dependency
+isQaReportOf (local)
+QA report → master
+local
+DPM77
+
+
+dependency
+isConversionLogOf (local)
+Conversion log → master
+local
+DPM118
+
+
+
+
+
+
+
+
+
+
+Type
+@valueURI
+
+
+
+
+structural
+http://id.loc.gov/vocabulary/preservation/relationshipType/str
+
+
+derivation
+http://id.loc.gov/vocabulary/preservation/relationshipType/der
+
+
+dependency
+http://id.loc.gov/vocabulary/preservation/relationshipType/dep
+
+
+
+
+
+8.1.6 vocPREMISEventType
+Source: [LoC-PV] Event Type, http://id.loc.gov/vocabulary/preservation/eventType; one local type. Used in: event/eventType.
+
+
+
+
+
+
+
+
+Value
+Catalogue entries
+@valueURI
+
+
+
+
+ingestion start
+DPM102
+http://id.loc.gov/vocabulary/preservation/eventType/ins
+
+
+message digest calculation
+DPM103
+http://id.loc.gov/vocabulary/preservation/eventType/mes
+
+
+fixity check
+DPM104, DPM112
+http://id.loc.gov/vocabulary/preservation/eventType/fix
+
+
+filename change
+DPM105
+http://id.loc.gov/vocabulary/preservation/eventType/fil
+
+
+normalization
+DPM106
+http://id.loc.gov/vocabulary/preservation/eventType/nor
+
+
+validation
+DPM107
+http://id.loc.gov/vocabulary/preservation/eventType/val
+
+
+format identification
+DPM109
+http://id.loc.gov/vocabulary/preservation/eventType/for
+
+
+creation
+DPM116
+http://id.loc.gov/vocabulary/preservation/eventType/cre
+
+
+metadata modification
+DPM110, DPM114
+http://id.loc.gov/vocabulary/preservation/eventType/mem
+
+
+information package creation
+DPM111, DPM113
+http://id.loc.gov/vocabulary/preservation/eventType/ipc
+
+
+qualityReview (local)
+DPM108
+local
+
+
+
+
+
+8.1.7 vocPREMISEventOutcome
+Source: [LoC-PV] Event Outcome, http://id.loc.gov/vocabulary/preservation/eventOutcome. Used in: eventOutcomeInformation/eventOutcome.
+
+
+
+
+
+
+
+
+
+Value
+Use in this profile
+@valueURI
+Rules
+
+
+
+
+success
+Every event written; failed attempts are recorded in the run report
+http://id.loc.gov/vocabulary/preservation/eventOutcome/suc
+DPM7, DPM94
+
+
+
+fail and warning are not used: an accepted warning is recorded on a success event in its outcome detail note (DPM7).
+
+
+8.1.8 vocPREMISLinkingRole
+Source: [LoC-PV] Event Related Agent Role, http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole, and Event Related Object Role, http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole. Used in: linkingAgentIdentifier/linkingAgentRole and linkingObjectIdentifier/linkingObjectRole. The deprecated LoC vocabulary Linking Agent Role (Event) is not used.
+
+
+
+
+
+
+
+
+
+
+Element
+Value
+Use in this profile
+@valueURI
+Rules
+
+
+
+
+linkingAgentRole
+executing program
+The software that performed the event
+http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/exe
+DPM96
+
+
+linkingAgentRole
+authorizer
+The operator who authorised the run
+http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/aut
+DPM96
+
+
+linkingAgentRole
+implementer
+A person who carried out the act (a QA reviewer; whoever identified a corrected mistake)
+http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/imp
+DPM96, DPM108, DPM114
+
+
+linkingObjectRole
+source
+The object an event transformed or examined
+http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole/sou
+DPM99
+
+
+linkingObjectRole
+outcome
+The object an event produced
+http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole/out
+DPM99
+
+
+
+
+
+8.1.9 vocPREMISAgentType
+Source: [LoC-PV] Agent Type, http://id.loc.gov/vocabulary/preservation/agentType. Used in: agent/agentType.
+
+
+
+
+
+
+
+
+
+Value
+Use in this profile
+@valueURI
+Rules
+
+
+
+
+software
+Stage scripts (the QA stage script among them), the conversion engine, veraPDF, DROID
+http://id.loc.gov/vocabulary/preservation/agentType/sof
+DPM83, DPM84
+
+
+person
+Operators and reviewers (see Open items, Person agents)
+http://id.loc.gov/vocabulary/preservation/agentType/per
+DPM83
+
+
+organization
+An organisation, where one is named
+http://id.loc.gov/vocabulary/preservation/agentType/org
+DPM83
+
+
+
+hardware is not used.
+
+
+
+8.2 ODRNS vocabularies
+
+8.2.1 vocODRNSSelectionBasis
+Source: local. Used in: the selection_basis event detail of SIP creation (DPM111) and the start of the commit message (DPM14). Each value names why a version was created; the version types it produces are set out under Modification by version type.
+
+
+
+
+
+
+
+
+Value
+Meaning
+Status
+
+
+
+
+new_document
+The first language version of a document is published in DOL; creates the object (v1)
+Confirmed
+
+
+language_added
+A further language version of an existing document is published in DOL
+Proposed
+
+
+modified_files
+DOL re-issues the document and one or more language versions changed
+Confirmed
+
+
+metadata_change
+DOL changes the descriptive metadata; content unchanged
+Confirmed
+
+
+derestriction
+DOL makes a restricted document public; recorded in the DOME record
+Confirmed
+
+
+premis_correction
+A mistaken element of the PREMIS record is corrected (DPM5, DPM114)
+Confirmed
+
+
+master_reconversion
+A held master is found defective and is re-converted from its published PDF, unchanged; authorised by the operator (DPM5, DPM106)
+Proposed
+
+
+cancel_retain_catalogue
+DOL removes the document’s files but keeps its catalogue record
+Draft
+
+
+cancel_full_removal
+DOL removes both the files and the catalogue record
+Draft
+
+
+database_full_removal
+Files and metadata are removed outside DOL’s normal actions
+Draft
+
+
+
+
+
+8.2.2 vocODRNSEventDetail
+Source: local, defined by the Event catalogue. Each event detail is written as key: value in its own eventDetailInformation (DPM93).
+
+
+
+
+
+
+
+
+Key
+Value
+Events
+
+
+
+
+(first detail)
+The catalogue name and ID, e.g. normalisation (DPM106)
+all (DPM93)
+
+
+target_level
+The PDF/A level targeted: PDF/A-2b
+DPM106
+
+
+validation_profile
+The veraPDF profile applied: PDF/A-2B
+DPM107
+
+
+sampled
+true or false: whether the master was sampled for manual review
+DPM108
+
+
+batch_id
+The UUID of the batch run
+DPM109, DPM111
+
+
+sip_id
+The UUID of the SIP
+DPM111, DPM112
+
+
+selection_basis
+A value from vocODRNSSelectionBasis
+DPM111
+
+
+languages
+The language codes held in the version once committed, comma-separated
+DPM111
+
+
+changed_languages
+The language codes changed by a re-issue or a master reconversion
+DPM111
+
+
+cat_header_id
+The DOL catalogue record ID (CatHeaderId) of the DOME record
+DPM110, DPM116
+
+
+package_manifest
+The bag manifest verified: manifest-sha512.txt
+DPM112
+
+
+ocfl_version
+The OCFL version written: vN
+DPM113
+
+
+corrects, element, recorded, correct, reason
+The corrected entity and UUID, the element’s path, the mistaken and correct values, the reason
+DPM114
+
+
+supersedes, reason, parameter
+The master replaced (UUID), the defect found, and any conversion parameter changed (<name>: <value>)
+DPM106, in a master_reconversion version
+
+
+
+
+
+
+
+
+
+
+Outcome detail note
+Events
+
+
+
+
+package type: SIP / package type: AIP
+DPM111 / DPM113
+
+
+Payload-Oxum: <octets>.<files>
+DPM112
+
+
+none, or the alterations and removals the engine reported
+DPM106
+
+
+The accepted veraPDF warnings, the reviewer and the reason
+DPM7, DPM107
+
+
+The adjudicated reason for a flagged difference
+DPM7, DPM108
+
+
+The operator’s resolution of a file DROID could not identify uniquely
+DPM49, DPM109
+
+
+
+
+
+8.2.3 vocODRNSLanguage
+Used in: the languages and changed_languages event details (DPM111) and in file names. Two-letter codes from ISO 639-1, and mul (ISO 639-2) for a multilingual language version.
+
+
+
+Value
+Language
+
+
+
+
+en
+English
+
+
+fr
+French
+
+
+es
+Spanish
+
+
+mul
+Multilingual
+
+
+
+
+
+8.2.4 vocODRNSAgentIdentifierPrefix (informative)
+Not written in the package PREMIS file: PREMIS identifies every agent by its agent-registry UUID alone (DPM79–DPM81). Listed here for reference; the vocabulary is defined in [METS-PROFILE] (vocODRNSAgentIdentifierPrefix; DME30–DME36), where the METS header uses it, and its use in the bag’s bag-info.txt is governed by [DPR-WORKFLOW].
+
+
+
+
+
+
+
+
+Value
+Identifies
+Example
+
+
+
+
+ISNI:
+An organisation by its International Standard Name Identifier: the WTO as record creator
+ISNI:0000000514498628
+
+
+ORG:
+An ODRNS organisational unit by its internal code: the submitting section and the preservation agent
+ORG:1963
+
+
+UUID:
+A software agent by its agent-registry UUID (no person is named in the METS header; [METS-PROFILE], DME34)
+UUID:fc59d2c2-beeb-4ffa-8ae6-22f170306f6b
+
+
+
+
+
+
+
+9 Modification by version type
+Versions. An OCFL version is “the state of an OCFL Object’s content” [OCFL §2], not an edition of the document, and once created it is not changed: “the contents of a version directory are expected to be immutable” [OCFL §3.3]. This repository processes each language version separately as it is published on DOL, so each creates a new version of the object, the first creating v1. An added language is therefore a new version (language_added), as is a revised one (modified_files); the selection basis, not the version number, says which. This profile calls the creation of a version by the ingest side its commit, and the version’s created, user and message in the inventory its commit record (DPM14); OCFL itself does not use the word.
+The selection basis of the version decides what is appended. In every case DPM4 applies: all predecessor elements are carried forward unchanged.
+
+
+
+
+
+
+
+
+
+
+Version type
+Basis
+Objects appended
+Events appended
+Relationships appended
+
+
+
+
+New object (v1)
+new_document
+IE; rep_1, rep_2; every held file; each published PDF
+DPM102–DPM109, DPM116, DPM111–DPM113
+all, per the Relationship catalogue
+
+
+New language version (v2+)
+language_added (proposed)
+the new language’s held files and published PDF; new reports; new DROID report
+DPM103–DPM109 for the new files; DPM110 if DOME changes; DPM111–DPM113
+includes on rep_1/rep_2; derivation and dependency for the new files
+
+
+Re-issue (v2+)
+modified_files
+the changed language versions’ new published PDFs, masters and reports; new DROID report
+as above, for the changed set only; DPM111 carries changed_languages
+as above
+
+
+Metadata change (v2+)
+metadata_change
+the new DOME file
+DPM110; DPM111–DPM113
+none
+
+
+Derestriction (v2+)
+derestriction
+the new DOME file; rights statement (pending)
+DPM110; DPM111–DPM113
+rights link (pending)
+
+
+PREMIS correction (v2+)
+premis_correction
+any agent or object the correct value names, if not yet described
+one PREMIS correction (DPM114) per corrected element; DPM111–DPM113
+none
+
+
+Master reconversion (v2+)
+master_reconversion (proposed)
+the new master and its reports
+DPM103, DPM106 (with supersedes, reason), DPM107–DPM109 for the new files; DPM111–DPM113, with changed_languages
+includes on rep_2; is Included In and has Source (to the published PDF already described) on the new master; dependency for the new reports
+
+
+Withdrawal and removal
+cancel_retain_catalogue, cancel_full_removal, database_full_removal
+—
+—
+Draft; not specified until the policy is settled
+
+
+
+Superseded files. A re-issue, a metadata change or a master reconversion writes new bytes at an existing logical path. The new file is a new object with a new file_id (DPM8). The predecessor’s object stays in PREMIS unchanged, since it is still held in its version. The representation gains an includes relationship to the new file; its relationship to the predecessor is not removed. Which file is current at the head is answered by the OCFL head state, not by PREMIS.
+
+
+10 Worked examples
+The examples follow JOB_ID 2026_012017 through three versions. UUIDs are illustrative uuid4 values; digests are truncated with …. Authority attributes are shown on the first use of each controlled element and omitted thereafter for readability; a real file carries them throughout.
+
+10.1 Example 1 — v1: English posted (new_document)
+The English DOCX and PDF post in DOL on 2026-10-05; the item is selected after the settling window, converted, validated, QA-accepted, identified, bagged and ingested on 2026-10-12. The SIP’s PREMIS is written on the preparation side; the last two events are appended on the ingest side before commit. Agent names in the listing are illustrative; real values come from the agent registry.
+Files described in PREMIS at v1 (held besides them, and not described: 2026_012017_mets.xml, metadata/preservation/2026_012017_premis.xml and the four files under schemas/, DILCISExtensionMETS.xsd, mets.xsd, premis.xsd and xlink.xsd, DPM12):
+documentation/2026_012017_en_conv_aspose.xml
+documentation/2026_012017_en_qa_pypdf.json
+documentation/2026_012017_en_val_verapdf.xml
+documentation/2026_012017_ff_droid.csv
+metadata/descriptive/2026_012017_dome.xml
+representations/rep_1/data/en/2026_012017_en.docx
+representations/rep_2/data/en/2026_012017_en.pdf
+The resulting metadata/preservation/2026_012017_premis.xml, abridged — one instance of each pattern is shown in full and repetitions are marked. The comment at the end of a line gives, in square brackets, the requirement or requirements governing that element:
+<?xml version="1.0" encoding="UTF-8"?>  <!-- [DPM13] -->
+<premis xmlns="http://www.loc.gov/premis/v3"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.loc.gov/premis/v3 ../../schemas/premis.xsd"
+        version="3.0">  <!-- [DPM15–DPM18] -->
+
+  <!-- ===== Intellectual entity (DPM20, DPM25) ===== -->
+  <object xsi:type="intellectualEntity">  <!-- [DPM20] -->
+    <objectIdentifier>  <!-- [DPM21] -->
+      <objectIdentifierType>UUID</objectIdentifierType>  <!-- [DPM22] -->
+      <objectIdentifierValue>9cad434a-aedd-4955-bc53-1f1e3c1c882a</objectIdentifierValue>  <!-- [DPM23] -->
+    </objectIdentifier>
+    <objectIdentifier>  <!-- [DPM24] -->
+      <objectIdentifierType>JOB_ID</objectIdentifierType>  <!-- [DPM24] -->
+      <objectIdentifierValue>2026_012017</objectIdentifierValue>  <!-- [DPM24] -->
+    </objectIdentifier>
+    <relationship>  <!-- [DPM71] -->
+      <relationshipType authority="relationshipType"
+          authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType"
+          valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/str">structural</relationshipType>  <!-- [DPM66] -->
+      <relationshipSubType authority="relationshipSubType"
+          authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType"
+          valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/inc">includes</relationshipSubType>  <!-- [DPM67] -->
+      <relatedObjectIdentifier>  <!-- [DPM68] -->
+        <relatedObjectIdentifierType>UUID</relatedObjectIdentifierType>  <!-- [DPM68] -->
+        <relatedObjectIdentifierValue>2a4a0601-c35d-443e-920f-43d3c21c00ce</relatedObjectIdentifierValue>  <!-- [DPM68] -->
+      </relatedObjectIdentifier>
+    </relationship>
+    <!-- … second includes, to rep_2 (864aaa6f-…) -->
+  </object>
+
+  <!-- ===== Representation rep_2 (DPM27, DPM35); rep_1, written before it, follows the same pattern ===== -->
+  <object xsi:type="representation">  <!-- [DPM27] -->
+    <objectIdentifier>  <!-- [DPM28] -->
+      <objectIdentifierType>UUID</objectIdentifierType>  <!-- [DPM29] -->
+      <objectIdentifierValue>864aaa6f-ea0f-40d4-a83d-4be03b108e55</objectIdentifierValue>  <!-- [DPM30] -->
+    </objectIdentifier>
+    <objectIdentifier>  <!-- [DPM41] -->
+      <objectIdentifierType>filepath</objectIdentifierType>  <!-- [DPM41] -->
+      <objectIdentifierValue>representations/rep_2</objectIdentifierValue>  <!-- [DPM41] -->
+    </objectIdentifier>
+    <relationship>  <!-- [DPM72] -->
+      <relationshipType>structural</relationshipType>  <!-- [DPM66] -->
+      <relationshipSubType>is Included In</relationshipSubType>  <!-- [DPM67] -->
+      <relatedObjectIdentifier>  <!-- [DPM68] -->
+        <relatedObjectIdentifierType>UUID</relatedObjectIdentifierType>  <!-- [DPM68] -->
+        <relatedObjectIdentifierValue>9cad434a-aedd-4955-bc53-1f1e3c1c882a</relatedObjectIdentifierValue>  <!-- [DPM68] -->
+      </relatedObjectIdentifier>
+    </relationship>
+    <relationship>  <!-- [DPM73] -->
+      <relationshipType>structural</relationshipType>  <!-- [DPM66] -->
+      <relationshipSubType>includes</relationshipSubType>  <!-- [DPM67] -->
+      <relatedObjectIdentifier>  <!-- [DPM68] -->
+        <relatedObjectIdentifierType>UUID</relatedObjectIdentifierType>  <!-- [DPM68] -->
+        <relatedObjectIdentifierValue>3aaa37c1-1f81-48f5-8144-cd222bfa84c7</relatedObjectIdentifierValue>  <!-- [DPM68] -->
+      </relatedObjectIdentifier>
+    </relationship>
+  </object>
+
+  <!-- ===== Files, in logical-path order (Placement and file model, Element order) ===== -->
+
+  <!-- … conversion log (5a08fb54-c98c-46e3-91ef-e143f138db4e), documentation/2026_012017_en_conv_aspose.xml: format Extensible Markup Language 1.0,
+       fmt/101; dependency / isConversionLogOf (local) → the master, related event the normalisation (DPM118);
+       QA report (e9e1bcd2-8344-475a-a3b8-7c81f8c5d3a6), documentation/2026_012017_en_qa_pypdf.json (DPM77) — same patterns as the veraPDF report below -->
+
+  <!-- ===== veraPDF report, held; bound to the master by DPM76 ===== -->
+  <object xsi:type="file">  <!-- [DPM36] -->
+    <objectIdentifier>  <!-- [DPM37] -->
+      <objectIdentifierType>UUID</objectIdentifierType>  <!-- [DPM38] -->
+      <objectIdentifierValue>05608966-10d5-421b-9d18-8844c0ff1caa</objectIdentifierValue>  <!-- [DPM39] -->
+    </objectIdentifier>
+    <objectIdentifier>  <!-- [DPM41] -->
+      <objectIdentifierType>filepath</objectIdentifierType>  <!-- [DPM41] -->
+      <objectIdentifierValue>documentation/2026_012017_en_val_verapdf.xml</objectIdentifierValue>  <!-- [DPM41] -->
+    </objectIdentifier>
+    <objectCharacteristics>  <!-- [DPM42] -->
+      <compositionLevel>0</compositionLevel>  <!-- [DPM43] -->
+      <fixity>  <!-- [DPM44] -->
+        <messageDigestAlgorithm>SHA-512</messageDigestAlgorithm>  <!-- [DPM45] -->
+        <messageDigest>45c48cce2e2d7fbdea1afc51c7c6ad26…</messageDigest>  <!-- [DPM46] -->
+        <messageDigestOriginator>1b5e7310-42e4-4426-8573-9d3b2530be15</messageDigestOriginator>  <!-- [DPM47] -->
+      </fixity>
+      <size>38204</size>  <!-- [DPM48] -->
+      <format>  <!-- [DPM49] -->
+        <formatDesignation>  <!-- [DPM50] -->
+          <formatName>Extensible Markup Language</formatName>  <!-- [DPM51] -->
+          <formatVersion>1.0</formatVersion>  <!-- [DPM52] -->
+        </formatDesignation>
+        <formatRegistry>  <!-- [DPM53] -->
+          <formatRegistryName>PRONOM</formatRegistryName>  <!-- [DPM54] -->
+          <formatRegistryKey>fmt/101</formatRegistryKey>  <!-- [DPM55] -->
+          <formatRegistryRole>specification</formatRegistryRole>  <!-- [DPM56] -->
+        </formatRegistry>
+      </format>
+    </objectCharacteristics>
+    <relationship>  <!-- [DPM76] -->
+      <relationshipType>dependency</relationshipType>  <!-- [DPM66] -->
+      <relationshipSubType authority="local">isValidationReportOf</relationshipSubType>  <!-- [DPM67] -->
+      <relatedObjectIdentifier>  <!-- [DPM68] -->
+        <relatedObjectIdentifierType>UUID</relatedObjectIdentifierType>  <!-- [DPM68] -->
+        <relatedObjectIdentifierValue>3aaa37c1-1f81-48f5-8144-cd222bfa84c7</relatedObjectIdentifierValue>  <!-- [DPM68] -->
+      </relatedObjectIdentifier>
+      <relatedEventIdentifier>  <!-- [DPM69] -->
+        <relatedEventIdentifierType>UUID</relatedEventIdentifierType>  <!-- [DPM69] -->
+        <relatedEventIdentifierValue>8c7b8546-2a56-49c3-b1c4-e8c07b16a7da</relatedEventIdentifierValue>  <!-- [DPM69] -->
+      </relatedEventIdentifier>
+    </relationship>
+  </object>
+
+  <!-- … DROID report (be11d0fc-40bc-4941-9f79-38487abd5413), documentation/2026_012017_ff_droid.csv;
+       DOME (84e2e1c8-fcbd-4536-9b73-6939971b5acd), metadata/descriptive/2026_012017_dome.xml;
+       English DOCX (931b0ca3-98b0-4409-a0a6-02dae6910634), representations/rep_1/data/en/2026_012017_en.docx
+       (rep_1, with originalName) — same
+       patterns. The published PDF, which has no logical path, comes immediately before the master derived from it. -->
+
+  <!-- ===== Published PDF of the English master — described, not held (DPM40) ===== -->
+  <object xsi:type="file">  <!-- [DPM36, DPM40] -->
+    <objectIdentifier>  <!-- [DPM37] -->
+      <objectIdentifierType>UUID</objectIdentifierType>  <!-- [DPM38] -->
+      <objectIdentifierValue>66a05ffa-9f3c-4f65-a8ed-0eb84c4e31b2</objectIdentifierValue>  <!-- [DPM39] -->
+    </objectIdentifier>
+    <objectCharacteristics>  <!-- [DPM42] -->
+      <compositionLevel>0</compositionLevel>  <!-- [DPM43] -->
+      <fixity>  <!-- [DPM44] -->
+        <messageDigestAlgorithm authority="cryptographicHashFunctions"
+            authorityURI="http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions"
+            valueURI="http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions/sha512">SHA-512</messageDigestAlgorithm>  <!-- [DPM45] -->
+        <messageDigest>8f14e45fceea167a5a36dedd4bea2543…</messageDigest>  <!-- [DPM46] -->
+        <messageDigestOriginator>4c702ef1-25a4-4917-a4d8-ae794f04592e</messageDigestOriginator>  <!-- [DPM47] -->
+      </fixity>
+      <size>482113</size>  <!-- [DPM48] -->
+      <format>  <!-- [DPM49] -->
+        <formatDesignation>  <!-- [DPM50] -->
+          <formatName>Acrobat PDF 1.7 - Portable Document Format</formatName>  <!-- [DPM51] -->
+          <formatVersion>1.7</formatVersion>  <!-- [DPM52] -->
+        </formatDesignation>
+        <formatRegistry>  <!-- [DPM53] -->
+          <formatRegistryName>PRONOM</formatRegistryName>  <!-- [DPM54] -->
+          <formatRegistryKey>fmt/276</formatRegistryKey>  <!-- [DPM55] -->
+          <formatRegistryRole authority="formatRegistryRole"
+              authorityURI="http://id.loc.gov/vocabulary/preservation/formatRegistryRole"
+              valueURI="http://id.loc.gov/vocabulary/preservation/formatRegistryRole/spe">specification</formatRegistryRole>  <!-- [DPM56] -->
+        </formatRegistry>
+      </format>
+    </objectCharacteristics>
+    <originalName>WTGCWT849.pdf</originalName>  <!-- [DPM63] -->
+  </object>
+
+  <!-- ===== English master, held (DPM36, DPM75) ===== -->
+  <object xsi:type="file">  <!-- [DPM36] -->
+    <objectIdentifier>  <!-- [DPM37] -->
+      <objectIdentifierType>UUID</objectIdentifierType>  <!-- [DPM38] -->
+      <objectIdentifierValue>3aaa37c1-1f81-48f5-8144-cd222bfa84c7</objectIdentifierValue>  <!-- [DPM39] -->
+    </objectIdentifier>
+    <objectIdentifier>  <!-- [DPM41] -->
+      <objectIdentifierType>filepath</objectIdentifierType>  <!-- [DPM41] -->
+      <objectIdentifierValue>representations/rep_2/data/en/2026_012017_en.pdf</objectIdentifierValue>  <!-- [DPM41] -->
+    </objectIdentifier>
+    <objectCharacteristics>  <!-- [DPM42] -->
+      <compositionLevel>0</compositionLevel>  <!-- [DPM43] -->
+      <fixity>  <!-- [DPM44] -->
+        <messageDigestAlgorithm>SHA-512</messageDigestAlgorithm>  <!-- [DPM45] -->
+        <messageDigest>c9f0f895fb98ab9159f51fd0297e236d…</messageDigest>  <!-- [DPM46] -->
+        <messageDigestOriginator>7fd9510b-004b-4872-9108-fe54e7f4845e</messageDigestOriginator>  <!-- [DPM47] -->
+      </fixity>
+      <size>511870</size>  <!-- [DPM48] -->
+      <format>  <!-- [DPM49] -->
+        <formatDesignation>  <!-- [DPM50] -->
+          <formatName>Acrobat PDF/A - Portable Document Format</formatName>  <!-- [DPM51] -->
+          <formatVersion>2b</formatVersion>  <!-- [DPM52] -->
+        </formatDesignation>
+        <formatRegistry>  <!-- [DPM53] -->
+          <formatRegistryName>PRONOM</formatRegistryName>  <!-- [DPM54] -->
+          <formatRegistryKey>fmt/477</formatRegistryKey>  <!-- [DPM55] -->
+          <formatRegistryRole>specification</formatRegistryRole>  <!-- [DPM56] -->
+        </formatRegistry>
+      </format>
+      <creatingApplication>  <!-- [DPM57] -->
+        <creatingApplicationName>Aspose.PDF for C++</creatingApplicationName>  <!-- [DPM58] -->
+        <creatingApplicationVersion>[ENGINE-VERSION]</creatingApplicationVersion>  <!-- [DPM59] -->
+        <dateCreatedByApplication>2026-10-12T08:41:52Z</dateCreatedByApplication>  <!-- [DPM60] -->
+      </creatingApplication>
+    </objectCharacteristics>
+    <relationship>  <!-- [DPM74] -->
+      <relationshipType>structural</relationshipType>  <!-- [DPM66] -->
+      <relationshipSubType>is Included In</relationshipSubType>  <!-- [DPM67] -->
+      <relatedObjectIdentifier>  <!-- [DPM68] -->
+        <relatedObjectIdentifierType>UUID</relatedObjectIdentifierType>  <!-- [DPM68] -->
+        <relatedObjectIdentifierValue>864aaa6f-ea0f-40d4-a83d-4be03b108e55</relatedObjectIdentifierValue>  <!-- [DPM68] -->
+      </relatedObjectIdentifier>
+    </relationship>
+    <relationship>  <!-- [DPM75] -->
+      <relationshipType>derivation</relationshipType>  <!-- [DPM66] -->
+      <relationshipSubType>has Source</relationshipSubType>  <!-- [DPM67] -->
+      <relatedObjectIdentifier>  <!-- [DPM68] -->
+        <relatedObjectIdentifierType>UUID</relatedObjectIdentifierType>  <!-- [DPM68] -->
+        <relatedObjectIdentifierValue>66a05ffa-9f3c-4f65-a8ed-0eb84c4e31b2</relatedObjectIdentifierValue>  <!-- [DPM68] -->
+      </relatedObjectIdentifier>
+      <relatedEventIdentifier>  <!-- [DPM69] -->
+        <relatedEventIdentifierType>UUID</relatedEventIdentifierType>  <!-- [DPM69] -->
+        <relatedEventIdentifierValue>6310d573-4066-4796-8c3c-6bcff1f956fc</relatedEventIdentifierValue>  <!-- [DPM69] -->
+      </relatedEventIdentifier>
+    </relationship>
+  </object>
+
+  <!-- ===== Events, chronological ===== -->
+
+  <!-- DPM102 Ingestion start — v1 only -->
+  <event>  <!-- [DPM87, DPM102] -->
+    <eventIdentifier>  <!-- [DPM88] -->
+      <eventIdentifierType>UUID</eventIdentifierType>  <!-- [DPM89] -->
+      <eventIdentifierValue>7831968a-44be-4674-90ba-c92d6eac3264</eventIdentifierValue>  <!-- [DPM90] -->
+    </eventIdentifier>
+    <eventType authority="eventType"
+        authorityURI="http://id.loc.gov/vocabulary/preservation/eventType"
+        valueURI="http://id.loc.gov/vocabulary/preservation/eventType/ins">ingestion start</eventType>  <!-- [DPM91] -->
+    <eventDateTime>2026-10-12T08:40:03Z</eventDateTime>  <!-- [DPM92] -->
+    <eventDetailInformation>
+      <eventDetail>ingestion start (DPM102)</eventDetail>  <!-- [DPM93] -->
+    </eventDetailInformation>
+    <eventOutcomeInformation>
+      <eventOutcome authority="eventOutcome"
+          authorityURI="http://id.loc.gov/vocabulary/preservation/eventOutcome"
+          valueURI="http://id.loc.gov/vocabulary/preservation/eventOutcome/suc">success</eventOutcome>  <!-- [DPM94] -->
+    </eventOutcomeInformation>
+    <linkingAgentIdentifier>  <!-- [DPM96] -->
+      <linkingAgentIdentifierType>UUID</linkingAgentIdentifierType>  <!-- [DPM97] -->
+      <linkingAgentIdentifierValue>4c702ef1-25a4-4917-a4d8-ae794f04592e</linkingAgentIdentifierValue>  <!-- [DPM98] -->
+      <linkingAgentRole authority="eventRelatedAgentRole"
+          authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole"
+          valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/exe">executing program</linkingAgentRole>  <!-- [DPM96] -->
+    </linkingAgentIdentifier>
+    <linkingAgentIdentifier>  <!-- [DPM96] -->
+      <linkingAgentIdentifierType>UUID</linkingAgentIdentifierType>  <!-- [DPM97] -->
+      <linkingAgentIdentifierValue>fc59d2c2-beeb-4ffa-8ae6-22f170306f6b</linkingAgentIdentifierValue>  <!-- [DPM98] -->
+      <linkingAgentRole>authorizer</linkingAgentRole>  <!-- [DPM96] -->
+    </linkingAgentIdentifier>
+    <linkingObjectIdentifier>  <!-- [DPM99] -->
+      <linkingObjectIdentifierType>UUID</linkingObjectIdentifierType>  <!-- [DPM100] -->
+      <linkingObjectIdentifierValue>9cad434a-aedd-4955-bc53-1f1e3c1c882a</linkingObjectIdentifierValue>  <!-- [DPM101] -->
+    </linkingObjectIdentifier>
+  </event>
+
+  <!-- … DPM103 Digest calculation and DPM104 Copy fixity verification per extracted file;
+       DPM105 Filename change for the DOCX renamed to 2026_012017_en.docx -->
+
+  <!-- DPM106 Normalisation -->
+  <event>  <!-- [DPM87, DPM106] -->
+    <eventIdentifier>  <!-- [DPM88] -->
+      <eventIdentifierType>UUID</eventIdentifierType>  <!-- [DPM89] -->
+      <eventIdentifierValue>6310d573-4066-4796-8c3c-6bcff1f956fc</eventIdentifierValue>  <!-- [DPM90] -->
+    </eventIdentifier>
+    <eventType authority="eventType"
+        authorityURI="http://id.loc.gov/vocabulary/preservation/eventType"
+        valueURI="http://id.loc.gov/vocabulary/preservation/eventType/nor">normalization</eventType>  <!-- [DPM91] -->
+    <eventDateTime>2026-10-12T08:41:52Z</eventDateTime>  <!-- [DPM92] -->
+    <eventDetailInformation>
+      <eventDetail>normalisation (DPM106)</eventDetail>  <!-- [DPM93] -->
+    </eventDetailInformation>
+    <eventDetailInformation>
+      <eventDetail>target_level: PDF/A-2b</eventDetail>  <!-- [DPM106] -->
+    </eventDetailInformation>
+    <eventOutcomeInformation>
+      <eventOutcome>success</eventOutcome>  <!-- [DPM94] -->
+      <eventOutcomeDetail>
+        <eventOutcomeDetailNote>none</eventOutcomeDetailNote>  <!-- [DPM95] -->
+      </eventOutcomeDetail>
+    </eventOutcomeInformation>
+    <linkingAgentIdentifier>  <!-- [DPM96] -->
+      <linkingAgentIdentifierType>UUID</linkingAgentIdentifierType>  <!-- [DPM97] -->
+      <linkingAgentIdentifierValue>197ae01e-806e-41b9-b752-cb7f82580503</linkingAgentIdentifierValue>  <!-- [DPM98] -->
+      <linkingAgentRole>executing program</linkingAgentRole>  <!-- [DPM96] -->
+    </linkingAgentIdentifier>
+    <linkingAgentIdentifier>  <!-- [DPM96] -->
+      <linkingAgentIdentifierType>UUID</linkingAgentIdentifierType>  <!-- [DPM97] -->
+      <linkingAgentIdentifierValue>fc59d2c2-beeb-4ffa-8ae6-22f170306f6b</linkingAgentIdentifierValue>  <!-- [DPM98] -->
+      <linkingAgentRole>authorizer</linkingAgentRole>  <!-- [DPM96] -->
+    </linkingAgentIdentifier>
+    <linkingObjectIdentifier>  <!-- [DPM99] -->
+      <linkingObjectIdentifierType>UUID</linkingObjectIdentifierType>  <!-- [DPM100] -->
+      <linkingObjectIdentifierValue>66a05ffa-9f3c-4f65-a8ed-0eb84c4e31b2</linkingObjectIdentifierValue>  <!-- [DPM101] -->
+      <linkingObjectRole authority="eventRelatedObjectRole"
+          authorityURI="http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole"
+          valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole/sou">source</linkingObjectRole>  <!-- [DPM99] -->
+    </linkingObjectIdentifier>
+    <linkingObjectIdentifier>  <!-- [DPM99] -->
+      <linkingObjectIdentifierType>UUID</linkingObjectIdentifierType>  <!-- [DPM100] -->
+      <linkingObjectIdentifierValue>3aaa37c1-1f81-48f5-8144-cd222bfa84c7</linkingObjectIdentifierValue>  <!-- [DPM101] -->
+      <linkingObjectRole>outcome</linkingObjectRole>  <!-- [DPM99] -->
+    </linkingObjectIdentifier>
+    <linkingObjectIdentifier>  <!-- [DPM99] -->
+      <linkingObjectIdentifierType>UUID</linkingObjectIdentifierType>  <!-- [DPM100] -->
+      <linkingObjectIdentifierValue>a1d2e9c4-6b7f-4e38-9c51-2f0d8e6b4a17</linkingObjectIdentifierValue>  <!-- [DPM101]; the conversion log -->
+      <linkingObjectRole>outcome</linkingObjectRole>  <!-- [DPM99, DPM106] -->
+    </linkingObjectIdentifier>
+  </event>
+
+  <!-- … DPM103 on the master; DPM107 Conformance validation (8c7b8546-…); DPM108 Fidelity review
+       (7183c40c-…, eventType qualityReview, local authority); DPM109 Format identification — one for the
+       version, run after the normalisation: links each file it identified — the DOCX, the master, the
+       conversion log, the veraPDF and QA reports and the published PDF (DPM40) — without role, and the DROID
+       report (outcome); DPM116 Descriptive metadata
+       creation, linking the intellectual entity (no role) and the DOME file (outcome) -->
+
+  <!-- DPM111 SIP creation — written on the preparation side, last before bagging -->
+  <event>  <!-- [DPM87, DPM111] -->
+    <eventIdentifier>  <!-- [DPM88] -->
+      <eventIdentifierType>UUID</eventIdentifierType>  <!-- [DPM89] -->
+      <eventIdentifierValue>0adbcebb-9b29-47a0-b0f5-427930213376</eventIdentifierValue>  <!-- [DPM90] -->
+    </eventIdentifier>
+    <eventType authority="eventType"
+        authorityURI="http://id.loc.gov/vocabulary/preservation/eventType"
+        valueURI="http://id.loc.gov/vocabulary/preservation/eventType/ipc">information package creation</eventType>  <!-- [DPM91] -->
+    <eventDateTime>2026-10-12T08:47:30Z</eventDateTime>  <!-- [DPM92] -->
+    <eventDetailInformation>
+      <eventDetail>SIP creation (DPM111)</eventDetail>  <!-- [DPM93] -->
+    </eventDetailInformation>
+    <eventDetailInformation>
+      <eventDetail>sip_id: 8db4332b-de6e-4322-bbb6-3e9e5629bc19</eventDetail>  <!-- [DPM111] -->
+    </eventDetailInformation>
+    <eventDetailInformation>
+      <eventDetail>selection_basis: new_document</eventDetail>  <!-- [DPM111] -->
+    </eventDetailInformation>
+    <eventDetailInformation>
+      <eventDetail>batch_id: 3113aa86-311d-441f-a39b-08ba19065b9e</eventDetail>  <!-- [DPM111] -->
+    </eventDetailInformation>
+    <eventDetailInformation>
+      <eventDetail>languages: en</eventDetail>  <!-- [DPM111] -->
+    </eventDetailInformation>
+    <eventOutcomeInformation>
+      <eventOutcome>success</eventOutcome>  <!-- [DPM94] -->
+      <eventOutcomeDetail>
+        <eventOutcomeDetailNote>package type: SIP</eventOutcomeDetailNote>  <!-- [DPM95] -->
+      </eventOutcomeDetail>
+    </eventOutcomeInformation>
+    <linkingAgentIdentifier>  <!-- [DPM96] -->
+      <linkingAgentIdentifierType>UUID</linkingAgentIdentifierType>  <!-- [DPM97] -->
+      <linkingAgentIdentifierValue>54cc5403-ca8c-4a2d-b333-c43bde1e90d0</linkingAgentIdentifierValue>  <!-- [DPM98] -->
+      <linkingAgentRole>executing program</linkingAgentRole>  <!-- [DPM96] -->
+    </linkingAgentIdentifier>
+    <linkingAgentIdentifier>  <!-- [DPM96] -->
+      <linkingAgentIdentifierType>UUID</linkingAgentIdentifierType>  <!-- [DPM97] -->
+      <linkingAgentIdentifierValue>fc59d2c2-beeb-4ffa-8ae6-22f170306f6b</linkingAgentIdentifierValue>  <!-- [DPM98] -->
+      <linkingAgentRole>authorizer</linkingAgentRole>  <!-- [DPM96] -->
+    </linkingAgentIdentifier>
+    <linkingObjectIdentifier>  <!-- [DPM99] -->
+      <linkingObjectIdentifierType>UUID</linkingObjectIdentifierType>  <!-- [DPM100] -->
+      <linkingObjectIdentifierValue>9cad434a-aedd-4955-bc53-1f1e3c1c882a</linkingObjectIdentifierValue>  <!-- [DPM101] -->
+    </linkingObjectIdentifier>
+  </event>
+
+  <!-- ===== Appended on the ingest side at step 9 (DPM3) ===== -->
+
+  <!-- DPM112 Ingest fixity verification (71bdc5f1-…) — same pattern as DPM111, agent = the ingest software,
+       eventDetails "sip_id: 8db4332b-de6e-4322-bbb6-3e9e5629bc19" and "package_manifest: manifest-sha512.txt",
+       note "Payload-Oxum: 1468230.7" -->
+
+  <!-- DPM113 AIP creation -->
+  <event>  <!-- [DPM87, DPM113] -->
+    <eventIdentifier>  <!-- [DPM88] -->
+      <eventIdentifierType>UUID</eventIdentifierType>  <!-- [DPM89] -->
+      <eventIdentifierValue>5d6b1b17-ddf5-413b-aeb6-6b4df0697b06</eventIdentifierValue>  <!-- [DPM90] -->
+    </eventIdentifier>
+    <eventType authority="eventType"
+        authorityURI="http://id.loc.gov/vocabulary/preservation/eventType"
+        valueURI="http://id.loc.gov/vocabulary/preservation/eventType/ipc">information package creation</eventType>  <!-- [DPM91] -->
+    <eventDateTime>2026-10-12T09:14:01Z</eventDateTime>  <!-- [DPM92] -->
+    <eventDetailInformation>
+      <eventDetail>AIP creation (DPM113)</eventDetail>  <!-- [DPM93] -->
+    </eventDetailInformation>
+    <eventDetailInformation>
+      <eventDetail>ocfl_version: v1</eventDetail>  <!-- [DPM113] -->
+    </eventDetailInformation>
+    <eventOutcomeInformation>
+      <eventOutcome>success</eventOutcome>  <!-- [DPM94] -->
+      <eventOutcomeDetail>
+        <eventOutcomeDetailNote>package type: AIP</eventOutcomeDetailNote>  <!-- [DPM95] -->
+      </eventOutcomeDetail>
+    </eventOutcomeInformation>
+    <linkingAgentIdentifier>  <!-- [DPM96] -->
+      <linkingAgentIdentifierType>UUID</linkingAgentIdentifierType>  <!-- [DPM97] -->
+      <linkingAgentIdentifierValue>e22bbdab-2da6-454f-8069-3a80e5cd3f4e</linkingAgentIdentifierValue>  <!-- [DPM98] -->
+      <linkingAgentRole>executing program</linkingAgentRole>  <!-- [DPM96] -->
+    </linkingAgentIdentifier>
+    <linkingAgentIdentifier>  <!-- [DPM96] -->
+      <linkingAgentIdentifierType>UUID</linkingAgentIdentifierType>  <!-- [DPM97] -->
+      <linkingAgentIdentifierValue>fc59d2c2-beeb-4ffa-8ae6-22f170306f6b</linkingAgentIdentifierValue>  <!-- [DPM98] -->
+      <linkingAgentRole>authorizer</linkingAgentRole>  <!-- [DPM96] -->
+    </linkingAgentIdentifier>
+    <linkingObjectIdentifier>  <!-- [DPM99] -->
+      <linkingObjectIdentifierType>UUID</linkingObjectIdentifierType>  <!-- [DPM100] -->
+      <linkingObjectIdentifierValue>9cad434a-aedd-4955-bc53-1f1e3c1c882a</linkingObjectIdentifierValue>  <!-- [DPM101] -->
+    </linkingObjectIdentifier>
+  </event>
+
+  <!-- ===== Agents, copied from the registry (DPM78) ===== -->
+  <agent>  <!-- [DPM78] -->
+    <agentIdentifier>  <!-- [DPM79] -->
+      <agentIdentifierType>UUID</agentIdentifierType>  <!-- [DPM80] -->
+      <agentIdentifierValue>197ae01e-806e-41b9-b752-cb7f82580503</agentIdentifierValue>  <!-- [DPM81] -->
+    </agentIdentifier>
+    <agentName>Aspose.PDF for C++</agentName>  <!-- [DPM82] -->
+    <agentType authority="agentType"
+        authorityURI="http://id.loc.gov/vocabulary/preservation/agentType"
+        valueURI="http://id.loc.gov/vocabulary/preservation/agentType/sof">software</agentType>  <!-- [DPM83] -->
+    <agentVersion>[ENGINE-VERSION]</agentVersion>  <!-- [DPM84] -->
+  </agent>
+  <agent>  <!-- [DPM78] -->
+    <agentIdentifier>  <!-- [DPM79] -->
+      <agentIdentifierType>UUID</agentIdentifierType>  <!-- [DPM80] -->
+      <agentIdentifierValue>fc59d2c2-beeb-4ffa-8ae6-22f170306f6b</agentIdentifierValue>  <!-- [DPM81] -->
+    </agentIdentifier>
+    <agentName>Preservation operator (ODRNS)</agentName>  <!-- [DPM82] -->
+    <agentType>person</agentType>  <!-- [DPM83] -->
+  </agent>
+  <!-- … the stage scripts of steps 1 (4c702ef1-…), 3 (7fd9510b-…), 4 (1b5e7310-…), 5, 6
+       and 7 (54cc5403-…); veraPDF; DROID (with signature-file version); ingest software -->
+</premis>
+What the ingest side changed between the SIP and v1, as DPM117 requires: two events and one agent (the ingest software) appended, the file re-validated (DPM10), and the root METS rewritten with the new PREMIS digest and csip:OAISPACKAGETYPE="AIP" (DPM11; [METS-PROFILE], DME9). Everything above the DPM112 comment arrived in the bag and is carried unchanged.
+The bag that carried this SIP declares it a new object in bag-info.txt (DPM2):
+Source-Organization: World Trade Organization
+External-Identifier: 8db4332b-de6e-4322-bbb6-3e9e5629bc19
+Internal-Sender-Identifier: 2026_012017
+External-Description: SIP for WT/GC/W/849 (new_document)
+Bag-Group-Identifier: 3113aa86-311d-441f-a39b-08ba19065b9e
+Bagging-Date: 2026-10-12
+Payload-Oxum: 1468230.7
+DPR-Object-UUID: 9cad434a-aedd-4955-bc53-1f1e3c1c882a
+DPR-Predecessor-OCFL-Version: none
+BagIt allows no comments in bag-info.txt, so what each field identifies is set out here:
+
+
+
+
+
+
+
+
+
+Field
+Value here
+Identifies
+The same value in
+
+
+
+
+Source-Organization
+World Trade Organization
+Who sent the bag
+—
+
+
+External-Identifier
+SIP UUID
+This bag, and no other
+SIP METS @OBJID; AIP METS altRecordID[@TYPE='SIP'] ([METS-PROFILE], DME16, DME38); PREMIS sip_id (DPM111, DPM112)
+
+
+Internal-Sender-Identifier
+JOB_ID
+The document, in ODRNS’s terms
+PREMIS intellectual entity, JOB_ID (DPM24)
+
+
+External-Description
+one line: document symbol and selection basis
+What the bag is, for human readers
+—
+
+
+Bag-Group-Identifier
+batch UUID
+The batch run that built the bag
+PREMIS batch_id (DPM109, DPM111)
+
+
+Bagging-Date
+date
+When the bag was built
+—
+
+
+Payload-Oxum
+<octets>.<files>
+Payload size and file count
+PREMIS outcome detail note of DPM112
+
+
+DPR-Object-UUID
+object UUID
+The object and its AIP
+PREMIS intellectual entity UUID (DPM23); OCFL inventory id
+
+
+DPR-Predecessor-OCFL-Version
+none if the object is not yet in the repository; otherwise the latest version it already has there when the SIP is built, e.g. v1
+The OCFL version the SIP was built on
+— (checked at ingest, DPM2)
+
+
+
+The commit of v1 is not in PREMIS. It is the version block of inventory.json:
+"v1": {
+  "created": "2026-10-12T09:14:03Z",
+  "message": "new_document — initial ingest (en)",
+  "user": { "name": "Preservation operator (ODRNS)",
+            "address": "mailto:[OPERATOR-EMAIL]" },
+  "state": { "…": [ "…" ] }
+}
+
+
+10.2 Example 2 — v2: French posted
+The French DOCX and PDF post later. The object exists, so this is a new content version of it (the selection basis is the proposed language_added). The preparation side reads the v1 premis.xml from OCFL (DPM2) and appends:
+
+
+
+
+
+
+
+
+Appended
+Identifier
+Note
+
+
+
+
+File: French DOCX, rep_1/data/fr/2026_012017_fr.docx
+068725ea-abdf-44f8-a685-8938ebb36e9f
+with originalName
+
+
+File: French published PDF (not held)
+b8061e0a-3d05-4e04-89ac-720ea4e39d7a
+DPM40
+
+
+File: French master, rep_2/data/fr/2026_012017_fr.pdf
+37f8ba33-8836-4460-a815-b18a342fda9f
+has Source → French published PDF
+
+
+File: French veraPDF report
+e47fa7a0-2013-4378-82dd-acc5f9503775
+DPM76 → French master
+
+
+File: French QA report
+49fdf020-82b2-495b-a555-9e777fd1d96f
+DPM77 → French master
+
+
+File: French conversion log, documentation/2026_012017_fr_conv_aspose.xml
+5b8e0f3a-7c21-4d96-b0e4-91a6c3d72f58
+DPM118 → French master; second outcome of the French normalisation
+
+
+File: DROID report, documentation/2026_012017_ff_droid.csv
+e0371979-7da4-4949-8f19-4b564d0b601a
+new bytes at an existing path: a new object; the v1 DROID report object stays
+
+
+Relationship on rep_1: includes French DOCX
+—
+the one permitted change to an existing object (DPM4)
+
+
+Relationship on rep_2: includes French master
+—
+as above
+
+
+Events: DPM103–DPM109 for the French files
+e.g. DPM106 6034a307-bd2b-4288-9582-a5eb1f6f12c8
+
+
+
+Event: DPM111
+25974ac2-92db-468a-9efd-18470380396a
+sip_id: 3a4539aa-0cc8-4621-a78d-e7ca3efcd558; selection_basis: language_added; batch_id: 7da53866-a672-4771-8472-6767e97078e2; languages: en, fr
+
+
+Events (ingest side): DPM112, DPM113
+713d0d40-…, 03685a85-…
+DPM113 detail ocfl_version: v2
+
+
+
+Its bag declares the version it was built on; the ingest side commits it as v2 only if head is still v1 (DPM2):
+Source-Organization: World Trade Organization
+External-Identifier: 3a4539aa-0cc8-4621-a78d-e7ca3efcd558
+Internal-Sender-Identifier: 2026_012017
+External-Description: SIP for WT/GC/W/849 (language_added)
+Bag-Group-Identifier: 7da53866-a672-4771-8472-6767e97078e2
+Bagging-Date: 2026-10-20
+Payload-Oxum: 1189340.9
+DPR-Object-UUID: 9cad434a-aedd-4955-bc53-1f1e3c1c882a
+DPR-Predecessor-OCFL-Version: v1
+Against the v1 bag, the SIP UUID, the description, the batch, the date, the payload and the predecessor change; the JOB_ID and the object UUID stay, being the same document and object.
+The commit of v2, in inventory.json (DPM14):
+"v2": {
+  "created": "2026-10-20T10:02:47Z",
+  "message": "language_added — French added (fr)",
+  "user": { "name": "Preservation operator (ODRNS)",
+            "address": "mailto:[OPERATOR-EMAIL]" },
+  "state": { "…": [ "…" ] }
+}
+Ingestion start (DPM102) is not repeated: the object was initialised at v1. Every v1 element, including the v1 DROID report object, is carried unchanged.
+OCFL writes into v2/content/ only the French files, the new reports, the new DROID report, the new premis.xml and the new METS.xml. The English files resolve to their v1 bytes.
+If DOL also revised the descriptive record in the same action, DPM110 and a new DOME object are appended in this same version — one OCFL version per pipeline pass, whatever the pass carries.
+
+
+10.3 Example 3 — v3: metadata change (metadata_change)
+DOL revises the descriptive metadata; content is unchanged (confirmed by change detection). Appended:
+
+
+
+
+
+
+
+Appended
+Note
+
+
+
+
+File: DOME, metadata/descriptive/2026_012017_dome.xml, new file_id
+the v1 (and any v2) DOME objects stay
+
+
+Event: DPM110 Descriptive metadata revision: the new DOME outcome, the previous DOME source
+
+
+
+Event: DPM111, selection_basis: metadata_change
+languages: en, fr
+
+
+Events (ingest side): DPM112, DPM113 (ocfl_version: v3)
+
+
+
+
+v3/content/ holds three files: DOME, premis.xml, METS.xml. Nothing in representations/, documentation/ or schemas/ is rewritten.
+The commit of v3, in inventory.json (DPM14):
+"v3": {
+  "created": "2026-11-03T14:21:09Z",
+  "message": "metadata_change — descriptive metadata revised",
+  "user": { "name": "Preservation operator (ODRNS)",
+            "address": "mailto:[OPERATOR-EMAIL]" },
+  "state": { "…": [ "…" ] }
+}
+
+
+
+11 Consequential changes to other documents
+These follow from this profile and are to be made in the files named, not here.
+
+[DPR-WORKFLOW], PREMIS: PoC 6 (§4.10) writes the SIP’s PREMIS by reading the head version’s premis.xml and appending the version’s elements, not by projecting it from run evidence (DPM1, DPM2, DPM4, DPM10); PoC 9 (§4.13) appends ingest fixity verification and AIP creation and runs the DPM12 and DPM14 checks before commit (DPM3, DPM117).
+[DPR-WORKFLOW], change control: invalidation on a source change (§4.4) applies only to the outputs derived from the new or changed source, so that held masters and reports of unchanged sources carry forward (Modification by version type); whether a version is needed is decided on the sources (§4.3), comparing the published PDF’s digest, not the master’s, before the no-change test of §5.1; the selection basis of each version is derived from LastDmsAction and the PoC 1 outcome and recorded (§4.2; DPM111, DPM14).
+[DPR-WORKFLOW], format identification: DROID (§4.6) also identifies the masters after conversion, so that every file object has a format (DPM49, DPM109).
+[DPR-WORKFLOW], version storage: versions are stored forward-delta, unchanged files resolving to the version that first wrote them (The OCFL inventory), not materialised in full (§5.1, §5.2, §10, §13).
+[DPR-WORKFLOW], package: file names and layout (§4.2, §4.10: DOME at metadata/descriptive/, PREMIS at metadata/preservation/, METS at the root; canonical names, DPM105) as under Placement and file model; the bag-info.txt fields (§4.11: External-Identifier the SIP UUID, Internal-Sender-Identifier the JOB_ID, DPR-Object-UUID, DPR-Predecessor-OCFL-Version; Example 1, DPM2, DPM3); BagIt V1.0 or 0.97 [BAGIT].
+event_type_master_list (dpretv): retired. The events written to PREMIS are defined in this profile’s event catalogue (DPM102–DPM114, DPM116).
+relationship_master_list (dprrel) and selection_trigger_master_list (dprsel): retired. The relationships written to PREMIS are defined in this profile’s relationship catalogue; the selection-basis values are defined under Controlled vocabularies.
+[DPR-WORKFLOW], terminology: published PDF for the PDF acquired from DOL from which a master is derived (formerly “DOL source”); release 1 for the first release of the pipeline, distinct from v1, the first OCFL version of an object (see Glossary).
+object_identity_dating_and_storage.qmd: to be revised. The object UUID replaces folder_UUID as OCFL identity (DPM23); JOB_ID sequence padding is six digits; storage path, DOME location (metadata/descriptive/) and attachments (in rep_2) as now decided.
+
+
+
+12 Open items
+
+OCFL logs/ format. File naming, format and content of the records written to an object’s logs/ directory after commit (first case: removal of the bag from staging).
+Run report. Retained per-batch record of excluded facts. The pipeline’s per-batch run log (one per EOD workflow run, recording progress, results and errors across all JOB_IDs) is this record. Still to settle: location under DPR/, format, retention.
+New-language basis. A new language posting to an existing object fits neither new_document nor modified_files; language_added is proposed, to confirm with the DOL posting rules.
+Conversion skipped. When a source is already PDF/A-2b, the held master is the published PDF’s bytes and there is no normalisation. Decide between a catalogue event with a local event type and recording the skip as an event detail on conformance validation (DPM107).
+Restriction status at v1 and the rights pattern. Pending confirmation that restriction status is captured at ingest; until settled, no rights entity is written and derestriction versions write DOME only.
+Commit facts of earlier versions. The commit and accession of each version live only in the OCFL inventory. Whether the next version’s PREMIS should record the previous version’s commit (date from the inventory) is open; it would make PREMIS self-contained at the cost of a one-version lag.
+Local term namespace. The local event type qualityReview (DPM108) and the local relationship subtypes isValidationReportOf, isQaReportOf and isConversionLogOf (relationship catalogue) have no LoC equivalent. Their @authority, @authorityURI and @valueURI need a namespace owned by this profile, replacing the retired dpretv and dprrel namespaces; until then they carry @authority="local" only.
+DROID report (DPM109). Established: DROID runs per batch; the report is generated per JOB_ID and covers only the files new in the version (with the published PDFs of new masters). To confirm with the developer: the file name ({JOB_ID}_ff_droid.csv and {JOB_ID}_droid_export.csv have both been given; what ff stands for); and whether it carries the version number (proposed {JOB_ID}_ff_droid_v{N}.csv), so that a later version’s report does not supersede an earlier one at the same path. With a versioned name, each version’s report is a file added at a new path, and a language_added version changes only premis.xml, METS.xml and the DOME record at existing paths; with one path, the report is replaced in every version and each predecessor stays described as a superseded file. Example 2 follows from the answer.
+DOME events (DPM110, DPM116). Established: the first DOME record is recorded by creation (DPM116) and each later one by revision (DPM110), both with cat_header_id. [METS-PROFILE] does not carry the catalogue record ID; whether DOME should is for that document. To confirm: the form of a CatHeaderId value (placeholder [DOL-RECORD-ID]); whether the script can report the DOME elements changed on a revision (changed_elements); the DOME script’s agent-registry row.
+Repository-side events. Events the repository performs on a held AIP without a new submission, such as a periodic fixity audit, are outside release 1 (repository fixity auditing is out of scope). If they are recorded, decide between the OCFL logs/ directory (no new version; outside PREMIS) and PREMIS, through a version created without a SIP; the latter needs a third writing side (DPM1), its own selection basis, and catalogue entries.
+Per-package processing records. Established: each stage writes a JSON processing record (status and results), separate from the tool’s own report (e.g. 2026_012439_en_val_verapdf.xml and 2026_012439_poc3_validation_record.json). The BagIt and OCFL ingest records (…_poc8_ingest_verification_record.json, …_poc9_ocfl_ingest_record.json) are kept with the workflow’s operational records (ingest-records/), not in the AIP; ingest provenance inside the AIP is PREMIS (DPM112, DPM113) and the inventory commit record (DPM14). Proposed: records of stages before bagging that are held in the package are described as file objects and linked, with the stage’s report, as outcome of the stage’s event. To confirm: that those records are held in the package and where; the full list of files in one package; the production names of the records (poc is used for the PoC only and will change); retention of ingest-records/.
+Conversion program. The WTO C++ program that runs Aspose.PDF for C++: whether it takes settings beyond the target level that affect the result, whether the engine reports what it altered or removed, and whether a conversion log is written and held. DPM106 records only the target level and the reported alterations until this is confirmed; whether a conversion log is held, and so whether DPM118 and its outcome link on DPM106 apply, depends on it. If the WTO program passes instructions to Aspose beyond the target level that affect the master, each is recorded as an event detail of DPM106, as the target level is; Aspose remains the executing program, and the WTO program is not recorded as an agent.
+Engine identity. The exact version string of the Aspose.PDF for C++ library used by the WTO conversion program, from that edition’s own version stream, to be confirmed. The engine agent cannot be registered until then, and must be registered before the first conversion; [ENGINE-VERSION] in the examples stands for it.
+Stage scripts. Each stage script that performs a catalogued event is an agent (DPM84), cited in the Event catalogue by placeholder ([SCRIPT-STEP-n]) until production names replace the PoC names. To confirm: the step that mints the object UUID and writes ingestion start (DPM102; provisionally step 1, where [DPR-WORKFLOW] keeps the object’s persistent identifier), the script that writes a PREMIS correction (DPM114; provisionally step 6, where [DPR-WORKFLOW] writes PREMIS), and whether the script that writes a report also computes its digest or all digests are computed at bagging (DPM47).
+Agent registry. Final file name and location of the agent registry, replacing the placeholders [AGENT-REGISTRY-FILE] and [AGENT-REGISTRY-LOCATION] under Used standards.
+UUID registry. Its form: a CSV file (needs nothing new; uniqueness and append-only enforced by the scripts) or an SQL Server table (enforced by the database; needs an IT-managed instance and access); and its name and location, replacing the placeholders [UUID-REGISTRY] and [UUID-REGISTRY-LOCATION] under Used standards.
+Person agents. Whether operators and reviewers appear in PREMIS by name or as a role-level agent (e.g. “ODRNS preservation operator”); PREMIS is preserved indefinitely and travels with every disseminated copy. The answer also decides the commit record (DPM14): a named operator gives a personal address in user/address, kept indefinitely in the inventory of every version that operator committed; a role-level agent gives a functional mailbox, replacing the placeholder [OPERATOR-EMAIL] in Example 1.
+Preservation level. No level values are defined; decide whether preservationLevel is written, and on which objects; one candidate use is to distinguish rep_1 (kept as-is, bit-level) from rep_2 (normalised, eligible for later migration).
+Profile edition in PREMIS. Whether each version records the edition of this profile it was written under (e.g. an event detail premis_profile: v0.3 on SIP creation, DPM111), so that conformance can be judged against the right edition.
+
+
+
+13 Glossary
+
+
+
+
+
+
+Note
+
+
+
+Not final. This glossary is still being worked on: terms, definitions and their sources are to be reviewed and completed.
+
+
+Definitions are brief; where a requirement or section governs a term, it is cited and prevails. A reference key in square brackets marks a definition based on that source; definitions without one are this profile’s own.
+
+
+
+
+
+
+
+Term
+Definition
+
+
+
+
+Agent
+A person, organisation or software version that performs or authorises an event; each is identified by its UUID in the agent registry (DPM78–DPM86); after [PREMIS].
+
+
+Agent registry
+The list of every agent’s UUID, name, type and version, from which PREMIS agent descriptions are copied.
+
+
+AIP
+Archival Information Package: the object as held in DPR/AIP, stored as an OCFL object; each OCFL version is an AIP version; after [OAIS].
+
+
+Authoring source
+The authoring file (e.g. DOCX) acquired from DOL and held in rep_1 as acquired: digested, verified, renamed and identified like any held file, but not normalised; no master is derived from it.
+
+
+Bag
+A SIP packaged under BagIt [BAGIT], with a SHA-512 payload manifest verified at ingest (DPM112).
+
+
+Characterisation
+Identifying a file’s format, validating it against the format’s specification, extracting its technical metadata, and assessing it for acceptance [DPC-HB]. In release 1 the pipeline performs format identification (DPM109) and validation (DPM107) only.
+
+
+Commit
+The creation of an OCFL version by the ingest side; its commit record is the version block of the inventory (DPM14).
+
+
+Digest
+The message digest computed from a file’s bytes by SHA-512 [FIPS180-4]: 512 bits, written as 128 lowercase hexadecimal characters. Any change to the file gives a different digest with very high probability, and it is computationally infeasible to find two files with the same digest.
+
+
+DOL
+Documents Online, the WTO system from which official documents and their metadata are acquired.
+
+
+DOME record
+The descriptive metadata record of the document, held at metadata/descriptive/{JOB_ID}_dome.xml.
+
+
+Executing program
+The software that performed an event’s act: the script, or the tool it calls where that tool does the work.
+
+
+Filepath
+A held file’s OCFL logical path, relative to the version’s content/ directory (DPM41); after [OCFL].
+
+
+Fixity
+Recording a file’s digest and later recomputing it to confirm the bytes are unchanged [DPC-HB].
+
+
+Format identification
+Determining a file’s format by matching it against a format registry; here, DROID against PRONOM, recorded as a PUID (DPM49, DPM109) [PRONOM]. Corresponds to the LoC event type format identification.
+
+
+Held file
+A file stored in the AIP and described in PREMIS with a filepath.
+
+
+Ingest side
+Steps 8–9 of the workflow: bag verification to OCFL commit.
+
+
+Intellectual entity
+The WTO official document as a whole; one per AIP (DPM20–DPM26); after [PREMIS].
+
+
+JOB_ID
+The object’s local identifier, YYYY_NNNNNN (DPM24).
+
+
+Master
+Short for PDF/A preservation master: the PDF/A-2b file held in rep_2, derived from a published PDF by normalisation.
+
+
+Normalisation
+Conversion at ingest to a preservation format, here PDF/A-2b (DPM106); distinct from migration, which is obsolescence-driven and outside release 1. PREMIS writes the LoC term normalization.
+
+
+OCFL inventory
+inventory.json: the record of each version’s state, the fixity of every file and each commit (see The OCFL inventory); after [OCFL].
+
+
+OCFL version
+A state of the object’s stored content, created by any change; not an edition of the document (see Modification by version type); after [OCFL].
+
+
+Preparation side
+Steps 0–7 of the workflow, ending with the bagged SIP.
+
+
+Published PDF
+The PDF of a language version of a document as published in DOL, from which its PDF/A preservation master is derived. PREMIS records its identifier, digest, size, format and DOL file name, but its bytes are not stored in the AIP (DPM40).
+
+
+PUID
+PRONOM Unique Identifier: the PRONOM registry key for a file format, as reported by DROID (DPM55) [PRONOM].
+
+
+Release 1
+The first release of the pipeline: current documents, PDF 1.7 → PDF/A-2b. Not to be confused with v1, the first OCFL version of an object.
+
+
+Representation
+A set of files rendering the intellectual entity: rep_1 (authoring sources, as acquired) or rep_2 (PDF/A preservation masters and attachments); after [PREMIS].
+
+
+Run report
+The retained per-batch record of facts excluded from PREMIS (see The run report).
+
+
+Selection basis
+The reason a version is created, e.g. new_document, recorded on SIP creation (DPM111) and in the commit message (DPM14); values under Controlled vocabularies.
+
+
+SIP
+Submission Information Package: the package the preparation side builds for one version, with its own UUID; after [OAIS].
+
+
+Superseded file
+A held file replaced at its path by a later version; still held in its earlier version and still described in PREMIS (see Superseded files).
+
+
+Technical metadata extraction
+Extracting a file’s technical properties, such as page count, fonts or colour spaces. Not performed in release 1 (DPM62); the corresponding LoC event type is metadata extraction.
+
+
+UUID registry
+The append-only list of every UUID minted in the repository (DPM9).
+
+
+
+
+
+14 References
+[BAGIT] IETF (Internet Engineering Task Force). RFC 8493: The BagIt File Packaging Format (V1.0). J. Kunze, J. Littman, E. Madden, J. Scancella, C. Adams. 2018.
+[CS-PM] DILCIS Board. E-ARK Common Specification for Preservation Metadata using PREMIS. Version 1.0.1, 2024-05-17.
+[DILCIS-AIP] DILCIS Board. E-ARK Specification for Archival Information Packages (AIP). Version 2.2.0, 2024-05-17.
+[DILCIS-CSIP] DILCIS Board. E-ARK Common Specification for Information Packages (CSIP). Version 2.2.0, 2024-05-17.
+[DILCIS-SIP] DILCIS Board. E-ARK Specification for Submission Information Packages (SIP). Version 2.2.0, 2024-05-17.
+[DPC-HB] Digital Preservation Coalition. Digital Preservation Handbook: Glossary. Accessed 2026-10-09.
+[DPR-WORKFLOW] E. Gao. Digital Preservation — Workflow Documentation: Operational and Technical Documentation (EOD All Documents DPR Workflow; Independent Specific Documents DPR Workflow). Version 2.5, 2026-10-05. WTO, internal (Digital_Preservation_DPR_Workflow_Documentation_v2_5.docx).
+[FIPS180-4] NIST (National Institute of Standards and Technology). FIPS PUB 180-4: Secure Hash Standard (SHS). August 2015.
+[LoC-PV] Library of Congress. Preservation Vocabularies.
+[METS] METS Editorial Board. Metadata Encoding and Transmission Standard (METS). Schema version 1.12.1. Library of Congress.
+[METS-PROFILE] METS structural metadata — profile: root METS document for DOL SIPs and AIP versions (mets_structural_metadata_profile.qmd), UUID 31c2307c-d2eb-4268-867e-2ddc72d77aee. Version 0.1 (Draft, not issued), 2026-10-13. WTO, internal.
+[OAIS] CCSDS. Reference Model for an Open Archival Information System (OAIS). CCSDS 650.0-M-2, Magenta Book, June 2012; also ISO 14721:2012.
+[OCFL] N. Jefferies, R. Metz, J. Morley, S. Warner and A. Woods, editors. Oxford Common File Layout Specification 1.1. 2022 (updated 2024).
+[PDFA-2] ISO (International Organization for Standardization). ISO 19005-2:2011, Document management — Electronic document file format for long-term preservation — Part 2: Use of ISO 32000-1 (PDF/A-2). 2011.
+[PREMIS] PREMIS Editorial Committee. PREMIS Data Dictionary for Preservation Metadata, Version 3.0. Library of Congress, 2015.
+[PRONOM] The National Archives (UK). PRONOM technical registry.
+[RFC2119] IETF (Internet Engineering Task Force). RFC 2119: Key words for use in RFCs to Indicate Requirement Levels. S. Bradner. 1997.
+[RFC3339] IETF (Internet Engineering Task Force). RFC 3339: Date and Time on the Internet: Timestamps. G. Klyne, C. Newman. 2002.
+[RFC3629] IETF (Internet Engineering Task Force). RFC 3629: UTF-8, a transformation format of ISO 10646. F. Yergeau. 2003.
+[RFC6068] IETF (Internet Engineering Task Force). RFC 6068: The ‘mailto’ URI Scheme. M. Duerst, L. Masinter, J. Zawinski. 2010.
+[RFC8174] IETF (Internet Engineering Task Force). RFC 8174: Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words. B. Leiba. 2017.
+[UAX15] Unicode Consortium. Unicode Standard Annex #15: Unicode Normalization Forms.
+[UUID] IETF (Internet Engineering Task Force). RFC 9562: Universally Unique IDentifiers (UUIDs). K. Davis, B. Peabody, P. Leach. 2024.
+
+
+
+
+
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  
+ 
+
+
+
+

@@ -1,0 +1,147 @@
+{
+  "job_id": "2026_000001",
+  "folder_uuid": "9b66703b-cb8a-4e19-a4c2-3409e8d3766b",
+  "sip_uuid": "eca32121-15cb-49e1-82f9-91a2c5a4fba5",
+  "batch_uuid": "91360321-52d9-45eb-aa9e-30cd8df33c1c",
+  "predecessor": "none",
+  "selection_basis": "new_document",
+  "created_utc": "2026-10-15T10:51:17Z",
+  "status": "STEP_7_BAGIT_SIP_STAGED_VALID",
+  "metadata_sha512": "dc7ce369e1d5e24f8b49ae0951a52db450cd551e15b3fac265d3f28b660c5dd1ddbb129021eeba492570bfb687b5c7e03bb91ed326cae8bdd7511be53ef4c260",
+  "staging_bag": "C:\\Users\\Gao\\AppData\\Local\\Temp\\dpr-synthetic-_1yhwndh\\batch1\\2026_000001",
+  "bag_snapshot": [
+    {
+      "path": "bag-info.txt",
+      "size_bytes": 414,
+      "sha512": "6f9f0d4bf41b870cdc66f204de95b3bf6e3ae0bb7dbd5eb735c15df79228264718c426016d582e6b923510708d1f5be7f2c6ad0fe41c80e116353f398a0ad2e3"
+    },
+    {
+      "path": "bagit.txt",
+      "size_bytes": 55,
+      "sha512": "418dcfbe17d5f4b454b18630be795462cf7da4ceb6313afa49451aa2568e41f7ca3d34cf0280c7d056dc5681a70c37586aa1755620520b9198eede905ba2d0f6"
+    },
+    {
+      "path": "data/2026_000001_mets.xml",
+      "size_bytes": 7925,
+      "sha512": "a8e780582b7e28b0d9f28afb7fd5fe270efdbd448fbc047683195af119be4ba71f76525e91d9c98f6153fd640c492c8dcd2e262664361c98894b3ed2a8bdf755"
+    },
+    {
+      "path": "data/documentation/0767cec1-2cc3-4755-884e-772345a7c9ad_conv_aspose.xml",
+      "size_bytes": 13,
+      "sha512": "78a666d7cb36e392c315b0f5826481835711667e96b53e9c0dfbb819c89f02b6db48973312c0878dfff68dc672e7115384cf584c61d8f7a26ee501b8dd5cfdb9"
+    },
+    {
+      "path": "data/documentation/0767cec1-2cc3-4755-884e-772345a7c9ad_qa_pypdf.json",
+      "size_bytes": 4154,
+      "sha512": "e222557859db285e16b724c6adf8651620d0191374f64e50fdbad5d1b60ced47b1529df31a21325d460125d02132b6c5e2f947c64b0bfe4fd6752b0c04e18aad"
+    },
+    {
+      "path": "data/documentation/0767cec1-2cc3-4755-884e-772345a7c9ad_val_verapdf.xml",
+      "size_bytes": 78,
+      "sha512": "7e1e2eb50d56e52ea789e2d07a3a842be85d0c151b5fcc73e20e493ab26ed116af573842f5ceb2153fda07d49e6102427e8d6dad7baca67489f7055ce406c889"
+    },
+    {
+      "path": "data/documentation/2026_000001_1_droid_export.csv",
+      "size_bytes": 589,
+      "sha512": "8a405542e11b2adfd49f87f36e090801f70ac0824db09ac31e5d863cf7fe2116d6524c10779d4c9f9e586962f1ccd0af462aab15e0cbfe4073ca76127e6df4fd"
+    },
+    {
+      "path": "data/documentation/2026_000001_dome_sql_extraction.json",
+      "size_bytes": 278,
+      "sha512": "e605aa88dc3629b0ec35cf7ef970d299f0ecc79951462d2f92adeefe49a92bf3d5a291bb3b16f462fae541b6fcd90e1c245f7dfdad67726a4e55da8e0ee13ea8"
+    },
+    {
+      "path": "data/documentation/2026_000001_en_conv_aspose.xml",
+      "size_bytes": 13,
+      "sha512": "78a666d7cb36e392c315b0f5826481835711667e96b53e9c0dfbb819c89f02b6db48973312c0878dfff68dc672e7115384cf584c61d8f7a26ee501b8dd5cfdb9"
+    },
+    {
+      "path": "data/documentation/2026_000001_en_qa_pypdf.json",
+      "size_bytes": 4132,
+      "sha512": "5d99022516e2bdf76fd11a8111bf83a60cfdb75777e6516bc68179855eb37c5bf22d36d13758c9c5659f0705a85ead3ae8338b530a3b335e7e4e420a4f46a7d3"
+    },
+    {
+      "path": "data/documentation/2026_000001_en_val_verapdf.xml",
+      "size_bytes": 78,
+      "sha512": "7e1e2eb50d56e52ea789e2d07a3a842be85d0c151b5fcc73e20e493ab26ed116af573842f5ceb2153fda07d49e6102427e8d6dad7baca67489f7055ce406c889"
+    },
+    {
+      "path": "data/metadata/descriptive/2026_000001_dome.xml",
+      "size_bytes": 652,
+      "sha512": "2fa5929358e2186219416599cbd0b04e5eebb96f6ffe7bbfafb3e6042cb0cb84fe1b65127d2dca509c6883ca850eb7b23841d8156e2df481856ab358bbaba919"
+    },
+    {
+      "path": "data/metadata/preservation/2026_000001_premis.xml",
+      "size_bytes": 91619,
+      "sha512": "9eb2c6a1cb491ba97537d1e00972f9ca92bc1fd2a152b2aa1192b328d1b1dbd004499bc035f1946f7a95c207427dfcbaafbc45247f9fdbaf797996784f59921c"
+    },
+    {
+      "path": "data/representations/rep_1/data/en/2026_000001_en.docx",
+      "size_bytes": 143,
+      "sha512": "50fa4d216a539812de36ab018cdb357aa8af791067f3eac90ca0939acbf9adba14b72c839ef23198ffb008c83e0727e77d9205739891b59ee406d2fd636ec7d7"
+    },
+    {
+      "path": "data/representations/rep_2/data/attachments/notice.pdf",
+      "size_bytes": 454,
+      "sha512": "6e1badced1d60689aedfeb83d7e330fe8c787a59df59c84efcfc311255a60c96d08bd5071ddaa1830cbcfaee49f064c0dbc6f4a6dbc5e24af470c8a1aefd0f11"
+    },
+    {
+      "path": "data/representations/rep_2/data/attachments/preservation/0767cec1-2cc3-4755-884e-772345a7c9ad.pdf",
+      "size_bytes": 454,
+      "sha512": "6e1badced1d60689aedfeb83d7e330fe8c787a59df59c84efcfc311255a60c96d08bd5071ddaa1830cbcfaee49f064c0dbc6f4a6dbc5e24af470c8a1aefd0f11"
+    },
+    {
+      "path": "data/representations/rep_2/data/en/2026_000001_en.pdf",
+      "size_bytes": 470,
+      "sha512": "2d7129ab6de623a1dd8952818ce2dabcb4a9d81c74c8d11716abe2d87b502aa4824561ce87e5a118de6a63f010f1fe295a1963b35dae9850dcd8525ff63673d1"
+    },
+    {
+      "path": "data/schemas/dol-metadata-v-03.xsd",
+      "size_bytes": 15898,
+      "sha512": "f0c95073d0c571ff89cb965e21a5c3adaa27ab7de71850acc53a3d88395668b6fc76f8ca0167c5649c852497e60399049180f1d355c48fdfa04575fc3c604cfa"
+    },
+    {
+      "path": "data/schemas/mets.xsd",
+      "size_bytes": 138326,
+      "sha512": "f7348f7f7dea347777e2e6338c85bc6a43c828646948298d62f03d3ec6683d219cf3554228129b560e34ff641ef51f23a213efb33e80dd80ca124841845bbb47"
+    },
+    {
+      "path": "data/schemas/premis.xsd",
+      "size_bytes": 52845,
+      "sha512": "f0feb6d7d30a0f27ffd53dadb976ded9fde56adbe339fac0d2cb43352966c768103001c44d1dd0a013c89323f3ca81557f4ddf106629134d82ac9f0587de07c5"
+    },
+    {
+      "path": "data/schemas/xlink.xsd",
+      "size_bytes": 3180,
+      "sha512": "d524ed457c67a9e9e4de723519f26567e098c02b8db21fca6807683b30a0b9e477a230cef942e8245411f2a6ccb0f8a7df2bae18dc7363ec2810899d67064a32"
+    },
+    {
+      "path": "data/schemas/xml.xsd",
+      "size_bytes": 4726,
+      "sha512": "a716c93db1bbbcf9c353ff939f15aa1ed83c8d96739bafad93c790a7779c49c680a279c97c760fe55546fa43cab1d43e92431f24c46ff001976e05329231b635"
+    },
+    {
+      "path": "manifest-sha512.txt",
+      "size_bytes": 3578,
+      "sha512": "486371ddbf26852549b791105bfbdfefb7cce51a2a9c8d4e7f5f001802e34a625572651193bea7c6d346a41fb2eeac9b2108426c44b044c585dd0a8ded4b7586"
+    },
+    {
+      "path": "tagmanifest-sha512.txt",
+      "size_bytes": 433,
+      "sha512": "e3a7aecb92db32b49f3c738dcdd63e0a4db6bc9092dbc00b21344d0613d90a460d2c79773532d26238d837224441edc4f4592e383ff291cc2fc72108f86d6698"
+    }
+  ],
+  "profile_gaps": [
+    "No PRONOM identification: representations/rep_2/data/attachments/preservation/0767cec1-2cc3-4755-884e-772345a7c9ad.pdf",
+    "No PRONOM identification: representations/rep_2/data/en/2026_000001_en.pdf",
+    "No PRONOM identification: documentation/0767cec1-2cc3-4755-884e-772345a7c9ad_conv_aspose.xml",
+    "No PRONOM identification: documentation/0767cec1-2cc3-4755-884e-772345a7c9ad_qa_pypdf.json",
+    "No PRONOM identification: documentation/0767cec1-2cc3-4755-884e-772345a7c9ad_val_verapdf.xml",
+    "No PRONOM identification: documentation/2026_000001_1_droid_export.csv",
+    "No PRONOM identification: documentation/2026_000001_dome_sql_extraction.json",
+    "No PRONOM identification: documentation/2026_000001_en_conv_aspose.xml",
+    "No PRONOM identification: documentation/2026_000001_en_qa_pypdf.json",
+    "No PRONOM identification: documentation/2026_000001_en_val_verapdf.xml"
+  ],
+  "draft_registry": true
+}
