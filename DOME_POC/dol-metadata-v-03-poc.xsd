@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://docs.wto.org/dpr/dome/v1"
+           xmlns:dome="https://docs.wto.org/dpr/dome/v1"
+           elementFormDefault="qualified" xmlns:tns="https://docs.wto.org/dpr/dome/v1">
+
+  <!-- Package C: stable preservation controls; dynamic DOL authority lists remain external. -->
+  <xs:simpleType name="DprLanguageCodeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="und"/><xs:enumeration value="en"/><xs:enumeration value="fr"/><xs:enumeration value="es"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DprRepresentationType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="rep_1"/><xs:enumeration value="rep_2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DprRelativePathType">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:pattern value="[^:/\\][^:]*"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="PreservationJobIdType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]{4}_[0-9]{6}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="DomeMetadataType">
+    <xs:sequence>
+      <xs:element name="jobID" type="dome:PreservationJobIdType"/>
+      <xs:element name="documentNumber" type="xs:string" minOccurs="0"/>
+      <xs:element name="accessType" type="xs:string" minOccurs="0"/>
+      <xs:element name="documentDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="restrictionType" type="xs:string" minOccurs="0"/>
+      <xs:element name="symbol" type="xs:string" minOccurs="0"/>
+      <xs:element name="originalLanguage" type="xs:string" minOccurs="0"/>
+      <xs:element name="titleE" type="xs:string" minOccurs="0"/>
+      <xs:element name="titleF" type="xs:string" minOccurs="0"/>
+      <xs:element name="titleS" type="xs:string" minOccurs="0"/>
+      <xs:element name="documentType" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="documentTypeSource" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="documentTypePeriodicity" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="documentTypeStatus" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="documentTypeVersion" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="bodyIssuing" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="bodyMentioned" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="articleBasis" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="articleMentioned" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="organization" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="products" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="subject" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="memberConcerned" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="otherMemberMentioned" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+    
+      <xs:element name="preservationFiles" minOccurs="0">
+        <xs:complexType><xs:sequence>
+          <xs:element name="file" minOccurs="1" maxOccurs="unbounded">
+            <xs:complexType><xs:sequence>
+              <xs:element name="language" type="tns:DprLanguageCodeType"/>
+              <xs:element name="representation" type="tns:DprRepresentationType"/>
+              <xs:element name="filePath" type="tns:DprRelativePathType"/>
+            </xs:sequence></xs:complexType>
+          </xs:element>
+        </xs:sequence></xs:complexType>
+      </xs:element>
+</xs:sequence>
+  </xs:complexType>
+  <xs:element name="domeMetadata" type="dome:DomeMetadataType"/>
+</xs:schema>

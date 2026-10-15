@@ -1,0 +1,17 @@
+DPR PoC 2 Aspose invocation
+timestamp_utc=2026-10-15T09:24:40.871846Z
+status=CONVERTED
+source=\\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\preparation\2026_012405\representations\rep_2\data\en\2026_012405_en_src.pdf
+master=\\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\preparation\2026_012405\representations\rep_2\data\en\2026_012405_en.pdf
+target=PDF/A-2b
+error_action=None
+
+STDOUT
+STATUS=CONVERTED
+INPUT=H:\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\preparation\2026_012405\representations\rep_2\data\en\2026_012405_en_src.pdf
+OUTPUT=H:\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\preparation\2026_012405\representations\rep_2\data\en\2026_012405_en.pdf
+LOG=H:\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\preparation\2026_012405\documentation\2026_012405_en_conv_aspose.xml
+TARGET=PDF/A-2b
+
+STDERR
+

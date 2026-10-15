@@ -1,0 +1,64 @@
+{
+  "job_id": "2026_012405",
+  "folder_uuid": "5c4c1152-aa61-44ec-9938-8acf0c73796f",
+  "created_at": "2026-10-15T09:24:44.084727Z",
+  "status": "STEP_2_MASTERS_CREATED_UNVALIDATED",
+  "engine": {
+    "vendor": "Aspose",
+    "product": "Aspose.PDF for .NET",
+    "package_version": "25.10.0",
+    "target": "PDF/A-2b",
+    "convert_error_action": "None"
+  },
+  "conversions": [
+    {
+      "source_file_id": "c64a060d-91f5-4d4b-9aef-71c18ddddb9f",
+      "source_path": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\preparation\\2026_012405\\representations\\rep_2\\data\\en\\2026_012405_en_src.pdf",
+      "source_sha512": "2900d0f1b03c7b88ce82aff55b09150abab6d9f3daa3e05dc0a1ae57802d48df8fa347260ddea3b9253639c53546db3f97016a16feccf2a15a93da02bc57817f",
+      "master_file_id": "5abe5dbd-a360-46ab-a479-d1ed5d560dc4",
+      "master_path": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\preparation\\2026_012405\\representations\\rep_2\\data\\en\\2026_012405_en.pdf",
+      "master_sha512": "10ba6ba09b56bc367f05a61b6cf03ffca3c9d39379363304f163ee5f58574fb52b8e18aab880bf2ff82041a5ad18b0661053235d6d643e9c302b7d5d94ceee70",
+      "master_size_bytes": 47942,
+      "target_claimed": "PDF/A-2b",
+      "conversion_mode": "strict",
+      "convert_error_action": "None",
+      "converter_status": "CONVERTED",
+      "conversion_log": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\preparation\\2026_012405\\documentation\\2026_012405_en_conv_aspose.xml",
+      "driver_log": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\preparation\\2026_012405\\documentation\\2026_012405_en_conv_driver.txt",
+      "conformance_validated": false
+    },
+    {
+      "source_file_id": "b01ea7f6-6b6a-4f02-b911-75c8580dd206",
+      "source_path": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\preparation\\2026_012405\\representations\\rep_2\\data\\es\\2026_012405_es_src.pdf",
+      "source_sha512": "824b3a3af577d833bac56bb749c2e04aa540ba03feaddcebd3a21945852b05b89527161c86311197b6ffcf7156fdb35286127404b84e25aebe1464da480e2197",
+      "master_file_id": "d56d6ec5-8b6a-4bda-9145-8b545689c676",
+      "master_path": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\preparation\\2026_012405\\representations\\rep_2\\data\\es\\2026_012405_es.pdf",
+      "master_sha512": "50e2deae001f489ca0fd281ffc00c36049aea07dc39d348341c2437f1446b9a3e265597f2d5fb1ec66268d5c7edcb378d5e994ded4d347048bfd1ae69d673469",
+      "master_size_bytes": 63073,
+      "target_claimed": "PDF/A-2b",
+      "conversion_mode": "strict",
+      "convert_error_action": "None",
+      "converter_status": "CONVERTED",
+      "conversion_log": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\preparation\\2026_012405\\documentation\\2026_012405_es_conv_aspose.xml",
+      "driver_log": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\preparation\\2026_012405\\documentation\\2026_012405_es_conv_driver.txt",
+      "conformance_validated": false
+    },
+    {
+      "source_file_id": "fdf5f75c-134d-4edc-bab0-ac4611fad503",
+      "source_path": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\preparation\\2026_012405\\representations\\rep_2\\data\\fr\\2026_012405_fr_src.pdf",
+      "source_sha512": "6319ea0faf69131dcefa4303721a54ad521a2711397b5593666c5e51dbaf2ffa044ecb2cf38b0444f23ec70ce79a43cf8f40dc7b25052222ece8d7a9542f23f3",
+      "master_file_id": "edca0181-a88d-4b35-a0b6-f283de3ece9e",
+      "master_path": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\preparation\\2026_012405\\representations\\rep_2\\data\\fr\\2026_012405_fr.pdf",
+      "master_sha512": "f278b7b51f929b29f80430b91a548cf3f029d1bce6c3b90444b820c64b464b88fea033e7446a2fc14f2092dbbb0466b19e3d524a48f018bb52f2365eea2dbb1f",
+      "master_size_bytes": 63744,
+      "target_claimed": "PDF/A-2b",
+      "conversion_mode": "strict",
+      "convert_error_action": "None",
+      "converter_status": "CONVERTED",
+      "conversion_log": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\preparation\\2026_012405\\documentation\\2026_012405_fr_conv_aspose.xml",
+      "driver_log": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\preparation\\2026_012405\\documentation\\2026_012405_fr_conv_driver.txt",
+      "conformance_validated": false
+    }
+  ],
+  "note": "PoC processing record only; not the future pmsystem event store. PDF/A conformance remains unvalidated until veraPDF (PoC 3)."
+}

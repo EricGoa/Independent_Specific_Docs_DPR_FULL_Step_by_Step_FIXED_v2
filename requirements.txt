@@ -1,0 +1,5 @@
+﻿pypdf
+pdfminer.six
+lxml
+# Needed only for live SQL discovery and metadata extraction:
+pyodbc; platform_system == "Windows"
