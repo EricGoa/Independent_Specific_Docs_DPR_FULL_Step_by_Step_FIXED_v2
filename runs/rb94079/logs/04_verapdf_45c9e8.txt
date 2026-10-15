@@ -1,0 +1,25 @@
+[PASS] c9f7487a-1a9a-4143-bb98-a468cc0ef3bc.pdf conforms to PDF/A-2b
+       master file_id: 77d7c6d3-0b68-4f5c-960c-a238b5a94e95
+       report file_id: 02c21dfc-e1c3-4beb-b77c-079c5c542928
+       report: \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\rb94079\preparation\2026_012405\documentation\c9f7487a-1a9a-4143-bb98-a468cc0ef3bc_val_verapdf.xml
+[PASS] dac2aa72-87df-4ab6-92f0-8f905b681165.pdf conforms to PDF/A-2b
+       master file_id: 6a624572-e264-44df-84f8-89365328bf6f
+       report file_id: d6705b5a-7913-4100-b191-9b5577737357
+       report: \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\rb94079\preparation\2026_012405\documentation\dac2aa72-87df-4ab6-92f0-8f905b681165_val_verapdf.xml
+[PASS] 2026_012405_en.pdf conforms to PDF/A-2b
+       master file_id: d8962a3e-692d-4d36-b86e-f5935a6e7b55
+       report file_id: 29da00f8-d131-4507-8060-d4513abb7018
+       report: \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\rb94079\preparation\2026_012405\documentation\2026_012405_en_val_verapdf.xml
+[PASS] 2026_012405_es.pdf conforms to PDF/A-2b
+       master file_id: 2050b037-698e-453e-b110-68566edec3fc
+       report file_id: 43e7a3ce-6d58-46cd-a95d-5666edfb6b00
+       report: \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\rb94079\preparation\2026_012405\documentation\2026_012405_es_val_verapdf.xml
+[PASS] 2026_012405_fr.pdf conforms to PDF/A-2b
+       master file_id: 072284ee-dd94-403e-9d55-a12ff18f4223
+       report file_id: 8c54d4f3-ecfc-4e4a-81f9-13fab4acab54
+       report: \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\rb94079\preparation\2026_012405\documentation\2026_012405_fr_val_verapdf.xml
+
+Completed: 5 passed, 0 failed
+PoC 3 record: \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\rb94079\preparation\2026_012405\documentation\2026_012405_poc3_validation_record.json
+
+STDERR

@@ -4,6 +4,7 @@ import hashlib
 import json
 import os
 import shutil
+import time
 import uuid
 from pathlib import Path
 
@@ -38,7 +39,16 @@ def write_record(path, data):
     tmp = path.with_name(path.name + "." + uuid.uuid4().hex + ".tmp")
     try:
         tmp.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-        os.replace(tmp, path)
+        for attempt in range(8):
+            try:
+                os.replace(tmp, path)
+                break
+            except PermissionError as exc:
+                # SMB/antivirus readers can briefly hold a Windows delete lock.
+                # Keep the same fully-written temporary file and retry boundedly.
+                if getattr(exc, "winerror", None) not in {5, 32, 33} or attempt == 7:
+                    raise
+                time.sleep(0.05 * (2 ** min(attempt, 4)))
     finally:
         tmp.unlink(missing_ok=True)
 

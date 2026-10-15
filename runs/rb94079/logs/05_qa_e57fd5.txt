@@ -1,0 +1,18 @@
+[CLEAR] c9f7487a-1a9a-4143-bb98-a468cc0ef3bc.pdf automated QA found no differences
+        QA report file_id: ce5ef9d0-a75b-4311-9200-a42e8c14100d
+        report: \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\rb94079\preparation\2026_012405\documentation\c9f7487a-1a9a-4143-bb98-a468cc0ef3bc_qa_pypdf.json
+[CLEAR] dac2aa72-87df-4ab6-92f0-8f905b681165.pdf automated QA found no differences
+        QA report file_id: b6976566-2ea2-4a6f-bfbb-20171f703af6
+        report: \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\rb94079\preparation\2026_012405\documentation\dac2aa72-87df-4ab6-92f0-8f905b681165_qa_pypdf.json
+[CLEAR] 2026_012405_en.pdf automated QA found no differences
+        QA report file_id: 02cc2254-a24e-41c1-950a-9d9c41ee1fdd
+        report: \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\rb94079\preparation\2026_012405\documentation\2026_012405_en_qa_pypdf.json
+[CLEAR] 2026_012405_es.pdf automated QA found no differences
+        QA report file_id: 1dcbca79-ab07-4038-9b6d-722995286baf
+        report: \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\rb94079\preparation\2026_012405\documentation\2026_012405_es_qa_pypdf.json
+[CLEAR] 2026_012405_fr.pdf automated QA found no differences
+        QA report file_id: e7938c28-89d4-410c-8db2-281a529996e2
+        report: \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\rb94079\preparation\2026_012405\documentation\2026_012405_fr_qa_pypdf.json
+
+STDERR
+[FATAL] Unexpected error: [WinError 5] Access is denied: '\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rb94079\\preparation\\2026_012405\\documentation\\2026_012405_poc4_qa_record.json.1165fbb85d4f44d6b3b9a59e99e86394.tmp' -> '\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rb94079\\preparation\\2026_012405\\documentation\\2026_012405_poc4_qa_record.json'

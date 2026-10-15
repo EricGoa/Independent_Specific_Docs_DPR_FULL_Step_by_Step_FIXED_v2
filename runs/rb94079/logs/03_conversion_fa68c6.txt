@@ -1,0 +1,9 @@
+
+STDERR
+[FATAL] Aspose converter failed for 2026_012405_notification_en_26_05201_00_e.pdf (exit 3, status CONVERSION_FAILED_STRICT).
+STDOUT:
+
+STDERR:
+STATUS=CONVERSION_FAILED_STRICT
+INPUT=\\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\rb94079\preparation\2026_012405\representations\rep_2\data\attachments\2026_012405_notification_en_26_05201_00_e.pdf
+LOG=\\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\rb94079\preparation\2026_012405\documentation\c9f7487a-1a9a-4143-bb98-a468cc0ef3bc_conv_aspose.xml

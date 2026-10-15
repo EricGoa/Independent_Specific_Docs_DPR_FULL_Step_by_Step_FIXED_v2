@@ -76,7 +76,7 @@ def canonical_master(source: Path) -> Path:
     return master_for(source)
 
 
-def run_converter(*, project: Path, license_path: Path, source: Path, master: Path, conversion_log: Path) -> tuple[str, str, str]:
+def run_converter(*, project: Path, license_path: Path, source: Path, master: Path, conversion_log: Path, allow_signed_derivative: bool = False) -> tuple[str, str, str]:
     # Run the compiled managed DLL directly. This avoids Windows group-policy
     # blocks on the generated apphost .exe that dotnet run tries to launch.
     dll = project.parent / "bin" / "Debug" / "net8.0" / "DprPdfaConverter.dll"
@@ -93,6 +93,8 @@ def run_converter(*, project: Path, license_path: Path, source: Path, master: Pa
         "--log", str(conversion_log),
         "--license", str(license_path),
     ]
+    if allow_signed_derivative:
+        cmd.append("--allow-signed-derivative")
     result = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8", errors="replace")
     stdout = result.stdout.strip()
     stderr = result.stderr.strip()
@@ -120,6 +122,7 @@ def main() -> int:
     parser.add_argument("--job-id", required=True, help="Canonical JOB_ID, e.g. 2025_003033")
     parser.add_argument("--converter-project", required=True, type=Path, help="Path to DprPdfaConverter.csproj")
     parser.add_argument("--license", required=True, type=Path, help="Path to the existing Aspose .lic file")
+    parser.add_argument("--allow-signed-derivative",action="store_true",help="Retain signed originals and permit explicitly unsigned PDF/A derivatives")
     args = parser.parse_args()
 
     try:
@@ -169,6 +172,7 @@ def main() -> int:
                 source=source,
                 master=master,
                 conversion_log=conversion_log,
+                **({"allow_signed_derivative": True} if args.allow_signed_derivative else {}),
             )
             master_sha512 = sha512_file(master)
 
@@ -202,6 +206,7 @@ def main() -> int:
                 "conversion_mode": "strict",
                 "convert_error_action": "None",
                 "converter_status": status,
+                "signature_policy": "signed original retained; unsigned preservation derivative" if status == "CONVERTED_UNSIGNED_DERIVATIVE" else "no signature removal",
                 "conversion_log": str(conversion_log.resolve()) if conversion_log.exists() else None,
                 "driver_log": str(driver_log.resolve()),
                 "driver_log_sha512": sha512_file(driver_log),

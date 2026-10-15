@@ -367,7 +367,7 @@ def metadata(args,obj,job,recs,droid,row):
         master=get_object(root,c['master_file_id']);skipped=c.get('converter_status','').startswith('SKIPPED')
         log_id=next((f['id'] for f in files if f.get('path') and c.get('conversion_log') and obj/f['path']==Path(c['conversion_log'])),None)
         if skipped: continue
-        eid=event(root,registry,config,'DPM106','normalization:'+c['master_file_id'],[(c['source_file_id'],'source'),(c['master_file_id'],'outcome')]+([(log_id,'outcome')] if log_id else []),['target_level: PDF/A-2b'],note=c.get('converter_status'),program='converter',timestamp=c.get('completed_at') or recs[2].get('created_at'))
+        eid=event(root,registry,config,'DPM106','normalization:'+c['master_file_id'],[(c['source_file_id'],'source'),(c['master_file_id'],'outcome')]+([(log_id,'outcome')] if log_id else []),['target_level: PDF/A-2b'],note=c.get('converter_status')+'; '+c.get('signature_policy','no signature policy change'),program='converter',timestamp=c.get('completed_at') or recs[2].get('created_at'))
         if not skipped: relate(master,'derivation','has Source',c['source_file_id'],eid)
     for rule,entries,pathkey,idkey in [('DPM107',recs[3]['validations'],'validation_report_path','validation_report_file_id'),('DPM108',recs[4]['qa_entries'],'qa_report_path','qa_report_file_id')]:
         for e in entries:
@@ -574,7 +574,10 @@ def ingest(args,bag):
     if not operator.get('email') or '@' not in operator['email']: raise RuntimeError('Operator registry email missing')
     registry=Registry(Path(args.aip_root).parent,args.job_id)
     workspace_root=Path(args.workspace_dir) if args.workspace_dir else Path(args.aip_root).parent/'ocfl-workspace'
-    run=workspace_root/(args.job_id+'_'+uuid.uuid4().hex);receipt=run/'receipt';payload=receipt/'data';shutil.copytree(bag/'data',payload)
+    # Keep transient paths short enough for Windows filesystem APIs; mkdir is
+    # exclusive so a nonce collision cannot reuse an earlier workspace.
+    run=workspace_root/uuid.uuid4().hex[:12];run.mkdir(parents=True,exist_ok=False)
+    receipt=run/'receipt';payload=receipt/'data';shutil.copytree(bag/'data',payload)
     received=copy.deepcopy(root)
     head='v'+str(int(old['head'][1:])+1) if old else 'v1'
     event(root,registry,config,'DPM112','ingest:'+info['External-Identifier'],[(info['DPR-Object-UUID'],None)],[f'sip_id: {info["External-Identifier"]}','package_manifest: manifest-sha512.txt'],'Payload-Oxum: '+info['Payload-Oxum'],program='ingest')

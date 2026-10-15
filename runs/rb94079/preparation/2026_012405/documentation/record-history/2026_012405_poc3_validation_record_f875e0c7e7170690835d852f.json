@@ -1,0 +1,31 @@
+{
+  "job_id": "2026_012405",
+  "status": "STEP_3_IN_PROGRESS",
+  "validations": [
+    {
+      "completed_at": "2026-10-15T13:08:43.985192Z",
+      "master_file_id": "77d7c6d3-0b68-4f5c-960c-a238b5a94e95",
+      "master_path": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rb94079\\preparation\\2026_012405\\representations\\rep_2\\data\\attachments\\preservation\\c9f7487a-1a9a-4143-bb98-a468cc0ef3bc.pdf",
+      "master_sha512_verified_against_poc2": true,
+      "master_sha512": "3d3835d5e37e48dfb6e86c4c73ee7d396f2d5191950d11db67393924e2eba5f3df18430fa2a63cd793b2c57532dd900d5e46198a58bea6790ac5a90bcf32ac94",
+      "requested_flavour": "2b",
+      "target_claimed_from_poc2": "PDF/A-2b",
+      "verdict": "PASS",
+      "conformance_validated": true,
+      "verapdf_exit_code": 0,
+      "verapdf_profile_reported": "PDF/A-2B validation profile",
+      "failed_rules": null,
+      "passed_rules": null,
+      "validation_report_path": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rb94079\\preparation\\2026_012405\\documentation\\c9f7487a-1a9a-4143-bb98-a468cc0ef3bc_val_verapdf.xml",
+      "validation_report_file_id": "02c21dfc-e1c3-4beb-b77c-079c5c542928",
+      "validation_report_sha512": "6466d97c1687c9793e0a779dce878f59728db4b5050814c1643c70df0792991af0aeaaf77c3e760d0ed57e456393b942385acf0b0fb5ee647a7103eeb2a1e4ba",
+      "driver_log": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rb94079\\preparation\\2026_012405\\documentation\\c9f7487a-1a9a-4143-bb98-a468cc0ef3bc_val_driver.txt",
+      "relationship": {
+        "type": "isValidationReportOf",
+        "report_file_id": "02c21dfc-e1c3-4beb-b77c-079c5c542928",
+        "completed_at": "2026-10-15T13:08:44.072443Z",
+        "master_file_id": "77d7c6d3-0b68-4f5c-960c-a238b5a94e95"
+      }
+    }
+  ]
+}

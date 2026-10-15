@@ -1,0 +1,43 @@
+{
+  "poc": 6,
+  "job_id": "2026_012405",
+  "folder_uuid": "30cdcdaa-a3d5-4a5a-b2ff-7d458150c182",
+  "profile": "DPM-v0.4-draft",
+  "created_utc": "2026-10-15T13:12:34Z",
+  "status": "STEP_6_METADATA_PROJECTED",
+  "source_snapshot": {
+    "ba1fdd00-8a43-4850-b6d0-3f1a97f68ae1": "b297b4af0d50ab03277b56c5bbd6d6d2f801a1f0bdc25442d31f001d5b74776e499f4dfd5bd7f267511496f146809e02d5594b11d56bda2e661a4d3e20c0c227",
+    "61eeac04-6930-465e-9abc-d38480d10239": "2900d0f1b03c7b88ce82aff55b09150abab6d9f3daa3e05dc0a1ae57802d48df8fa347260ddea3b9253639c53546db3f97016a16feccf2a15a93da02bc57817f",
+    "5d4ccf9f-324f-4182-8845-a0bb6529f872": "d47f020d266d6509511e7cd80afa38fd686a73db864d008626bd24dc05375e962b9e60c7ab49e7ff89ccc057d64093f2b2a66437d8a2f5a212d3c94a56a827d8",
+    "9150956a-cd89-4003-81fe-785e4abd51cf": "824b3a3af577d833bac56bb749c2e04aa540ba03feaddcebd3a21945852b05b89527161c86311197b6ffcf7156fdb35286127404b84e25aebe1464da480e2197",
+    "9d4e1ae6-d16a-4385-8a68-071be9fc5e2f": "1e5a7a5bcd747eb175781cadc490b1c629f6298bce8cd9de01e029023e299343376d12abcbcfba896f5570b8db1fd3614d5643e07e33c8e812378a9dc13f6804",
+    "d4860541-75fd-4571-a77a-2ac274315f44": "6319ea0faf69131dcefa4303721a54ad521a2711397b5593666c5e51dbaf2ffa044ecb2cf38b0444f23ec70ce79a43cf8f40dc7b25052222ece8d7a9542f23f3",
+    "c9f7487a-1a9a-4143-bb98-a468cc0ef3bc": "85ddbe9b9955645901168fe0e3671c3d48e9525dc99c9fe552ab837fa05a5b27ea7bcecda6ea3222594adb91ca771e792f0cfc5f106c2a8d300d39f81ac5d3fe",
+    "dac2aa72-87df-4ab6-92f0-8f905b681165": "1c9e3fd15564052cce45bb06c854a6afc22b1f3f2e97ec64ec908283b72b2e9501f619f37261e246fba010d663221091569308fbf018de9907c5260916a00c05"
+  },
+  "profile_gaps": [
+    "No PRONOM identification: documentation/2026_012405_en_conv_aspose.xml",
+    "No PRONOM identification: documentation/2026_012405_es_conv_aspose.xml",
+    "No PRONOM identification: documentation/2026_012405_fr_conv_aspose.xml",
+    "No PRONOM identification: documentation/c9f7487a-1a9a-4143-bb98-a468cc0ef3bc_conv_aspose.xml",
+    "No PRONOM identification: documentation/dac2aa72-87df-4ab6-92f0-8f905b681165_conv_aspose.xml"
+  ],
+  "draft_registry": true,
+  "predecessor": "none",
+  "selection_basis_proposed": "new_document",
+  "dome": {
+    "path": "metadata/descriptive/2026_012405_dome.xml",
+    "sha512": "650f7f9f01dac00c2afcd51b7ea8be8dd7d8e15b7c0cf397f7050cb99238604648359aa4454d80576daf2a17008ced900c54a93dcef44dbd38f07aa42f4be80b",
+    "schema_validation": "PASS"
+  },
+  "premis": {
+    "path": "metadata/preservation/2026_012405_premis.xml",
+    "sha512": "87007b35a2a3a1aca336778dc3bfaa8b7f8f6534f7668e8e430fc3a96ddd509d8442b7e26a0a4853caa0995953c5dfeb3679381fc32abf1fe567d27fb4226648",
+    "schema_validation": "PASS"
+  },
+  "mets": {
+    "path": "2026_012405_mets.xml",
+    "sha512": "c0001072f0740826a0a7bdece4262b21cc1eeab71988579186cac6d8a252fe2a583a0047a4499b0ed31af026b450979fe90be24989bfbd98391d63117798f1ec",
+    "schema_validation": "PASS"
+  }
+}

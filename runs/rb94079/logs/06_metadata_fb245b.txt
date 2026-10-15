@@ -1,0 +1,3 @@
+
+STDERR
+[FATAL] [WinError 5] Access is denied: '\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rb94079\\.registries\\uuid-registry.json.aeb7a3e7584c4e2aa851160aaaccebe7.tmp' -> '\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rb94079\\.registries\\uuid-registry.json'

@@ -1,0 +1,95 @@
+{
+  "job_id": "2026_012405",
+  "dms_job_id": "12405.26",
+  "run_directory": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rb94079",
+  "started_utc": "2026-10-15T13:01:34.983936+00:00",
+  "external_tools": "REAL; no mocks",
+  "production_accession": false,
+  "registry_status": "PROVISIONAL",
+  "stages": [
+    {
+      "stage": "01_preparation",
+      "exit_code": 0,
+      "seconds": 17.91,
+      "log": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rb94079\\logs\\01_preparation_ef756e.txt"
+    },
+    {
+      "stage": "02_source_droid",
+      "exit_code": 0,
+      "seconds": 50.75,
+      "log": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rb94079\\logs\\02_source_droid_4be640.txt"
+    },
+    {
+      "stage": "03_conversion",
+      "exit_code": 2,
+      "seconds": 7.17,
+      "log": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rb94079\\logs\\03_conversion_fa68c6.txt"
+    },
+    {
+      "stage": "03_conversion",
+      "exit_code": 0,
+      "seconds": 24.17,
+      "log": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rb94079\\logs\\03_conversion_e6771e.txt"
+    },
+    {
+      "stage": "04_verapdf",
+      "exit_code": 0,
+      "seconds": 14.47,
+      "log": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rb94079\\logs\\04_verapdf_45c9e8.txt"
+    },
+    {
+      "stage": "05_qa",
+      "exit_code": 3,
+      "seconds": 7.23,
+      "log": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rb94079\\logs\\05_qa_e57fd5.txt"
+    },
+    {
+      "stage": "05_qa",
+      "exit_code": 0,
+      "seconds": 2.11,
+      "log": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rb94079\\logs\\05_qa_8b0d52.txt"
+    },
+    {
+      "stage": "06_metadata",
+      "exit_code": 10,
+      "seconds": 55.97,
+      "log": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rb94079\\logs\\06_metadata_fb245b.txt"
+    },
+    {
+      "stage": "06_metadata",
+      "exit_code": 0,
+      "seconds": 45.28,
+      "log": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rb94079\\logs\\06_metadata_13d253.txt"
+    },
+    {
+      "stage": "07_bagit",
+      "exit_code": 0,
+      "seconds": 16.31,
+      "log": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rb94079\\logs\\07_bagit_c5e250.txt"
+    },
+    {
+      "stage": "08_ingest_verification",
+      "exit_code": 0,
+      "seconds": 4.83,
+      "log": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rb94079\\logs\\08_ingest_verification_ba9be5.txt"
+    },
+    {
+      "stage": "09_ocfl",
+      "exit_code": 10,
+      "seconds": 11.61,
+      "log": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rb94079\\logs\\09_ocfl_8eac98.txt"
+    },
+    {
+      "stage": "09_ocfl",
+      "exit_code": 0,
+      "seconds": 38.5,
+      "log": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rb94079\\logs\\09_ocfl_1f996b.txt"
+    }
+  ],
+  "status": "COMPLETED_ISOLATED_LIVE_EXAMPLE",
+  "existing_production_files_unchanged": true,
+  "signature_policy": "User-authorized: retain signed originals unchanged and create unsigned PDF/A derivatives",
+  "completed_utc": "2026-10-15T13:15:29.752681+00:00",
+  "sip_path": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rb94079\\staging\\2026_012405",
+  "aip_path": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rb94079\\AIP\\2026\\012000\\2026_012405"
+}

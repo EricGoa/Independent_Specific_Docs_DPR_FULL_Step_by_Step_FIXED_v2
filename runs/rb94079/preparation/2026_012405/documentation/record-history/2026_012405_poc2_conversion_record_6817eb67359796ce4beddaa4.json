@@ -1,0 +1,29 @@
+{
+  "job_id": "2026_012405",
+  "folder_uuid": "30cdcdaa-a3d5-4a5a-b2ff-7d458150c182",
+  "status": "STEP_2_IN_PROGRESS",
+  "conversions": [
+    {
+      "source_file_id": "c9f7487a-1a9a-4143-bb98-a468cc0ef3bc",
+      "completed_at": "2026-10-15T13:08:26.307650Z",
+      "source_role": "notification_attachment",
+      "language": "en",
+      "source_path": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rb94079\\preparation\\2026_012405\\representations\\rep_2\\data\\attachments\\2026_012405_notification_en_26_05201_00_e.pdf",
+      "source_sha512": "85ddbe9b9955645901168fe0e3671c3d48e9525dc99c9fe552ab837fa05a5b27ea7bcecda6ea3222594adb91ca771e792f0cfc5f106c2a8d300d39f81ac5d3fe",
+      "master_file_id": "77d7c6d3-0b68-4f5c-960c-a238b5a94e95",
+      "master_path": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rb94079\\preparation\\2026_012405\\representations\\rep_2\\data\\attachments\\preservation\\c9f7487a-1a9a-4143-bb98-a468cc0ef3bc.pdf",
+      "master_sha512": "3d3835d5e37e48dfb6e86c4c73ee7d396f2d5191950d11db67393924e2eba5f3df18430fa2a63cd793b2c57532dd900d5e46198a58bea6790ac5a90bcf32ac94",
+      "master_size_bytes": 258654,
+      "target_claimed": "PDF/A-2b",
+      "conversion_mode": "strict",
+      "convert_error_action": "None",
+      "converter_status": "CONVERTED_UNSIGNED_DERIVATIVE",
+      "signature_policy": "signed original retained; unsigned preservation derivative",
+      "conversion_log": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rb94079\\preparation\\2026_012405\\documentation\\c9f7487a-1a9a-4143-bb98-a468cc0ef3bc_conv_aspose.xml",
+      "driver_log": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rb94079\\preparation\\2026_012405\\documentation\\c9f7487a-1a9a-4143-bb98-a468cc0ef3bc_conv_driver.txt",
+      "driver_log_sha512": "7258cd91b48e82ee2e93a627bb2409f9f24be7297fbfcf65ecdfab4d002f8495495a6eebe376ddd4fa1ede14d3d487a52de629a6e5e85c6f7e1373be5ca91237",
+      "conversion_log_sha512": "3855a4beb3d61b5767d69738fa8cf05bdf7a32e529572b0aff66b64a0803fa7874c459368a322f8b0a74a8c63b1c5d1bef4f8a3bb0be9271ccc5802175772ac7",
+      "conformance_validated": false
+    }
+  ]
+}

@@ -95,3 +95,12 @@ PoC6 without --profile uses the earlier local -poc.xsd metadata path. To ingest
 an existing legacy-scheme test bag, both PoC8 and PoC9 require the explicit
 --allow-legacy-package switch. This does not retrofit profile conformance or
 rewrite existing versions. Do not use that switch to bypass failed profile gates.
+
+SIGNED NOTIFICATION PDFs
+------------------------
+The user authorized retaining signed originals and creating separate unsigned
+PDF/A derivatives during the live 12405.26 example. To enable this explicitly,
+add --allow-signed-derivative to PoC2 and build the updated converter source.
+The flag is off by default. No signed original is rewritten. The signature
+policy is recorded in conversion JSON and PREMIS; veraPDF and QA still gate it.
+The live example is under runs/rb94079/FINAL_RESULT.html.

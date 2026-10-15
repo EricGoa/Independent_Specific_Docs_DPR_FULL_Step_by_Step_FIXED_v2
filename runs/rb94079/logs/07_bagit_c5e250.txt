@@ -1,0 +1,3 @@
+[PASS] SIP identity, schemas and BagIt verified: f47fbdd6-b261-43f4-ae58-ee28c1639dc5
+
+STDERR

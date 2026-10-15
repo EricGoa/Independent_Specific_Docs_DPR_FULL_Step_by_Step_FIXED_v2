@@ -1,4 +1,5 @@
 using Aspose.Pdf;
+using Aspose.Pdf.Facades;
 
 internal static class Program
 {
@@ -37,11 +38,11 @@ internal static class Program
             var license = new Aspose.Pdf.License();
             license.SetLicense(licensePath);
 
-            using var document = new Aspose.Pdf.Document(input);
+            using var original = new Aspose.Pdf.Document(input);
 
             // Workflow rule: if the source is already exactly PDF/A-2b, do not
             // normalise it again. Create the canonical master as a byte-for-byte copy.
-            if (document is { IsPdfaCompliant: true, PdfFormat: PdfFormat.PDF_A_2B })
+            if (original is { IsPdfaCompliant: true, PdfFormat: PdfFormat.PDF_A_2B })
             {
                 File.Copy(input, output, overwrite: false);
                 Console.WriteLine("STATUS=SKIPPED_ALREADY_PDF_A_2B");
@@ -50,6 +51,30 @@ internal static class Program
                 Console.WriteLine("TARGET=PDF/A-2b");
                 return ExitSuccess;
             }
+
+            // Explicitly authorized derivative policy. Never save over the signed
+            // original; remove cryptographic signatures only in an in-memory copy.
+            using var unsignedBuffer = new MemoryStream();
+            int removedSignatures = 0;
+            if (options.AllowSignedDerivative)
+            {
+                using var signer = new PdfFileSignature();
+                signer.BindPdf(input);
+                var names = signer.GetSignatureNames();
+                removedSignatures = names.Count;
+                foreach (var name in names)
+                    signer.RemoveSignature(name, false);
+                if (removedSignatures > 0)
+                {
+                    signer.Save(unsignedBuffer);
+                    unsignedBuffer.Position = 0;
+                    Console.WriteLine($"SIGNATURES_REMOVED_IN_DERIVATIVE={removedSignatures}");
+                    Console.WriteLine("SIGNED_ORIGINAL_RETAINED=true");
+                }
+            }
+            using var unsignedDocument = removedSignatures > 0
+                ? new Aspose.Pdf.Document(unsignedBuffer) : null;
+            var document = unsignedDocument ?? original;
 
             // Strict PoC mode: None prevents Aspose from automatically deleting
             // elements that cannot be converted. The conversion can therefore fail,
@@ -71,7 +96,7 @@ internal static class Program
 
             document.Save(output);
 
-            Console.WriteLine("STATUS=CONVERTED");
+            Console.WriteLine(removedSignatures > 0 ? "STATUS=CONVERTED_UNSIGNED_DERIVATIVE" : "STATUS=CONVERTED");
             Console.WriteLine($"INPUT={input}");
             Console.WriteLine($"OUTPUT={output}");
             Console.WriteLine($"LOG={log}");
@@ -92,6 +117,7 @@ internal static class Program
         string? output = null;
         string? log = null;
         string? license = null;
+        bool allowSignedDerivative = false;
 
         for (int i = 0; i < args.Length; i++)
         {
@@ -108,6 +134,8 @@ internal static class Program
                     log = value; i++; break;
                 case "--license":
                     license = value; i++; break;
+                case "--allow-signed-derivative":
+                    allowSignedDerivative = true; break;
                 case "--help":
                 case "-h":
                     return null;
@@ -122,7 +150,7 @@ internal static class Program
                string.IsNullOrWhiteSpace(log) ||
                string.IsNullOrWhiteSpace(license)
             ? null
-            : new Options(input, output, log, license);
+            : new Options(input, output, log, license, allowSignedDerivative);
     }
 
     private static void PrintUsage()
@@ -133,5 +161,5 @@ internal static class Program
         );
     }
 
-    private sealed record Options(string Input, string Output, string Log, string License);
+    private sealed record Options(string Input, string Output, string Log, string License, bool AllowSignedDerivative);
 }
