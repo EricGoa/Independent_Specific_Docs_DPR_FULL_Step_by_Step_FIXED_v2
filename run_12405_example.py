@@ -61,7 +61,7 @@ def main():
       ('05_qa','poc4_qa.py',['--preparation-dir',prep,'--job-id',JOB]),
       ('06_metadata','poc6_metadata.py',['--profile','--preparation-dir',prep,'--dms-job-id','12405.26','--server','Pekan.ext.wto, 14133','--database','DOL2DB','--driver','ODBC Driver 17 for SQL Server','--xsd',ROOT/'schemas/dol-metadata-v-03.xsd','--aip-root',aip,'--agent-registry',cfg_path,'--java',JAVA,'--droid-jar',JAR]),
       ('07_bagit','poc7_bagit.py',['--preparation-dir',prep,'--staging-dir',staging,'--job-id',JOB,'--aip-root',aip,'--agent-registry',cfg_path]),
-      ('08_ingest_verification','poc8_ingest_worker.py',['--staging-dir',staging,'--job-id',JOB,'--aip-root',aip,'--ingest-records-dir',records,'--no-move-on-fail']),
+      ('08_ingest_verification','poc8_ingest_worker.py',['--staging-dir',staging,'--job-id',JOB,'--aip-root',aip,'--ingest-records-dir',records,'--agent-registry',cfg_path,'--no-move-on-fail']),
       ('09_ocfl','poc9_ocfl_ingest.py',['--staging-dir',staging,'--job-id',JOB,'--aip-root',aip,'--workspace-dir',run/'w','--ingest-records-dir',records,'--agent-registry',cfg_path,'--ocfl-validator',ROOT/'validate_ocfl.py','--validator-python',sys.executable,'--require-independent-validator']),
     ]
     report_path=run/'run_result.json'

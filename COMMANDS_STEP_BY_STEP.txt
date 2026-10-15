@@ -104,3 +104,11 @@ add --allow-signed-derivative to PoC2 and build the updated converter source.
 The flag is off by default. No signed original is rewritten. The signature
 policy is recorded in conversion JSON and PREMIS; veraPDF and QA still gate it.
 The live example is under runs/rb94079/FINAL_RESULT.html.
+
+STEP 8 METADATA UPDATE
+Modern profile bags now produce a separate verified-metadata snapshot under ingest-records after all Step 8 gates pass. PREMIS gains DPM112; SIP METS is rebuilt with the new PREMIS checksum. The sealed received SIP and BagIt manifests remain unchanged. Supply --agent-registry at Step 8 with the same registry used for Step 9. Step 9 requires the hash-verified Step 8 snapshot; rerun Step 8 for older pending bags. Existing committed AIPs need no reprocessing.
+OCFL INVENTORIES
+Historical version inventories retain their historical heads and cumulative histories. Root inventory.json MUST equal the latest version inventory.json; older inventories remain unchanged.
+
+PER-VERSION SUMMARY (PROFILE AIP)
+Step 9 now adds vN/content/version-summary.json containing only that version number, SIP identity, predecessor, selection basis, authorizer and the full effective logical file list for that version. It is covered by OCFL SHA-512 fixity and AIP METS. Older summaries are retained unchanged. Checksums are read from inventory.json to avoid self-referential checksums. Required inventory.json files remain cumulative. Existing committed AIPs are not rewritten.

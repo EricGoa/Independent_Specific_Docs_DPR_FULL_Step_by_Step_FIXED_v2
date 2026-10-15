@@ -1,0 +1,29 @@
+{
+  "job_id": "2026_012405",
+  "folder_uuid": "4e91fa7f-744c-4c71-914c-155733176ff4",
+  "status": "STEP_2_IN_PROGRESS",
+  "conversions": [
+    {
+      "source_file_id": "0d1d78c8-d4f4-4f8c-8044-340d0cdc5c16",
+      "completed_at": "2026-10-15T14:07:58.780964Z",
+      "source_role": "notification_attachment",
+      "language": "en",
+      "source_path": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\r12405_step8_live\\preparation\\2026_012405\\representations\\rep_2\\data\\attachments\\2026_012405_notification_en_26_05201_00_e.pdf",
+      "source_sha512": "85ddbe9b9955645901168fe0e3671c3d48e9525dc99c9fe552ab837fa05a5b27ea7bcecda6ea3222594adb91ca771e792f0cfc5f106c2a8d300d39f81ac5d3fe",
+      "master_file_id": "35113aa4-f3c1-4a54-95c0-8b4feb668401",
+      "master_path": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\r12405_step8_live\\preparation\\2026_012405\\representations\\rep_2\\data\\attachments\\preservation\\0d1d78c8-d4f4-4f8c-8044-340d0cdc5c16.pdf",
+      "master_sha512": "11fd158ed301ce4f897ada08db8bb66fc815a28e616f18adf913353fef9acb8a4344e6fdaa1dfbe9824f6adf1feb773e4bf02fb9175aec0286ec224cb5c021e2",
+      "master_size_bytes": 258654,
+      "target_claimed": "PDF/A-2b",
+      "conversion_mode": "strict",
+      "convert_error_action": "None",
+      "converter_status": "CONVERTED_UNSIGNED_DERIVATIVE",
+      "signature_policy": "signed original retained; unsigned preservation derivative",
+      "conversion_log": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\r12405_step8_live\\preparation\\2026_012405\\documentation\\0d1d78c8-d4f4-4f8c-8044-340d0cdc5c16_conv_aspose.xml",
+      "driver_log": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\r12405_step8_live\\preparation\\2026_012405\\documentation\\0d1d78c8-d4f4-4f8c-8044-340d0cdc5c16_conv_driver.txt",
+      "driver_log_sha512": "caeb5eeea67a6bacae7638baa8f32077241ec36bca572748df508ca213a5eb563baaf7b234a57081c3227e539eff01992eac5a2fc332f1309c3932d0ca5f67e5",
+      "conversion_log_sha512": "89f39e8a643ad28b6e7b3c1e23acbda672c7a29018a3a3045452dca59e17b195332cb01615bcde2f75356d4936f2beac26a1dfd8e6be24255f8782f2f7872efd",
+      "conformance_validated": false
+    }
+  ]
+}

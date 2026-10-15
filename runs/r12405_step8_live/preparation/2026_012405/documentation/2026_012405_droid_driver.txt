@@ -1,0 +1,37 @@
+PoC 5 DROID direct-Java driver log
+UTC: 2026-10-15T14:07:44.979213+00:00
+
+PROFILE COMMAND:
+C:\Users\Gao\Downloads\droid-binary-6.8.1-bin-win64-with-jre\jre\bin\java.exe -jar C:\Users\Gao\Downloads\droid-binary-6.8.1-bin-win64-with-jre\droid-command-line-6.8.1.jar -a \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\r12405_step8_live\preparation\2026_012405\representations\rep_1\data\en\2026_012405_en.docx \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\r12405_step8_live\preparation\2026_012405\representations\rep_1\data\es\2026_012405_es.docx \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\r12405_step8_live\preparation\2026_012405\representations\rep_1\data\fr\2026_012405_fr.docx \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\r12405_step8_live\preparation\2026_012405\representations\rep_2\data\attachments\2026_012405_notification_en_26_05201_00_e.pdf \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\r12405_step8_live\preparation\2026_012405\representations\rep_2\data\attachments\2026_012405_notification_en_26_05201_01_e.pdf \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\r12405_step8_live\preparation\2026_012405\representations\rep_2\data\en\2026_012405_en_src.pdf \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\r12405_step8_live\preparation\2026_012405\representations\rep_2\data\es\2026_012405_es_src.pdf \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\r12405_step8_live\preparation\2026_012405\representations\rep_2\data\fr\2026_012405_fr_src.pdf -p \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\r12405_step8_live\preparation\2026_012405\documentation\2026_012405_droid_profile.droid
+
+EXIT: 0
+STDOUT:
+2026-10-15T16:07:10,812  INFO [main] DroidCommandLine:225 - Starting DROID.
+2026-10-15T16:07:12,100  INFO [main] ProfileManagerImpl:129 - Creating profile: 1792073232098
+2026-10-15T16:07:12,139  INFO [main] ProfileInstance:365 - Attempting state change [INITIALISING] to [VIRGIN]
+2026-10-15T16:07:14,602  INFO [main] ProfileManagerImpl:265 - Starting profile: 1792073232098
+2026-10-15T16:07:14,603  INFO [main] ProfileInstance:365 - Attempting state change [VIRGIN] to [RUNNING]
+2026-10-15T16:07:14,712  INFO [pool-2-thread-1] ProfileInstance:365 - Attempting state change [RUNNING] to [FINISHED]
+2026-10-15T16:07:15,725  INFO [main] ProfileManagerImpl:349 - Saving profile: 1792073232098 to \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\r12405_step8_live\preparation\2026_012405\documentation\2026_012405_droid_profile.droid
+2026-10-15T16:07:15,796  INFO [main] ProfileInstance:365 - Attempting state change [FINISHED] to [SAVING]
+2026-10-15T16:07:15,798  INFO [main] ProfileDiskAction:87 - Saving profile [C:\Users\Gao\.droid6\profiles\1792073232098] to [\\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\r12405_step8_live\preparation\2026_012405\documentation\2026_012405_droid_profile.droid]
+2026-10-15T16:07:40,237  INFO [main] ProfileInstance:365 - Attempting state change [SAVING] to [FINISHED]
+2026-10-15T16:07:40,237  INFO [main] ProfileManagerImpl:206 - Closing profile: 1792073232098
+
+STDERR:
+
+
+EXPORT COMMAND:
+C:\Users\Gao\Downloads\droid-binary-6.8.1-bin-win64-with-jre\jre\bin\java.exe -jar C:\Users\Gao\Downloads\droid-binary-6.8.1-bin-win64-with-jre\droid-command-line-6.8.1.jar -p \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\r12405_step8_live\preparation\2026_012405\documentation\2026_012405_droid_profile.droid -e \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\r12405_step8_live\preparation\2026_012405\documentation\2026_012405_droid_export.csv
+
+EXIT: 0
+STDOUT:
+2026-10-15T16:07:41,032  INFO [main] DroidCommandLine:225 - Starting DROID.
+2026-10-15T16:07:42,292  INFO [main] ProfileManagerImpl:396 - Loading profile from: \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\r12405_step8_live\preparation\2026_012405\documentation\2026_012405_droid_profile.droid
+2026-10-15T16:07:44,731  INFO [pool-2-thread-1] ExportTask:187 - Exporting profiles to: [\\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\r12405_step8_live\preparation\2026_012405\documentation\2026_012405_droid_export.csv]
+2026-10-15T16:07:44,827  INFO [pool-2-thread-1] ExportTask:222 - Time for export [1792073262343]: 82 ms
+2026-10-15T16:07:44,828  INFO [pool-2-thread-1] ExportTask:231 - Closing export file: \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\r12405_step8_live\preparation\2026_012405\documentation\2026_012405_droid_export.csv
+2026-10-15T16:07:44,834  INFO [main] ProfileManagerImpl:206 - Closing profile: 1792073262343
+
+STDERR:
+

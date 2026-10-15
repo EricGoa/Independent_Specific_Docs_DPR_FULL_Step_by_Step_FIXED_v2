@@ -273,6 +273,7 @@ def main():
     ap.add_argument("--staging-dir", required=True)
     ap.add_argument("--job-id", required=True)
     ap.add_argument("--aip-root",type=Path)
+    ap.add_argument("--agent-registry",type=Path)
     ap.add_argument("--allow-legacy-package",action="store_true",help="Explicit compatibility mode; legacy identity rules")
     ap.add_argument(
         "--held-dir",
@@ -381,10 +382,19 @@ def main():
             errors.append(str(exc))
     elif not args.allow_legacy_package:
         errors.append("Legacy bag identity scheme requires --allow-legacy-package; rebuild a new profile SIP for normal ingest")
+    metadata_snapshot = None
+    if modern and not errors:
+        try:
+            from profile_workflow import step8_metadata
+            metadata_snapshot = step8_metadata(bag_root,args.job_id,records_dir,
+                args.aip_root or staging.parent/'AIP',args.agent_registry)
+        except Exception as exc:
+            errors.append('Step 8 metadata update failed: '+str(exc))
     passed = len(errors) == 0
 
     record = {
         "poc": 8,
+        "step8_metadata": metadata_snapshot,
         "job_id": args.job_id,
         "started_utc": started,
         "completed_utc": utc_now(),

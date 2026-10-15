@@ -1,0 +1,28 @@
+[OK] 2026_012405 [en] -> \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\r12405_step8_live\preparation\2026_012405
+[OK] 2026_012405 [es] -> \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\r12405_step8_live\preparation\2026_012405
+[OK] 2026_012405 [fr] -> \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\r12405_step8_live\preparation\2026_012405
+[NOTIFICATION] 2026_012405_notification_en_26_05201_00_e.pdf -> \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\r12405_step8_live\preparation\2026_012405\representations\rep_2\data\attachments\2026_012405_notification_en_26_05201_00_e.pdf
+[OK] 2026_012405 [en] -> \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\r12405_step8_live\preparation\2026_012405
+[NOTIFICATION] 2026_012405_notification_en_26_05201_01_e.pdf -> \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\r12405_step8_live\preparation\2026_012405\representations\rep_2\data\attachments\2026_012405_notification_en_26_05201_01_e.pdf
+[OK] 2026_012405 [en] -> \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\r12405_step8_live\preparation\2026_012405
+
+Completed: 5 rows succeeded; 0 failed; 1 JOB_IDs prepared
+[JOB_ID] 2026_012405
+[DMS JOB ID] 12405.26
+[QUERY] DOL2DB
+[DOL] Unique files: 6
+[NOTIFICATION] Unique attachments: 2
+[COPIED] en PDF: Q:\G\TBTN26\EU1243.pdf
+[COPIED] en SRC: T:\G\TBTN26\EU1243.docx
+[COPIED] es PDF: S:\G\TBTN26\EU1243.pdf
+[COPIED] es SRC: V:\G\TBTN26\EU1243.docx
+[COPIED] fr PDF: R:\G\TBTN26\EU1243.pdf
+[COPIED] fr SRC: U:\G\TBTN26\EU1243.docx
+[COPIED] NOTIFICATION (en): F:\2026\TBT\EEC\26_05201_00_e.pdf -> \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\r12405_step8_live\input\2026_012405_notification_en_26_05201_00_e.pdf
+[COPIED] NOTIFICATION (en): F:\2026\TBT\EEC\26_05201_01_e.pdf -> \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\r12405_step8_live\input\2026_012405_notification_en_26_05201_01_e.pdf
+[SUMMARY] DOL pairs: 3
+[SUMMARY] Notification attachments: 2
+[INVENTORY] \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\r12405_step8_live\specific-workflow-runs\2026_012405_20261015_160647_inventory.csv
+[PREPARATION] Running PoC1 for this JOB_ID only.
+
+STDERR

@@ -1,0 +1,14 @@
+{
+  "job_id": "2026_012405",
+  "dms_job_id": "12405.26",
+  "ocfl_head": "v1",
+  "version_summary": "AIP/2026/012000/2026_012405/v1/content/version-summary.json",
+  "summary_sha512": "0feecf99c7591a26eb2f50105786f457626a7b98c24ef28147e62416abc99b1514c55927c4dd2e79fa2591e57d5104ad0354abc8ef99ce68624549c116d5467a",
+  "summary_version_only": true,
+  "summary_in_mets": true,
+  "ocfl_validation": "PASS",
+  "sealed_sip_unchanged": true,
+  "previous_example_preserved": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\r12405_step8_live",
+  "archive": "2026_012405_AIP_OCFL_v1_with_summary.zip",
+  "scope": "Rebuilt isolated AIP from the previous verified live SIP; no source conversion reprocessing. Existing provisional registry and five unidentified Aspose XML log gaps still apply."
+}

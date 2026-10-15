@@ -1,0 +1,37 @@
+{
+  "job_id": "2026_012405",
+  "folder_uuid": "4e91fa7f-744c-4c71-914c-155733176ff4",
+  "created_at": "2026-10-15T14:06:48.566439Z",
+  "preparation_folder": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\r12405_step8_live\\preparation\\2026_012405",
+  "status": "STEP_1_PREPARED_FIXITY_VERIFIED",
+  "files": [
+    {
+      "file_id": "345eff10-bbbc-4929-8026-2e27b945486d",
+      "role": "authoring_source",
+      "language": "en",
+      "original_name": "EU1243.docx",
+      "original_path": "T:\\G\\TBTN26\\EU1243.docx",
+      "staged_name": "2026_012405_en.docx",
+      "staged_path": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\r12405_step8_live\\preparation\\2026_012405\\representations\\rep_1\\data\\en\\2026_012405_en.docx",
+      "sha512_source": "b297b4af0d50ab03277b56c5bbd6d6d2f801a1f0bdc25442d31f001d5b74776e499f4dfd5bd7f267511496f146809e02d5594b11d56bda2e661a4d3e20c0c227",
+      "sha512_staged": "b297b4af0d50ab03277b56c5bbd6d6d2f801a1f0bdc25442d31f001d5b74776e499f4dfd5bd7f267511496f146809e02d5594b11d56bda2e661a4d3e20c0c227",
+      "fixity_verified": true,
+      "size_bytes": 46867,
+      "prepared_at": "2026-10-15T14:06:49.504524Z"
+    },
+    {
+      "file_id": "98d8018b-e29f-46b4-a1c2-cf899c92f449",
+      "role": "published_pdf_working_source",
+      "language": "en",
+      "original_name": "EU1243.pdf",
+      "original_path": "Q:\\G\\TBTN26\\EU1243.pdf",
+      "staged_name": "2026_012405_en_src.pdf",
+      "staged_path": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\r12405_step8_live\\preparation\\2026_012405\\representations\\rep_2\\data\\en\\2026_012405_en_src.pdf",
+      "sha512_source": "2900d0f1b03c7b88ce82aff55b09150abab6d9f3daa3e05dc0a1ae57802d48df8fa347260ddea3b9253639c53546db3f97016a16feccf2a15a93da02bc57817f",
+      "sha512_staged": "2900d0f1b03c7b88ce82aff55b09150abab6d9f3daa3e05dc0a1ae57802d48df8fa347260ddea3b9253639c53546db3f97016a16feccf2a15a93da02bc57817f",
+      "fixity_verified": true,
+      "size_bytes": 46313,
+      "prepared_at": "2026-10-15T14:06:50.175972Z"
+    }
+  ]
+}

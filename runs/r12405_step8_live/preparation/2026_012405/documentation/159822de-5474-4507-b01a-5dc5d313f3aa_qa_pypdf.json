@@ -1,0 +1,175 @@
+{
+  "job_id": "2026_012405",
+  "created_at": "2026-10-15T14:08:34.139160Z",
+  "qa_status": "AUTO_QA_CLEAR",
+  "governing_principle": "fidelity, not enhancement",
+  "source": {
+    "file_id": "159822de-5474-4507-b01a-5dc5d313f3aa",
+    "path": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\r12405_step8_live\\preparation\\2026_012405\\representations\\rep_2\\data\\attachments\\2026_012405_notification_en_26_05201_01_e.pdf",
+    "sha512": "1c9e3fd15564052cce45bb06c854a6afc22b1f3f2e97ec64ec908283b72b2e9501f619f37261e246fba010d663221091569308fbf018de9907c5260916a00c05"
+  },
+  "master": {
+    "file_id": "a240cdca-3606-4269-94c9-a668b11d2de7",
+    "path": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\r12405_step8_live\\preparation\\2026_012405\\representations\\rep_2\\data\\attachments\\preservation\\159822de-5474-4507-b01a-5dc5d313f3aa.pdf",
+    "sha512": "9ccdac23a8cf7c000db06ef25b504000d865b02f367f8ca58992f3eca8c85c30248909c29016c21816dac67bbd9c0be379a3c35f59ff4f20aa4a8043d568be64",
+    "verapdf_validated": true,
+    "verapdf_requested_flavour": "2b"
+  },
+  "qa_report_file_id": "acfe09fb-deff-4eb6-a809-69f5cd86fa40",
+  "automated_checks": {
+    "automated_qa_clear": true,
+    "flags": [],
+    "checks": {
+      "page_count": {
+        "pass": true,
+        "source_page_count": 2,
+        "master_page_count": 2
+      },
+      "text_word_multiset": {
+        "pass": true,
+        "normalisation": "Unicode NFC + casefold + Unicode word-token multiset; order ignored",
+        "source_stats": {
+          "word_count": 555,
+          "unique_word_count": 227,
+          "character_count_after_extraction": 3804
+        },
+        "master_stats": {
+          "word_count": 555,
+          "unique_word_count": 227,
+          "character_count_after_extraction": 3804
+        },
+        "equal": true,
+        "removed_word_instances": 0,
+        "added_word_instances": 0,
+        "removed_sample": [],
+        "added_sample": [],
+        "sample_truncated": false
+      },
+      "descriptive_metadata": {
+        "pass": true,
+        "fields": {
+          "Title": {
+            "pass": true,
+            "source": "",
+            "master": ""
+          },
+          "Author": {
+            "pass": true,
+            "source": "",
+            "master": ""
+          },
+          "Subject": {
+            "pass": true,
+            "source": "",
+            "master": ""
+          },
+          "Keywords": {
+            "pass": true,
+            "source": "",
+            "master": ""
+          }
+        },
+        "ignored_technical_fields": [
+          "Producer",
+          "Creator technical changes",
+          "CreationDate",
+          "ModDate",
+          "PDF version"
+        ]
+      },
+      "tagged_state": {
+        "pass": true,
+        "source_has_struct_tree": true,
+        "master_has_struct_tree": true,
+        "note": "PoC checks presence/absence of StructTreeRoot only; it does not compare structure-tree semantics."
+      },
+      "navigational_structures": {
+        "pass": true,
+        "bookmarks": {
+          "equal": true,
+          "source_count": 0,
+          "master_count": 0,
+          "source": [],
+          "master": []
+        },
+        "internal_links": {
+          "equal": true,
+          "source_count": 0,
+          "master_count": 0,
+          "source": [],
+          "master": []
+        },
+        "external_links": {
+          "equal": true,
+          "source_count": 6,
+          "master_count": 6,
+          "source": [
+            {
+              "source_page": 0,
+              "uri": "mailto:grow-eu-tbt@ec.europa.eu"
+            },
+            {
+              "source_page": 0,
+              "uri": "http://ec.europa.eu/growth/tools-databases/tbt/"
+            },
+            {
+              "source_page": 1,
+              "uri": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32012R0528&qid=1653319893936"
+            },
+            {
+              "source_page": 1,
+              "uri": "mailto:grow-eu-tbt@ec.europa.eu"
+            },
+            {
+              "source_page": 1,
+              "uri": "http://ec.europa.eu/growth/tools-databases/tbt/"
+            },
+            {
+              "source_page": 1,
+              "uri": "http://ec.europa.eu/growth/tools-databases/tbt/"
+            }
+          ],
+          "master": [
+            {
+              "source_page": 0,
+              "uri": "mailto:grow-eu-tbt@ec.europa.eu"
+            },
+            {
+              "source_page": 0,
+              "uri": "http://ec.europa.eu/growth/tools-databases/tbt/"
+            },
+            {
+              "source_page": 1,
+              "uri": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32012R0528&qid=1653319893936"
+            },
+            {
+              "source_page": 1,
+              "uri": "mailto:grow-eu-tbt@ec.europa.eu"
+            },
+            {
+              "source_page": 1,
+              "uri": "http://ec.europa.eu/growth/tools-databases/tbt/"
+            },
+            {
+              "source_page": 1,
+              "uri": "http://ec.europa.eu/growth/tools-databases/tbt/"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "human_adjudication": {
+    "required": false,
+    "status": "NOT_REQUIRED_BY_AUTOMATED_FLAGS",
+    "reviewer": null,
+    "decision": null,
+    "reason": null
+  },
+  "relationship": {
+    "type": "isQaReportOf",
+    "report_file_id": "acfe09fb-deff-4eb6-a809-69f5cd86fa40",
+    "master_file_id": "a240cdca-3606-4269-94c9-a668b11d2de7"
+  },
+  "note": "Automated QA flags differences but never auto-rejects. This PoC does not perform visual review. A flagged master must be human-adjudicated before the object can proceed."
+}

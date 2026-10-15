@@ -1,0 +1,31 @@
+{
+  "job_id": "2026_012405",
+  "dms_job_id": "12405.26",
+  "run_directory": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\r12405_step8_update",
+  "started_utc": "2026-10-15T14:05:14.578585+00:00",
+  "external_tools": "REAL; no mocks",
+  "production_accession": false,
+  "registry_status": "PROVISIONAL",
+  "stages": [
+    {
+      "stage": "06_metadata",
+      "exit_code": 10,
+      "seconds": 1.25,
+      "log": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\r12405_step8_update\\logs\\06_metadata_d58b39.txt"
+    },
+    {
+      "stage": "06_metadata",
+      "exit_code": 10,
+      "seconds": 2.97,
+      "log": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\r12405_step8_update\\logs\\06_metadata_73755a.txt"
+    },
+    {
+      "stage": "06_metadata",
+      "exit_code": 10,
+      "seconds": 1.06,
+      "log": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\r12405_step8_update\\logs\\06_metadata_7c31f1.txt"
+    }
+  ],
+  "status": "HELD_AT_06_METADATA",
+  "existing_production_files_unchanged": true
+}

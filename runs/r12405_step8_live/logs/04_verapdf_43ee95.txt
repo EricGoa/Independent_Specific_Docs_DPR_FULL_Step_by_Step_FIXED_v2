@@ -1,0 +1,25 @@
+[PASS] 0d1d78c8-d4f4-4f8c-8044-340d0cdc5c16.pdf conforms to PDF/A-2b
+       master file_id: 35113aa4-f3c1-4a54-95c0-8b4feb668401
+       report file_id: c8a37b15-f13e-41aa-8ba2-c40ba2cf15d9
+       report: \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\r12405_step8_live\preparation\2026_012405\documentation\0d1d78c8-d4f4-4f8c-8044-340d0cdc5c16_val_verapdf.xml
+[PASS] 159822de-5474-4507-b01a-5dc5d313f3aa.pdf conforms to PDF/A-2b
+       master file_id: a240cdca-3606-4269-94c9-a668b11d2de7
+       report file_id: 3419e212-0f7f-406d-b267-11c0b77c6250
+       report: \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\r12405_step8_live\preparation\2026_012405\documentation\159822de-5474-4507-b01a-5dc5d313f3aa_val_verapdf.xml
+[PASS] 2026_012405_en.pdf conforms to PDF/A-2b
+       master file_id: 0ef00979-4f0e-40f7-aa0e-d676e354d601
+       report file_id: 34840b9a-1ccc-4557-9f9a-8ca220ddb909
+       report: \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\r12405_step8_live\preparation\2026_012405\documentation\2026_012405_en_val_verapdf.xml
+[PASS] 2026_012405_es.pdf conforms to PDF/A-2b
+       master file_id: c876fa11-7b26-4fcb-b411-caf1692dea21
+       report file_id: 81d4e12e-f794-407b-8895-d7dd5ac6d5a7
+       report: \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\r12405_step8_live\preparation\2026_012405\documentation\2026_012405_es_val_verapdf.xml
+[PASS] 2026_012405_fr.pdf conforms to PDF/A-2b
+       master file_id: 1251139b-2765-43c6-afa6-c39358eff853
+       report file_id: e2a889ab-8bc7-4b09-96b1-56b6c5867842
+       report: \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\r12405_step8_live\preparation\2026_012405\documentation\2026_012405_fr_val_verapdf.xml
+
+Completed: 5 passed, 0 failed
+PoC 3 record: \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\r12405_step8_live\preparation\2026_012405\documentation\2026_012405_poc3_validation_record.json
+
+STDERR

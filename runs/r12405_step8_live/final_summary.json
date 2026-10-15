@@ -1,0 +1,29 @@
+{
+  "job_id": "2026_012405",
+  "dms_job_id": "12405.26",
+  "symbol": "G/TBT/N/EU/1243",
+  "status": "COMPLETED_ISOLATED_LIVE_EXAMPLE",
+  "original_file_count": 8,
+  "original_fixity_verified": true,
+  "pdfa_passes": 5,
+  "qa_clear": 5,
+  "payload_file_count": 36,
+  "payload_oxum": "2114559.36",
+  "step8_metadata_updated": true,
+  "step8_fixity_event_carried_into_aip": true,
+  "sip_unchanged_since_verification": true,
+  "ocfl_head": "v1",
+  "object_id": "urn:uuid:4e91fa7f-744c-4c71-914c-155733176ff4",
+  "sip_uuid": "c05b8c60-35a7-48c2-a7cc-84d6bf0a359f",
+  "root_equals_latest_inventory": true,
+  "independent_ocfl_validation": "PASS",
+  "existing_production_files_unchanged": true,
+  "previous_example_preserved": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rb94079",
+  "profile_gaps": [
+    "No PRONOM identification: documentation/0d1d78c8-d4f4-4f8c-8044-340d0cdc5c16_conv_aspose.xml",
+    "No PRONOM identification: documentation/159822de-5474-4507-b01a-5dc5d313f3aa_conv_aspose.xml",
+    "No PRONOM identification: documentation/2026_012405_en_conv_aspose.xml",
+    "No PRONOM identification: documentation/2026_012405_es_conv_aspose.xml",
+    "No PRONOM identification: documentation/2026_012405_fr_conv_aspose.xml"
+  ]
+}

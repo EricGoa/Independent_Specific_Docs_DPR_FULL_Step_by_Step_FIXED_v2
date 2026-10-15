@@ -536,13 +536,35 @@ def check_payload_agreement(root,payload,job,previous_inventory=None):
         paths=o.xpath('p:objectIdentifier[p:objectIdentifierType="filepath"]/p:objectIdentifierValue/text()',namespaces=NS)
         checksum=o.findtext('{'+P+'}objectCharacteristics/{'+P+'}fixity/{'+P+'}messageDigest')
         for path in paths: described.add((path,checksum))
-    excluded={premis_path(job),mets_path(job)}
+    excluded={premis_path(job),mets_path(job),'version-summary.json'}
     held={(p.relative_to(payload).as_posix(),digest(p)) for p in Path(payload).rglob('*') if p.is_file() and p.relative_to(payload).as_posix() not in excluded and p.relative_to(payload).parts[0]!='schemas'}
     if previous_inventory:
         for version in previous_inventory['versions'].values():
             for checksum,paths in version['state'].items():
                 held.update((path,checksum) for path in paths if path not in excluded and not path.startswith('schemas/'))
     if held!=described: raise RuntimeError('PREMIS/payload history disagreement: missing='+str(held-described)+'; extra='+str(described-held))
+
+
+def step8_metadata(bag, job, records_dir, aip_root, config_path=None):
+    """Create a verified payload snapshot without changing the sealed SIP."""
+    info, root, details, repo, old = check_contract(bag, job, aip_root)
+    before = copy.deepcopy(root)
+    config = configuration(config_path)
+    registry = Registry(Path(aip_root).parent, job)
+    destination = Path(records_dir) / 'verified-metadata' / uuid.uuid4().hex[:12]
+    payload = destination / 'data'
+    shutil.copytree(Path(bag) / 'data', payload)
+    event(root, registry, config, 'DPM112', 'ingest:'+info['External-Identifier'],
+          [(info['DPR-Object-UUID'], None)],
+          [f'sip_id: {info["External-Identifier"]}', 'package_manifest: manifest-sha512.txt'],
+          'Payload-Oxum: '+info['Payload-Oxum'], program='ingest')
+    serialize(payload / premis_path(job), root)
+    validate_premis(payload, job, before)
+    write_mets(payload, job, info['External-Identifier'], 'SIP', info['DPR-Object-UUID'])
+    return {'payload': str(payload.resolve()), 'sha512': {
+        p.relative_to(payload).as_posix(): digest(p)
+        for p in payload.rglob('*') if p.is_file()}}
+
 
 def ingest(args,bag):
     import poc7_bagit as bagit
@@ -579,12 +601,41 @@ def ingest(args,bag):
     run=workspace_root/uuid.uuid4().hex[:12];run.mkdir(parents=True,exist_ok=False)
     receipt=run/'receipt';payload=receipt/'data';shutil.copytree(bag/'data',payload)
     received=copy.deepcopy(root)
+    snapshot=verified.get('step8_metadata')
+    if not snapshot: raise RuntimeError('Step 8 metadata update missing; rerun Step 8')
+    verified_payload=Path(snapshot['payload'])
+    actual={p.relative_to(verified_payload).as_posix():digest(p) for p in verified_payload.rglob('*') if p.is_file()}
+    if actual!=snapshot['sha512']: raise RuntimeError('Step 8 metadata snapshot changed')
+    allowed={premis_path(args.job_id),mets_path(args.job_id)}
+    if set(actual)!=set(p.removeprefix('data/') for p in current): raise RuntimeError('Step 8 payload coverage changed')
+    for logical, checksum in actual.items():
+        if logical not in allowed and checksum!=current['data/'+logical]: raise RuntimeError('Step 8 changed preserved content')
+    updated=validate_premis(verified_payload,args.job_id,received)
+    if len(event_details(updated,'DPM112'))!=len(event_details(received,'DPM112'))+1: raise RuntimeError('Step 8 fixity event missing')
+    root=updated
+    for logical in allowed: shutil.copy2(verified_payload/logical,payload/logical)
     head='v'+str(int(old['head'][1:])+1) if old else 'v1'
-    event(root,registry,config,'DPM112','ingest:'+info['External-Identifier'],[(info['DPR-Object-UUID'],None)],[f'sip_id: {info["External-Identifier"]}','package_manifest: manifest-sha512.txt'],'Payload-Oxum: '+info['Payload-Oxum'],program='ingest')
     event(root,registry,config,'DPM113','aip:'+info['External-Identifier'],[(info['DPR-Object-UUID'],None)],[f'ocfl_version: {head}'],'package type: AIP',program='ingest')
     assert_append_only(received,root);serialize(payload/premis_path(args.job_id),root);validate_premis(payload,args.job_id,received)
     check_payload_agreement(root,payload,args.job_id,old)
-    objid='urn:uuid:'+info['DPR-Object-UUID'];write_mets(payload,args.job_id,objid,'AIP',info['DPR-Object-UUID'],info['External-Identifier'])
+    objid='urn:uuid:'+info['DPR-Object-UUID']
+    # A separate human-facing summary has one version only. Inventories retain
+    # the cumulative history required by OCFL. Avoid self-referential checksums.
+    summary_path=payload/'version-summary.json'
+    if summary_path.exists(): raise RuntimeError('Reserved AIP path supplied by SIP: version-summary.json')
+    logicals={p.relative_to(payload).as_posix() for p in payload.rglob('*') if p.is_file()}
+    if old:
+        logicals.update(p for paths in old['versions'][old['head']]['state'].values() for p in paths)
+    logicals.add('version-summary.json')
+    summary={'summary_schema':'dpr-version-summary-1','object_id':objid,
+        'version':head,'sip_id':info['External-Identifier'],
+        'predecessor':old['head'] if old else None,
+        'selection_basis':details['selection_basis'],
+        'authorizer':{'name':operator['name'],'address':address},
+        'logical_files':sorted(logicals),
+        'note':'This summary describes only the named version. SHA-512 fixity and cumulative history are authoritative in inventory.json.'}
+    summary_path.write_text(json.dumps(summary,ensure_ascii=False,indent=2)+'\n',encoding='utf-8',newline='\n')
+    write_mets(payload,args.job_id,objid,'AIP',info['DPR-Object-UUID'],info['External-Identifier'])
     entries={p.relative_to(receipt).as_posix():digest(p) for p in payload.rglob('*') if p.is_file()}
     workspace=run/'object';ocfl.ensure_storage_root(Path(args.aip_root))
     if old: inv,copies=build_delta(receipt,entries,objid,repo,workspace,operator['name'],address,now())
