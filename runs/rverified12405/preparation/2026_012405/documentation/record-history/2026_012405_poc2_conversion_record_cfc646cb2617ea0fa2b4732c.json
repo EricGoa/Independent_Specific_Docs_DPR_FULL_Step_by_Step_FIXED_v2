@@ -1,0 +1,31 @@
+{
+  "job_id": "2026_012405",
+  "folder_uuid": "78eda807-5a80-4de1-9e33-a2e2d0df9c47",
+  "status": "STEP_2_IN_PROGRESS",
+  "conversions": [
+    {
+      "source_file_id": "8b6b028c-2a00-464c-86ee-374d401bc559",
+      "completed_at": "2026-10-16T08:24:40.173430Z",
+      "reconversion_token": null,
+      "source_role": "notification_attachment",
+      "language": "en",
+      "source_path": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rverified12405\\preparation\\2026_012405\\representations\\rep_2\\data\\attachments\\2026_012405_notification_en_26_05201_00_e.pdf",
+      "source_sha512": "85ddbe9b9955645901168fe0e3671c3d48e9525dc99c9fe552ab837fa05a5b27ea7bcecda6ea3222594adb91ca771e792f0cfc5f106c2a8d300d39f81ac5d3fe",
+      "master_file_id": "75323c2b-a5b8-4695-8029-2818f2f25472",
+      "master_path": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rverified12405\\preparation\\2026_012405\\representations\\rep_2\\data\\attachments\\preservation\\8b6b028c-2a00-464c-86ee-374d401bc559.pdf",
+      "master_sha512": "1f98b9d545c1d3615d685c03dda5b09aa2852a27cdd4504e6571113d50c88588416f7360860af1182179988fe4f94b69d2249069aed96a9fe7589c0af93c2507",
+      "master_size_bytes": 258654,
+      "target_claimed": "PDF/A-2b",
+      "conversion_mode": "strict",
+      "convert_error_action": "None",
+      "converter_status": "CONVERTED_UNSIGNED_DERIVATIVE",
+      "signature_policy": "signed original retained; unsigned preservation derivative",
+      "conversion_log": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rverified12405\\preparation\\2026_012405\\documentation\\8b6b028c-2a00-464c-86ee-374d401bc559_conv_aspose.xml",
+      "conversion_log_file_id": "d4cfba81-8c93-4ec7-b111-3ea47e935624",
+      "driver_log": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rverified12405\\preparation\\2026_012405\\documentation\\8b6b028c-2a00-464c-86ee-374d401bc559_conv_driver.txt",
+      "driver_log_sha512": "3ae56901a7e149cd3c82d15f0176b485b3d89d7e0cab5c0e77a35d996eadda33387d9f7213a920595c72282130d0628e14a71f2ba5cce7b0be35a7d1442eab6b",
+      "conversion_log_sha512": "4730bfd9bdee94a1a50bc828debb426e0a665899c4d881b40d43074f4949bc602f2a58d82829d35d87b58b27329b409cf15d274e09087d2fe6bd399200384f68",
+      "conformance_validated": false
+    }
+  ]
+}

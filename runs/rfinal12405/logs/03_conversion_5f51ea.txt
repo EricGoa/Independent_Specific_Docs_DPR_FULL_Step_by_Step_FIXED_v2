@@ -1,0 +1,30 @@
+[OK] 2026_012405_notification_en_26_05201_00_e.pdf -> 635237b8-04a0-42ec-a12f-edacbda09d4d.pdf
+     Aspose status: CONVERTED_UNSIGNED_DERIVATIVE
+     master file_id: 790e6051-bace-4a34-b2a4-255d8126374a
+     SHA-512 master: 07a0d678c31d706ec191afe6992fc212...
+     veraPDF validated: NO
+[OK] 2026_012405_notification_en_26_05201_01_e.pdf -> 8dfc9ea4-c391-4eb2-a7c8-0fb6f098971c.pdf
+     Aspose status: CONVERTED_UNSIGNED_DERIVATIVE
+     master file_id: ac2ed33b-3549-411e-86f5-742c616d4ca7
+     SHA-512 master: 2b71b65ee8c9351eb975efbf9063c477...
+     veraPDF validated: NO
+[OK] 2026_012405_en_src.pdf -> 2026_012405_en.pdf
+     Aspose status: CONVERTED
+     master file_id: 3d9a2c39-f34a-48bf-82e7-bf49507688f1
+     SHA-512 master: e2429e441f7c02f8ee32ef1c7cee61c5...
+     veraPDF validated: NO
+[OK] 2026_012405_es_src.pdf -> 2026_012405_es.pdf
+     Aspose status: CONVERTED
+     master file_id: c9e205a8-1e02-494a-814f-73f2732e86de
+     SHA-512 master: bab803dabd6786b2dd4fefc6b251cf75...
+     veraPDF validated: NO
+[OK] 2026_012405_fr_src.pdf -> 2026_012405_fr.pdf
+     Aspose status: CONVERTED
+     master file_id: fec4013b-35f5-4cff-a4fc-475f2a33c140
+     SHA-512 master: a501862c004b555e48c30db0286e9e6d...
+     veraPDF validated: NO
+
+Completed: 5 master(s) created, 0 failed
+PoC 2 record: \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\rfinal12405\preparation\2026_012405\documentation\2026_012405_poc2_conversion_record.json
+
+STDERR

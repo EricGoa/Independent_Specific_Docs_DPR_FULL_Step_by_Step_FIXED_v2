@@ -1,0 +1,25 @@
+[PASS] 8b6b028c-2a00-464c-86ee-374d401bc559.pdf conforms to PDF/A-2b
+       master file_id: 75323c2b-a5b8-4695-8029-2818f2f25472
+       report file_id: 6542d850-13dc-42cc-a5c9-3eba44ceff83
+       report: \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\rverified12405\preparation\2026_012405\documentation\8b6b028c-2a00-464c-86ee-374d401bc559_val_verapdf.xml
+[PASS] 551e4f8d-be00-4a58-b7e0-b6076dcfda06.pdf conforms to PDF/A-2b
+       master file_id: 05d41700-97f6-472e-9703-44ed96ffd5b3
+       report file_id: 99f9a27c-8273-411e-a953-2cf99b34effa
+       report: \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\rverified12405\preparation\2026_012405\documentation\551e4f8d-be00-4a58-b7e0-b6076dcfda06_val_verapdf.xml
+[PASS] 2026_012405_en.pdf conforms to PDF/A-2b
+       master file_id: 55ed2d5c-43d8-4bb3-a669-4f33d2606c8a
+       report file_id: 4cd20d6a-ac5e-418a-b01a-4aff4d12777f
+       report: \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\rverified12405\preparation\2026_012405\documentation\2026_012405_en_val_verapdf.xml
+[PASS] 2026_012405_es.pdf conforms to PDF/A-2b
+       master file_id: 5e6d0b40-4202-428b-8783-2b946100d35d
+       report file_id: 69f29269-6299-4e87-a28c-a5975bfb3dbe
+       report: \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\rverified12405\preparation\2026_012405\documentation\2026_012405_es_val_verapdf.xml
+[PASS] 2026_012405_fr.pdf conforms to PDF/A-2b
+       master file_id: afe3d01a-b6ac-41b1-b549-649e57793345
+       report file_id: b909cf1c-1591-4b4f-b8a3-54a6840a3583
+       report: \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\rverified12405\preparation\2026_012405\documentation\2026_012405_fr_val_verapdf.xml
+
+Completed: 5 passed, 0 failed
+PoC 3 record: \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\rverified12405\preparation\2026_012405\documentation\2026_012405_poc3_validation_record.json
+
+STDERR

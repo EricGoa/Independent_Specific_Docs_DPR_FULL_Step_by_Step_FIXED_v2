@@ -95,6 +95,21 @@ internal static class Program
             }
 
             document.Save(output);
+            // Serialize newly created XML evidence with a declaration so DROID
+            // can identify it. Engine report body remains byte-for-byte intact.
+            if (System.IO.File.Exists(log))
+            {
+                var logBody = System.IO.File.ReadAllText(log, System.Text.Encoding.UTF8);
+                System.Xml.Linq.XDocument.Parse(logBody);
+                if (!logBody.TrimStart().StartsWith("<?xml", StringComparison.Ordinal))
+                {
+                    Console.WriteLine("LOG_BODY_SHA512=" + Convert.ToHexString(
+                        System.Security.Cryptography.SHA512.HashData(System.Text.Encoding.UTF8.GetBytes(logBody))).ToLowerInvariant());
+                    System.IO.File.WriteAllText(log, "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" + logBody,
+                        new System.Text.UTF8Encoding(false));
+                    Console.WriteLine("LOG_SERIALIZATION=XML_DECLARATION_ADDED_BODY_UNCHANGED");
+                }
+            }
 
             Console.WriteLine(removedSignatures > 0 ? "STATUS=CONVERTED_UNSIGNED_DERIVATIVE" : "STATUS=CONVERTED");
             Console.WriteLine($"INPUT={input}");

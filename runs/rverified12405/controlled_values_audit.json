@@ -1,0 +1,219 @@
+[
+  {
+    "element": "messageDigestAlgorithm",
+    "value": "SHA-512",
+    "writer_definition_test": "PASS",
+    "occurrences": 32,
+    "example_attributes": "PASS"
+  },
+  {
+    "element": "formatRegistryRole",
+    "value": "specification",
+    "writer_definition_test": "PASS",
+    "occurrences": 32,
+    "example_attributes": "PASS"
+  },
+  {
+    "element": "relationshipType",
+    "value": "structural",
+    "writer_definition_test": "PASS",
+    "occurrences": 24,
+    "example_attributes": "PASS"
+  },
+  {
+    "element": "relationshipType",
+    "value": "derivation",
+    "writer_definition_test": "PASS",
+    "occurrences": 5,
+    "example_attributes": "PASS"
+  },
+  {
+    "element": "relationshipType",
+    "value": "dependency",
+    "writer_definition_test": "PASS",
+    "occurrences": 15,
+    "example_attributes": "PASS"
+  },
+  {
+    "element": "relationshipSubType",
+    "value": "includes",
+    "writer_definition_test": "PASS",
+    "occurrences": 12,
+    "example_attributes": "PASS"
+  },
+  {
+    "element": "relationshipSubType",
+    "value": "is Included In",
+    "writer_definition_test": "PASS",
+    "occurrences": 12,
+    "example_attributes": "PASS"
+  },
+  {
+    "element": "relationshipSubType",
+    "value": "has Source",
+    "writer_definition_test": "PASS",
+    "occurrences": 5,
+    "example_attributes": "PASS"
+  },
+  {
+    "element": "relationshipSubType",
+    "value": "isValidationReportOf",
+    "writer_definition_test": "PASS",
+    "occurrences": 5,
+    "example_attributes": "PASS"
+  },
+  {
+    "element": "relationshipSubType",
+    "value": "isQaReportOf",
+    "writer_definition_test": "PASS",
+    "occurrences": 5,
+    "example_attributes": "PASS"
+  },
+  {
+    "element": "relationshipSubType",
+    "value": "isConversionLogOf",
+    "writer_definition_test": "PASS",
+    "occurrences": 5,
+    "example_attributes": "PASS"
+  },
+  {
+    "element": "eventType",
+    "value": "ingestion start",
+    "writer_definition_test": "PASS",
+    "occurrences": 1,
+    "example_attributes": "PASS"
+  },
+  {
+    "element": "eventType",
+    "value": "message digest calculation",
+    "writer_definition_test": "PASS",
+    "occurrences": 13,
+    "example_attributes": "PASS"
+  },
+  {
+    "element": "eventType",
+    "value": "fixity check",
+    "writer_definition_test": "PASS",
+    "occurrences": 9,
+    "example_attributes": "PASS"
+  },
+  {
+    "element": "eventType",
+    "value": "filename change",
+    "writer_definition_test": "PASS",
+    "occurrences": 5,
+    "example_attributes": "PASS"
+  },
+  {
+    "element": "eventType",
+    "value": "normalization",
+    "writer_definition_test": "PASS",
+    "occurrences": 5,
+    "example_attributes": "PASS"
+  },
+  {
+    "element": "eventType",
+    "value": "validation",
+    "writer_definition_test": "PASS",
+    "occurrences": 5,
+    "example_attributes": "PASS"
+  },
+  {
+    "element": "eventType",
+    "value": "qualityReview",
+    "writer_definition_test": "PASS",
+    "occurrences": 5,
+    "example_attributes": "PASS"
+  },
+  {
+    "element": "eventType",
+    "value": "format identification",
+    "writer_definition_test": "PASS",
+    "occurrences": 2,
+    "example_attributes": "PASS"
+  },
+  {
+    "element": "eventType",
+    "value": "creation",
+    "writer_definition_test": "PASS",
+    "occurrences": 1,
+    "example_attributes": "PASS"
+  },
+  {
+    "element": "eventType",
+    "value": "metadata modification",
+    "writer_definition_test": "PASS",
+    "occurrences": 0,
+    "example_attributes": "scenario not applicable"
+  },
+  {
+    "element": "eventType",
+    "value": "information package creation",
+    "writer_definition_test": "PASS",
+    "occurrences": 2,
+    "example_attributes": "PASS"
+  },
+  {
+    "element": "eventOutcome",
+    "value": "success",
+    "writer_definition_test": "PASS",
+    "occurrences": 48,
+    "example_attributes": "PASS"
+  },
+  {
+    "element": "linkingAgentRole",
+    "value": "executing program",
+    "writer_definition_test": "PASS",
+    "occurrences": 53,
+    "example_attributes": "PASS"
+  },
+  {
+    "element": "linkingAgentRole",
+    "value": "authorizer",
+    "writer_definition_test": "PASS",
+    "occurrences": 48,
+    "example_attributes": "PASS"
+  },
+  {
+    "element": "linkingAgentRole",
+    "value": "implementer",
+    "writer_definition_test": "PASS",
+    "occurrences": 0,
+    "example_attributes": "scenario not applicable"
+  },
+  {
+    "element": "linkingObjectRole",
+    "value": "source",
+    "writer_definition_test": "PASS",
+    "occurrences": 15,
+    "example_attributes": "PASS"
+  },
+  {
+    "element": "linkingObjectRole",
+    "value": "outcome",
+    "writer_definition_test": "PASS",
+    "occurrences": 24,
+    "example_attributes": "PASS"
+  },
+  {
+    "element": "agentType",
+    "value": "software",
+    "writer_definition_test": "PASS",
+    "occurrences": 11,
+    "example_attributes": "PASS"
+  },
+  {
+    "element": "agentType",
+    "value": "person",
+    "writer_definition_test": "PASS",
+    "occurrences": 1,
+    "example_attributes": "PASS"
+  },
+  {
+    "element": "agentType",
+    "value": "organization",
+    "writer_definition_test": "PASS",
+    "occurrences": 0,
+    "example_attributes": "scenario not applicable"
+  }
+]

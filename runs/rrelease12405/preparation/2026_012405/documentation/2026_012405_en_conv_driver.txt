@@ -1,0 +1,19 @@
+DPR PoC 2 Aspose invocation
+timestamp_utc=2026-10-16T08:19:13.089468Z
+status=CONVERTED
+source=\\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\rrelease12405\preparation\2026_012405\representations\rep_2\data\en\2026_012405_en_src.pdf
+master=\\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\rrelease12405\preparation\2026_012405\representations\rep_2\data\en\2026_012405_en.pdf
+target=PDF/A-2b
+error_action=None
+
+STDOUT
+LOG_BODY_SHA512=e013550f836893cfce10d431efe33d2d762200c4b7e262618c89eadb80884d2f6d9eba9e388c1537a8a9c46755f2f7abfae9453cf897e216c315ef4055a27e96
+LOG_SERIALIZATION=XML_DECLARATION_ADDED_BODY_UNCHANGED
+STATUS=CONVERTED
+INPUT=\\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\rrelease12405\preparation\2026_012405\representations\rep_2\data\en\2026_012405_en_src.pdf
+OUTPUT=\\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\rrelease12405\preparation\2026_012405\representations\rep_2\data\en\2026_012405_en.pdf
+LOG=\\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\rrelease12405\preparation\2026_012405\documentation\2026_012405_en_conv_aspose.xml
+TARGET=PDF/A-2b
+
+STDERR
+

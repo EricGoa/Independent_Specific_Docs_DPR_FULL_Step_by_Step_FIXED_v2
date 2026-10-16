@@ -1,0 +1,90 @@
+{
+  "draft": true,
+  "notice": "User-authorized isolated live example for DmsJobId=12405.26; provisional registry, not production accession.",
+  "operator": {
+    "uuid": "ef0e3208-6d60-464f-a503-9255bc5a6c5e",
+    "name": "Eric Gao",
+    "email": "eric.gao@wto.org",
+    "type": "person",
+    "note": "Example explicitly requested by the user; name/email supplied in the project team correspondence; registry remains provisional."
+  },
+  "agents": {
+    "preparation": {
+      "uuid": "ee3327bf-9b00-4b08-bcfe-f869e6a979f3",
+      "name": "poc1_builder.py",
+      "type": "software",
+      "version": "source-set SHA-256:41aecc8c395e10957f3251219c66b81130fbd1d3cc89ee96abea4ac764038ccd",
+      "note": "User-authorized working registry; measured source identity: poc1_builder.py, workflow_common.py"
+    },
+    "metadata": {
+      "uuid": "2f2a82e8-4ae8-4d8c-bf6a-b9200c6fc195",
+      "name": "poc6_metadata.py",
+      "type": "software",
+      "version": "source-set SHA-256:f0db2bf1977ea26d5c5a353dd70c342e5ecc018846e7a2219ec904bdabcbb9ee",
+      "note": "User-authorized working registry; measured source identity: poc6_metadata.py, profile_workflow.py, workflow_common.py, crosswalk_metadata.py, mets_profile.py, adjudicate_qa.py"
+    },
+    "validation": {
+      "uuid": "e1a5ee4f-469c-4b74-8c25-e09b2e72c68e",
+      "name": "poc3_verapdf.py",
+      "type": "software",
+      "version": "source-set SHA-256:6d58df30a43c7562f0d32ebb32b327f7a8d111a8e5460650e09963afa8e5fb6a",
+      "note": "User-authorized working registry; measured source identity: poc3_verapdf.py, workflow_common.py"
+    },
+    "qa": {
+      "uuid": "2ce95aac-0713-46d0-bc0a-f8221657e875",
+      "name": "poc4_qa.py",
+      "type": "software",
+      "version": "source-set SHA-256:4daa8d1db7ff9eae5f55f1fe47bc716085e6b7fb17e7119e7f5b50ce8f40367a",
+      "note": "User-authorized working registry; measured source identity: poc4_qa.py, workflow_common.py"
+    },
+    "ingest": {
+      "uuid": "59b7a7c2-d797-4e56-9429-f234fa183f03",
+      "name": "poc9_ocfl_ingest.py",
+      "type": "software",
+      "version": "source-set SHA-256:4807745b8813e132ead6550b01c1201acb9b4a314d979cb80722873eda563f35",
+      "note": "User-authorized working registry; measured source identity: poc8_ingest_worker.py, poc9_ocfl_ingest.py, profile_workflow.py, workflow_common.py, ocfl_versions.py, mets_profile.py"
+    },
+    "converter": {
+      "uuid": "e2434f97-0079-455e-a549-9bd739765478",
+      "name": "Aspose.PDF for .NET",
+      "type": "software",
+      "version": "25.10.0",
+      "note": "Confirmed from DprPdfaConverter.csproj; profile C++ label needs correction"
+    },
+    "droid": {
+      "uuid": "3061c073-39e2-4362-81bd-1a0e200520c6",
+      "name": "DROID",
+      "type": "software",
+      "version": "6.8.1; signatures V118; container signatures 20240501",
+      "note": "Installed droid-command-line-6.8.1.jar; signature details retained in profile/driver evidence."
+    },
+    "packaging": {
+      "uuid": "c4eec1b8-9871-47b6-b323-b78c6e7f905b",
+      "name": "poc7_bagit.py",
+      "type": "software",
+      "version": "source-set SHA-256:dc7089480f5741e8b243944a61a5898e212de7816a9292cccd6bf95965e1d7c4",
+      "note": "User-authorized working registry; measured source identity: poc7_bagit.py, profile_workflow.py, workflow_common.py"
+    },
+    "verification": {
+      "uuid": "c1a413cd-7390-4a32-842a-56ce5000c37a",
+      "name": "poc8_ingest_worker.py",
+      "type": "software",
+      "version": "source-set SHA-256:86b02daebaa551bfecd4861a2031b38e23bd1a24be4cff5ab383027a5f1206a5",
+      "note": "User-authorized working registry; measured source identity: poc8_ingest_worker.py, profile_workflow.py, workflow_common.py"
+    },
+    "conversion_script": {
+      "uuid": "6e403653-44d0-4620-8b9d-4b41685292e5",
+      "name": "poc2_aspose.py",
+      "type": "software",
+      "version": "source-set SHA-256:44a9bb0ab73298e1ca1ff9ae25e71226bc34b22ae8c7dbaa06eb813d7ef379e9",
+      "note": "User-authorized working registry; measured source identity: poc2_aspose.py, workflow_common.py, DprPdfaConverter/Program.cs"
+    },
+    "verapdf": {
+      "uuid": "e1b3b44f-fdc5-4031-92ed-30b2fdb81cac",
+      "name": "veraPDF",
+      "type": "software",
+      "version": "1.26.2",
+      "note": "Installed runtime verified by --version, evidence runs/rfinal12405/logs/verapdf_version.txt; reconfigure for other deployments."
+    }
+  }
+}

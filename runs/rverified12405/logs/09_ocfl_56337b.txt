@@ -1,0 +1,4 @@
+[INFO] dpr_dol_ingest_worker PoC 9 � OCFL 1.1
+[PASS] Profile AIP committed: v1
+
+STDERR

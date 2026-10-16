@@ -1,0 +1,20 @@
+[CLEAR] 35e2c9de-7c17-42bd-b5e1-f2f41a24abf1.pdf automated QA found no differences
+        QA report file_id: 04f81ee5-aca2-4f5f-b948-56e990e23618
+        report: \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\rrelease12405\preparation\2026_012405\documentation\35e2c9de-7c17-42bd-b5e1-f2f41a24abf1_qa_pypdf.json
+[CLEAR] 20401c71-7ea2-473f-9d2d-832d121c8053.pdf automated QA found no differences
+        QA report file_id: 9845a500-487e-492c-b5c6-68295866aeea
+        report: \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\rrelease12405\preparation\2026_012405\documentation\20401c71-7ea2-473f-9d2d-832d121c8053_qa_pypdf.json
+[CLEAR] 2026_012405_en.pdf automated QA found no differences
+        QA report file_id: beba33c0-c56f-4ba2-b75e-c2c991a207df
+        report: \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\rrelease12405\preparation\2026_012405\documentation\2026_012405_en_qa_pypdf.json
+[CLEAR] 2026_012405_es.pdf automated QA found no differences
+        QA report file_id: 803a366a-ebd8-455a-9db9-72ffbb10c24a
+        report: \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\rrelease12405\preparation\2026_012405\documentation\2026_012405_es_qa_pypdf.json
+[CLEAR] 2026_012405_fr.pdf automated QA found no differences
+        QA report file_id: 4437c427-9e40-4094-87b4-999e9fe0608f
+        report: \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\rrelease12405\preparation\2026_012405\documentation\2026_012405_fr_qa_pypdf.json
+
+Completed: 5 clear, 0 flagged
+PoC 4 record: \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\rrelease12405\preparation\2026_012405\documentation\2026_012405_poc4_qa_record.json
+
+STDERR

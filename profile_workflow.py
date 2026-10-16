@@ -125,7 +125,7 @@ def agent(root,record):
     if record.get('note'): add(a,'agentNote',record['note'])
     return value
 
-def event(root,registry,config,rule,key,objects,details=(),note=None,program='metadata',timestamp=None):
+def event(root,registry,config,rule,key,objects,details=(),note=None,program='metadata',timestamp=None,implementer=None):
     id=registry.assign('event:'+key,'event')
     found=root.xpath('p:event[p:eventIdentifier/p:eventIdentifierValue=$id]',namespaces=NS,id=id)
     if found: return id
@@ -138,12 +138,17 @@ def event(root,registry,config,rule,key,objects,details=(),note=None,program='me
     if timestamp:
         timestamp=datetime.fromisoformat(timestamp.replace('Z','+00:00')).astimezone(timezone.utc).replace(microsecond=0).strftime('%Y-%m-%dT%H:%M:%SZ')
     add(e,'eventType',kind,**attrs);add(e,'eventDateTime',timestamp or now())
-    label='normalisation' if rule=='DPM106' else kind
+    label={'DPM106':'normalisation','DPM116':'descriptive metadata creation'}.get(rule,kind)
     for detail in [label+' ('+rule+')']+list(details): add(add(e,'eventDetailInformation'),'eventDetail',detail)
     out=add(e,'eventOutcomeInformation');cv(out,'eventOutcome','success')
     if note: add(add(out,'eventOutcomeDetail'),'eventOutcomeDetailNote',note)
     for record,role in [(config['agents'][program],'executing program'),(config['operator'],'authorizer')]:
         aid=agent(root,record);link=identifier(e,'UUID',aid,'linkingAgentIdentifier');cv(link,'linkingAgentRole',role)
+    if rule=='DPM107' and 'verapdf' in config['agents']:
+        tool=agent(root,config['agents']['verapdf'])
+        link=identifier(e,'UUID',tool,'linkingAgentIdentifier');cv(link,'linkingAgentRole','executing program')
+    if implementer:
+        aid=agent(root,implementer);link=identifier(e,'UUID',aid,'linkingAgentIdentifier');cv(link,'linkingAgentRole','implementer')
     for oid,role in objects:
         link=identifier(e,'UUID',oid,'linkingObjectIdentifier')
         if role: cv(link,'linkingObjectRole',role)
@@ -208,9 +213,33 @@ def assert_append_only(before,after):
                 if e.text is not None and not e.text.strip(): e.text=None
         if E.tostring(candidate,method='c14n') != E.tostring(original,method='c14n'): raise RuntimeError('Predecessor element changed: '+oid)
 
+def validate_controlled_values(root):
+    """Enforce the exact Controlled values table, including local labels."""
+    locals={'relationshipSubType':{'isValidationReportOf','isQaReportOf','isConversionLogOf'}}
+    for node in root.iter():
+        name=E.QName(node).localname
+        value=node.text or ''
+        if name=='eventType':
+            mapping={label:code for label,code in EVENTS.values()}
+            if value not in mapping: raise RuntimeError('Unknown controlled eventType: '+value)
+            code=mapping[value]
+            expected={'authority':'local'} if code is None else {
+                'authority':'eventType','authorityURI':'http://id.loc.gov/vocabulary/preservation/eventType',
+                'valueURI':'http://id.loc.gov/vocabulary/preservation/eventType/'+code}
+        elif name in SCHEMES:
+            scheme,values=SCHEMES[name]
+            if value in values and not (name=='agentType' and value=='hardware'):
+                uri='http://id.loc.gov/vocabulary/preservation/'+scheme
+                expected={'authority':scheme,'authorityURI':uri,'valueURI':uri+'/'+values[value]}
+            elif value in locals.get(name,set()): expected={'authority':'local'}
+            else: raise RuntimeError('Unknown controlled '+name+': '+value)
+        else: continue
+        if dict(node.attrib)!=expected: raise RuntimeError('Controlled value attributes differ: '+name+' '+value)
+
+
 def validate_premis(payload,job,previous=None):
     path=Path(payload)/premis_path(job);check_schema_lock(payload);validate_xml(path,Path(payload)/'schemas/premis.xsd')
-    root=E.parse(str(path)).getroot()
+    root=E.parse(str(path)).getroot();validate_controlled_values(root)
     allowed=set('premis object objectIdentifier objectIdentifierType objectIdentifierValue objectCharacteristics compositionLevel fixity messageDigestAlgorithm messageDigest messageDigestOriginator size format formatDesignation formatName formatVersion formatRegistry formatRegistryName formatRegistryKey formatRegistryRole creatingApplication creatingApplicationName creatingApplicationVersion dateCreatedByApplication originalName relationship relationshipType relationshipSubType relatedObjectIdentifier relatedObjectIdentifierType relatedObjectIdentifierValue relatedEventIdentifier relatedEventIdentifierType relatedEventIdentifierValue event eventIdentifier eventIdentifierType eventIdentifierValue eventType eventDateTime eventDetailInformation eventDetail eventOutcomeInformation eventOutcome eventOutcomeDetail eventOutcomeDetailNote linkingAgentIdentifier linkingAgentIdentifierType linkingAgentIdentifierValue linkingAgentRole linkingObjectIdentifier linkingObjectIdentifierType linkingObjectIdentifierValue linkingObjectRole agent agentIdentifier agentIdentifierType agentIdentifierValue agentName agentType agentVersion agentNote'.split())
     for element in root.iter():
         if not isinstance(element.tag,str): continue
@@ -232,7 +261,7 @@ def build_dome(row,created,modified):
     values={'mdSourceSystem':['Documents Online'],'mdDateCreated':[created],'mdDateModified':[modified],
         'documentSymbol':[row.get('Symbol')],'documentType':str(row.get('Document type') or '').split('#'),'documentNumber':[row.get('Document number')],
         'documentDate':[row.get('Document Date')],'title':[(row.get('Title - E'),'en'),(row.get('Title - F'),'fr'),(row.get('Title - S'),'es')],
-        'originalLanguage':[{'E':'en','F':'fr','S':'es','English':'en','French':'fr','Spanish':'es'}.get(row.get('Original language'),row.get('Original language'))],
+        'originalLanguage':[{'E':'en','F':'fr','S':'es','English':'en','French':'fr','Spanish':'es','EN':'en','FR':'fr','ES':'es','en':'en','fr':'fr','es':'es','Multilingual':'mul','M':'mul'}.get(row.get('Original language'),row.get('Original language'))],
         'subject':str(row.get('Subject') or '').split('#'),'bodiesIssuing':str(row.get('Body issuing') or '').split('#'),'bodiesMentioned':str(row.get('Body mentioned') or '').split('#'),
         'countryTerritoryConcerned':str(row.get('Member concerned') or '').split('#'),'countryTerritoryMentioned':str(row.get('Other member mentioned') or '').split('#'),
         'organizations':str(row.get('Organization') or '').split('#'),'articles':str(row.get('Article basis') or '').split('#')+str(row.get('Article mentioned') or '').split('#'),
@@ -240,20 +269,39 @@ def build_dome(row,created,modified):
         'accessRights':['; '.join(f'{k}: {row[k]}' for k in ('Access type','Restriction type') if row.get(k))],
         'source':str(row.get('Document type source') or '').split('#'),'version':str(row.get('Document type version') or '').split('#'),
         'periodicity':str(row.get('Document type periodicity') or '').split('#'),'jobID':[row['Job ID']]}
+    values.update(row.get('DOME crosswalk',{}))
+    if row.get('source_dms_job_id'): values['jobID']=[row['source_dms_job_id']]
     schema=E.parse(str(HERE/'schemas/dol-metadata-v-03.xsd'))
     order=schema.xpath('//*[local-name()="complexType"][@name="DomeMetadataType"]/*[local-name()="sequence"]/*/@ref')
     for name in order:
         for raw in values.get(name,[]):
-            text,language=raw if isinstance(raw,tuple) else (raw,None)
-            if not text: continue
-            e=add(root,name,text,ns=D)
+            if name=='tradeCoverage':
+                # Group classification codes into the schema's fixed child order.
+                continue
+            attributes={}
+            if isinstance(raw,dict):
+                text,language=raw.get('value'),raw.get('language')
+                if raw.get('url'): attributes['url']=raw['url']
+            else: text,language=raw if isinstance(raw,tuple) else (raw,None)
+            if text is None or text=='': 
+                if not attributes: continue
+                text=''
+            e=add(root,name,str(text),ns=D,**attributes)
             if language: e.set('{http://www.w3.org/XML/1998/namespace}lang',language)
+        if name=='tradeCoverage' and values.get(name):
+            coverage=add(root,name,ns=D)
+            for scheme in ('HS','ICS','Services','Environment'):
+                for code in sorted({r['code'] for r in values[name] if r['scheme']==scheme}):
+                    add(coverage,scheme,code,ns=D)
     return root
 
 def write_mets(payload,job,package_id,package_type,object_uuid,sip_id=None):
     payload=Path(payload)
-    root=E.Element('{'+M+'}mets',nsmap={None:M,'xlink':XLINK,'xsi':XSI},attrib={'OBJID':package_id,'TYPE':package_type,'LABEL':'Preservation package '+job,'{'+XSI+'}schemaLocation':M+' schemas/mets.xsd'})
+    root=E.Element('{'+M+'}mets',nsmap={None:M,'xlink':XLINK,'xsi':XSI},attrib={'OBJID':package_id,'TYPE':package_type,'LABEL':'Preservation package '+job,'PROFILE':'urn:dpr:poc:mets-profile:1','{'+XSI+'}schemaLocation':M+' schemas/mets.xsd'})
     hdr=add(root,'metsHdr',ns=M,CREATEDATE=now())
+    creator=add(hdr,'agent',ns=M,ROLE='CREATOR',TYPE='ORGANIZATION')
+    add(creator,'name','World Trade Organization',ns=M)
+    add(creator,'note','User-authorized local DPR PoC METS profile v1',ns=M)
     if sip_id: add(hdr,'altRecordID',sip_id,ns=M,TYPE='SIP')
     add(hdr,'altRecordID',job,ns=M,TYPE='JOB_ID')
     for section,wrapper,path,kind,id in [('dmdSec',None,dome_path(job),'OTHER','DOME'),('amdSec','digiprovMD',premis_path(job),'PREMIS','PREMIS')]:
@@ -280,13 +328,80 @@ def write_mets(payload,job,package_id,package_type,object_uuid,sip_id=None):
             if r==rep: add(div,'fptr',ns=M,FILEID=fid)
     serialize(payload/mets_path(job),root)
     validate_xml(payload/mets_path(job),payload/'schemas/mets.xsd')
+    from mets_profile import validate as validate_mets_profile
+    validate_mets_profile(payload,job)
+
+def route_selection(basis,provenance,repository_exists):
+    """Local user-authorized routing policy; unsupported actions hold."""
+    if not provenance:return basis
+    restriction=provenance.get('restriction_type_id')
+    if restriction not in (44,91): raise RuntimeError('Restricted documents are out of scope; hold')
+    action=provenance.get('last_dms_action')
+    if action in {'DMS_CANCEL','CANCEL_RETAIN_CATALOGUE','PATH_FILE_WRONG'}:
+        raise RuntimeError('DOL action requires review: '+str(action))
+    if basis=='no_change':return basis
+    if not repository_exists:return 'new_document'
+    if basis=='metadata_change' and restriction==44:return 'derestriction'
+    allowed={'NEW':{'language_added','rendition_added'},
+             'REPUBLISH_MODIFIED':{'modified_files','language_added','rendition_added'},
+             'DMS_DOC_CHANGE':{'modified_files','language_added','rendition_added'},
+             'DMS_META_DATA_CHANGE':{'metadata_change'},
+             'InitialPublication':{'language_added','rendition_added'},
+             'RepublishedModified':{'modified_files'},
+             'MetadataUpdate':{'metadata_change'},
+             'Derestriction':{'derestriction'}}
+    if basis in {'premis_correction','master_reconversion'}:return basis
+    if basis not in allowed.get(action,set()):
+        raise RuntimeError('DOL action/content combination needs review: '+str(action)+' / '+basis)
+    return basis
+
+
+def converter_outcome_note(conversion):
+    """Quote native engine evidence without claiming inferred repairs."""
+    notes=[conversion.get('converter_status','unknown'),
+           conversion.get('signature_policy','no signature policy change')]
+    log=conversion.get('conversion_log')
+    if log:
+        parser=E.XMLParser(no_network=True,resolve_entities=False)
+        native=E.parse(str(log),parser)
+        problems=native.xpath('//*[local-name()="Problem"]')
+        if problems:
+            notes.append('Native engine reported findings (not individual repair assertions): '+
+                ' | '.join('; '.join([k+'='+v for k,v in sorted(problem.attrib.items())]+
+                                     [' '.join(''.join(problem.itertext()).split())])
+                           for problem in problems))
+        else: notes.append('Native engine reported no Problem entries')
+    else: notes.append('No native conversion log was produced')
+    return '; '.join(notes)
+
+def order_new_agents(root,baseline=None):
+    """Keep historical agents; order newly described agents by first event use."""
+    previous=set() if baseline is None else {
+        a.findtext('{'+P+'}agentIdentifier/{'+P+'}agentIdentifierValue')
+        for a in baseline.findall('{'+P+'}agent')}
+    agents=root.findall('{'+P+'}agent')
+    new={a.findtext('{'+P+'}agentIdentifier/{'+P+'}agentIdentifierValue'):a
+         for a in agents if a.findtext('{'+P+'}agentIdentifier/{'+P+'}agentIdentifierValue') not in previous}
+    ordered=[]
+    for id in root.xpath('p:event/p:linkingAgentIdentifier/p:linkingAgentIdentifierValue/text()',namespaces=NS):
+        if id in new and id not in ordered: ordered.append(id)
+    # Digest-only references follow event references, retaining insertion order.
+    ordered.extend(id for id in new if id not in ordered)
+    for a in new.values():root.remove(a)
+    for id in ordered:root.append(new[id])
+
 
 def metadata(args,obj,job,recs,droid,row):
     if digest(args.xsd)!=digest(HERE/'schemas/dol-metadata-v-03.xsd'): raise RuntimeError('Profile mode requires the supplied DOME v0.3 schema')
     config=configuration(args.agent_registry)
+    configured_reviewers=[config['operator']]+config.get('reviewers',[])
+    for entry in recs[4].get('qa_entries',[]):
+        manual=entry.get('manual_adjudication')
+        if manual and manual['reviewer'] not in configured_reviewers:raise RuntimeError('Manual reviewer differs from configured registry')
     registry=Registry(obj.parent.parent,job)
     agent_registry=Registry(obj.parent.parent,'__agents__')
     for key,record in {**config['agents'],'operator':config['operator']}.items(): agent_registry.assign('agent:'+record['uuid'],'agent',record['uuid'])
+    for person in config.get('reviewers',[]): agent_registry.assign('agent:'+person['uuid'],'agent',person['uuid'])
     registry.data=load(registry.path)
     object_uuid=registry.assign('intellectualEntity','intellectualEntity',recs[1]['folder_uuid'])
     repo,inv=repository(args.aip_root or obj.parent.parent/'AIP',job,object_uuid)
@@ -303,31 +418,41 @@ def metadata(args,obj,job,recs,droid,row):
         archive(dome)
         serialize(dome,build_dome(row,creation,now()))
         write_record(obj/'documentation'/f'{job}_dome_sql_extraction.json',{'source_dms_job_id':args.dms_job_id,'job_id':job,'extracted_utc':now(),'metadata':row})
+        state['dome_operation_completed']=now()
     validate_xml(dome,obj/'schemas/dol-metadata-v-03.xsd')
     from poc6_metadata import retained_files
     files=retained_files(obj,droid)
     files=[f for f in files if not f['path'].startswith('metadata/')]+[{'path':dome_path(job),'sha512':digest(dome),'size':dome.stat().st_size,'format_name':'Extensible Markup Language','format_version':'1.0','puid':'fmt/101'}]
     # Optionally characterize new derived files and extraction after they exist.
     formats={f['relative_path']:f for f in droid.get('files',[])}
+    post_inputs=set();post_report=None
     if args.java and args.droid_jar:
         from poc5_droid import droid_characterize,parse_droid
         identified={f.findtext('{'+P+'}objectIdentifier[2]/{'+P+'}objectIdentifierValue'):f.findtext('{'+P+'}objectCharacteristics/{'+P+'}fixity/{'+P+'}messageDigest') for f in root.findall('{'+P+'}object') if f.get('{'+XSI+'}type')=='file'}
         pending=[obj/f['path'] for f in files if f['path']!=dome_path(job) and identified.get(f['path'])!=f['sha512']]
         if pending:
             profile,csv,driver=droid_characterize(Path(args.java),Path(args.droid_jar),pending,obj/'documentation',job)
+            post_inputs={path.relative_to(obj).as_posix() for path in pending}
+            post_report=csv.relative_to(obj).as_posix()
             report=parse_droid(csv,pending,obj)
             formats.update({f['relative_path']:f for f in report})
             files.append({'path':csv.relative_to(obj).as_posix(),'sha512':digest(csv),'size':csv.stat().st_size,'format_name':'Comma Separated Values','puid':'x-fmt/18'})
     for src in recs[1]['files']:
-        if src['role']=='published_pdf_working_source': files.append({'path':None,'sha512':src['sha512_staged'],'size':src['size_bytes'],'id':src['file_id'],'original_name':Path(src['original_path']).name,'lookup':Path(src['staged_path']).relative_to(obj).as_posix(),'program':'preparation'})
+        if src['role']=='published_pdf_working_source': files.append({'path':None,'sha512':src['sha512_staged'],'size':src['size_bytes'],'id':src['file_id'],'original_name':Path(src['original_path']).name,'lookup':Path(src['staged_path']).relative_to(obj).as_posix(),'program':'preparation','created':src.get('prepared_at') or recs[1].get('created_at')})
     identities={Path(f['staged_path']).relative_to(obj).as_posix():f for f in recs[1]['files']}
     relations={};conversions={c['master_file_id']:c for c in recs[2]['conversions']}
     for c in conversions.values():
-        identities[Path(c['master_path']).relative_to(obj).as_posix()]={'file_id':c['master_file_id'],'master':True,'created':c.get('completed_at') or recs[2].get('created_at') or now(),'skipped':c.get('converter_status','').startswith('SKIPPED'),'program':'converter'}
+        identities[Path(c['master_path']).relative_to(obj).as_posix()]={'file_id':c['master_file_id'],'master':True,'created':c.get('completed_at') or recs[2].get('created_at') or now(),'skipped':c.get('converter_status','').startswith('SKIPPED'),'program':'conversion_script' if 'conversion_script' in config['agents'] else 'converter'}
         for key,dep in [('conversion_log','isConversionLogOf')]:
             if c.get(key): relations[Path(c[key]).relative_to(obj).as_posix()]=(dep,c['master_file_id'],'DPM106')
+            if key=='conversion_log' and c.get(key) and c.get('conversion_log_file_id'):
+                identities[Path(c[key]).relative_to(obj).as_posix()]={'file_id':c['conversion_log_file_id'],'program':'conversion_script' if 'conversion_script' in config['agents'] else 'converter'}
     for record,key,pathkey,idkey,dep,rule in [(recs[3],'validations','validation_report_path','validation_report_file_id','isValidationReportOf','DPM107'),(recs[4],'qa_entries','qa_report_path','qa_report_file_id','isQaReportOf','DPM108')]:
         for e in record[key]:
+            manual=e.get('manual_adjudication')
+            if manual:
+                relative=Path(manual['path']).relative_to(obj).as_posix()
+                identities[relative]={'file_id':manual['file_id'],'program':'qa'}
             relative=Path(e[pathkey]).relative_to(obj).as_posix();identities[relative]={'file_id':e[idkey],'program':'validation' if rule=='DPM107' else 'qa'};relations[relative]=(dep,e['master_file_id'],rule)
     for e in recs[5].get('evidence_files',[]): identities.setdefault(e['relative_path'],{'file_id':e['file_id'],'program':'droid'})
     ie,created=new_object(root,object_uuid,'intellectualEntity')
@@ -341,7 +466,11 @@ def metadata(args,obj,job,recs,droid,row):
     if not row.get('CatHeaderId'): gaps.append('Missing DOL CatHeaderId for descriptive metadata provenance')
     for f in files:
         identity=identities.get(f.get('path'),{})
-        if not f.get('id'): f['id']=identity.get('file_id') or registry.assign('file-content:'+str(f['path'])+':'+f['sha512'],'file')
+        prior=next((o for o in baseline.findall('{'+P+'}object')
+                    if o.findtext('{'+P+'}objectIdentifier[2]/{'+P+'}objectIdentifierValue')==f.get('path')
+                    and o.findtext('{'+P+'}objectCharacteristics/{'+P+'}fixity/{'+P+'}messageDigest')==f['sha512']),None)
+        old_id=prior.findtext('{'+P+'}objectIdentifier/{'+P+'}objectIdentifierValue') if prior is not None else None
+        if not f.get('id'): f['id']=identity.get('file_id') or old_id or registry.assign('file-content:'+str(f['path'])+':'+f['sha512'],'file')
         f.update({k:v for k,v in identity.items() if k in {'master','created','skipped','program'}})
         if identity.get('original_name') and identity.get('role') in {'authoring_source','notification_attachment'} and f.get('path') and Path(f['path']).name!=Path(identity['original_path']).name: f['original_name']=Path(identity['original_path']).name
         fmt=formats.get(f.get('lookup') or f.get('path'),{})
@@ -360,31 +489,44 @@ def metadata(args,obj,job,recs,droid,row):
         if logical.startswith('representations/') or not f.get('path'):
             event(root,registry,config,'DPM103','digest:'+f['id'],[(f['id'],None)],program=f.get('program','preparation'),timestamp=identity.get('prepared_at') or f.get('created'))
         if identity.get('role') in {'authoring_source','notification_attachment'} or not f.get('path'):
-            event(root,registry,config,'DPM104','copy:'+f['id'],[(f['id'],None)],program='preparation',timestamp=identity.get('prepared_at'))
-        if f.get('original_name') and logical and Path(logical).name!=f['original_name']: event(root,registry,config,'DPM105','rename:'+f['id'],[(f['id'],None)],program='preparation')
+            event(root,registry,config,'DPM104','copy:'+f['id'],[(f['id'],None)],program='preparation',timestamp=identity.get('prepared_at') or f.get('created'))
+        if f.get('original_name') and logical and Path(logical).name!=f['original_name']: event(root,registry,config,'DPM105','rename:'+f['id'],[(f['id'],None)],program='preparation',timestamp=identity.get('prepared_at'))
     if args.strict_profile and (gaps or config.get('draft') or not row.get('CatHeaderId')): raise RuntimeError('Strict profile blocked: '+('; '.join(gaps) or 'provisional registry must be approved/configured'))
     for c in conversions.values():
         master=get_object(root,c['master_file_id']);skipped=c.get('converter_status','').startswith('SKIPPED')
         log_id=next((f['id'] for f in files if f.get('path') and c.get('conversion_log') and obj/f['path']==Path(c['conversion_log'])),None)
         if skipped: continue
-        eid=event(root,registry,config,'DPM106','normalization:'+c['master_file_id'],[(c['source_file_id'],'source'),(c['master_file_id'],'outcome')]+([(log_id,'outcome')] if log_id else []),['target_level: PDF/A-2b'],note=c.get('converter_status')+'; '+c.get('signature_policy','no signature policy change'),program='converter',timestamp=c.get('completed_at') or recs[2].get('created_at'))
+        eid=event(root,registry,config,'DPM106','normalization:'+c['master_file_id'],[(c['source_file_id'],'source'),(c['master_file_id'],'outcome')]+([(log_id,'outcome')] if log_id else []),['target_level: PDF/A-2b'],note=converter_outcome_note(c),program='converter',timestamp=c.get('completed_at') or recs[2].get('created_at'))
         if not skipped: relate(master,'derivation','has Source',c['source_file_id'],eid)
     for rule,entries,pathkey,idkey in [('DPM107',recs[3]['validations'],'validation_report_path','validation_report_file_id'),('DPM108',recs[4]['qa_entries'],'qa_report_path','qa_report_file_id')]:
         for e in entries:
-            event(root,registry,config,rule,rule+':'+e[idkey],[(e['master_file_id'],'source'),(e[idkey],'outcome')],['validation_profile: PDF/A-2B'] if rule=='DPM107' else ['sampled: false'],program='validation' if rule=='DPM107' else 'qa',timestamp=e.get('completed_at'))
+            manual=e.get('manual_adjudication') if rule=='DPM108' else None
+            links=[(e['master_file_id'],'source'),(e[idkey],'outcome')]
+            if manual: links.append((manual['file_id'],'outcome'))
+            event(root,registry,config,rule,rule+':'+e[idkey]+(':'+manual['sha512'] if manual else ''),links,
+                  ['validation_profile: PDF/A-2B'] if rule=='DPM107' else ['sampled: false']+(['review_mode: manual','reason: '+manual['reason']] if manual else []),
+                  program='validation' if rule=='DPM107' else 'qa',timestamp=manual['reviewed_at'] if manual else e.get('completed_at'),
+                  implementer=manual['reviewer'] if manual else None)
     for f in files:
         if f.get('path') not in relations: continue
-        dep,master_id,rule=relations[f['path']];key=('normalization:'+master_id) if rule=='DPM106' else rule+':'+f['id'];eid=registry.assign('event:'+key,'event');relate(get_object(root,f['id']),'dependency',dep,master_id,eid)
+        dep,master_id,rule=relations[f['path']];key=('normalization:'+master_id) if rule=='DPM106' else rule+':'+f['id'];manual=next((e.get('manual_adjudication') for e in recs[4]['qa_entries'] if e['qa_report_file_id']==f['id']),None) if rule=='DPM108' else None;key+=(':'+manual['sha512']) if manual else '';eid=registry.assign('event:'+key,'event');relate(get_object(root,f['id']),'dependency',dep,master_id,eid)
     dome_file=next(f for f in files if f['path']==dome_path(job))
     if any(f['id']==dome_file['id'] for f in added):
         old_dome=next((o for o in baseline.findall('{'+P+'}object') if o.findtext('{'+P+'}objectIdentifier[2]/{'+P+'}objectIdentifierValue')==dome_path(job)),None)
         links=[(object_uuid,None),(dome_file['id'],'outcome')]
+        extraction=next((f for f in files if f.get('path')=='documentation/'+job+'_dome_sql_extraction.json'),None)
+        if extraction: links.append((extraction['id'],'outcome'))
         if old_dome is not None: links.append((old_dome.findtext('{'+P+'}objectIdentifier/{'+P+'}objectIdentifierValue'),'source'))
-        event(root,registry,config,'DPM110' if inv else 'DPM116','dome:'+dome_file['id'],links,['cat_header_id: '+str(row.get('CatHeaderId') or 'unavailable (draft gap)')])
+        event(root,registry,config,'DPM110' if inv else 'DPM116','dome:'+dome_file['id'],links,['cat_header_id: '+str(row.get('CatHeaderId') or 'unavailable (draft gap)')],timestamp=state.get('dome_operation_completed'))
     # New DROID reports are outputs of identification, not themselves identified.
     droid_reports=[f for f in added if f.get('path','') and f['path'].endswith('_droid_export.csv')]
-    if added and droid_reports:
-        report=droid_reports[-1];event(root,registry,config,'DPM109','droid:'+report['id'],[(f['id'],None) for f in added if f['id']!=report['id'] and f['path']!=dome_path(job)]+[(report['id'],'outcome')],['batch_id: '+registry.assign('batch:'+predecessor,'batch',args.batch_id)],program='droid')
+    for report in droid_reports:
+        read_paths=post_inputs if report['path']==post_report else {f['relative_path'] for f in droid.get('files',[])}
+        links=[(f['id'],None) for f in files if (f.get('lookup') or f.get('path')) in read_paths and f['id']!=report['id']]
+        completed=datetime.fromtimestamp((obj/report['path']).stat().st_mtime,timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
+        event(root,registry,config,'DPM109','droid:'+report['id'],links+[(report['id'],'outcome')],
+              ['batch_id: '+registry.assign('batch:'+predecessor,'batch',args.batch_id)],
+              program='droid',timestamp=completed)
     if args.corrections:
         corrections=load(args.corrections,[])
         if not isinstance(corrections,list): raise RuntimeError('Corrections must be a JSON list')
@@ -402,6 +544,7 @@ def metadata(args,obj,job,recs,droid,row):
     evs.sort(key=lambda e:e.findtext('{'+P+'}eventDateTime'))
     index=next((root.index(e) for e in root if E.QName(e).localname=='agent'),len(root))
     for e in evs: root.insert(index,e);index+=1
+    order_new_agents(root,baseline if inv else None)
     if inv: assert_append_only(baseline,root)
     archive(obj/premis_path(job))
     archive(obj/mets_path(job))
@@ -413,15 +556,19 @@ def metadata(args,obj,job,recs,droid,row):
     new_sources=[f for f in recs[1]['files'] if f['file_id'] not in previous_ids]
     if not inv: basis='new_document'
     elif args.corrections: basis='premis_correction'
+    elif any(c.get('reconversion_token') and c['master_file_id'] not in previous_ids for c in conversions.values()): basis='master_reconversion'
     elif any(f['language'] not in old_languages for f in new_sources): basis='language_added'
     elif any(f['role']=='published_pdf_working_source' for f in new_sources): basis='modified_files'
     elif new_sources: basis='rendition_added'
     elif any(f['id']==dome_file['id'] for f in added): basis='metadata_change'
     elif added: basis='rendition_added'
     else: basis='no_change'
+    basis=route_selection(basis,row.get('Crosswalk provenance'),bool(inv))
     record={'poc':6,'job_id':job,'folder_uuid':object_uuid,'profile':'DPM-v0.4-draft','created_utc':now(),'status':'STEP_6_METADATA_PROJECTED','source_snapshot':{f['file_id']:f['sha512_staged'] for f in recs[1]['files']},'profile_gaps':gaps,'draft_registry':bool(config.get('draft')),'predecessor':predecessor,'selection_basis_proposed':basis}
     for key,relative in [('dome',dome_path(job)),('premis',premis_path(job)),('mets',mets_path(job))]: record[key]={'path':relative,'sha512':digest(obj/relative),'schema_validation':'PASS'}
     write_record(obj/'documentation'/f'{job}_poc6_metadata_record.json',record)
+    from workflow_common import export_uuid_registry
+    export_uuid_registry(registry.path)
     print('[PASS] Draft-profile DOME/PREMIS/METS schemas validated; unresolved gaps:',len(gaps));return 0
 
 def tags(bag):
@@ -458,7 +605,8 @@ def check_contract(bag,job,aip_root):
     ie=root.xpath('p:object[@xsi:type="intellectualEntity"]',namespaces={**NS,'xsi':XSI})[0]
     identities={i.findtext('{'+P+'}objectIdentifierType'):i.findtext('{'+P+'}objectIdentifierValue') for i in ie.findall('{'+P+'}objectIdentifier')}
     if identities.get('JOB_ID')!=job or identities.get('UUID')!=info['DPR-Object-UUID']: raise RuntimeError('PREMIS intellectual entity/bag identity mismatch')
-    mets=E.parse(str(payload/mets_path(job))).getroot()
+    from mets_profile import validate as validate_mets_profile
+    mets=validate_mets_profile(payload,job)
     if mets.get('OBJID')!=info['External-Identifier'] or mets.get('TYPE')!='SIP': raise RuntimeError('METS/SIP UUID or package type mismatch')
     events=event_details(root,'DPM111')
     if not events or events[-1][1].get('sip_id')!=info['External-Identifier']: raise RuntimeError('PREMIS SIP UUID mismatch')
@@ -515,7 +663,7 @@ def package(args,obj,job):
     if selection not in allowed: raise RuntimeError('Unknown selection basis')
     if (selection=='new_document') != (inv is None): raise RuntimeError('Selection basis disagrees with repository existence')
     languages=sorted({f['language'] for f in load(obj/'documentation'/f'{job}_poc1_processing_record.json')['files']})
-    event(root,registry,config,'DPM111','sip:'+sip,[(record['folder_uuid'],None)],[f'sip_id: {sip}',f'selection_basis: {selection}',f'batch_id: {batch}','languages: '+', '.join(languages)],'package type: SIP')
+    event(root,registry,config,'DPM111','sip:'+sip,[(record['folder_uuid'],None)],[f'sip_id: {sip}',f'selection_basis: {selection}',f'batch_id: {batch}','languages: '+', '.join(languages)],'package type: SIP',program='packaging' if 'packaging' in config['agents'] else 'metadata')
     serialize(payload/premis_path(job),root);validate_premis(payload,job)
     write_mets(payload,job,sip,'SIP',record['folder_uuid'])
     description=args.description or f'SIP for {job} ({selection}) [built on {predecessor}]'
@@ -557,7 +705,7 @@ def step8_metadata(bag, job, records_dir, aip_root, config_path=None):
     event(root, registry, config, 'DPM112', 'ingest:'+info['External-Identifier'],
           [(info['DPR-Object-UUID'], None)],
           [f'sip_id: {info["External-Identifier"]}', 'package_manifest: manifest-sha512.txt'],
-          'Payload-Oxum: '+info['Payload-Oxum'], program='ingest')
+          'Payload-Oxum: '+info['Payload-Oxum'], program='verification' if 'verification' in config['agents'] else 'ingest')
     serialize(payload / premis_path(job), root)
     validate_premis(payload, job, before)
     write_mets(payload, job, info['External-Identifier'], 'SIP', info['DPR-Object-UUID'])
@@ -665,6 +813,8 @@ def ingest(args,bag):
         repo.parent.mkdir(parents=True,exist_ok=True)
         if repo.exists(): raise RuntimeError('Object appeared during ingest; hold stale SIP')
         workspace.rename(repo)
+    from workflow_common import export_uuid_registry
+    export_uuid_registry(registry.path)
     records=Path(args.ingest_records_dir) if args.ingest_records_dir else Path(args.staging_dir).parent/'ingest-records'
     write_record(records/f'{args.job_id}_poc9_ocfl_ingest_record.json',{'job_id':args.job_id,'created_utc':now(),'status':'STEP_9_OCFL_AIP_COMMITTED','sip_uuid':info['External-Identifier'],'selection_basis':details['selection_basis'],'ocfl':{'object_path':str(repo),'object_id':objid,'head':inv['head']},'verify_on_write':{'outcome':'PASS','files':copies},'independent_validation':'PASS' if args.ocfl_validator else 'NOT_CONFIGURED','draft_registry':config.get('draft',False)})
     print('[PASS] Profile AIP committed:',inv['head']);return 0

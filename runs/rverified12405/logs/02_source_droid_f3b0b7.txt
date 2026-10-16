@@ -1,0 +1,23 @@
+[INFO] DROID direct-Java runtime OK
+       Java: C:\Users\Gao\Downloads\droid-binary-6.8.1-bin-win64-with-jre\jre\bin\java.exe
+       JAR:  C:\Users\Gao\Downloads\droid-binary-6.8.1-bin-win64-with-jre\droid-command-line-6.8.1.jar
+[INFO] Characterizing 8 PoC 1 source file(s) before conversion...
+       representations\rep_1\data\en\2026_012405_en.docx
+       representations\rep_1\data\es\2026_012405_es.docx
+       representations\rep_1\data\fr\2026_012405_fr.docx
+       representations\rep_2\data\attachments\2026_012405_notification_en_26_05201_00_e.pdf
+       representations\rep_2\data\attachments\2026_012405_notification_en_26_05201_01_e.pdf
+       representations\rep_2\data\en\2026_012405_en_src.pdf
+       representations\rep_2\data\es\2026_012405_es_src.pdf
+       representations\rep_2\data\fr\2026_012405_fr_src.pdf
+
+[OK] DROID characterized 8 source file(s) before conversion
+     identified:   8
+     unidentified: 0
+     report: \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\rverified12405\preparation\2026_012405\documentation\2026_012405_droid_characterization.json
+     raw CSV: \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\rverified12405\preparation\2026_012405\documentation\2026_012405_droid_export.csv
+PoC 5 record: \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\rverified12405\preparation\2026_012405\documentation\2026_012405_poc5_characterization_record.json
+Scope: SOURCE_FILES / PRE_CONVERSION
+Next: PoC 2 — PDF to PDF/A conversion
+
+STDERR

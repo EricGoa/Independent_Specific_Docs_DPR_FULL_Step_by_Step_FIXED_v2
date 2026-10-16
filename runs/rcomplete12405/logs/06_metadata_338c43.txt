@@ -1,0 +1,3 @@
+[PASS] Draft-profile DOME/PREMIS/METS schemas validated; unresolved gaps: 0
+
+STDERR

@@ -128,7 +128,7 @@ WHERE h.MetaCollection=2 AND h.IsToPublish=1
   AND CAST(h.DmsJobId AS varchar(30))=?;
 """
 
-def extract(server,database,driver,dms):
+def extract(server,database,driver,dms,crosswalk=False):
     try: import pyodbc
     except ImportError: raise RuntimeError("Install pyodbc: python -m pip install pyodbc")
     cs=f"DRIVER={{{driver}}};SERVER={server};DATABASE={database};Trusted_Connection=yes;TrustServerCertificate=yes;"
@@ -137,7 +137,11 @@ def extract(server,database,driver,dms):
         cols=[c[0] for c in cur.description]; rows=cur.fetchall()
         if len(rows)!=1: raise RuntimeError(f"Expected 1 row for {dms}; got {len(rows)}")
         r=rows[0]
-        return {cols[i]:("" if r[i] is None else str(r[i])) for i in range(len(cols))}
+        row={cols[i]:("" if r[i] is None else str(r[i])) for i in range(len(cols))}
+        if crosswalk:
+            from crosswalk_metadata import enrich
+            row=enrich(conn,row)
+        return row
 
 def validate_xsd(xml,xsd):
     try: from lxml import etree
@@ -169,7 +173,7 @@ def require_prior(obj,job):
         p=docs/pn
         if not p.exists(): raise RuntimeError(f"Missing {p}")
         d=json.loads(p.read_text(encoding="utf-8")); recs[n]=d
-        if d.get("status")!=expected[n]: raise RuntimeError(f"PoC {n} not passed: {d.get('status')}")
+        if d.get("status")!=expected[n] and not (n==4 and d.get("status")=="STEP_4_MANUAL_QA_CLEAR"): raise RuntimeError(f"PoC {n} not passed: {d.get('status')}")
     droid=docs/f"{job}_droid_characterization.json"
     if not droid.exists(): raise RuntimeError(f"Missing {droid}")
     droid_data=json.loads(droid.read_text(encoding="utf-8"))
@@ -297,7 +301,7 @@ def main():
         obj=Path(args.preparation_dir).resolve()/job
         if not obj.is_dir(): raise RuntimeError(f"Preparation object not found: {obj}")
         recs,droid=require_prior(obj,job)
-        row=extract(args.server,args.database,args.driver,args.dms_job_id)
+        row=extract(args.server,args.database,args.driver,args.dms_job_id,crosswalk=args.profile)
         if row.get("Job ID","").strip()!=job: raise RuntimeError("SQL/Python JOB_ID conversion mismatch")
         if args.profile:
             from profile_workflow import metadata as profile_metadata

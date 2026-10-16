@@ -112,3 +112,26 @@ Historical version inventories retain their historical heads and cumulative hist
 
 PER-VERSION SUMMARY (PROFILE AIP)
 Step 9 now adds vN/content/version-summary.json containing only that version number, SIP identity, predecessor, selection basis, authorizer and the full effective logical file list for that version. It is covered by OCFL SHA-512 fixity and AIP METS. Older summaries are retained unchanged. Checksums are read from inventory.json to avoid self-referential checksums. Required inventory.json files remain cumulative. Existing committed AIPs are not rewritten.
+
+COMPLETED CROSSWALK (2026-10-16)
+--profile metadata extraction now uses the completed Crosswalk sheet mappings. See team-review/COMPLETED_CROSSWALK_INTEGRATION.md for verified joins and schema discrepancies. Existing bags/AIPs remain unchanged. Live read-only job 12405.26 DOME check is in team-review/crosswalk-live-check-12405/.
+
+REVIEW COMPLETION UPDATE (2026-10-16)
+Local working specifications: WORKFLOW_v3_DESIGN.md, METS_PROFILE_v1.md, AGENT_REGISTRY_DESIGN.md.
+PREMIS validates all 31 workbook Controlled values definitions and rejects incorrect attributes.
+Metadata now links retained SQL extraction as a DOME-event outcome, quotes native engine findings, records distinct per-report DROID scopes and first-reference agent order, and includes a CSV UUID registry.
+New XML conversion logs include a declaration before fixity; native report bodies remain intact and their body digests are logged.
+
+EXPLICIT RECONVERSION
+Add --reconvert-source-id SOURCE_UUID --reconversion-token LOWERCASE_UUID4 to the normal poc2_aspose.py command.
+Reuse the same token to resume the same request. Old master/report files remain unchanged.
+Then run PoC3, PoC4, PoC6 --profile, PoC7, PoC8 and PoC9 normally.
+A repository update is routed to master_reconversion. A label alone does not request reconversion.
+
+HUMAN QA DECISION
+python adjudicate_qa.py --object-dir PREPARATION/JOB_ID --decision decision.json --agent-registry registry.json
+decision.json fields: reviewer_uuid, master_file_id, source_sha512, master_sha512, qa_report_sha512, reviewed_at (timezone-qualified), verdict (accept/reject), reason.
+reviewer_uuid must identify registry.operator or a person in registry.reviewers.
+The active master must still have a passing veraPDF record. All evidence hashes are checked.
+The supplied decision is retained and linked in PREMIS, with the reviewer as implementer.
+No automated report is rewritten and no review result is fabricated.

@@ -1,0 +1,199 @@
+{
+  "job_id": "2026_012405",
+  "created_at": "2026-10-16T08:05:43.100168Z",
+  "qa_status": "AUTO_QA_CLEAR",
+  "governing_principle": "fidelity, not enhancement",
+  "source": {
+    "file_id": "eb74bb8c-3d5b-4681-aeb4-9ee23f224d50",
+    "path": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\representations\\rep_2\\data\\fr\\2026_012405_fr_src.pdf",
+    "sha512": "6319ea0faf69131dcefa4303721a54ad521a2711397b5593666c5e51dbaf2ffa044ecb2cf38b0444f23ec70ce79a43cf8f40dc7b25052222ece8d7a9542f23f3"
+  },
+  "master": {
+    "file_id": "e1b2a60b-200d-4a02-b32f-76a13e5dafe6",
+    "path": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\representations\\rep_2\\data\\fr\\2026_012405_fr.pdf",
+    "sha512": "60993cc638b87945ab1a192cbd24781e348a3cf9b01c95f3f8c7b78b22a186a7b1dfa1739432164646a7c006accad16a0dd9bd4dc57de0235d982ab8fb2cbe3b",
+    "verapdf_validated": true,
+    "verapdf_requested_flavour": "2b"
+  },
+  "qa_report_file_id": "e15283e0-db1b-4315-9e3b-20e245faccae",
+  "automated_checks": {
+    "automated_qa_clear": true,
+    "flags": [],
+    "checks": {
+      "page_count": {
+        "pass": true,
+        "source_page_count": 2,
+        "master_page_count": 2
+      },
+      "text_word_multiset": {
+        "pass": true,
+        "normalisation": "Unicode NFC + casefold + Unicode word-token multiset; order ignored",
+        "source_stats": {
+          "word_count": 697,
+          "unique_word_count": 278,
+          "character_count_after_extraction": 4592
+        },
+        "master_stats": {
+          "word_count": 697,
+          "unique_word_count": 278,
+          "character_count_after_extraction": 4592
+        },
+        "equal": true,
+        "removed_word_instances": 0,
+        "added_word_instances": 0,
+        "removed_sample": [],
+        "added_sample": [],
+        "sample_truncated": false
+      },
+      "descriptive_metadata": {
+        "pass": true,
+        "fields": {
+          "Title": {
+            "pass": true,
+            "source": "NOTIFICATION",
+            "master": "NOTIFICATION"
+          },
+          "Author": {
+            "pass": true,
+            "source": "mark louie medidas",
+            "master": "mark louie medidas"
+          },
+          "Subject": {
+            "pass": true,
+            "source": "",
+            "master": ""
+          },
+          "Keywords": {
+            "pass": true,
+            "source": "",
+            "master": ""
+          }
+        },
+        "ignored_technical_fields": [
+          "Producer",
+          "Creator technical changes",
+          "CreationDate",
+          "ModDate",
+          "PDF version"
+        ]
+      },
+      "tagged_state": {
+        "pass": true,
+        "source_has_struct_tree": false,
+        "master_has_struct_tree": false,
+        "note": "PoC checks presence/absence of StructTreeRoot only; it does not compare structure-tree semantics."
+      },
+      "navigational_structures": {
+        "pass": true,
+        "bookmarks": {
+          "equal": true,
+          "source_count": 0,
+          "master_count": 0,
+          "source": [],
+          "master": []
+        },
+        "internal_links": {
+          "equal": true,
+          "source_count": 0,
+          "master_count": 0,
+          "source": [],
+          "master": []
+        },
+        "external_links": {
+          "equal": true,
+          "source_count": 9,
+          "master_count": 9,
+          "source": [
+            {
+              "source_page": 0,
+              "uri": "mailto:grow-eu-tbt@ec.europa.eu"
+            },
+            {
+              "source_page": 0,
+              "uri": "https://technical-barriers-trade.ec.europa.eu/fr/home"
+            },
+            {
+              "source_page": 0,
+              "uri": "https://members.wto.org/crnattachments/2026/TBT/EEC/26_05201_00_e.pdf"
+            },
+            {
+              "source_page": 0,
+              "uri": "https://members.wto.org/crnattachments/2026/TBT/EEC/26_05201_01_e.pdf"
+            },
+            {
+              "source_page": 0,
+              "uri": "mailto:grow-eu-tbt@ec.europa.eu"
+            },
+            {
+              "source_page": 0,
+              "uri": "https://technical-barriers-trade.ec.europa.eu/fr/home"
+            },
+            {
+              "source_page": 0,
+              "uri": "https://technical-barriers-trade.ec.europa.eu/fr/home"
+            },
+            {
+              "source_page": 1,
+              "uri": "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX%3A32012R0528&qid=1653319893936"
+            },
+            {
+              "source_page": 1,
+              "uri": "mailto:grow-eu-tbt@ec.europa.eu"
+            }
+          ],
+          "master": [
+            {
+              "source_page": 0,
+              "uri": "mailto:grow-eu-tbt@ec.europa.eu"
+            },
+            {
+              "source_page": 0,
+              "uri": "https://technical-barriers-trade.ec.europa.eu/fr/home"
+            },
+            {
+              "source_page": 0,
+              "uri": "https://members.wto.org/crnattachments/2026/TBT/EEC/26_05201_00_e.pdf"
+            },
+            {
+              "source_page": 0,
+              "uri": "https://members.wto.org/crnattachments/2026/TBT/EEC/26_05201_01_e.pdf"
+            },
+            {
+              "source_page": 0,
+              "uri": "mailto:grow-eu-tbt@ec.europa.eu"
+            },
+            {
+              "source_page": 0,
+              "uri": "https://technical-barriers-trade.ec.europa.eu/fr/home"
+            },
+            {
+              "source_page": 0,
+              "uri": "https://technical-barriers-trade.ec.europa.eu/fr/home"
+            },
+            {
+              "source_page": 1,
+              "uri": "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX%3A32012R0528&qid=1653319893936"
+            },
+            {
+              "source_page": 1,
+              "uri": "mailto:grow-eu-tbt@ec.europa.eu"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "human_adjudication": {
+    "required": false,
+    "status": "NOT_REQUIRED_BY_AUTOMATED_FLAGS",
+    "reviewer": null,
+    "decision": null,
+    "reason": null
+  },
+  "relationship": {
+    "type": "isQaReportOf",
+    "report_file_id": "e15283e0-db1b-4315-9e3b-20e245faccae",
+    "master_file_id": "e1b2a60b-200d-4a02-b32f-76a13e5dafe6"
+  },
+  "note": "Automated QA flags differences but never auto-rejects. This PoC does not perform visual review. A flagged master must be human-adjudicated before the object can proceed."
+}

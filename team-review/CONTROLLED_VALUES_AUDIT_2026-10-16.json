@@ -1,0 +1,371 @@
+{
+  "workbook": "2026_011922_premis_conformance_review.xlsx",
+  "example": "runs\\rsum12405\\AIP\\2026\\012000\\2026_012405\\v1\\content\\metadata\\preservation\\2026_012405_premis.xml",
+  "scope": "Writer label/attribute support and presence in saved example; does not certify event semantics or complete Findings/Workflow closure.",
+  "rows": [
+    {
+      "element": "messageDigestAlgorithm",
+      "value": "SHA-512",
+      "writer_support": true,
+      "example_occurrences": 32,
+      "example_check": "PASS",
+      "expected_attributes": {
+        "authority": "cryptographicHashFunctions",
+        "authorityURI": "http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions",
+        "valueURI": "http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions/sha512"
+      }
+    },
+    {
+      "element": "formatRegistryRole",
+      "value": "specification",
+      "writer_support": true,
+      "example_occurrences": 27,
+      "example_check": "PASS",
+      "expected_attributes": {
+        "authority": "formatRegistryRole",
+        "authorityURI": "http://id.loc.gov/vocabulary/preservation/formatRegistryRole",
+        "valueURI": "http://id.loc.gov/vocabulary/preservation/formatRegistryRole/spe"
+      }
+    },
+    {
+      "element": "relationshipType",
+      "value": "structural",
+      "writer_support": true,
+      "example_occurrences": 24,
+      "example_check": "PASS",
+      "expected_attributes": {
+        "authority": "relationshipType",
+        "authorityURI": "http://id.loc.gov/vocabulary/preservation/relationshipType",
+        "valueURI": "http://id.loc.gov/vocabulary/preservation/relationshipType/str"
+      }
+    },
+    {
+      "element": "relationshipType",
+      "value": "derivation",
+      "writer_support": true,
+      "example_occurrences": 5,
+      "example_check": "PASS",
+      "expected_attributes": {
+        "authority": "relationshipType",
+        "authorityURI": "http://id.loc.gov/vocabulary/preservation/relationshipType",
+        "valueURI": "http://id.loc.gov/vocabulary/preservation/relationshipType/der"
+      }
+    },
+    {
+      "element": "relationshipType",
+      "value": "dependency",
+      "writer_support": true,
+      "example_occurrences": 15,
+      "example_check": "PASS",
+      "expected_attributes": {
+        "authority": "relationshipType",
+        "authorityURI": "http://id.loc.gov/vocabulary/preservation/relationshipType",
+        "valueURI": "http://id.loc.gov/vocabulary/preservation/relationshipType/dep"
+      }
+    },
+    {
+      "element": "relationshipSubType",
+      "value": "includes",
+      "writer_support": true,
+      "example_occurrences": 12,
+      "example_check": "PASS",
+      "expected_attributes": {
+        "authority": "relationshipSubType",
+        "authorityURI": "http://id.loc.gov/vocabulary/preservation/relationshipSubType",
+        "valueURI": "http://id.loc.gov/vocabulary/preservation/relationshipSubType/inc"
+      }
+    },
+    {
+      "element": "relationshipSubType",
+      "value": "is Included In",
+      "writer_support": true,
+      "example_occurrences": 12,
+      "example_check": "PASS",
+      "expected_attributes": {
+        "authority": "relationshipSubType",
+        "authorityURI": "http://id.loc.gov/vocabulary/preservation/relationshipSubType",
+        "valueURI": "http://id.loc.gov/vocabulary/preservation/relationshipSubType/isi"
+      }
+    },
+    {
+      "element": "relationshipSubType",
+      "value": "has Source",
+      "writer_support": true,
+      "example_occurrences": 5,
+      "example_check": "PASS",
+      "expected_attributes": {
+        "authority": "relationshipSubType",
+        "authorityURI": "http://id.loc.gov/vocabulary/preservation/relationshipSubType",
+        "valueURI": "http://id.loc.gov/vocabulary/preservation/relationshipSubType/hss"
+      }
+    },
+    {
+      "element": "relationshipSubType",
+      "value": "isValidationReportOf",
+      "writer_support": true,
+      "example_occurrences": 5,
+      "example_check": "PASS",
+      "expected_attributes": {
+        "authority": "local"
+      }
+    },
+    {
+      "element": "relationshipSubType",
+      "value": "isQaReportOf",
+      "writer_support": true,
+      "example_occurrences": 5,
+      "example_check": "PASS",
+      "expected_attributes": {
+        "authority": "local"
+      }
+    },
+    {
+      "element": "relationshipSubType",
+      "value": "isConversionLogOf",
+      "writer_support": true,
+      "example_occurrences": 5,
+      "example_check": "PASS",
+      "expected_attributes": {
+        "authority": "local"
+      }
+    },
+    {
+      "element": "eventType",
+      "value": "ingestion start",
+      "writer_support": true,
+      "example_occurrences": 1,
+      "example_check": "PASS",
+      "expected_attributes": {
+        "authority": "eventType",
+        "authorityURI": "http://id.loc.gov/vocabulary/preservation/eventType",
+        "valueURI": "http://id.loc.gov/vocabulary/preservation/eventType/ins"
+      }
+    },
+    {
+      "element": "eventType",
+      "value": "message digest calculation",
+      "writer_support": true,
+      "example_occurrences": 13,
+      "example_check": "PASS",
+      "expected_attributes": {
+        "authority": "eventType",
+        "authorityURI": "http://id.loc.gov/vocabulary/preservation/eventType",
+        "valueURI": "http://id.loc.gov/vocabulary/preservation/eventType/mes"
+      }
+    },
+    {
+      "element": "eventType",
+      "value": "fixity check",
+      "writer_support": true,
+      "example_occurrences": 9,
+      "example_check": "PASS",
+      "expected_attributes": {
+        "authority": "eventType",
+        "authorityURI": "http://id.loc.gov/vocabulary/preservation/eventType",
+        "valueURI": "http://id.loc.gov/vocabulary/preservation/eventType/fix"
+      }
+    },
+    {
+      "element": "eventType",
+      "value": "filename change",
+      "writer_support": true,
+      "example_occurrences": 5,
+      "example_check": "PASS",
+      "expected_attributes": {
+        "authority": "eventType",
+        "authorityURI": "http://id.loc.gov/vocabulary/preservation/eventType",
+        "valueURI": "http://id.loc.gov/vocabulary/preservation/eventType/fil"
+      }
+    },
+    {
+      "element": "eventType",
+      "value": "normalization",
+      "writer_support": true,
+      "example_occurrences": 5,
+      "example_check": "PASS",
+      "expected_attributes": {
+        "authority": "eventType",
+        "authorityURI": "http://id.loc.gov/vocabulary/preservation/eventType",
+        "valueURI": "http://id.loc.gov/vocabulary/preservation/eventType/nor"
+      }
+    },
+    {
+      "element": "eventType",
+      "value": "validation",
+      "writer_support": true,
+      "example_occurrences": 5,
+      "example_check": "PASS",
+      "expected_attributes": {
+        "authority": "eventType",
+        "authorityURI": "http://id.loc.gov/vocabulary/preservation/eventType",
+        "valueURI": "http://id.loc.gov/vocabulary/preservation/eventType/val"
+      }
+    },
+    {
+      "element": "eventType",
+      "value": "qualityReview",
+      "writer_support": true,
+      "example_occurrences": 5,
+      "example_check": "PASS",
+      "expected_attributes": {
+        "authority": "local"
+      }
+    },
+    {
+      "element": "eventType",
+      "value": "format identification",
+      "writer_support": true,
+      "example_occurrences": 1,
+      "example_check": "PASS",
+      "expected_attributes": {
+        "authority": "eventType",
+        "authorityURI": "http://id.loc.gov/vocabulary/preservation/eventType",
+        "valueURI": "http://id.loc.gov/vocabulary/preservation/eventType/for"
+      }
+    },
+    {
+      "element": "eventType",
+      "value": "creation",
+      "writer_support": true,
+      "example_occurrences": 1,
+      "example_check": "PASS",
+      "expected_attributes": {
+        "authority": "eventType",
+        "authorityURI": "http://id.loc.gov/vocabulary/preservation/eventType",
+        "valueURI": "http://id.loc.gov/vocabulary/preservation/eventType/cre"
+      }
+    },
+    {
+      "element": "eventType",
+      "value": "metadata modification",
+      "writer_support": true,
+      "example_occurrences": 0,
+      "example_check": "NOT PRESENT (scenario dependent)",
+      "expected_attributes": {
+        "authority": "eventType",
+        "authorityURI": "http://id.loc.gov/vocabulary/preservation/eventType",
+        "valueURI": "http://id.loc.gov/vocabulary/preservation/eventType/mem"
+      }
+    },
+    {
+      "element": "eventType",
+      "value": "information package creation",
+      "writer_support": true,
+      "example_occurrences": 2,
+      "example_check": "PASS",
+      "expected_attributes": {
+        "authority": "eventType",
+        "authorityURI": "http://id.loc.gov/vocabulary/preservation/eventType",
+        "valueURI": "http://id.loc.gov/vocabulary/preservation/eventType/ipc"
+      }
+    },
+    {
+      "element": "eventOutcome",
+      "value": "success",
+      "writer_support": true,
+      "example_occurrences": 47,
+      "example_check": "PASS",
+      "expected_attributes": {
+        "authority": "eventOutcome",
+        "authorityURI": "http://id.loc.gov/vocabulary/preservation/eventOutcome",
+        "valueURI": "http://id.loc.gov/vocabulary/preservation/eventOutcome/suc"
+      }
+    },
+    {
+      "element": "linkingAgentRole",
+      "value": "executing program",
+      "writer_support": true,
+      "example_occurrences": 47,
+      "example_check": "PASS",
+      "expected_attributes": {
+        "authority": "eventRelatedAgentRole",
+        "authorityURI": "http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole",
+        "valueURI": "http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/exe"
+      }
+    },
+    {
+      "element": "linkingAgentRole",
+      "value": "authorizer",
+      "writer_support": true,
+      "example_occurrences": 47,
+      "example_check": "PASS",
+      "expected_attributes": {
+        "authority": "eventRelatedAgentRole",
+        "authorityURI": "http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole",
+        "valueURI": "http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/aut"
+      }
+    },
+    {
+      "element": "linkingAgentRole",
+      "value": "implementer",
+      "writer_support": true,
+      "example_occurrences": 0,
+      "example_check": "NOT PRESENT (scenario dependent)",
+      "expected_attributes": {
+        "authority": "eventRelatedAgentRole",
+        "authorityURI": "http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole",
+        "valueURI": "http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/imp"
+      }
+    },
+    {
+      "element": "linkingObjectRole",
+      "value": "source",
+      "writer_support": true,
+      "example_occurrences": 15,
+      "example_check": "PASS",
+      "expected_attributes": {
+        "authority": "eventRelatedObjectRole",
+        "authorityURI": "http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole",
+        "valueURI": "http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole/sou"
+      }
+    },
+    {
+      "element": "linkingObjectRole",
+      "value": "outcome",
+      "writer_support": true,
+      "example_occurrences": 22,
+      "example_check": "PASS",
+      "expected_attributes": {
+        "authority": "eventRelatedObjectRole",
+        "authorityURI": "http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole",
+        "valueURI": "http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole/out"
+      }
+    },
+    {
+      "element": "agentType",
+      "value": "software",
+      "writer_support": true,
+      "example_occurrences": 7,
+      "example_check": "PASS",
+      "expected_attributes": {
+        "authority": "agentType",
+        "authorityURI": "http://id.loc.gov/vocabulary/preservation/agentType",
+        "valueURI": "http://id.loc.gov/vocabulary/preservation/agentType/sof"
+      }
+    },
+    {
+      "element": "agentType",
+      "value": "person",
+      "writer_support": true,
+      "example_occurrences": 1,
+      "example_check": "PASS",
+      "expected_attributes": {
+        "authority": "agentType",
+        "authorityURI": "http://id.loc.gov/vocabulary/preservation/agentType",
+        "valueURI": "http://id.loc.gov/vocabulary/preservation/agentType/per"
+      }
+    },
+    {
+      "element": "agentType",
+      "value": "organization",
+      "writer_support": true,
+      "example_occurrences": 0,
+      "example_check": "NOT PRESENT (scenario dependent)",
+      "expected_attributes": {
+        "authority": "agentType",
+        "authorityURI": "http://id.loc.gov/vocabulary/preservation/agentType",
+        "valueURI": "http://id.loc.gov/vocabulary/preservation/agentType/org"
+      }
+    }
+  ]
+}

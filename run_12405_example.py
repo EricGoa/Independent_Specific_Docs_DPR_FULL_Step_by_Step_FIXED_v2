@@ -1,4 +1,4 @@
-﻿"""Run the user-requested live 12405.26 example in a separate workspace."""
+"""Run the user-requested live 12405.26 example in a separate workspace."""
 import argparse
 import os
 import hashlib
@@ -50,6 +50,17 @@ def main():
         config['notice']='User-authorized isolated live example for DmsJobId=12405.26; provisional registry, not production accession.'
         config['operator']={'uuid':str(uuid.uuid4()),'name':'Eric Gao','email':'eric.gao@wto.org','type':'person','note':'Example explicitly requested by the user; name/email supplied in the project team correspondence; registry remains provisional.'}
         config['agents']['droid']={'uuid':str(uuid.uuid4()),'name':'DROID','type':'software','version':'6.8.1; signature version recorded in raw tool evidence','note':'Installed droid-command-line-6.8.1.jar; signature details retained in profile/driver evidence.'}
+        source_sets={'conversion_script':['poc2_aspose.py','workflow_common.py','DprPdfaConverter/Program.cs'], 'packaging':['poc7_bagit.py','profile_workflow.py','workflow_common.py'], 'verification':['poc8_ingest_worker.py','profile_workflow.py','workflow_common.py'], 'preparation':['poc1_builder.py','workflow_common.py'],
+            'metadata':['poc6_metadata.py','profile_workflow.py','workflow_common.py','crosswalk_metadata.py','mets_profile.py','adjudicate_qa.py'],
+            'validation':['poc3_verapdf.py','workflow_common.py'],'qa':['poc4_qa.py','workflow_common.py'],
+            'ingest':['poc8_ingest_worker.py','poc9_ocfl_ingest.py','profile_workflow.py','workflow_common.py','ocfl_versions.py','mets_profile.py']}
+        for key,names in source_sets.items():
+            h=hashlib.sha256()
+            for name in names:h.update(name.encode());h.update((ROOT/name).read_bytes())
+            config['agents'][key]['uuid']=str(uuid.uuid4())
+            config['agents'][key]['version']='source-set SHA-256:'+h.hexdigest()
+            config['agents'][key]['note']='User-authorized working registry; measured source identity: '+', '.join(names)
+        config['agents']['droid']['version']='6.8.1; signatures V118; container signatures 20240501'
         cfg_path.write_text(json.dumps(config,indent=2),encoding='utf-8')
     os.environ['JAVACMD']=str(JAVA)
     prep=run/'preparation';staging=run/'staging';aip=run/'AIP';records=run/'ingest-records'

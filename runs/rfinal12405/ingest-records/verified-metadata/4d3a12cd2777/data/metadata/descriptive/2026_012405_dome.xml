@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domeMetadata xmlns="https://docs.wto.org/DocumentsOnline-Metadata-Elements-Namespace-v00-03" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://docs.wto.org/DocumentsOnline-Metadata-Elements-Namespace-v00-03 ../../schemas/dol-metadata-v-03.xsd">
+  <mdSourceSystem>Documents Online</mdSourceSystem>
+  <mdDateCreated>2026-10-16T07:58:16Z</mdDateCreated>
+  <mdDateModified>2026-10-16T07:58:16Z</mdDateModified>
+  <documentSymbol>G/TBT/N/EU/1243</documentSymbol>
+  <documentType>Notification</documentType>
+  <documentNumber>26-6874</documentNumber>
+  <documentDate>2026-10-05</documentDate>
+  <title xml:lang="en">Committee on Technical Barriers to Trade - Notification - European Union - Biocidal products - Bromoacetic acid </title>
+  <title xml:lang="fr">Comité des obstacles techniques au commerce - Notification - Union européenne - Produits biocides - Acide bromoacétique </title>
+  <title xml:lang="es">Comité de Obstáculos Técnicos al Comercio - Notificación - Unión Europea - Biocidas - Bromoacetic acid </title>
+  <language>en</language>
+  <language>es</language>
+  <language>fr</language>
+  <originalLanguage>en</originalLanguage>
+  <subject>environmental protection</subject>
+  <subject>technical barriers to trade</subject>
+  <subject>technical regulations</subject>
+  <bodiesIssuing>Committee on Technical Barriers to Trade</bodiesIssuing>
+  <countryTerritoryConcerned>European Union</countryTerritoryConcerned>
+  <articles>TBT 2.9.2</articles>
+  <products>biocidal products</products>
+  <status>Original</status>
+  <accessRights>Public</accessRights>
+  <source>Member</source>
+  <pages xml:lang="en">2</pages>
+  <pages xml:lang="fr">2</pages>
+  <pages xml:lang="es">2</pages>
+  <version>Final</version>
+  <dateIssued xml:lang="en">2026-10-05</dateIssued>
+  <dateIssued xml:lang="fr">2026-10-12</dateIssued>
+  <dateIssued xml:lang="es">2026-10-09</dateIssued>
+  <jobID>12405.26</jobID>
+  <ACLInfo>U</ACLInfo>
+  <collection>WTO</collection>
+  <requirementName>Agreement on Technical Barriers to Trade Art. 2.9</requirementName>
+  <requirementShortName>TBT Art. 2.9</requirementShortName>
+  <requirementTopic>Environmental protection</requirementTopic>
+  <requirementMeasureType>Technical regulations (TBT 2.9)</requirementMeasureType>
+  <notificationPeriodicity>Ad hoc</notificationPeriodicity>
+  <countryTerritoryNotifying>European Union</countryTerritoryNotifying>
+  <membersReqNotify>WTO Members</membersReqNotify>
+  <tradeCoverage>
+    <HS>3808</HS>
+    <ICS>65.100</ICS>
+  </tradeCoverage>
+  <notificationAttachment url="2026/TBT/EEC/26_05201_00_e.pdf" xml:lang="en">26_05201_00_e.pdf</notificationAttachment>
+  <notificationAttachment url="2026/TBT/EEC/26_05201_01_e.pdf" xml:lang="en">26_05201_01_e.pdf</notificationAttachment>
+</domeMetadata>

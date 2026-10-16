@@ -1,0 +1,41 @@
+{
+  "poc": 5,
+  "job_id": "2026_012405",
+  "created_utc": "2026-10-16T08:24:30.360058+00:00",
+  "status": "STEP_5_DROID_CHARACTERIZED",
+  "tool": "DROID",
+  "invocation": "direct_java_jar",
+  "characterization_scope": "SOURCE_FILES",
+  "characterization_timing": "PRE_CONVERSION",
+  "characterized_file_count": 8,
+  "identified_count": 8,
+  "unidentified_count": 0,
+  "evidence_files": [
+    {
+      "file_id": "5c9245ad-055f-4cac-a40d-3ae832067dff",
+      "role": "droid_csv_export",
+      "relative_path": "documentation/2026_012405_droid_export.csv",
+      "size_bytes": 5527,
+      "sha512": "6f6a7552fe45223ded09d845842023af8550a20e466da90991108ca20c2ad452dfba27a217ac1c3c7735b38d9bbde965eced7bc846953c6b051f419f1d5a896c"
+    },
+    {
+      "file_id": "720bd75e-9324-4aeb-a2bb-1c90bf34d9a0",
+      "role": "droid_characterization_report",
+      "relative_path": "documentation/2026_012405_cb9bbe701086413da9218bd048fbe4ce_droid_characterization.json",
+      "size_bytes": 7285,
+      "sha512": "a52ecb509572f2278d139fdfb93238482b4a17e8324b25c66756be27cc88adbba1aa28747c1f361da02acce01ca82e45634657d5b572c17af8f19085205819dd"
+    },
+    {
+      "file_id": "1bfab7d9-cffe-49c5-8bce-791a9da43f96",
+      "role": "droid_driver_log",
+      "relative_path": "documentation/2026_012405_droid_driver.txt",
+      "size_bytes": 5163,
+      "sha512": "f75e35113e117ed97d1aaca68d959697d214573fcc991d4575a3c1e20e886a73c8971cd5c17343b12dd98ed1b60f46fa92501607e5d385708e19770a1d75fcb1"
+    }
+  ],
+  "working_profile": {
+    "relative_path": "documentation/2026_012405_droid_profile.droid",
+    "retention_note": "PoC working artefact; production retention policy TBD."
+  },
+  "next_gate": "PoC 2 â€” PDF to PDF/A preservation conversion"
+}

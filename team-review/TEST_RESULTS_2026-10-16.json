@@ -1,0 +1,10 @@
+{
+  "command": "C:\\ProgramData\\anaconda3\\python.exe -m unittest discover -s tests",
+  "tests": 39,
+  "failures": 0,
+  "errors": 0,
+  "seconds": 75.561,
+  "result": "PASS",
+  "syntax_files": 25,
+  "scope": "Synthetic SQL/tool fixtures plus real XML/XSD, BagIt, OCFL independent checks. Includes human decision hash mismatch rejection and independently validated v1/v2 reconversion. Live example uses real tools separately."
+}

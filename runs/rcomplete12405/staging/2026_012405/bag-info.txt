@@ -1,0 +1,9 @@
+Source-Organization: World Trade Organization
+External-Identifier: 509b789e-a23a-4d0d-b42a-c10a813c509a
+Internal-Sender-Identifier: 2026_012405
+External-Description: SIP for 2026_012405 (new_document) [built on none]
+Bag-Group-Identifier: 3654fb1b-ce4a-4014-8efb-22413b73ba0b
+Bagging-Date: 2026-10-16
+Payload-Oxum: 2129088.36
+DPR-Object-UUID: 98fc00d4-bebb-42c4-8a49-be5eb87e0b51
+DPR-Predecessor-OCFL-Version: none

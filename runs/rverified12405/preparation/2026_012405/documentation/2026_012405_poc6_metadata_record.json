@@ -1,0 +1,37 @@
+{
+  "poc": 6,
+  "job_id": "2026_012405",
+  "folder_uuid": "78eda807-5a80-4de1-9e33-a2e2d0df9c47",
+  "profile": "DPM-v0.4-draft",
+  "created_utc": "2026-10-16T08:26:51Z",
+  "status": "STEP_6_METADATA_PROJECTED",
+  "source_snapshot": {
+    "c6cb8aac-a109-4729-8b86-8cbba2a743ce": "b297b4af0d50ab03277b56c5bbd6d6d2f801a1f0bdc25442d31f001d5b74776e499f4dfd5bd7f267511496f146809e02d5594b11d56bda2e661a4d3e20c0c227",
+    "08451410-a6f3-43e2-b1d4-40546a939124": "2900d0f1b03c7b88ce82aff55b09150abab6d9f3daa3e05dc0a1ae57802d48df8fa347260ddea3b9253639c53546db3f97016a16feccf2a15a93da02bc57817f",
+    "b2126cbb-a4d7-4f10-8fa5-5ef691de60af": "d47f020d266d6509511e7cd80afa38fd686a73db864d008626bd24dc05375e962b9e60c7ab49e7ff89ccc057d64093f2b2a66437d8a2f5a212d3c94a56a827d8",
+    "17c35f04-41c1-4b87-9adc-2ff40166c5f5": "824b3a3af577d833bac56bb749c2e04aa540ba03feaddcebd3a21945852b05b89527161c86311197b6ffcf7156fdb35286127404b84e25aebe1464da480e2197",
+    "f0d642d7-0fa9-4fa5-a1ed-dfd1f3d58037": "1e5a7a5bcd747eb175781cadc490b1c629f6298bce8cd9de01e029023e299343376d12abcbcfba896f5570b8db1fd3614d5643e07e33c8e812378a9dc13f6804",
+    "e053d355-6b70-443d-a26d-f538abc7013a": "6319ea0faf69131dcefa4303721a54ad521a2711397b5593666c5e51dbaf2ffa044ecb2cf38b0444f23ec70ce79a43cf8f40dc7b25052222ece8d7a9542f23f3",
+    "8b6b028c-2a00-464c-86ee-374d401bc559": "85ddbe9b9955645901168fe0e3671c3d48e9525dc99c9fe552ab837fa05a5b27ea7bcecda6ea3222594adb91ca771e792f0cfc5f106c2a8d300d39f81ac5d3fe",
+    "551e4f8d-be00-4a58-b7e0-b6076dcfda06": "1c9e3fd15564052cce45bb06c854a6afc22b1f3f2e97ec64ec908283b72b2e9501f619f37261e246fba010d663221091569308fbf018de9907c5260916a00c05"
+  },
+  "profile_gaps": [],
+  "draft_registry": true,
+  "predecessor": "none",
+  "selection_basis_proposed": "new_document",
+  "dome": {
+    "path": "metadata/descriptive/2026_012405_dome.xml",
+    "sha512": "58cd6dc88ff52da629edf28ad35ff1fcd6fae66a60b78667c86c55a4e16d2134d04b56aa4361d1c069d7454a26ff0c6b155356fe90cfa1d6d2cc2f719eeb8a68",
+    "schema_validation": "PASS"
+  },
+  "premis": {
+    "path": "metadata/preservation/2026_012405_premis.xml",
+    "sha512": "144209bddeb73a3563e21156e9169dd16971e6cff5a65c7c788909a894c2d2c1172cbbc3d39a49954234b307ea62384f2eea62d06afb2cbcd5c2b2126dcc2813",
+    "schema_validation": "PASS"
+  },
+  "mets": {
+    "path": "2026_012405_mets.xml",
+    "sha512": "e3e06a468b97e8fa971fbf82311bfc65a0efecf2e1fa9e2f4d6300160fa460673d38d68d4c5a1a0120fdf75a76f078e5fb26f2c01a64cae234a687d7523b8a04",
+    "schema_validation": "PASS"
+  }
+}

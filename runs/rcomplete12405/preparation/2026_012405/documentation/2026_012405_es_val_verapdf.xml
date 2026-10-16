@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<report>
+  <buildInformation>
+    <releaseDetails id="core" version="1.26.1" buildDate="2024-05-16T16:30:00+02:00"></releaseDetails>
+    <releaseDetails id="validation-model" version="1.26.1" buildDate="2024-05-16T18:13:00+02:00"></releaseDetails>
+    <releaseDetails id="gui" version="1.26.2" buildDate="2024-05-19T13:33:00+02:00"></releaseDetails>
+  </buildInformation>
+  <jobs>
+    <job>
+      <item size="63073">
+        <name>\\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\rcomplete12405\preparation\2026_012405\representations\rep_2\data\es\2026_012405_es.pdf</name>
+      </item>
+      <validationReport jobEndStatus="normal" profileName="PDF/A-2B validation profile" statement="PDF file is compliant with Validation Profile requirements." isCompliant="true">
+        <details passedRules="143" failedRules="0" passedChecks="15119" failedChecks="0"></details>
+      </validationReport>
+      <duration start="1792137928179" finish="1792137929080">00:00:00.901</duration>
+    </job>
+  </jobs>
+  <batchSummary totalJobs="1" failedToParse="0" encrypted="0" outOfMemory="0" veraExceptions="0">
+    <validationReports compliant="1" nonCompliant="0" failedJobs="0">1</validationReports>
+    <featureReports failedJobs="0">0</featureReports>
+    <repairReports failedJobs="0">0</repairReports>
+    <duration start="1792137928098" finish="1792137929126">00:00:01.028</duration>
+  </batchSummary>
+</report>

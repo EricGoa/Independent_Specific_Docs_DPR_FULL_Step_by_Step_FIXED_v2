@@ -1,0 +1,10 @@
+  Determining projects to restore...
+  Restored \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\rrelease12405\converter\DprPdfaConverter.csproj (in 349 ms).
+  DprPdfaConverter -> \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\rrelease12405\converter\bin\Debug\net8.0\DprPdfaConverter.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:11.37
+

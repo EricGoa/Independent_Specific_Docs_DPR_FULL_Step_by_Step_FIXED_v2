@@ -51,6 +51,8 @@ def write_record(path, data):
                 time.sleep(0.05 * (2 ** min(attempt, 4)))
     finally:
         tmp.unlink(missing_ok=True)
+    if path.name == 'uuid-registry.json':
+        export_uuid_registry(path)
 
 def verify(path, expected):
     if not expected or digest(path).lower() != expected.lower():
@@ -113,9 +115,16 @@ def coverage(obj, recs, droid=None):
                     raise RuntimeError("Validation is not a passing verdict for the current master")
                 verify(e["validation_report_path"], e["validation_report_sha512"])
             else:
-                if e.get("status") != "AUTO_QA_CLEAR" or e.get("source_file_id") != conv["source_file_id"]:
+                if e.get("status") not in {"AUTO_QA_CLEAR","MANUAL_QA_CLEAR"} or e.get("source_file_id") != conv["source_file_id"]:
                     raise RuntimeError("QA is not clear for the current source/master pair")
                 verify(e["qa_report_path"], e["qa_report_sha512"])
+                if e.get("status")=="MANUAL_QA_CLEAR":
+                    adjudication=e.get("manual_adjudication",{})
+                    verify(adjudication.get("path",""),adjudication.get("sha512"))
+                    decision=load(adjudication["path"])
+                    if decision.get("verdict")!="accept" or decision.get("master_file_id")!=conv["master_file_id"] or decision.get("source_sha512")!=conv["source_sha512"] or decision.get("master_sha512")!=conv["master_sha512"] or decision.get("qa_report_sha512")!=e["qa_report_sha512"] or decision.get("reviewer_uuid")!=adjudication.get("reviewer",{}).get("uuid"):
+                        raise RuntimeError("Manual QA decision is not for this exact source/master/report")
+
                 report = load(e["qa_report_path"])
                 if report["source"]["sha512"] != conv["source_sha512"] or report["master"]["sha512"] != conv["master_sha512"]:
                     raise RuntimeError("QA report source/master fixity differs from conversion")
@@ -173,3 +182,32 @@ def registered_uuid(obj_dir, kind, key):
     data['keys'][registry_key]=value
     write_record(path,data)
     return value
+
+def export_uuid_registry(json_path):
+    """Append missing registry entries to the review's required CSV form."""
+    import csv
+    json_path=Path(json_path)
+    data=load(json_path,{'entries':{}})
+    csv_path=json_path.with_suffix('.csv')
+    fields=['uuid','entity_type','job_id','symbol','description','minted_at','minted_by']
+    prior={}
+    if csv_path.exists():
+        with csv_path.open(encoding='utf-8',newline='') as stream:
+            reader=csv.DictReader(stream)
+            if reader.fieldnames!=fields: raise RuntimeError('UUID CSV registry header differs')
+            for row in reader:
+                if row['uuid'] in prior: raise RuntimeError('Duplicate UUID in CSV registry')
+                prior[row['uuid']]=row
+    rows=[]
+    for uid,entry in data['entries'].items():
+        row={field:str(uid if field=='uuid' else entry.get(field,'')) for field in fields}
+        if uid in prior:
+            if prior[uid]!=row: raise RuntimeError('UUID CSV entry changed; hold for review')
+        else: rows.append(row)
+    if set(prior)-set(data['entries']): raise RuntimeError('JSON UUID registry lost entries')
+    if rows:
+        with csv_path.open('a',encoding='utf-8',newline='') as stream:
+            writer=csv.DictWriter(stream,fieldnames=fields,lineterminator='\n')
+            if not prior: writer.writeheader()
+            writer.writerows(rows)
+    return csv_path

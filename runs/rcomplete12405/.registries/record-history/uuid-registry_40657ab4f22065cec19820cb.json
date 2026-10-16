@@ -1,0 +1,159 @@
+{
+  "entries": {
+    "98fc00d4-bebb-42c4-8a49-be5eb87e0b51": {
+      "entity_type": "intellectualEntity",
+      "job_id": "2026_012405",
+      "symbol": "",
+      "description": "object",
+      "minted_at": "2026-10-16T08:04:00Z",
+      "minted_by": "workflow stage"
+    },
+    "a7f3b102-1a3c-4e52-8389-6e07cd07caec": {
+      "entity_type": "file",
+      "job_id": "2026_012405",
+      "symbol": "",
+      "description": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\representations\\rep_1\\data\\en\\2026_012405_en.docxb297b4af0d50ab03277b56c5bbd6d6d2f801a1f0bdc25442d31f001d5b74776e499f4dfd5bd7f267511496f146809e02d5594b11d56bda2e661a4d3e20c0c227",
+      "minted_at": "2026-10-16T08:04:00Z",
+      "minted_by": "workflow stage"
+    },
+    "bac9b13f-0d71-4436-95f7-80f2bfed64dd": {
+      "entity_type": "file",
+      "job_id": "2026_012405",
+      "symbol": "",
+      "description": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\representations\\rep_2\\data\\en\\2026_012405_en_src.pdf2900d0f1b03c7b88ce82aff55b09150abab6d9f3daa3e05dc0a1ae57802d48df8fa347260ddea3b9253639c53546db3f97016a16feccf2a15a93da02bc57817f",
+      "minted_at": "2026-10-16T08:04:01Z",
+      "minted_by": "workflow stage"
+    },
+    "6ed689cc-2f9f-460f-810c-1699d9c8a4ea": {
+      "entity_type": "file",
+      "job_id": "2026_012405",
+      "symbol": "",
+      "description": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\representations\\rep_1\\data\\es\\2026_012405_es.docxd47f020d266d6509511e7cd80afa38fd686a73db864d008626bd24dc05375e962b9e60c7ab49e7ff89ccc057d64093f2b2a66437d8a2f5a212d3c94a56a827d8",
+      "minted_at": "2026-10-16T08:04:02Z",
+      "minted_by": "workflow stage"
+    },
+    "52b3e84e-61ba-490f-b13c-120790052338": {
+      "entity_type": "file",
+      "job_id": "2026_012405",
+      "symbol": "",
+      "description": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\representations\\rep_2\\data\\es\\2026_012405_es_src.pdf824b3a3af577d833bac56bb749c2e04aa540ba03feaddcebd3a21945852b05b89527161c86311197b6ffcf7156fdb35286127404b84e25aebe1464da480e2197",
+      "minted_at": "2026-10-16T08:04:02Z",
+      "minted_by": "workflow stage"
+    },
+    "90aca134-9209-49e7-a838-40e3d0831481": {
+      "entity_type": "file",
+      "job_id": "2026_012405",
+      "symbol": "",
+      "description": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\representations\\rep_1\\data\\fr\\2026_012405_fr.docx1e5a7a5bcd747eb175781cadc490b1c629f6298bce8cd9de01e029023e299343376d12abcbcfba896f5570b8db1fd3614d5643e07e33c8e812378a9dc13f6804",
+      "minted_at": "2026-10-16T08:04:03Z",
+      "minted_by": "workflow stage"
+    },
+    "eb74bb8c-3d5b-4681-aeb4-9ee23f224d50": {
+      "entity_type": "file",
+      "job_id": "2026_012405",
+      "symbol": "",
+      "description": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\representations\\rep_2\\data\\fr\\2026_012405_fr_src.pdf6319ea0faf69131dcefa4303721a54ad521a2711397b5593666c5e51dbaf2ffa044ecb2cf38b0444f23ec70ce79a43cf8f40dc7b25052222ece8d7a9542f23f3",
+      "minted_at": "2026-10-16T08:04:04Z",
+      "minted_by": "workflow stage"
+    },
+    "770f0ddc-9936-474d-a3e2-e96c78e331fd": {
+      "entity_type": "file",
+      "job_id": "2026_012405",
+      "symbol": "",
+      "description": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\representations\\rep_2\\data\\attachments\\2026_012405_notification_en_26_05201_00_e.pdf85ddbe9b9955645901168fe0e3671c3d48e9525dc99c9fe552ab837fa05a5b27ea7bcecda6ea3222594adb91ca771e792f0cfc5f106c2a8d300d39f81ac5d3fe",
+      "minted_at": "2026-10-16T08:04:04Z",
+      "minted_by": "workflow stage"
+    },
+    "a476b528-b444-4fbd-84c8-f5d84f431aa5": {
+      "entity_type": "file",
+      "job_id": "2026_012405",
+      "symbol": "",
+      "description": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\representations\\rep_2\\data\\attachments\\2026_012405_notification_en_26_05201_01_e.pdf1c9e3fd15564052cce45bb06c854a6afc22b1f3f2e97ec64ec908283b72b2e9501f619f37261e246fba010d663221091569308fbf018de9907c5260916a00c05",
+      "minted_at": "2026-10-16T08:04:06Z",
+      "minted_by": "workflow stage"
+    },
+    "696b8381-b434-42e7-bd4a-87c304a151fa": {
+      "entity_type": "file",
+      "job_id": "2026_012405",
+      "symbol": "",
+      "description": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\documentation\\2026_012405_droid_export.csvb51542ac90b971bec0832496ad2ea70122d7d1ed7037f83e2f9f47511e6b0f338cb25dd27f8b9e1ef71e36c44d04498e1367f107b2e11486d1547d9b72f34d29",
+      "minted_at": "2026-10-16T08:04:45Z",
+      "minted_by": "workflow stage"
+    },
+    "edb468fb-14d2-4306-afa0-9d0bfc2c7156": {
+      "entity_type": "file",
+      "job_id": "2026_012405",
+      "symbol": "",
+      "description": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\documentation\\2026_012405_5991ffaa779946a0a8b7f41414cea65c_droid_characterization.json9b1f2b4cc02eb688504c8dab22ace80673325f5c6b8cf691c125d83b4a8c680b270b82a284c62218680569d36d2cddd87abdefdeab153f4d6eceec90fa161efd",
+      "minted_at": "2026-10-16T08:04:45Z",
+      "minted_by": "workflow stage"
+    },
+    "768d145a-3f2f-4151-96d0-32d46fc89124": {
+      "entity_type": "file",
+      "job_id": "2026_012405",
+      "symbol": "",
+      "description": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\documentation\\2026_012405_droid_driver.txt7375d924dc2ac8def81c8c4cf4572a4ca26bb6253e41d0b0855caa7453a0142aad997ea5f7817801926f3b6cb75efe27b2d121a1ed3c60d33c0e4b7735e6f77b",
+      "minted_at": "2026-10-16T08:04:46Z",
+      "minted_by": "workflow stage"
+    },
+    "e24fc9ec-6700-46a1-8540-4f9146f01f59": {
+      "entity_type": "file",
+      "job_id": "2026_012405",
+      "symbol": "",
+      "description": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\representations\\rep_2\\data\\attachments\\preservation\\770f0ddc-9936-474d-a3e2-e96c78e331fd.pdfacd6d4cebacbda912d54515bf11262302ee1bfc34ae499762163d79ceddbc63b2cd3860d56901f159b8cfeb6b467f1134804054698bfea13055f81f3c5f4f00b",
+      "minted_at": "2026-10-16T08:04:59Z",
+      "minted_by": "workflow stage"
+    },
+    "d57c84bc-cb7e-467a-8da0-23ed3933b32d": {
+      "entity_type": "file",
+      "job_id": "2026_012405",
+      "symbol": "",
+      "description": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\representations\\rep_2\\data\\attachments\\preservation\\a476b528-b444-4fbd-84c8-f5d84f431aa5.pdf33eeebb0f06cedafd0bc2eeff5c0ecb416d4347e9ba0fc53ab6aa1aebc14c7571f477410fb14f5db887d8bcfb731f9623e96380fec0395a4eff19470072fd0cb",
+      "minted_at": "2026-10-16T08:05:03Z",
+      "minted_by": "workflow stage"
+    },
+    "ba5ac872-2488-4774-9adc-3e5310a030d3": {
+      "entity_type": "file",
+      "job_id": "2026_012405",
+      "symbol": "",
+      "description": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\representations\\rep_2\\data\\en\\2026_012405_en.pdf928e09d9e68c308e803a2b5e7276f04f7a0ba06fd89d8ffbd6c45dcc40c151711931bc80883ee0f2a5f424e31a15b1771942e45cc67067255ca7dcdd628f8262",
+      "minted_at": "2026-10-16T08:05:06Z",
+      "minted_by": "workflow stage"
+    },
+    "0b20712e-17d0-4b0c-9a8d-0697555191f9": {
+      "entity_type": "file",
+      "job_id": "2026_012405",
+      "symbol": "",
+      "description": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\representations\\rep_2\\data\\es\\2026_012405_es.pdf6b746ae8690b97213cb9b316eda9896f0c91656d743215e425c34c33f557fe7162088c7e37fd7875295ec8c2871064c83fc0141eb331fa55534496dccd4cf2ef",
+      "minted_at": "2026-10-16T08:05:09Z",
+      "minted_by": "workflow stage"
+    },
+    "e1b2a60b-200d-4a02-b32f-76a13e5dafe6": {
+      "entity_type": "file",
+      "job_id": "2026_012405",
+      "symbol": "",
+      "description": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\representations\\rep_2\\data\\fr\\2026_012405_fr.pdf60993cc638b87945ab1a192cbd24781e348a3cf9b01c95f3f8c7b78b22a186a7b1dfa1739432164646a7c006accad16a0dd9bd4dc57de0235d982ab8fb2cbe3b",
+      "minted_at": "2026-10-16T08:05:13Z",
+      "minted_by": "workflow stage"
+    }
+  },
+  "keys": {
+    "2026_012405:stage:intellectualEntity:object": "98fc00d4-bebb-42c4-8a49-be5eb87e0b51",
+    "2026_012405:stage:file:\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\representations\\rep_1\\data\\en\\2026_012405_en.docxb297b4af0d50ab03277b56c5bbd6d6d2f801a1f0bdc25442d31f001d5b74776e499f4dfd5bd7f267511496f146809e02d5594b11d56bda2e661a4d3e20c0c227": "a7f3b102-1a3c-4e52-8389-6e07cd07caec",
+    "2026_012405:stage:file:\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\representations\\rep_2\\data\\en\\2026_012405_en_src.pdf2900d0f1b03c7b88ce82aff55b09150abab6d9f3daa3e05dc0a1ae57802d48df8fa347260ddea3b9253639c53546db3f97016a16feccf2a15a93da02bc57817f": "bac9b13f-0d71-4436-95f7-80f2bfed64dd",
+    "2026_012405:stage:file:\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\representations\\rep_1\\data\\es\\2026_012405_es.docxd47f020d266d6509511e7cd80afa38fd686a73db864d008626bd24dc05375e962b9e60c7ab49e7ff89ccc057d64093f2b2a66437d8a2f5a212d3c94a56a827d8": "6ed689cc-2f9f-460f-810c-1699d9c8a4ea",
+    "2026_012405:stage:file:\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\representations\\rep_2\\data\\es\\2026_012405_es_src.pdf824b3a3af577d833bac56bb749c2e04aa540ba03feaddcebd3a21945852b05b89527161c86311197b6ffcf7156fdb35286127404b84e25aebe1464da480e2197": "52b3e84e-61ba-490f-b13c-120790052338",
+    "2026_012405:stage:file:\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\representations\\rep_1\\data\\fr\\2026_012405_fr.docx1e5a7a5bcd747eb175781cadc490b1c629f6298bce8cd9de01e029023e299343376d12abcbcfba896f5570b8db1fd3614d5643e07e33c8e812378a9dc13f6804": "90aca134-9209-49e7-a838-40e3d0831481",
+    "2026_012405:stage:file:\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\representations\\rep_2\\data\\fr\\2026_012405_fr_src.pdf6319ea0faf69131dcefa4303721a54ad521a2711397b5593666c5e51dbaf2ffa044ecb2cf38b0444f23ec70ce79a43cf8f40dc7b25052222ece8d7a9542f23f3": "eb74bb8c-3d5b-4681-aeb4-9ee23f224d50",
+    "2026_012405:stage:file:\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\representations\\rep_2\\data\\attachments\\2026_012405_notification_en_26_05201_00_e.pdf85ddbe9b9955645901168fe0e3671c3d48e9525dc99c9fe552ab837fa05a5b27ea7bcecda6ea3222594adb91ca771e792f0cfc5f106c2a8d300d39f81ac5d3fe": "770f0ddc-9936-474d-a3e2-e96c78e331fd",
+    "2026_012405:stage:file:\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\representations\\rep_2\\data\\attachments\\2026_012405_notification_en_26_05201_01_e.pdf1c9e3fd15564052cce45bb06c854a6afc22b1f3f2e97ec64ec908283b72b2e9501f619f37261e246fba010d663221091569308fbf018de9907c5260916a00c05": "a476b528-b444-4fbd-84c8-f5d84f431aa5",
+    "2026_012405:stage:file:\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\documentation\\2026_012405_droid_export.csvb51542ac90b971bec0832496ad2ea70122d7d1ed7037f83e2f9f47511e6b0f338cb25dd27f8b9e1ef71e36c44d04498e1367f107b2e11486d1547d9b72f34d29": "696b8381-b434-42e7-bd4a-87c304a151fa",
+    "2026_012405:stage:file:\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\documentation\\2026_012405_5991ffaa779946a0a8b7f41414cea65c_droid_characterization.json9b1f2b4cc02eb688504c8dab22ace80673325f5c6b8cf691c125d83b4a8c680b270b82a284c62218680569d36d2cddd87abdefdeab153f4d6eceec90fa161efd": "edb468fb-14d2-4306-afa0-9d0bfc2c7156",
+    "2026_012405:stage:file:\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\documentation\\2026_012405_droid_driver.txt7375d924dc2ac8def81c8c4cf4572a4ca26bb6253e41d0b0855caa7453a0142aad997ea5f7817801926f3b6cb75efe27b2d121a1ed3c60d33c0e4b7735e6f77b": "768d145a-3f2f-4151-96d0-32d46fc89124",
+    "2026_012405:stage:file:\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\representations\\rep_2\\data\\attachments\\preservation\\770f0ddc-9936-474d-a3e2-e96c78e331fd.pdfacd6d4cebacbda912d54515bf11262302ee1bfc34ae499762163d79ceddbc63b2cd3860d56901f159b8cfeb6b467f1134804054698bfea13055f81f3c5f4f00b": "e24fc9ec-6700-46a1-8540-4f9146f01f59",
+    "2026_012405:stage:file:\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\representations\\rep_2\\data\\attachments\\preservation\\a476b528-b444-4fbd-84c8-f5d84f431aa5.pdf33eeebb0f06cedafd0bc2eeff5c0ecb416d4347e9ba0fc53ab6aa1aebc14c7571f477410fb14f5db887d8bcfb731f9623e96380fec0395a4eff19470072fd0cb": "d57c84bc-cb7e-467a-8da0-23ed3933b32d",
+    "2026_012405:stage:file:\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\representations\\rep_2\\data\\en\\2026_012405_en.pdf928e09d9e68c308e803a2b5e7276f04f7a0ba06fd89d8ffbd6c45dcc40c151711931bc80883ee0f2a5f424e31a15b1771942e45cc67067255ca7dcdd628f8262": "ba5ac872-2488-4774-9adc-3e5310a030d3",
+    "2026_012405:stage:file:\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\representations\\rep_2\\data\\es\\2026_012405_es.pdf6b746ae8690b97213cb9b316eda9896f0c91656d743215e425c34c33f557fe7162088c7e37fd7875295ec8c2871064c83fc0141eb331fa55534496dccd4cf2ef": "0b20712e-17d0-4b0c-9a8d-0697555191f9",
+    "2026_012405:stage:file:\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\representations\\rep_2\\data\\fr\\2026_012405_fr.pdf60993cc638b87945ab1a192cbd24781e348a3cf9b01c95f3f8c7b78b22a186a7b1dfa1739432164646a7c006accad16a0dd9bd4dc57de0235d982ab8fb2cbe3b": "e1b2a60b-200d-4a02-b32f-76a13e5dafe6"
+  }
+}

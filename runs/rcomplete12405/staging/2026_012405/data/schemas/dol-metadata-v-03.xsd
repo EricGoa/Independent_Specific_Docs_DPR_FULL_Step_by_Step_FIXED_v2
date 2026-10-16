@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--  Draft Documents Online Metadata Elements XML Schema (DOME), Version 0.3, creation date 2026-06-04.
+      The aim of creating this XML schema is to use it in conjunction with the WTO METS Profile 
+      used in the digital preservation initiative.
+      
+      Changes from v0.2 to v0.3:
+        - Target namespace bumped to ...Namespace-v00-03 (breaking change)
+        - All previously single-occurrence elements relaxed to maxOccurs="unbounded"
+          to accommodate language-specific (en/fr/es) repeated values
+        - Added record-level metadata dates mdDateCreated and mdDateModified
+          (typed xs:dateTime, outside the substitution group) to support METS
+          md/@CREATED and metsHdr/@CREATEDATE | @LASTMODDATE
+        - Added record-level mdSourceSystem to record the originating system
+          from which the metadata was extracted (e.g. Documents Online)
+        - Record-level elements (mdSourceSystem, mdDateCreated, mdDateModified)
+          placed first in the sequence, mirroring the METS header
+
+      Changes from v0.1 to v0.2:
+        - Added NotificationAttachmentType extending SimpleLiteral with a required url attribute
+        - Updated notificationAttachment to use NotificationAttachmentType
+        - Added DomeMetadataType as a single flat root container for all metadata elements
+        - Added domeMetadata as the root element
+        - TradeCoverageType remains independent (not part of the substitution group)
+        - Notification-specific element constraints are enforced at the implementation
+          level via the METS profile, not via external Schematron rules
+-->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns="https://docs.wto.org/DocumentsOnline-Metadata-Elements-Namespace-v00-03"
+    targetNamespace="https://docs.wto.org/DocumentsOnline-Metadata-Elements-Namespace-v00-03"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified">
+
+    <xs:annotation>
+        <xs:documentation xml:lang="en">DOME: Documents Online Metadata Elements XML Schema, Version 0.3, 2026-06-04
+            prepared by: Torsten Fratzke (torsten.fratzke@wto.org)
+            This schema declares XML elements for the descriptive metadata elements that are used in Documents Online.
+        </xs:documentation>
+    </xs:annotation>
+
+    <xs:import namespace="http://www.w3.org/XML/1998/namespace"
+        schemaLocation="http://www.w3.org/2001/03/xml.xsd">
+    </xs:import>
+
+    <!-- ============================================================ -->
+    <!-- Base Types                                                    -->
+    <!-- ============================================================ -->
+
+    <xs:complexType name="SimpleLiteral">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                This is the default type for all of the DOME elements.
+                It permits text content only with optional xml:lang attribute.
+                Text is allowed because mixed="true", but sub-elements
+                are disallowed because minOccurs="0" and maxOccurs="0"
+                are on the xs:any tag.
+
+                This complexType allows for restriction or extension permitting
+                child elements.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent mixed="true">
+            <xs:restriction base="xs:anyType">
+                <xs:sequence>
+                    <xs:any processContents="lax" minOccurs="0" maxOccurs="0"/>
+                </xs:sequence>
+                <xs:attribute ref="xml:lang" use="optional"/>
+            </xs:restriction>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <!-- ============================================================ -->
+    <!-- TradeCoverageType (independent — not part of substitution    -->
+    <!-- group as it has a richer structure than SimpleLiteral)       -->
+    <!-- ============================================================ -->
+
+    <xs:complexType name="TradeCoverageType">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                Records trade coverage classification codes from four controlled vocabularies:
+                HS (Harmonized System), ICS (International Classification for Standards),
+                Services (Services Sectoral Classification List), and
+                Environment (Environment Coverage Classification System).
+                Each child element is repeatable to accommodate multiple codes.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="HS"          type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="ICS"         type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="Services"    type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="Environment" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="tradeCoverage" type="TradeCoverageType"/>
+
+    <!-- ============================================================ -->
+    <!-- Record-level metadata dates (metadata about the metadata).   -->
+    <!-- Typed as xs:dateTime, outside the substitution group, so the -->
+    <!-- values are validated and map directly onto METS 2            -->
+    <!-- md/@CREATED and metsHdr/@CREATEDATE | @LASTMODDATE.          -->
+    <!-- ============================================================ -->
+
+    <xs:element name="mdDateCreated"  type="xs:dateTime"/>
+    <xs:element name="mdDateModified" type="xs:dateTime"/>
+
+    <!-- Originating system from which the metadata record was extracted
+         (e.g. "Documents Online"). Plain literal; maps to a METS/PREMIS
+         softwareAgent on the metadata-creation event. -->
+    <xs:element name="mdSourceSystem" substitutionGroup="any"/>
+
+    <!-- ============================================================ -->
+    <!-- NotificationAttachmentType (extends SimpleLiteral to add     -->
+    <!-- a required url attribute)                                    -->
+    <!-- ============================================================ -->
+
+    <xs:complexType name="NotificationAttachmentType">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                Records a URL pointing to a file attached to a notification.
+                Extends SimpleLiteral to remain compatible with the substitution
+                group while adding a required url attribute of type xs:anyURI.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent mixed="true">
+            <xs:extension base="SimpleLiteral">
+                <xs:attribute name="url" type="xs:anyURI" use="required"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <!-- ============================================================ -->
+    <!-- Substitution Group                                           -->
+    <!-- ============================================================ -->
+
+    <!-- Head element — abstract, all DOME elements substitute this -->
+    <xs:element name="any" type="SimpleLiteral" abstract="true"/>
+
+    <!-- General metadata elements -->
+    <xs:element name="ACLInfo"                   substitutionGroup="any"/>
+    <xs:element name="accessRights"              substitutionGroup="any"/>
+    <xs:element name="articles"                  substitutionGroup="any"/>
+    <xs:element name="bodiesIssuing"             substitutionGroup="any"/>
+    <xs:element name="bodiesMentioned"           substitutionGroup="any"/>
+    <xs:element name="collection"                substitutionGroup="any"/>
+    <xs:element name="countryMentioned"          substitutionGroup="any"/>
+    <xs:element name="countryTerritoryConcerned" substitutionGroup="any"/>
+    <xs:element name="countryTerritoryMentioned" substitutionGroup="any"/>
+    <xs:element name="dateIssued"                substitutionGroup="any"/>
+    <xs:element name="derestrictionDate"         substitutionGroup="any"/>
+    <xs:element name="documentDate"              substitutionGroup="any"/>
+    <xs:element name="documentNumber"            substitutionGroup="any"/>
+    <xs:element name="documentSymbol"            substitutionGroup="any"/>
+    <xs:element name="documentType"              substitutionGroup="any"/>
+    <xs:element name="extent"                    substitutionGroup="any"/>
+    <xs:element name="format"                    substitutionGroup="any"/>
+    <xs:element name="jobID"                     substitutionGroup="any"/>
+    <xs:element name="language"                  substitutionGroup="any"/>
+    <xs:element name="organizations"             substitutionGroup="any"/>
+    <xs:element name="originalLanguage"          substitutionGroup="any"/>
+    <xs:element name="pages"                     substitutionGroup="any"/>
+    <xs:element name="periodicity"               substitutionGroup="any"/>
+    <xs:element name="products"                  substitutionGroup="any"/>
+    <xs:element name="rights"                    substitutionGroup="any"/>
+    <xs:element name="source"                    substitutionGroup="any"/>
+    <xs:element name="status"                    substitutionGroup="any"/>
+    <xs:element name="subject"                   substitutionGroup="any"/>
+    <xs:element name="title"                     substitutionGroup="any"/>
+    <xs:element name="version"                   substitutionGroup="any"/>
+
+    <!-- Notification-specific elements -->
+    <xs:element name="countryTerritoryAffected"  substitutionGroup="any"/>
+    <xs:element name="countryTerritoryNotifying" substitutionGroup="any"/>
+    <xs:element name="membersReqNotify"          substitutionGroup="any"/>
+    <xs:element name="notificationPeriodicity"   substitutionGroup="any"/>
+    <xs:element name="requirementMeasureType"    substitutionGroup="any"/>
+    <xs:element name="requirementName"           substitutionGroup="any"/>
+    <xs:element name="requirementShortName"      substitutionGroup="any"/>
+    <xs:element name="requirementTopic"          substitutionGroup="any"/>
+
+    <!-- Notification attachment — uses NotificationAttachmentType for url attribute -->
+    <xs:element name="notificationAttachment" type="NotificationAttachmentType" substitutionGroup="any"/>
+
+    <!-- ============================================================ -->
+    <!-- Root Container                                               -->
+    <!-- ============================================================ -->
+
+    <xs:complexType name="DomeMetadataType">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                Single flat container for all DOME metadata elements.
+                General elements are available to all document types.
+                Notification-specific elements (countryTerritoryAffected,
+                countryTerritoryNotifying, membersReqNotify,
+                notificationPeriodicity, requirementMeasureType,
+                requirementName, requirementShortName, requirementTopic,
+                tradeCoverage, notificationAttachment) should only be used
+                when documentType is 'Notification'. This constraint is
+                enforced at the implementation level via the METS profile.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Record-level metadata (metadata about the metadata), first,
+                 mirroring the METS header. -->
+            <xs:element ref="mdSourceSystem"              minOccurs="0" maxOccurs="1"/>
+            <xs:element ref="mdDateCreated"               minOccurs="0" maxOccurs="1"/>
+            <xs:element ref="mdDateModified"              minOccurs="0" maxOccurs="unbounded"/>
+            <!-- General metadata elements -->
+            <xs:element ref="documentSymbol"              minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="documentType"                minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="documentNumber"              minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="documentDate"                minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="title"                       minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="language"                    minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="originalLanguage"            minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="subject"                     minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="bodiesIssuing"               minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="bodiesMentioned"             minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="countryTerritoryConcerned"   minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="countryTerritoryMentioned"   minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="countryMentioned"            minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="organizations"               minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="articles"                    minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="products"                    minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="status"                      minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="accessRights"                minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="rights"                      minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="source"                      minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="format"                      minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="extent"                      minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="pages"                       minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="version"                     minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="periodicity"                 minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="dateIssued"                  minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="derestrictionDate"           minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="jobID"                       minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="ACLInfo"                     minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="collection"                  minOccurs="0" maxOccurs="unbounded"/>
+            <!-- Notification-specific elements -->
+            <xs:element ref="requirementName"             minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="requirementShortName"        minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="requirementTopic"            minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="requirementMeasureType"      minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="notificationPeriodicity"     minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="countryTerritoryNotifying"   minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="countryTerritoryAffected"    minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="membersReqNotify"            minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="tradeCoverage"               minOccurs="0" maxOccurs="1"/>
+            <xs:element ref="notificationAttachment"      minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="domeMetadata" type="DomeMetadataType"/>
+
+</xs:schema>

@@ -1,0 +1,51 @@
+{
+  "entries": {
+    "98fc00d4-bebb-42c4-8a49-be5eb87e0b51": {
+      "entity_type": "intellectualEntity",
+      "job_id": "2026_012405",
+      "symbol": "",
+      "description": "object",
+      "minted_at": "2026-10-16T08:04:00Z",
+      "minted_by": "workflow stage"
+    },
+    "a7f3b102-1a3c-4e52-8389-6e07cd07caec": {
+      "entity_type": "file",
+      "job_id": "2026_012405",
+      "symbol": "",
+      "description": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\representations\\rep_1\\data\\en\\2026_012405_en.docxb297b4af0d50ab03277b56c5bbd6d6d2f801a1f0bdc25442d31f001d5b74776e499f4dfd5bd7f267511496f146809e02d5594b11d56bda2e661a4d3e20c0c227",
+      "minted_at": "2026-10-16T08:04:00Z",
+      "minted_by": "workflow stage"
+    },
+    "bac9b13f-0d71-4436-95f7-80f2bfed64dd": {
+      "entity_type": "file",
+      "job_id": "2026_012405",
+      "symbol": "",
+      "description": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\representations\\rep_2\\data\\en\\2026_012405_en_src.pdf2900d0f1b03c7b88ce82aff55b09150abab6d9f3daa3e05dc0a1ae57802d48df8fa347260ddea3b9253639c53546db3f97016a16feccf2a15a93da02bc57817f",
+      "minted_at": "2026-10-16T08:04:01Z",
+      "minted_by": "workflow stage"
+    },
+    "6ed689cc-2f9f-460f-810c-1699d9c8a4ea": {
+      "entity_type": "file",
+      "job_id": "2026_012405",
+      "symbol": "",
+      "description": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\representations\\rep_1\\data\\es\\2026_012405_es.docxd47f020d266d6509511e7cd80afa38fd686a73db864d008626bd24dc05375e962b9e60c7ab49e7ff89ccc057d64093f2b2a66437d8a2f5a212d3c94a56a827d8",
+      "minted_at": "2026-10-16T08:04:02Z",
+      "minted_by": "workflow stage"
+    },
+    "52b3e84e-61ba-490f-b13c-120790052338": {
+      "entity_type": "file",
+      "job_id": "2026_012405",
+      "symbol": "",
+      "description": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\representations\\rep_2\\data\\es\\2026_012405_es_src.pdf824b3a3af577d833bac56bb749c2e04aa540ba03feaddcebd3a21945852b05b89527161c86311197b6ffcf7156fdb35286127404b84e25aebe1464da480e2197",
+      "minted_at": "2026-10-16T08:04:02Z",
+      "minted_by": "workflow stage"
+    }
+  },
+  "keys": {
+    "2026_012405:stage:intellectualEntity:object": "98fc00d4-bebb-42c4-8a49-be5eb87e0b51",
+    "2026_012405:stage:file:\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\representations\\rep_1\\data\\en\\2026_012405_en.docxb297b4af0d50ab03277b56c5bbd6d6d2f801a1f0bdc25442d31f001d5b74776e499f4dfd5bd7f267511496f146809e02d5594b11d56bda2e661a4d3e20c0c227": "a7f3b102-1a3c-4e52-8389-6e07cd07caec",
+    "2026_012405:stage:file:\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\representations\\rep_2\\data\\en\\2026_012405_en_src.pdf2900d0f1b03c7b88ce82aff55b09150abab6d9f3daa3e05dc0a1ae57802d48df8fa347260ddea3b9253639c53546db3f97016a16feccf2a15a93da02bc57817f": "bac9b13f-0d71-4436-95f7-80f2bfed64dd",
+    "2026_012405:stage:file:\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\representations\\rep_1\\data\\es\\2026_012405_es.docxd47f020d266d6509511e7cd80afa38fd686a73db864d008626bd24dc05375e962b9e60c7ab49e7ff89ccc057d64093f2b2a66437d8a2f5a212d3c94a56a827d8": "6ed689cc-2f9f-460f-810c-1699d9c8a4ea",
+    "2026_012405:stage:file:\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\representations\\rep_2\\data\\es\\2026_012405_es_src.pdf824b3a3af577d833bac56bb749c2e04aa540ba03feaddcebd3a21945852b05b89527161c86311197b6ffcf7156fdb35286127404b84e25aebe1464da480e2197": "52b3e84e-61ba-490f-b13c-120790052338"
+  }
+}

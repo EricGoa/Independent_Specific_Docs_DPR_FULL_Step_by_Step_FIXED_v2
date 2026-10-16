@@ -1,0 +1,15 @@
+{
+  "entries": {
+    "ab415be4-27f0-4c52-bbde-6f09403fc123": {
+      "entity_type": "intellectualEntity",
+      "job_id": "2026_012405",
+      "symbol": "",
+      "description": "object",
+      "minted_at": "2026-10-16T07:56:36Z",
+      "minted_by": "workflow stage"
+    }
+  },
+  "keys": {
+    "2026_012405:stage:intellectualEntity:object": "ab415be4-27f0-4c52-bbde-6f09403fc123"
+  }
+}

@@ -1,0 +1,13 @@
+DPR PoC 3 veraPDF invocation
+timestamp_utc=2026-10-16T08:19:26.715244Z
+master=\\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\rrelease12405\preparation\2026_012405\representations\rep_2\data\attachments\preservation\35e2c9de-7c17-42bd-b5e1-f2f41a24abf1.pdf
+master_sha512=27697e0dc17531ad7000a0bf077259d0fbc74c0dc5db6d11e14c4f796253c44c5f96b9237b41220c7d099c11ef473631550d5cf28c41362a782499221c710b0b
+requested_flavour=2b
+verdict=PASS
+verapdf_exit_code=0
+
+STDERR
+'\\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2'
+CMD.EXE was started with the above path as the current directory.
+UNC paths are not supported.  Defaulting to Windows directory.
+

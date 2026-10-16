@@ -199,6 +199,8 @@ def main() -> int:
 
         record_path = documentation / f"{job_id}_poc3_validation_record.json"
         validations = load(record_path).get("validations", [])
+        active_ids={c["master_file_id"] for c in conversions}
+        validations=[v for v in validations if v.get("master_file_id") in active_ids]
         pass_count = 0
         fail_count = 0
 

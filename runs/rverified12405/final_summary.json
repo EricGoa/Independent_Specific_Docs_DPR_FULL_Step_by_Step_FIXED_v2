@@ -1,0 +1,42 @@
+{
+  "job_id": "2026_012405",
+  "dms_job_id": "12405.26",
+  "symbol": "G/TBT/N/EU/1243",
+  "status": "COMPLETED_ISOLATED_LIVE_EXAMPLE",
+  "originals": 8,
+  "original_fixity": "PASS",
+  "pdfa_passes": 5,
+  "qa_clear": 5,
+  "profile_gaps": [],
+  "controlled_definitions_tested": 31,
+  "controlled_values_present": 28,
+  "findings_dispositions": 67,
+  "workflow_dispositions": 17,
+  "regression_tests": 39,
+  "regression_result": "PASS",
+  "ocfl_head": "v1",
+  "ocfl_independent": "PASS",
+  "sip_uuid": "e67dd603-e7da-4a3e-8d5b-7698e9e8c5ea",
+  "object_id": "urn:uuid:78eda807-5a80-4de1-9e33-a2e2d0df9c47",
+  "sip_payload_files": 36,
+  "payload_oxum": "2132901.36",
+  "final_consistency_audit": {
+    "frozen_sources": "PASS",
+    "agent_registry_agreement": "PASS",
+    "dome_operation_completed": "2026-10-16T08:25:35Z",
+    "droid_scope_events": 2,
+    "conversion_log_uuid_at_creation": "PASS",
+    "original_fixity": "PASS",
+    "sealed_sip_unchanged": "PASS",
+    "mets_profile": "PASS",
+    "ocfl_independent": "PASS"
+  },
+  "existing_production_files_unchanged": true,
+  "review_status": "Implemented fixes and user-authorized working designs; institutional review/closure remains separate.",
+  "remaining_boundaries": [
+    "Missing historical precision is not fabricated",
+    "Three schema-unsupported crosswalk terms remain source evidence",
+    "CSV uses a single writer; multi-writer service is a deployment choice",
+    "Interrupted inventory/sidecar commits hold for manual recovery; automatic recovery is not claimed"
+  ]
+}

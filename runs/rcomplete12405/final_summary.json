@@ -1,0 +1,34 @@
+{
+  "job_id": "2026_012405",
+  "dms_job_id": "12405.26",
+  "symbol": "G/TBT/N/EU/1243",
+  "original_count": 8,
+  "original_fixity": "PASS",
+  "pdfa_pass_count": 5,
+  "qa_clear_count": 5,
+  "profile_gaps": [],
+  "mets_profile": "urn:dpr:poc:mets-profile:1",
+  "mets_profile_validation": "PASS",
+  "ocfl_head": "v1",
+  "ocfl_validation": "PASS",
+  "sip_uuid": "509b789e-a23a-4d0d-b42a-c10a813c509a",
+  "object_id": "urn:uuid:98fc00d4-bebb-42c4-8a49-be5eb87e0b51",
+  "sip_payload_files": 36,
+  "payload_oxum": "2129088.36",
+  "controlled_values_definitions_tested": 31,
+  "controlled_values_present": 28,
+  "regression_tests": 37,
+  "regression_result": "PASS",
+  "existing_production_files_unchanged": true,
+  "review_status": "Implementation evidence and user-authorized local design; teammate closure still required",
+  "remaining_operational_boundaries": [
+    "Automatic release of human-adjudicated QA holds is not implemented",
+    "Explicit automated master reconversion routing is not implemented",
+    "Legacy records cannot supply missing historical exact operation timestamps",
+    "Multi-writer transactional registry and automatic interrupted OCFL commit recovery remain outside current implementation"
+  ],
+  "crosswalk_schema_boundaries": [
+    "CRNid, TraslationRule and derestrictionType remain source evidence because supplied v0.3 has no corresponding elements",
+    "CatalogueStatus workflow state is retained as evidence; CatStatus remains editorial DOME status"
+  ]
+}

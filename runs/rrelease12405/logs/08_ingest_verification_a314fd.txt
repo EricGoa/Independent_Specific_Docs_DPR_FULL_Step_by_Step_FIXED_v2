@@ -1,0 +1,14 @@
+[INFO] dpr_dol_ingest_worker PoC 8
+       staged bag: \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\rrelease12405\staging\2026_012405
+       trust model: UNTRUSTED � verifying from bag contents only
+
+[PASS] PackageFixityVerifiedOnIngest
+       outcome: verified
+       payload files verified: 36
+       tag files verified:     3
+       Payload-Oxum:           2132816.36 VERIFIED
+       disposition:            READY_FOR_OCFL_INGEST
+       record:                 \\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\runs\rrelease12405\ingest-records\2026_012405_poc8_ingest_verification_record.json
+Status: STEP_8_PACKAGE_FIXITY_VERIFIED
+
+STDERR

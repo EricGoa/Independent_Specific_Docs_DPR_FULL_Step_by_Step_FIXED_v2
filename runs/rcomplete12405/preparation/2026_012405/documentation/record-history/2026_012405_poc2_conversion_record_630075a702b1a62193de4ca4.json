@@ -1,0 +1,51 @@
+{
+  "job_id": "2026_012405",
+  "folder_uuid": "98fc00d4-bebb-42c4-8a49-be5eb87e0b51",
+  "status": "STEP_2_IN_PROGRESS",
+  "conversions": [
+    {
+      "source_file_id": "770f0ddc-9936-474d-a3e2-e96c78e331fd",
+      "completed_at": "2026-10-16T08:04:59.416457Z",
+      "source_role": "notification_attachment",
+      "language": "en",
+      "source_path": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\representations\\rep_2\\data\\attachments\\2026_012405_notification_en_26_05201_00_e.pdf",
+      "source_sha512": "85ddbe9b9955645901168fe0e3671c3d48e9525dc99c9fe552ab837fa05a5b27ea7bcecda6ea3222594adb91ca771e792f0cfc5f106c2a8d300d39f81ac5d3fe",
+      "master_file_id": "e24fc9ec-6700-46a1-8540-4f9146f01f59",
+      "master_path": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\representations\\rep_2\\data\\attachments\\preservation\\770f0ddc-9936-474d-a3e2-e96c78e331fd.pdf",
+      "master_sha512": "acd6d4cebacbda912d54515bf11262302ee1bfc34ae499762163d79ceddbc63b2cd3860d56901f159b8cfeb6b467f1134804054698bfea13055f81f3c5f4f00b",
+      "master_size_bytes": 258654,
+      "target_claimed": "PDF/A-2b",
+      "conversion_mode": "strict",
+      "convert_error_action": "None",
+      "converter_status": "CONVERTED_UNSIGNED_DERIVATIVE",
+      "signature_policy": "signed original retained; unsigned preservation derivative",
+      "conversion_log": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\documentation\\770f0ddc-9936-474d-a3e2-e96c78e331fd_conv_aspose.xml",
+      "driver_log": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\documentation\\770f0ddc-9936-474d-a3e2-e96c78e331fd_conv_driver.txt",
+      "driver_log_sha512": "c63c08abd867ef76efa88dff5779e4dcf89043deebdb03a8767a0e7d343bcd41c8ae963d0a292cc1645bb75c8daf39e066c8fae337fee98c5365eb0b1e16b9e0",
+      "conversion_log_sha512": "28f839186e78d052873fe33e4955f7d55f3ee7ecb011b7a623b7857ef33bba6f53a70b95960c11d126a38da127c916f7012fc87e022da62e4660cccce8db9ba8",
+      "conformance_validated": false
+    },
+    {
+      "source_file_id": "a476b528-b444-4fbd-84c8-f5d84f431aa5",
+      "completed_at": "2026-10-16T08:05:03.575527Z",
+      "source_role": "notification_attachment",
+      "language": "en",
+      "source_path": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\representations\\rep_2\\data\\attachments\\2026_012405_notification_en_26_05201_01_e.pdf",
+      "source_sha512": "1c9e3fd15564052cce45bb06c854a6afc22b1f3f2e97ec64ec908283b72b2e9501f619f37261e246fba010d663221091569308fbf018de9907c5260916a00c05",
+      "master_file_id": "d57c84bc-cb7e-467a-8da0-23ed3933b32d",
+      "master_path": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\representations\\rep_2\\data\\attachments\\preservation\\a476b528-b444-4fbd-84c8-f5d84f431aa5.pdf",
+      "master_sha512": "33eeebb0f06cedafd0bc2eeff5c0ecb416d4347e9ba0fc53ab6aa1aebc14c7571f477410fb14f5db887d8bcfb731f9623e96380fec0395a4eff19470072fd0cb",
+      "master_size_bytes": 355746,
+      "target_claimed": "PDF/A-2b",
+      "conversion_mode": "strict",
+      "convert_error_action": "None",
+      "converter_status": "CONVERTED_UNSIGNED_DERIVATIVE",
+      "signature_policy": "signed original retained; unsigned preservation derivative",
+      "conversion_log": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\documentation\\a476b528-b444-4fbd-84c8-f5d84f431aa5_conv_aspose.xml",
+      "driver_log": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\documentation\\a476b528-b444-4fbd-84c8-f5d84f431aa5_conv_driver.txt",
+      "driver_log_sha512": "b9e65221ac7bbfb5149c4d9e9736e0595a0d0082e1f90cf122a17182d1697dd466134b83b2d195c6ec79d51493f58cf26a4cc28bafecf10c6bc0351f14c4aa2e",
+      "conversion_log_sha512": "8c925ddb6d160537361ead2c89dfbcd3525afa27b751932c574cd6c1f48f89eaeeaa91dec0fd2fff1925cb0f6bd2053245ed80faaa3b35af7b8d94902f61e576",
+      "conformance_validated": false
+    }
+  ]
+}

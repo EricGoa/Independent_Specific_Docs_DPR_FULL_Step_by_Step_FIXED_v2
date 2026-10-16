@@ -1,0 +1,70 @@
+{
+  "job_id": "2026_012405",
+  "dms_job_id": "12405.26",
+  "run_directory": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rfinal12405",
+  "started_utc": "2026-10-16T07:56:29.696707+00:00",
+  "external_tools": "REAL; no mocks",
+  "production_accession": false,
+  "registry_status": "PROVISIONAL",
+  "stages": [
+    {
+      "stage": "01_preparation",
+      "exit_code": 0,
+      "seconds": 12.81,
+      "log": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rfinal12405\\logs\\01_preparation_96aad0.txt"
+    },
+    {
+      "stage": "02_source_droid",
+      "exit_code": 0,
+      "seconds": 37.97,
+      "log": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rfinal12405\\logs\\02_source_droid_a2c600.txt"
+    },
+    {
+      "stage": "03_conversion",
+      "exit_code": 0,
+      "seconds": 21.33,
+      "log": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rfinal12405\\logs\\03_conversion_5f51ea.txt"
+    },
+    {
+      "stage": "04_verapdf",
+      "exit_code": 0,
+      "seconds": 15.62,
+      "log": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rfinal12405\\logs\\04_verapdf_89325e.txt"
+    },
+    {
+      "stage": "05_qa",
+      "exit_code": 0,
+      "seconds": 8.92,
+      "log": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rfinal12405\\logs\\05_qa_bcdb2d.txt"
+    },
+    {
+      "stage": "06_metadata",
+      "exit_code": 0,
+      "seconds": 77.22,
+      "log": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rfinal12405\\logs\\06_metadata_269474.txt"
+    },
+    {
+      "stage": "07_bagit",
+      "exit_code": 0,
+      "seconds": 22.61,
+      "log": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rfinal12405\\logs\\07_bagit_7b3811.txt"
+    },
+    {
+      "stage": "08_ingest_verification",
+      "exit_code": 0,
+      "seconds": 17.94,
+      "log": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rfinal12405\\logs\\08_ingest_verification_70845d.txt"
+    },
+    {
+      "stage": "09_ocfl",
+      "exit_code": 0,
+      "seconds": 40.22,
+      "log": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rfinal12405\\logs\\09_ocfl_3fc0dc.txt"
+    }
+  ],
+  "status": "COMPLETED_ISOLATED_LIVE_EXAMPLE",
+  "existing_production_files_unchanged": true,
+  "completed_utc": "2026-10-16T08:00:52.509057+00:00",
+  "sip_path": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rfinal12405\\staging\\2026_012405",
+  "aip_path": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rfinal12405\\AIP\\2026\\012000\\2026_012405"
+}

@@ -395,6 +395,8 @@ def main() -> int:
 
         object_record_path = documentation / f"{job_id}_poc4_qa_record.json"
         qa_entries = load(object_record_path).get("qa_entries", [])
+        active_ids={c["master_file_id"] for c in conversions}
+        qa_entries=[q for q in qa_entries if q.get("master_file_id") in active_ids]
         clear_count = 0
         flagged_count = 0
 
@@ -426,8 +428,8 @@ def main() -> int:
                 previous_report = load(previous["qa_report_path"])
                 verify(source, previous_report["source"]["sha512"])
                 verify(master, previous_report["master"]["sha512"])
-                clear_count += previous.get("status") == "AUTO_QA_CLEAR"
-                flagged_count += previous.get("status") != "AUTO_QA_CLEAR"
+                clear_count += previous.get("status") in {"AUTO_QA_CLEAR","MANUAL_QA_CLEAR"}
+                flagged_count += previous.get("status") not in {"AUTO_QA_CLEAR","MANUAL_QA_CLEAR"}
                 continue
             qa = perform_qa(source, master)
             base = master.stem
@@ -509,7 +511,7 @@ def main() -> int:
                 print(f"        QA report file_id: {qa_report_file_id}")
                 print(f"        report: {report_path}")
 
-        object_status = "STEP_4_AUTO_QA_CLEAR" if flagged_count == 0 else "STEP_4_QA_FLAGGED_HOLD"
+        object_status = ("STEP_4_MANUAL_QA_CLEAR" if any(e.get("manual_adjudication") for e in qa_entries) else "STEP_4_AUTO_QA_CLEAR") if flagged_count == 0 else "STEP_4_QA_FLAGGED_HOLD"
         object_record = {
             "job_id": job_id,
             "folder_uuid": poc3.get("folder_uuid"),

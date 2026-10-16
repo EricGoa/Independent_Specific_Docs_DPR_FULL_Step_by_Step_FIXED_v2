@@ -123,6 +123,8 @@ def main() -> int:
     parser.add_argument("--converter-project", required=True, type=Path, help="Path to DprPdfaConverter.csproj")
     parser.add_argument("--license", required=True, type=Path, help="Path to the existing Aspose .lic file")
     parser.add_argument("--allow-signed-derivative",action="store_true",help="Retain signed originals and permit explicitly unsigned PDF/A derivatives")
+    parser.add_argument("--reconvert-source-id",action="append",default=[],help="Explicit source UUID to reconvert; old master/evidence retained")
+    parser.add_argument("--reconversion-token",help="Required stable UUID4 token for idempotent reconversion")
     args = parser.parse_args()
 
     try:
@@ -143,9 +145,23 @@ def main() -> int:
 
         record_path = documentation / f"{job_id}_poc2_conversion_record.json"
         conversions = load(record_path).get("conversions", [])
+        selected=set(args.reconvert_source_id)
+        if selected:
+            token=args.reconversion_token
+            if not token or str(uuid.UUID(token))!=token or uuid.UUID(token).version!=4:
+                raise Poc2Error("Reconversion requires a lowercase UUID4 --reconversion-token")
+            if not selected <= {f["file_id"] for f in poc1["files"] if Path(f["staged_path"]).resolve() in {p.resolve() for p in sources}}:
+                raise Poc2Error("Unknown reconversion source UUID")
+
         for source in sources:
             source_record = next(f for f in poc1["files"] if Path(f["staged_path"]).resolve() == source.resolve())
             previous = next((c for c in conversions if c.get("source_file_id") == source_record["file_id"]), None)
+            reconvert=source_record["file_id"] in selected
+            if previous and reconvert and previous.get("reconversion_token")!=args.reconversion_token:
+                verify(source,previous["source_sha512"])
+                verify(previous["master_path"],previous["master_sha512"])
+                conversions.remove(previous)
+                previous=None
             if previous:
                 verify(source, previous["source_sha512"])
                 verify(previous["master_path"], previous["master_sha512"])
@@ -155,6 +171,8 @@ def main() -> int:
                 print(f"[REUSE] {source.name}")
                 continue
             master = (source.parent / "preservation" / (source_record["file_id"] + ".pdf")) if source_record["role"] == "notification_attachment" else canonical_master(source)
+            if reconvert:
+                master=master.with_name(master.stem+"_reconv_"+args.reconversion_token[:8]+".pdf")
             master.parent.mkdir(parents=True, exist_ok=True)
             if master.exists():
                 raise Poc2Error(f"Refusing to overwrite existing master: {master}")
@@ -194,6 +212,7 @@ def main() -> int:
                     None,
                 ),
                 "completed_at": utc_now(),
+                "reconversion_token": args.reconversion_token if reconvert else None,
                 "source_role": source_record["role"],
                 "language": source_record["language"],
                 "source_path": str(source.resolve()),
@@ -208,6 +227,7 @@ def main() -> int:
                 "converter_status": status,
                 "signature_policy": "signed original retained; unsigned preservation derivative" if status == "CONVERTED_UNSIGNED_DERIVATIVE" else "no signature removal",
                 "conversion_log": str(conversion_log.resolve()) if conversion_log.exists() else None,
+                "conversion_log_file_id": registered_uuid(obj_dir,"file",str(conversion_log.resolve())+sha512_file(conversion_log)) if conversion_log.exists() else None,
                 "driver_log": str(driver_log.resolve()),
                 "driver_log_sha512": sha512_file(driver_log),
                 "conversion_log_sha512": sha512_file(conversion_log) if conversion_log.exists() else None,

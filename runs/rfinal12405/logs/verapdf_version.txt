@@ -1,0 +1,11 @@
+veraPDF 1.26.2
+Built: Sun May 19 13:33:00 CEST 2024
+Developed and released by the veraPDF Consortium.
+Funded by the PREFORMA project.
+Released under the GNU General Public License v3
+and the Mozilla Public License v2 or later.
+
+
+'\\cwr.wto.org\dfsroot\home\Gao\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2'
+CMD.EXE was started with the above path as the current directory.
+UNC paths are not supported.  Defaulting to Windows directory.

@@ -1,0 +1,242 @@
+{
+  "id": "urn:uuid:e9447a07-ee93-490b-8660-af6cdf28b946",
+  "type": "https://ocfl.io/1.1/spec/#inventory",
+  "digestAlgorithm": "sha512",
+  "head": "v1",
+  "manifest": {
+    "05f2b7e010b99b157bbf9acd538a890400825b92ad9c673acc9e058e618b7f0f5b54a3b60dc39e0e48d1dfd77f2979289b2260c787bca64de9f4169542202a36": [
+      "v1/content/documentation/2026_012405_fr_conv_aspose.xml"
+    ],
+    "095e0e9d49f422886016ae47656df4f9b4e6d731de5f5c04c52a07961e7002b6e2577e1077145569f59546e30506c431b0ebf3c0939d4e4fcf64e49d4a254702": [
+      "v1/content/documentation/2026_012405_fr_val_verapdf.xml"
+    ],
+    "1c9e3fd15564052cce45bb06c854a6afc22b1f3f2e97ec64ec908283b72b2e9501f619f37261e246fba010d663221091569308fbf018de9907c5260916a00c05": [
+      "v1/content/representations/rep_2/data/attachments/2026_012405_notification_en_26_05201_01_e.pdf"
+    ],
+    "1e5a7a5bcd747eb175781cadc490b1c629f6298bce8cd9de01e029023e299343376d12abcbcfba896f5570b8db1fd3614d5643e07e33c8e812378a9dc13f6804": [
+      "v1/content/representations/rep_1/data/fr/2026_012405_fr.docx"
+    ],
+    "2424f0bf25ede85c9b8536ec9a85d59790cf31fb4a8ce081b1d4d6d91dc297cf837d6112e1c08c3c788f8b579b56a5f8fc1c2ba1e57f6bb735bff2259d02b50e": [
+      "v1/content/documentation/2026_012405_en_qa_pypdf.json"
+    ],
+    "27697e0dc17531ad7000a0bf077259d0fbc74c0dc5db6d11e14c4f796253c44c5f96b9237b41220c7d099c11ef473631550d5cf28c41362a782499221c710b0b": [
+      "v1/content/representations/rep_2/data/attachments/preservation/35e2c9de-7c17-42bd-b5e1-f2f41a24abf1.pdf"
+    ],
+    "2c47da3616524aecd8f2586a49b5d34f022f319fa4ff0df64efe4498192ae72d0fb474b9269aafd8f450a8436899af968cab7a59d2d98762a547dc4594533ca9": [
+      "v1/content/documentation/2026_012405_es_conv_aspose.xml"
+    ],
+    "2c88145d0ce4df450ca409b6c80a448d57255b7d5826911c20e7d8d4564d4287a643f2dab002a7693e950c002c6497a16addfb5835885892223022e1a64bdba5": [
+      "v1/content/documentation/2026_012405_257a009c42d34dd7977ad9b5a9bf6b1d_droid_export.csv"
+    ],
+    "325a21fc00733c66290eaa840dd8f74fb3c318b1f2b11aec55ac3712600fc7d5cd6d333933b7786e6705af48641a97e17db68444afbfd326192b9ac88ff8e574": [
+      "v1/content/documentation/35e2c9de-7c17-42bd-b5e1-f2f41a24abf1_val_verapdf.xml"
+    ],
+    "47c02be450e4ba524c5c36cbc6d1daaee7eb5351803303962f3ef3c03d53a35c2ee25465edc862df2be6b775eee07899b82b85a01259b68c646169553e6fd5ba": [
+      "v1/content/documentation/2026_012405_dome_sql_extraction.json"
+    ],
+    "4df0efa64d19b012304c9e5a788b6a585858d2a726920bbca40c18157e110ad3530158f34deb48cda19e61f8b63b76309702cf5ad08d0b08c9077a8f1c67ca42": [
+      "v1/content/representations/rep_2/data/en/2026_012405_en.pdf"
+    ],
+    "509e105fb73dd80615316c325c48382677d3a0c92e95513118b236bd4e3ffac98462824cdad9a75a5e8d82e6689cab76f684f8e66b33d8bd8365889eaeed411e": [
+      "v1/content/documentation/2026_012405_es_qa_pypdf.json"
+    ],
+    "610671f78902083796ffcb1f45a2f00d559e67c39320919abc78674962c08cba28c1ee7c6bce659849e11003787e98e14a640eae137b15ad7255005887c2050d": [
+      "v1/content/documentation/20401c71-7ea2-473f-9d2d-832d121c8053_qa_pypdf.json"
+    ],
+    "6208c674d91c1d5dee27bae9eec164fc78877f573f34d645db18bd0bba1f5115114f07f2dce436a5a04d22c052b5ae15376e2068dc36043dccb439157bbc6543": [
+      "v1/content/metadata/preservation/2026_012405_premis.xml"
+    ],
+    "67804dc7a4bce4c2b0bd7e981be336a4d325cd6133492aa4933aaf96cc63d2d09a44c9f33aa81ded69fcc86ed332d20dbad308a3f113e97b2fa9951ed8a91ffd": [
+      "v1/content/representations/rep_2/data/attachments/preservation/20401c71-7ea2-473f-9d2d-832d121c8053.pdf"
+    ],
+    "68649f94c1e5ade8477e0c51f3408043ca9dc95cde7144e932c24d7c89ca583ad0597461ffdd984b4cfb3f31246c95dfc23d143fbf8e321d5f057fda65817d84": [
+      "v1/content/documentation/35e2c9de-7c17-42bd-b5e1-f2f41a24abf1_qa_pypdf.json"
+    ],
+    "6ca494dfd6b88aa07b72fbd4a306daba1d4feab8159f331f3faea3df603dbe12920d470e1b292ed1d5b15a477e5e33fb612379b82b5bd7b053c4dad375998430": [
+      "v1/content/representations/rep_2/data/es/2026_012405_es.pdf"
+    ],
+    "7d5c9d57ddb82578718c51c3abf8cadd825a0313e4d55241679ea957fd2b2b05fa2bd38ed5b4fdc16113b4d0f51121f8647c45f6f2c9e203e2daaedec6209271": [
+      "v1/content/documentation/20401c71-7ea2-473f-9d2d-832d121c8053_conv_aspose.xml"
+    ],
+    "80c72000b1e4ef529f578e7fb27e2723513bdbba69e48491bff1ae17b116dd634e798747f10ad832362f2fb141f4a5b57712dbf553a43fcae28f7860efbb7877": [
+      "v1/content/documentation/2026_012405_en_val_verapdf.xml"
+    ],
+    "85ddbe9b9955645901168fe0e3671c3d48e9525dc99c9fe552ab837fa05a5b27ea7bcecda6ea3222594adb91ca771e792f0cfc5f106c2a8d300d39f81ac5d3fe": [
+      "v1/content/representations/rep_2/data/attachments/2026_012405_notification_en_26_05201_00_e.pdf"
+    ],
+    "93df6f88bf678f9f1489a2ebbf107cf2c44b82eb8236e7f5b1dbb2f77fa6fd3dd8486a621fd5b9bedda7688a6657d565c12bbd5ad4e277cb3470c99bcce82cf6": [
+      "v1/content/2026_012405_mets.xml"
+    ],
+    "a716c93db1bbbcf9c353ff939f15aa1ed83c8d96739bafad93c790a7779c49c680a279c97c760fe55546fa43cab1d43e92431f24c46ff001976e05329231b635": [
+      "v1/content/schemas/xml.xsd"
+    ],
+    "b297b4af0d50ab03277b56c5bbd6d6d2f801a1f0bdc25442d31f001d5b74776e499f4dfd5bd7f267511496f146809e02d5594b11d56bda2e661a4d3e20c0c227": [
+      "v1/content/representations/rep_1/data/en/2026_012405_en.docx"
+    ],
+    "b2999ab96bf97bb5284985b52af4bcd0b79e483f7eb74d4c420406757f72376ab96e7e7e191a79ac7dd04c535f71e19da7ec91f8babce17e648f7c36fbb5827c": [
+      "v1/content/representations/rep_2/data/fr/2026_012405_fr.pdf"
+    ],
+    "b2de938f1cd2351cd86697aa8543c0af18987eb825ef6a0677965c2fe5b138abd8ed53b2ea3fbd514ca6050ae39adc0d3266871b21d45ca02f45ed00c3f83f7d": [
+      "v1/content/documentation/20401c71-7ea2-473f-9d2d-832d121c8053_val_verapdf.xml"
+    ],
+    "c199266042b6f0742e2058905c7565e10d358621dc7aad54c103f632ea7633d741d30635eabdc5c0b9a22ecc1319e1dd3ac6652f897d888e8a562d3108e64992": [
+      "v1/content/documentation/2026_012405_es_val_verapdf.xml"
+    ],
+    "caf818eb333f1887e3d32516afc2018497e7cac1527471ea56b9e5acbe4de83869a69eebd3e2feebdea9f15d91a65fafdb88117b548b927bad6873a0a78a205f": [
+      "v1/content/documentation/2026_012405_droid_export.csv"
+    ],
+    "cdec7aeedf035fa5a0317fb2ab3ad42c9f6b60528453c37c98b331404006e7166f19f34102b76349b21f8647f1bf491b1e4e629a0e86bde4ac3807d96f88f562": [
+      "v1/content/documentation/2026_012405_fr_qa_pypdf.json"
+    ],
+    "d263351006e0b4f0cbe3dcd38bf6a1e85a3d1470e0e3843db49edb2879c2a4e38f2292cf2934ccc0333c11a5adfcb2285bb2ba22f85e5cd47d3e588045a747d8": [
+      "v1/content/metadata/descriptive/2026_012405_dome.xml"
+    ],
+    "d47f020d266d6509511e7cd80afa38fd686a73db864d008626bd24dc05375e962b9e60c7ab49e7ff89ccc057d64093f2b2a66437d8a2f5a212d3c94a56a827d8": [
+      "v1/content/representations/rep_1/data/es/2026_012405_es.docx"
+    ],
+    "d524ed457c67a9e9e4de723519f26567e098c02b8db21fca6807683b30a0b9e477a230cef942e8245411f2a6ccb0f8a7df2bae18dc7363ec2810899d67064a32": [
+      "v1/content/schemas/xlink.xsd"
+    ],
+    "dbffa98aa6778121b96d4790da8a559367262c808d5fa236e0403edcd9fb640d0c69e79149467f003e13c3bb4c4796a0fca22e1c58e76498790ae914203f5a30": [
+      "v1/content/documentation/2026_012405_en_conv_aspose.xml"
+    ],
+    "e53bd28accc20b22fdf893010371418d885bef9ea430e0f5a49036e8971265d99eddb1d87bdec682cc56594d559eb3cc4ef428ab46389bdd28c1032211952119": [
+      "v1/content/version-summary.json"
+    ],
+    "ea3731c715fe117c18ccdc1720f4f891512c4bcbe2d4862ff9ad11f793074d638251b992e48a5b8432eb47092706eb57f94f625afc300735cc21ad4497f3fd7f": [
+      "v1/content/documentation/35e2c9de-7c17-42bd-b5e1-f2f41a24abf1_conv_aspose.xml"
+    ],
+    "f0c95073d0c571ff89cb965e21a5c3adaa27ab7de71850acc53a3d88395668b6fc76f8ca0167c5649c852497e60399049180f1d355c48fdfa04575fc3c604cfa": [
+      "v1/content/schemas/dol-metadata-v-03.xsd"
+    ],
+    "f0feb6d7d30a0f27ffd53dadb976ded9fde56adbe339fac0d2cb43352966c768103001c44d1dd0a013c89323f3ca81557f4ddf106629134d82ac9f0587de07c5": [
+      "v1/content/schemas/premis.xsd"
+    ],
+    "f7348f7f7dea347777e2e6338c85bc6a43c828646948298d62f03d3ec6683d219cf3554228129b560e34ff641ef51f23a213efb33e80dd80ca124841845bbb47": [
+      "v1/content/schemas/mets.xsd"
+    ]
+  },
+  "versions": {
+    "v1": {
+      "created": "2026-10-16T08:21:53Z",
+      "message": "new_document — SIP for 2026_012405 (new_document) [built on none]",
+      "state": {
+        "05f2b7e010b99b157bbf9acd538a890400825b92ad9c673acc9e058e618b7f0f5b54a3b60dc39e0e48d1dfd77f2979289b2260c787bca64de9f4169542202a36": [
+          "documentation/2026_012405_fr_conv_aspose.xml"
+        ],
+        "095e0e9d49f422886016ae47656df4f9b4e6d731de5f5c04c52a07961e7002b6e2577e1077145569f59546e30506c431b0ebf3c0939d4e4fcf64e49d4a254702": [
+          "documentation/2026_012405_fr_val_verapdf.xml"
+        ],
+        "1c9e3fd15564052cce45bb06c854a6afc22b1f3f2e97ec64ec908283b72b2e9501f619f37261e246fba010d663221091569308fbf018de9907c5260916a00c05": [
+          "representations/rep_2/data/attachments/2026_012405_notification_en_26_05201_01_e.pdf"
+        ],
+        "1e5a7a5bcd747eb175781cadc490b1c629f6298bce8cd9de01e029023e299343376d12abcbcfba896f5570b8db1fd3614d5643e07e33c8e812378a9dc13f6804": [
+          "representations/rep_1/data/fr/2026_012405_fr.docx"
+        ],
+        "2424f0bf25ede85c9b8536ec9a85d59790cf31fb4a8ce081b1d4d6d91dc297cf837d6112e1c08c3c788f8b579b56a5f8fc1c2ba1e57f6bb735bff2259d02b50e": [
+          "documentation/2026_012405_en_qa_pypdf.json"
+        ],
+        "27697e0dc17531ad7000a0bf077259d0fbc74c0dc5db6d11e14c4f796253c44c5f96b9237b41220c7d099c11ef473631550d5cf28c41362a782499221c710b0b": [
+          "representations/rep_2/data/attachments/preservation/35e2c9de-7c17-42bd-b5e1-f2f41a24abf1.pdf"
+        ],
+        "2c47da3616524aecd8f2586a49b5d34f022f319fa4ff0df64efe4498192ae72d0fb474b9269aafd8f450a8436899af968cab7a59d2d98762a547dc4594533ca9": [
+          "documentation/2026_012405_es_conv_aspose.xml"
+        ],
+        "2c88145d0ce4df450ca409b6c80a448d57255b7d5826911c20e7d8d4564d4287a643f2dab002a7693e950c002c6497a16addfb5835885892223022e1a64bdba5": [
+          "documentation/2026_012405_257a009c42d34dd7977ad9b5a9bf6b1d_droid_export.csv"
+        ],
+        "325a21fc00733c66290eaa840dd8f74fb3c318b1f2b11aec55ac3712600fc7d5cd6d333933b7786e6705af48641a97e17db68444afbfd326192b9ac88ff8e574": [
+          "documentation/35e2c9de-7c17-42bd-b5e1-f2f41a24abf1_val_verapdf.xml"
+        ],
+        "47c02be450e4ba524c5c36cbc6d1daaee7eb5351803303962f3ef3c03d53a35c2ee25465edc862df2be6b775eee07899b82b85a01259b68c646169553e6fd5ba": [
+          "documentation/2026_012405_dome_sql_extraction.json"
+        ],
+        "4df0efa64d19b012304c9e5a788b6a585858d2a726920bbca40c18157e110ad3530158f34deb48cda19e61f8b63b76309702cf5ad08d0b08c9077a8f1c67ca42": [
+          "representations/rep_2/data/en/2026_012405_en.pdf"
+        ],
+        "509e105fb73dd80615316c325c48382677d3a0c92e95513118b236bd4e3ffac98462824cdad9a75a5e8d82e6689cab76f684f8e66b33d8bd8365889eaeed411e": [
+          "documentation/2026_012405_es_qa_pypdf.json"
+        ],
+        "610671f78902083796ffcb1f45a2f00d559e67c39320919abc78674962c08cba28c1ee7c6bce659849e11003787e98e14a640eae137b15ad7255005887c2050d": [
+          "documentation/20401c71-7ea2-473f-9d2d-832d121c8053_qa_pypdf.json"
+        ],
+        "6208c674d91c1d5dee27bae9eec164fc78877f573f34d645db18bd0bba1f5115114f07f2dce436a5a04d22c052b5ae15376e2068dc36043dccb439157bbc6543": [
+          "metadata/preservation/2026_012405_premis.xml"
+        ],
+        "67804dc7a4bce4c2b0bd7e981be336a4d325cd6133492aa4933aaf96cc63d2d09a44c9f33aa81ded69fcc86ed332d20dbad308a3f113e97b2fa9951ed8a91ffd": [
+          "representations/rep_2/data/attachments/preservation/20401c71-7ea2-473f-9d2d-832d121c8053.pdf"
+        ],
+        "68649f94c1e5ade8477e0c51f3408043ca9dc95cde7144e932c24d7c89ca583ad0597461ffdd984b4cfb3f31246c95dfc23d143fbf8e321d5f057fda65817d84": [
+          "documentation/35e2c9de-7c17-42bd-b5e1-f2f41a24abf1_qa_pypdf.json"
+        ],
+        "6ca494dfd6b88aa07b72fbd4a306daba1d4feab8159f331f3faea3df603dbe12920d470e1b292ed1d5b15a477e5e33fb612379b82b5bd7b053c4dad375998430": [
+          "representations/rep_2/data/es/2026_012405_es.pdf"
+        ],
+        "7d5c9d57ddb82578718c51c3abf8cadd825a0313e4d55241679ea957fd2b2b05fa2bd38ed5b4fdc16113b4d0f51121f8647c45f6f2c9e203e2daaedec6209271": [
+          "documentation/20401c71-7ea2-473f-9d2d-832d121c8053_conv_aspose.xml"
+        ],
+        "80c72000b1e4ef529f578e7fb27e2723513bdbba69e48491bff1ae17b116dd634e798747f10ad832362f2fb141f4a5b57712dbf553a43fcae28f7860efbb7877": [
+          "documentation/2026_012405_en_val_verapdf.xml"
+        ],
+        "85ddbe9b9955645901168fe0e3671c3d48e9525dc99c9fe552ab837fa05a5b27ea7bcecda6ea3222594adb91ca771e792f0cfc5f106c2a8d300d39f81ac5d3fe": [
+          "representations/rep_2/data/attachments/2026_012405_notification_en_26_05201_00_e.pdf"
+        ],
+        "93df6f88bf678f9f1489a2ebbf107cf2c44b82eb8236e7f5b1dbb2f77fa6fd3dd8486a621fd5b9bedda7688a6657d565c12bbd5ad4e277cb3470c99bcce82cf6": [
+          "2026_012405_mets.xml"
+        ],
+        "a716c93db1bbbcf9c353ff939f15aa1ed83c8d96739bafad93c790a7779c49c680a279c97c760fe55546fa43cab1d43e92431f24c46ff001976e05329231b635": [
+          "schemas/xml.xsd"
+        ],
+        "b297b4af0d50ab03277b56c5bbd6d6d2f801a1f0bdc25442d31f001d5b74776e499f4dfd5bd7f267511496f146809e02d5594b11d56bda2e661a4d3e20c0c227": [
+          "representations/rep_1/data/en/2026_012405_en.docx"
+        ],
+        "b2999ab96bf97bb5284985b52af4bcd0b79e483f7eb74d4c420406757f72376ab96e7e7e191a79ac7dd04c535f71e19da7ec91f8babce17e648f7c36fbb5827c": [
+          "representations/rep_2/data/fr/2026_012405_fr.pdf"
+        ],
+        "b2de938f1cd2351cd86697aa8543c0af18987eb825ef6a0677965c2fe5b138abd8ed53b2ea3fbd514ca6050ae39adc0d3266871b21d45ca02f45ed00c3f83f7d": [
+          "documentation/20401c71-7ea2-473f-9d2d-832d121c8053_val_verapdf.xml"
+        ],
+        "c199266042b6f0742e2058905c7565e10d358621dc7aad54c103f632ea7633d741d30635eabdc5c0b9a22ecc1319e1dd3ac6652f897d888e8a562d3108e64992": [
+          "documentation/2026_012405_es_val_verapdf.xml"
+        ],
+        "caf818eb333f1887e3d32516afc2018497e7cac1527471ea56b9e5acbe4de83869a69eebd3e2feebdea9f15d91a65fafdb88117b548b927bad6873a0a78a205f": [
+          "documentation/2026_012405_droid_export.csv"
+        ],
+        "cdec7aeedf035fa5a0317fb2ab3ad42c9f6b60528453c37c98b331404006e7166f19f34102b76349b21f8647f1bf491b1e4e629a0e86bde4ac3807d96f88f562": [
+          "documentation/2026_012405_fr_qa_pypdf.json"
+        ],
+        "d263351006e0b4f0cbe3dcd38bf6a1e85a3d1470e0e3843db49edb2879c2a4e38f2292cf2934ccc0333c11a5adfcb2285bb2ba22f85e5cd47d3e588045a747d8": [
+          "metadata/descriptive/2026_012405_dome.xml"
+        ],
+        "d47f020d266d6509511e7cd80afa38fd686a73db864d008626bd24dc05375e962b9e60c7ab49e7ff89ccc057d64093f2b2a66437d8a2f5a212d3c94a56a827d8": [
+          "representations/rep_1/data/es/2026_012405_es.docx"
+        ],
+        "d524ed457c67a9e9e4de723519f26567e098c02b8db21fca6807683b30a0b9e477a230cef942e8245411f2a6ccb0f8a7df2bae18dc7363ec2810899d67064a32": [
+          "schemas/xlink.xsd"
+        ],
+        "dbffa98aa6778121b96d4790da8a559367262c808d5fa236e0403edcd9fb640d0c69e79149467f003e13c3bb4c4796a0fca22e1c58e76498790ae914203f5a30": [
+          "documentation/2026_012405_en_conv_aspose.xml"
+        ],
+        "e53bd28accc20b22fdf893010371418d885bef9ea430e0f5a49036e8971265d99eddb1d87bdec682cc56594d559eb3cc4ef428ab46389bdd28c1032211952119": [
+          "version-summary.json"
+        ],
+        "ea3731c715fe117c18ccdc1720f4f891512c4bcbe2d4862ff9ad11f793074d638251b992e48a5b8432eb47092706eb57f94f625afc300735cc21ad4497f3fd7f": [
+          "documentation/35e2c9de-7c17-42bd-b5e1-f2f41a24abf1_conv_aspose.xml"
+        ],
+        "f0c95073d0c571ff89cb965e21a5c3adaa27ab7de71850acc53a3d88395668b6fc76f8ca0167c5649c852497e60399049180f1d355c48fdfa04575fc3c604cfa": [
+          "schemas/dol-metadata-v-03.xsd"
+        ],
+        "f0feb6d7d30a0f27ffd53dadb976ded9fde56adbe339fac0d2cb43352966c768103001c44d1dd0a013c89323f3ca81557f4ddf106629134d82ac9f0587de07c5": [
+          "schemas/premis.xsd"
+        ],
+        "f7348f7f7dea347777e2e6338c85bc6a43c828646948298d62f03d3ec6683d219cf3554228129b560e34ff641ef51f23a213efb33e80dd80ca124841845bbb47": [
+          "schemas/mets.xsd"
+        ]
+      },
+      "user": {
+        "name": "Eric Gao",
+        "address": "mailto:eric.gao@wto.org"
+      }
+    }
+  }
+}

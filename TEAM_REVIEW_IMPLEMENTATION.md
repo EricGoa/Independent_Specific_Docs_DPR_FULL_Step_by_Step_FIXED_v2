@@ -1,3 +1,5 @@
+> Latest implementation update (2026-10-16): see WORKFLOW_v3_DESIGN.md, METS_PROFILE_v1.md, AGENT_REGISTRY_DESIGN.md and PREMIS_PROFILE_IMPLEMENTATION_ADDENDUM_v1.md. The completion workbook records every F001?F067 and W01?W17 disposition. Final real example: runs/rverified12405/FINAL_RESULT.html. Human QA and explicit reconversion are now implemented; all 39 tests passed. Earlier partial-work notes below are historical.
+
 # Team review implementation — 2026-10-15
 
 The supplied reviews and PREMIS profile are reference requirements, not authority
@@ -102,13 +104,13 @@ tags. DROID/tool/signature configuration and approved production person-agent
 rows still need to be supplied. Strict PoC6/PoC9 rejects the provisional registry;
 strict PoC6 also rejects missing PRONOM identification and CatHeaderId.
 
-`team-review/DOL_DOME_crosswalk_PROVISIONAL.xlsx` lists every schema element,
-its proposed source, and unmapped fields. Notification-specific catalogue joins,
-controlled access-rights mapping, article-role distinctions and the authoritative
-crosswalk remain unapproved. Unmapped values are omitted rather than fabricated.
-The original XML Amexio namespace schema, the current crosswalk and current
-workflow document were not supplied locally. SharePoint references in the email
-are contextual pointers; access to those documents was not assumed.
+The completed crosswalk supplied on 2026-10-16 supersedes the earlier
+provisional workbook: team-review/DOL_DOME_crosswalk_COMPLETED_2026-10-16.xlsx,
+Crosswalk sheet. Profile extraction now implements verified SQL mappings,
+including notification fields. See team-review/COMPLETED_CROSSWALK_INTEGRATION.md
+for live validation and remaining schema/status conflicts. The original Amexio
+schema and current workflow document are still not supplied locally.
+Existing preservation packages are unchanged.
 
 `team-review/2026_011922_premis_conformance_review_implementation.xlsx` preserves
 the original workbook and adds responses for all F001–F067. Implemented findings
@@ -131,7 +133,7 @@ its Implementation sheet. The following workflow dispositions apply:
 | W13 | This implementation note records changes; institutional workflow revision still needs team approval |
 | W14 | Unique DROID evidence retained; final approved naming still open |
 | W15 | UUID4 local registry implemented; production registry location/backend approval pending |
-| W16 | Supplied v0.3 schema used; provisional crosswalk; unresolved semantic mappings visible |
+| W16 | Completed crosswalk integrated; v0.3 schema gaps and CatalogueStatus semantic conflict documented |
 | W17 | METS 1 schema validation and descriptive/preservation sections implemented; final METS business profile still pending |
 
 This is a working draft implementation, not a declaration that all 67 review

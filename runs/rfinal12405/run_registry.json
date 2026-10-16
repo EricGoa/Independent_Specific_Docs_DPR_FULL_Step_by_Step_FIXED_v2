@@ -1,0 +1,69 @@
+{
+  "draft": true,
+  "notice": "User-authorized working registry and local METS design; real example, not institutional production approval.",
+  "operator": {
+    "uuid": "9c282f49-c5af-4ca1-8d79-cf5d0889b655",
+    "name": "Eric Gao",
+    "email": "eric.gao@wto.org",
+    "type": "person",
+    "note": "Example explicitly requested by the user; name/email supplied in the project team correspondence; registry remains provisional."
+  },
+  "agents": {
+    "preparation": {
+      "uuid": "7db9f6e5-1663-4b59-ba82-0ef64d26d225",
+      "name": "poc1_builder.py",
+      "type": "software",
+      "version": "source-set SHA-256:415f298423cc3a7c165aa7cae92ee39c941e571939ff8cdbd3e97a74dc12ad03",
+      "note": "User-authorized working registry; measured source fingerprint for poc1_builder.py, workflow_common.py"
+    },
+    "metadata": {
+      "uuid": "5ce2a185-3cfa-4437-a96b-2308b1e56e4b",
+      "name": "poc6_metadata.py",
+      "type": "software",
+      "version": "source-set SHA-256:6070290751406eccef751df23e58cee6d60cf947010c3f6b008cc838790e0f8e",
+      "note": "User-authorized working registry; measured source fingerprint for poc6_metadata.py, profile_workflow.py, workflow_common.py, crosswalk_metadata.py, mets_profile.py"
+    },
+    "validation": {
+      "uuid": "eefcf8e2-0e53-4474-8ec9-ce035d30c7b2",
+      "name": "poc3_verapdf.py",
+      "type": "software",
+      "version": "source-set SHA-256:6e1adb6baa2544f278714ea774aa8044e2b092f9de469922554bee08a0596e3b",
+      "note": "User-authorized working registry; measured source fingerprint for poc3_verapdf.py, workflow_common.py"
+    },
+    "qa": {
+      "uuid": "fdfaee17-e888-4b36-9118-57d25ba13987",
+      "name": "poc4_qa.py",
+      "type": "software",
+      "version": "source-set SHA-256:97626ffa0be406468137f008f3ce600309a2cfe7d3892fabfd09aa210e401a79",
+      "note": "User-authorized working registry; measured source fingerprint for poc4_qa.py, workflow_common.py"
+    },
+    "ingest": {
+      "uuid": "2136762b-6cd3-4d1b-bba1-f1344b7f3427",
+      "name": "poc9_ocfl_ingest.py",
+      "type": "software",
+      "version": "source-set SHA-256:66cbdfd3c6ae108ffd96e330f054a34d1f9eeacce8f7dd11fd621d9c3ca90213",
+      "note": "User-authorized working registry; measured source fingerprint for poc8_ingest_worker.py, poc9_ocfl_ingest.py, profile_workflow.py, workflow_common.py, ocfl_versions.py, mets_profile.py"
+    },
+    "converter": {
+      "uuid": "e2434f97-0079-455e-a549-9bd739765478",
+      "name": "Aspose.PDF for .NET",
+      "type": "software",
+      "version": "25.10.0",
+      "note": "Confirmed from DprPdfaConverter.csproj; profile C++ label needs correction"
+    },
+    "droid": {
+      "uuid": "7bd1d72b-769e-4582-a8c0-6a988aa3360e",
+      "name": "DROID",
+      "type": "software",
+      "version": "6.8.1; DROID signatures V118; container signatures 20240501",
+      "note": "Installed tool and signature versions verified from local DROID configuration; raw evidence retained."
+    },
+    "verapdf": {
+      "uuid": "35334fdb-b644-49c9-b5cc-65ea3f9d4169",
+      "name": "veraPDF",
+      "type": "software",
+      "version": "veraPDF 1.26.2\nBuilt: Sun May 19 13:33:00 CEST 2024\nDeveloped and released by the veraPDF Consortium.\nFunded by the PREFORMA project.\nReleased under the GNU General Public License v3\nand the Mozilla Public License v2 or later.",
+      "note": "Measured installed runtime version; validation scripts retain their own source identity."
+    }
+  }
+}

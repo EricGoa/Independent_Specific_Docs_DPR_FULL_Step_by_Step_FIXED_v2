@@ -57,6 +57,34 @@
       "type": "software",
       "version": "UNCONFIGURED (set installed tool and signature versions)",
       "note": "Draft registry; strict profile disabled until verified"
+    },
+    "packaging": {
+      "uuid": "54522e6d-c7cd-4d25-93f0-c3c7f341af3e",
+      "name": "poc7_bagit.py",
+      "type": "software",
+      "version": "source SHA-256:43dd25dbc37345b9865d1fc55d3c2cd0f7edb74d6962c63701c3845e653641ab",
+      "note": "User-authorized local registry design; configure production operator before institutional use."
+    },
+    "verification": {
+      "uuid": "0f68e11f-1326-4c7a-96a5-3112c5ae5874",
+      "name": "poc8_ingest_worker.py",
+      "type": "software",
+      "version": "source SHA-256:46b57c8f2fd0a46058b89019673de86ae9368675ee8150472d6c82f00f5bd72b",
+      "note": "User-authorized local registry design; configure production operator before institutional use."
+    },
+    "conversion_script": {
+      "uuid": "ad207055-5a78-4045-9bb4-1462d62f82b1",
+      "name": "poc2_aspose.py",
+      "type": "software",
+      "version": "source SHA-256:4b9b7d449f98ca87c763d6a2c4ac23701ad64bf9ba14d73014ee20ba368930d5",
+      "note": "Calculates master/log fixity; normalization and creatingApplication identify the actual Aspose engine separately."
+    },
+    "verapdf": {
+      "uuid": "e1b3b44f-fdc5-4031-92ed-30b2fdb81cac",
+      "name": "veraPDF",
+      "type": "software",
+      "version": "1.26.2",
+      "note": "Installed runtime verified by --version, evidence runs/rfinal12405/logs/verapdf_version.txt; reconfigure for other deployments."
     }
   }
 }

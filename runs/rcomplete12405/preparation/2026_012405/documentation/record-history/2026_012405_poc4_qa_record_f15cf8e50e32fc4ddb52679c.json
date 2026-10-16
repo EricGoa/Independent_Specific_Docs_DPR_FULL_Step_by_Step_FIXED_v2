@@ -1,0 +1,60 @@
+{
+  "job_id": "2026_012405",
+  "status": "STEP_4_IN_PROGRESS",
+  "qa_entries": [
+    {
+      "completed_at": "2026-10-16T08:05:38.183757Z",
+      "source_file_id": "770f0ddc-9936-474d-a3e2-e96c78e331fd",
+      "source_path": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\representations\\rep_2\\data\\attachments\\2026_012405_notification_en_26_05201_00_e.pdf",
+      "master_file_id": "e24fc9ec-6700-46a1-8540-4f9146f01f59",
+      "master_path": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\representations\\rep_2\\data\\attachments\\preservation\\770f0ddc-9936-474d-a3e2-e96c78e331fd.pdf",
+      "qa_report_file_id": "f84305da-acf8-4599-ae12-5054a6102028",
+      "qa_report_path": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\documentation\\770f0ddc-9936-474d-a3e2-e96c78e331fd_qa_pypdf.json",
+      "qa_report_sha512": "292352d05e4baafe2c704613eabb878180953994cf35f6fb89deca918f9cd2c1bb74cf3f122fe979177152f62be6753b76009bbc23fef6bbd12b221ae20c4de9",
+      "status": "AUTO_QA_CLEAR",
+      "flags": [],
+      "human_review_required": false,
+      "relationship": {
+        "type": "isQaReportOf",
+        "report_file_id": "f84305da-acf8-4599-ae12-5054a6102028",
+        "master_file_id": "e24fc9ec-6700-46a1-8540-4f9146f01f59"
+      }
+    },
+    {
+      "completed_at": "2026-10-16T08:05:39.644924Z",
+      "source_file_id": "a476b528-b444-4fbd-84c8-f5d84f431aa5",
+      "source_path": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\representations\\rep_2\\data\\attachments\\2026_012405_notification_en_26_05201_01_e.pdf",
+      "master_file_id": "d57c84bc-cb7e-467a-8da0-23ed3933b32d",
+      "master_path": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\representations\\rep_2\\data\\attachments\\preservation\\a476b528-b444-4fbd-84c8-f5d84f431aa5.pdf",
+      "qa_report_file_id": "47750420-0830-4cb3-9ad3-218171519f6b",
+      "qa_report_path": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\documentation\\a476b528-b444-4fbd-84c8-f5d84f431aa5_qa_pypdf.json",
+      "qa_report_sha512": "8d6a2ecd50267d9e0c971379eac1fda4b92caa5a63e20715bd3c3c23c0c3c912a2eb02007405ce5118a39d54238edc97d77adbe8e2441167eb8490f15b56a792",
+      "status": "AUTO_QA_CLEAR",
+      "flags": [],
+      "human_review_required": false,
+      "relationship": {
+        "type": "isQaReportOf",
+        "report_file_id": "47750420-0830-4cb3-9ad3-218171519f6b",
+        "master_file_id": "d57c84bc-cb7e-467a-8da0-23ed3933b32d"
+      }
+    },
+    {
+      "completed_at": "2026-10-16T08:05:40.909781Z",
+      "source_file_id": "bac9b13f-0d71-4436-95f7-80f2bfed64dd",
+      "source_path": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\representations\\rep_2\\data\\en\\2026_012405_en_src.pdf",
+      "master_file_id": "ba5ac872-2488-4774-9adc-3e5310a030d3",
+      "master_path": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\representations\\rep_2\\data\\en\\2026_012405_en.pdf",
+      "qa_report_file_id": "e42f9022-4f14-45c8-aa28-8ff87c59605d",
+      "qa_report_path": "\\\\cwr.wto.org\\dfsroot\\home\\Gao\\Independent_Specific_Docs_DPR_FULL_Step_by_Step_FIXED_v2\\runs\\rcomplete12405\\preparation\\2026_012405\\documentation\\2026_012405_en_qa_pypdf.json",
+      "qa_report_sha512": "be0d8970f750cbbcc36116e6cb59e93d58f61afa2e890a0431c20dadae35ec118ca4b0566bc527adf0a7e2bc32328f754baa3cc4d4f7c44f295b2c661132aee3",
+      "status": "AUTO_QA_CLEAR",
+      "flags": [],
+      "human_review_required": false,
+      "relationship": {
+        "type": "isQaReportOf",
+        "report_file_id": "e42f9022-4f14-45c8-aa28-8ff87c59605d",
+        "master_file_id": "ba5ac872-2488-4774-9adc-3e5310a030d3"
+      }
+    }
+  ]
+}

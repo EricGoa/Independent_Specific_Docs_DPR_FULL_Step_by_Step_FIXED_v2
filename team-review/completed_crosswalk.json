@@ -1,0 +1,487 @@
+{
+  "source": "C:\\Users\\Gao\\Downloads\\DOL_DOME_crosswalk (2).xlsx",
+  "sha512": "686bdd31009953deb180aaa43ddaed81b4ce1180a97e3d864dc45da6cf6f1a15338e485ed322b3b234ce49b67f6d69781204719770835492c59ad15774851733",
+  "sheet": "Crosswalk",
+  "rows": [
+    {
+      "element": "mdSourceSystem",
+      "group": "record",
+      "definition": null,
+      "front_end": null,
+      "back_end": null,
+      "sql_column": null,
+      "amexio": null,
+      "notes": "Not from DOL: constant \"Documents Online\", written by the pipeline. Not in the PoC record."
+    },
+    {
+      "element": "mdDateCreated",
+      "group": "record",
+      "definition": null,
+      "front_end": null,
+      "back_end": null,
+      "sql_column": null,
+      "amexio": null,
+      "notes": "Not in the DOL extract. Source to decide: DOL record creation date, or the time the pipeline first writes the DOME record. Not in the PoC record. METS 1: dmdSec/@CREATED, metsHdr/@CREATEDATE."
+    },
+    {
+      "element": "mdDateModified",
+      "group": "record",
+      "definition": null,
+      "front_end": null,
+      "back_end": null,
+      "sql_column": null,
+      "amexio": null,
+      "notes": "Not in the DOL extract. Source to decide (DOL last modification, or the time a new DOME record is written). Not in the PoC record. METS 1: metsHdr/@LASTMODDATE (single); the schema allows unbounded."
+    },
+    {
+      "element": "documentSymbol",
+      "group": "general",
+      "definition": "A alphanumeric code assigned to an official document that serves as its formal identifier within Documents Online and associated document management systems, enabling unambiguous reference and retrieval.  — enc: Free text.  Multisymbol documents should be written with hash (#).",
+      "front_end": "Symbol [EN]\nCote [FR]\nSignatura [ES]",
+      "back_end": "Symbol ",
+      "sql_column": "Symbols",
+      "amexio": "Symbol",
+      "notes": "DOL extract key \"Symbol\" (G/SPS/N/CHL/890/Add.1). PoC writes <symbol>. Multisymbol documents: # separator (spec)."
+    },
+    {
+      "element": "documentType",
+      "group": "general",
+      "definition": "The nature or genre of the resource.  — enc: Document Type Controlled Vocabulary List",
+      "front_end": "Document type [EN]\nType de document [FR]\nTipos de documento [ES]",
+      "back_end": "Type",
+      "sql_column": "DocumentTypeID",
+      "amexio": "DocumentType (URI, https://data.wto.org/authority/document_types/…)",
+      "notes": "DOL extract key \"Document type\" (Notification). PoC writes <documentType>. Plain label; the spec expects the Document Type vocabulary."
+    },
+    {
+      "element": "documentNumber",
+      "group": "general",
+      "definition": "The document number assigned to the resource.  — enc: Free text in the format of YY-NNNN.",
+      "front_end": "Doc # [EN]\nDoc. n° [FR]\nDoc. n° [ES]",
+      "back_end": "Doc # ",
+      "sql_column": "Serial",
+      "amexio": "DocNumber",
+      "notes": "DOL extract key \"Document number\" (26-6639). PoC writes <documentNumber>. Matches YY-NNNN."
+    },
+    {
+      "element": "documentDate",
+      "group": "general",
+      "definition": "The document date associated with the resource.  — enc: W3CDTF",
+      "front_end": "Date [EN]\nDate [FR]\nFecha [ES]",
+      "back_end": "Document Date",
+      "sql_column": "CreateDate",
+      "amexio": "DocumentDate (xs:date)",
+      "notes": "DOL extract key \"Document Date\" (2026-09-25). PoC writes <documentDate>."
+    },
+    {
+      "element": "title",
+      "group": "general",
+      "definition": "A designation, expressed as a word, phrase, or sequence of characters, that identifies a resource or work and distinguishes it from others.  — enc: Free text.",
+      "front_end": "English title [EN]\nFrench title [EN]\nSpanish title [EN]\n\nTítulo en inglés [ES]\nTítulo en francés [ES]\nTítulo en español [ES]",
+      "back_end": "E-title",
+      "sql_column": "Title",
+      "amexio": "Title (one per record, in the language of doc_lang)",
+      "notes": "DOL extract keys \"Title - E\", \"Title - F\", \"Title - S\". Amexio: one Title per record, its language from doc_lang. PoC writes <titleE>, <titleF>, <titleS>. Proposed: three <title> with xml:lang en, fr, es."
+    },
+    {
+      "element": "language",
+      "group": "general",
+      "definition": "The language of the resource.  — enc: ISO639-1",
+      "front_end": "English [EN]\nFrench [EN]\nSpanish [EN]\nAnglais [FR]\nFrançais [FR]\nEspagnol [FR]\nInglés [ES]\nFrancés [ES]\nEspañol [ES]",
+      "back_end": "English\nFrench\nSpanish",
+      "sql_column": "LCID",
+      "amexio": "doc_lang (EN, FR, ES)",
+      "notes": "Not in the DOL extract. Amexio doc_lang gives the language of each record (one record per language version). PoC writes <language> only inside its file list."
+    },
+    {
+      "element": "originalLanguage",
+      "group": "general",
+      "definition": "The language in which the resource was originally submitted.  — enc: ISO639-1",
+      "front_end": null,
+      "back_end": "Original Language",
+      "sql_column": "OriginalLanguage",
+      "amexio": "OriginalLanguage (EN, FR, ES)",
+      "notes": "DOL extract key \"Original language\" (S). PoC writes S. Amexio uses EN, FR, ES. Three codings: DOME needs ISO 639-1 (en, fr, es), with a value map from both; multilingual: mul (ISO 639-2)."
+    },
+    {
+      "element": "subject",
+      "group": "general",
+      "definition": "A topic of the resource.  — enc: Subject Controlled Vocabulary List",
+      "front_end": "Keywords [EN]\nMots-clés [FR]\nPalabras clave [ES]",
+      "back_end": "Subject",
+      "sql_column": "DOLSubjectListID",
+      "amexio": null,
+      "notes": "DOL extract key \"Subject\", # separated (4 values). PoC splits into four <subject>. No Amexio mapping in the spec."
+    },
+    {
+      "element": "bodiesIssuing",
+      "group": "general",
+      "definition": "The body(ies) responsible for issuing the resource.  — enc: Body Controlled Vocabulary List",
+      "front_end": "Bodies issuing [EN]\nOrganes responsables [FR]\nÓrganos emisores [ES]",
+      "back_end": "Body issuing",
+      "sql_column": "BodyListID",
+      "amexio": "BodyIssuing (URI, https://data.wto.org/body/…)",
+      "notes": "DOL extract key \"Body issuing\". PoC writes <bodyIssuing>."
+    },
+    {
+      "element": "bodiesMentioned",
+      "group": "general",
+      "definition": "A body that is referenced or mentioned within the resource but is not its creator and/or issuer.  — enc: Body Controlled Vocabulary List",
+      "front_end": "Bodies mentioned [EN]\nOrganes mentionnés [FR]\nÓrganos mencionados [ES]",
+      "back_end": "Body mentioned",
+      "sql_column": "BodyListID",
+      "amexio": "OtherBodyMentioned: cited by the DOME spec, not in the Amexio schema",
+      "notes": "DOL extract key \"Body mentioned\" (empty here). PoC omits it when empty."
+    },
+    {
+      "element": "countryTerritoryConcerned",
+      "group": "general",
+      "definition": "The specific country or territory that is issuing the resource or that is the primary subject of the resource.  — enc: Country/Territory Controlled Vocabulary List [SYSREF]",
+      "front_end": "Country / territory mainly concerned [EN]\nPays / territoire principalement concernés [FR]\nPaís / territorio, principalmente en cuestión [ES]",
+      "back_end": "Member Concerned ",
+      "sql_column": "CountryCode",
+      "amexio": null,
+      "notes": "DOL extract key \"Member concerned\" (Chile). PoC writes <memberConcerned>. No Amexio mapping in the spec."
+    },
+    {
+      "element": "countryTerritoryMentioned",
+      "group": "general",
+      "definition": "A country or territory referenced or mentioned within the resource, without being its primary subject or issuer.  — enc: Country/Territory Controlled Vocabulary List [SYSREF]",
+      "front_end": "Other countries / territories mentioned [EN]\nAutres pays / territoires mentionnés [FR]\nOtros países / territorios mencionados [ES]",
+      "back_end": "Other Member Mentioned",
+      "sql_column": "CountryCode",
+      "amexio": null,
+      "notes": "DOL extract key \"Other member mentioned\" (empty here)? To confirm, and to tell apart from countryMentioned."
+    },
+    {
+      "element": "CRNid",
+      "group": "general",
+      "definition": "A unique identifier assigned to a document or record within the CRN system, used to facilitate its identification, tracking, and retrieval. — enc: Free text?",
+      "front_end": null,
+      "back_end": "CRNId\nCRNId with links",
+      "sql_column": "NotificationNumber",
+      "amexio": null,
+      "notes": null
+    },
+    {
+      "element": "TraslationRule",
+      "group": "general",
+      "definition": "An indicator specifying whether a document must be available in all language versions to be visible. A value of “Yes” means that all language versions must be available for the document to be visible, while “No” indicates that the document can be visible without all language versions. — enc: Boolean (Yes/No)",
+      "front_end": null,
+      "back_end": "Translation Rule",
+      "sql_column": "TranslationRuleApplied",
+      "amexio": null,
+      "notes": null
+    },
+    {
+      "element": "organizations",
+      "group": "general",
+      "definition": "The specific organization that is issuing or is being covered by the resource.  — enc: Organization Controlled Vocabulary List",
+      "front_end": "Organizations [EN]\nOrganisations [FR]\nOrganizaciones [ES]",
+      "back_end": "Organization",
+      "sql_column": "OrganizationListID",
+      "amexio": null,
+      "notes": "DOL extract key \"Organization\" (empty here)?"
+    },
+    {
+      "element": "articles",
+      "group": "general",
+      "definition": "The specific agreement article(s) that are being covered by the resource.  — enc: Agreements controlled vocabulary list Articles controlled vocabulary list",
+      "front_end": "Articles [EN]\nArticles [FR]\nArtículos [ES]",
+      "back_end": "Article basis \nArticle mentioned",
+      "sql_column": "ArticleCodeListID",
+      "amexio": "Article_basis; OtherArticleMentioned: cited by the DOME spec, not in the Amexio schema",
+      "notes": "DOL extract key \"Article basis\", # separated (SPS 7#SPS Annex B), and \"Article mentioned\" (empty here). PoC writes two <articleBasis>. The spec maps both DOL fields to one DOME term: basis and mention are no longer distinguished."
+    },
+    {
+      "element": "products",
+      "group": "general",
+      "definition": "The specific products that are being covered by the resource.  — enc: Products Controlled Vocabulary List",
+      "front_end": "Products [EN]\nProduits [FR]\nProductos [ES]",
+      "back_end": "Products",
+      "sql_column": "ProductListID",
+      "amexio": null,
+      "notes": "DOL extract key \"Products\" (plants). PoC writes <products>."
+    },
+    {
+      "element": "status",
+      "group": "general",
+      "definition": "Indicates the nature of the document relative to a previous iteration.  — enc: Document Status Controlled Vocabulary List",
+      "front_end": "Status [EN]\nStatut [FR]\nEstado [ES]",
+      "back_end": "Type Status",
+      "sql_column": "CatalogueStatus",
+      "amexio": null,
+      "notes": "DOL extract key \"Document type status\" (Addendum)? PoC writes <documentTypeStatus>. Values match the spec (Addendum, Corrigendum, Revision, Supplement)."
+    },
+    {
+      "element": "accessRights",
+      "group": "general",
+      "definition": "Information about who access the resource or an indication of its security status.  — enc: Access Rights controlled vocabulary list",
+      "front_end": "Access level [EN]\nNiveau d'accès [FR]\nNivel de acceso [ES]",
+      "back_end": "\tAccess",
+      "sql_column": "AccessType",
+      "amexio": "AccessType (free text; the DOME spec marks the mapping \"?\")",
+      "notes": "DOL extract key \"Access type\" (Public) and \"Restriction type\" (U). PoC writes <accessType> and <restrictionType>. To decide: which field(s), and the value map to the Access Rights vocabulary (e.g. U/91 → Unrestricted, 44 → Derestricted)."
+    },
+    {
+      "element": "source",
+      "group": "general",
+      "definition": "The creator or author responsible for originating the document.  — enc: Body Controlled Vocabulary List",
+      "front_end": "Source [EN]\nSource [FR]\nFuente [ES]",
+      "back_end": "Type Source",
+      "sql_column": "SourceID",
+      "amexio": "Source_issuing (URI, https://data.wto.org/authority/document_sources/…)",
+      "notes": "DOL extract key \"Document type source\" (Member). The Amexio schema takes a URI from the document-sources vocabulary (authority/document_sources/), so the DOME spec's encoding \"Body Controlled Vocabulary List\" and its definition as creator are to be corrected. Not in the PoC record."
+    },
+    {
+      "element": "format",
+      "group": "general",
+      "definition": "The file format of the electronic resource.  — enc: Format Controlled Vocabulary List",
+      "front_end": null,
+      "back_end": null,
+      "sql_column": null,
+      "amexio": null,
+      "notes": "Not in the DOL extract. File-level property in a document-level record: describes which file? Format is recorded per file in PREMIS."
+    },
+    {
+      "element": "extent",
+      "group": "general",
+      "definition": "enc: Free text. Recommended numeric value in megabytes (MB)",
+      "front_end": null,
+      "back_end": null,
+      "sql_column": null,
+      "amexio": null,
+      "notes": "Not in the DOL extract. File-level property (size in MB): describes which file? Size is recorded per file in PREMIS."
+    },
+    {
+      "element": "pages",
+      "group": "general",
+      "definition": "A description of the specific number of pages of the resource.  — enc: Free text.",
+      "front_end": "Pages [EN]\nPages English [ENG]\nPages French [ENG]\nPages Spanish [ENG]\nPages [FR]\nPages anglais [FR]\nPages français [FR]\nPages espagnol [FR]\nPáginas [ES]\nPáginas inglés [ES]\nPáginas francés [ES]\nPáginas español [ES]",
+      "back_end": "Pages",
+      "sql_column": "Nbpages",
+      "amexio": null,
+      "notes": "Not in the DOL extract. Differs per language version and format: which one?"
+    },
+    {
+      "element": "version",
+      "group": "general",
+      "definition": "Indicates the maturity stage of the document in its editorial process. Possible values are: Draft and Final.  — enc: Free text.",
+      "front_end": "Version [EN]\nVersion [FR]\nVersión [ES]",
+      "back_end": "Type Version",
+      "sql_column": "VersionID",
+      "amexio": null,
+      "notes": "DOL extract key \"Document type version\" (Final)? PoC writes <documentTypeVersion>. Values match the spec (Draft, Final)."
+    },
+    {
+      "element": "periodicity",
+      "group": "general",
+      "definition": "The frequency at which the resource is issued or updated.  — enc: Periodicity Controlled Vocabulary List",
+      "front_end": "Periodicity [EN]\nPeriodicité [FR]\nPeriodicidad [ES]",
+      "back_end": "\t\nType Periodicity",
+      "sql_column": "PeriodicityID",
+      "amexio": "Periodicity",
+      "notes": "DOL extract key \"Document type periodicity\" (empty here)?"
+    },
+    {
+      "element": "dateIssued",
+      "group": "general",
+      "definition": "Date of formal issuance or publication of the resource.  — enc: W3CDTF",
+      "front_end": null,
+      "back_end": "Posting Date",
+      "sql_column": "PostingDate",
+      "amexio": null,
+      "notes": "Not in the DOL extract. Date and time of publication on DOL: per language version? Source to find."
+    },
+    {
+      "element": "derestrictionDate",
+      "group": "general",
+      "definition": "Date on which a document was formally derestricted in accordance with the prescribed procedure.  — enc: W3CDTF",
+      "front_end": "Derestricted on [EN]\nDistribution générale le [FR]\nDistribución general el [ES]",
+      "back_end": "\tDerestriction Date",
+      "sql_column": "DerestrictionDate",
+      "amexio": null,
+      "notes": "Not in the DOL extract. Source to find (needed for the derestriction basis)."
+    },
+    {
+      "element": "jobID",
+      "group": "general",
+      "definition": "A unique alphanumeric identifier automatically assigned to every document processed through the document management system (DMS) in the format NNNN.YY  — enc: Free text in the format of NNNN.YY",
+      "front_end": null,
+      "back_end": "Job id",
+      "sql_column": "DmsJobId",
+      "amexio": "JOB_ID (pattern \\d+\\.\\d{2}, the DMS form, e.g. 11922.26)",
+      "notes": "DOL extract key \"Job ID\" (2026_011922) and \"source_dms_job_id\" (11922.26). PoC writes 2026_011922. The Amexio schema and the DOME spec both take the DMS form (\\d+.YY; the spec's \"NNNN.YY\" is too narrow, as 11922.26 shows). Decide which form DOME carries, or carry both."
+    },
+    {
+      "element": "ACLInfo",
+      "group": "general",
+      "definition": "A list defining the access permissions and restrictions assigned to a resource, specifying which users or user groups are authorized to view, retrieve, or interact with the document within the system.  — enc: Free text? Controlled vocabulary?",
+      "front_end": null,
+      "back_end": "Restriction\n",
+      "sql_column": "RestrictionType",
+      "amexio": "ACLInfo",
+      "notes": "Not in the DOL extract. Definition still \"??\" in the spec."
+    },
+    {
+      "element": "derestrictionType",
+      "group": "general",
+      "definition": "A classification indicating the type of derestriction applied to a document, specifying the conditions or basis under which access restrictions are lifted.— enc: Controlled vocabulary",
+      "front_end": null,
+      "back_end": "Derestriction Type",
+      "sql_column": "DerestrictionType",
+      "amexio": null,
+      "notes": null
+    },
+    {
+      "element": "collection",
+      "group": "general",
+      "definition": "The specific collection of official documents within which this resource is classified.  — enc: Collection Controlled Vocabulary List",
+      "front_end": "Collection [EN]\nCollection [FR]\nColección [ES]",
+      "back_end": "Collection",
+      "sql_column": "MetaCollection",
+      "amexio": null,
+      "notes": "Not in the DOL extract. Derivable from the symbol prefix (G → Trade in Goods)?"
+    },
+    {
+      "element": "requirementName",
+      "group": "notification",
+      "definition": "The name or identifier of the specific provision within a multilateral trade agreement administered by the WTO that obliges signatory countries to notify specific trade measures or legislation falling within the scope of that agreement.  — enc: Requirement Name Controlled Vocabulary List",
+      "front_end": "Name [ENG]\nNom [FR]\nNombre [ES]",
+      "back_end": "Req",
+      "sql_column": "LongName",
+      "amexio": null,
+      "notes": "Not in the DOL extract (notification-specific; may be present for other notifications). To check against a notification with requirement data."
+    },
+    {
+      "element": "requirementShortName",
+      "group": "notification",
+      "definition": "The short name or identifier of the specific provision within a multilateral trade agreement administered by the WTO that obliges signatory countries to notify specific trade measures or legislation falling within the scope of that agreement.  — enc: Requirement Short Name Controlled Vocabulary List",
+      "front_end": "Short name [ENG]\nNom court [FR]\nNombre corto [ES]",
+      "back_end": "\tReq ShortName",
+      "sql_column": "ShortName",
+      "amexio": "RequirementShortName",
+      "notes": "Not in the DOL extract (notification-specific; may be present for other notifications). To check against a notification with requirement data."
+    },
+    {
+      "element": "requirementTopic",
+      "group": "notification",
+      "definition": "The specific subject matter or thematic area addressed by the notification requirement.  — enc: Requirement Topic Controlled Vocabulary List",
+      "front_end": "Topics [ENG]\nDomaines [FR]\nTemas [ES]",
+      "back_end": "Subject",
+      "sql_column": "ObjectiveNoteListID",
+      "amexio": null,
+      "notes": "Not in the DOL extract (notification-specific; may be present for other notifications). To check against a notification with requirement data."
+    },
+    {
+      "element": "requirementMeasureType",
+      "group": "notification",
+      "definition": "The category or type of trade measure that is covered by a specific notification requirement under a multilateral trade agreement.  — enc: Requirement Measure Type Controlled Vocabulary List",
+      "front_end": "Measure type [ENG]\nType de mesure [FR]\nMedida de tipo [ES]",
+      "back_end": "Measure",
+      "sql_column": "MeasureID",
+      "amexio": null,
+      "notes": "Not in the DOL extract (notification-specific; may be present for other notifications). To check against a notification with requirement data."
+    },
+    {
+      "element": "notificationPeriodicity",
+      "group": "notification",
+      "definition": "The frequency at which a notification must be submitted in fulfilment of a requirement under a multilateral trade agreement.  — enc: Notification Periodicity Controlled Vocabulary List",
+      "front_end": "Periodicity [ENG]\nPériodicité [FR]\nPeriodicidad [ES]",
+      "back_end": "Periodicity",
+      "sql_column": "PeriodicityListID",
+      "amexio": null,
+      "notes": "Not in the DOL extract (notification-specific; may be present for other notifications). To check against a notification with requirement data."
+    },
+    {
+      "element": "countryTerritoryNotifying",
+      "group": "notification",
+      "definition": "The country or territory that is submitting the notification in fulfilment of a prescribed obligation under a given agreement.  — enc: Country/Territory Controlled Vocabulary List [SYSREF]",
+      "front_end": "Country/territory notifying [EN]\nPays/territoire adressant la notification [FR]\nPaís/terriorio que notifica [ES]",
+      "back_end": "Member Country Notifying",
+      "sql_column": "CountryCode",
+      "amexio": null,
+      "notes": "Not in the DOL extract (notification-specific; may be present for other notifications). To check against a notification with requirement data."
+    },
+    {
+      "element": "countryTerritoryAffected",
+      "group": "notification",
+      "definition": "The country or territory that is subject to the notification.  — enc: Country/Territory Controlled Vocabulary List [SYSREF]",
+      "front_end": "Country/territory affected [EN]\nPays/territoire affecté par la notification [FR]\nPaís/territorio afectado [ES]",
+      "back_end": "Country Affected",
+      "sql_column": "CountryCode",
+      "amexio": null,
+      "notes": "Not in the DOL extract (notification-specific; may be present for other notifications). To check against a notification with requirement data."
+    },
+    {
+      "element": "membersReqNotify",
+      "group": "notification",
+      "definition": "Indicates whether the notification obligation applies to all WTO members or only to the signatories of a specific plurilateral trade agreement.  — enc: Members required to notify Controlled Vocabulary List",
+      "front_end": "Members req. to Notify [EN]\nMembres qui doivent notifier [FR]\nMiembros que deben notificar [ES]",
+      "back_end": "Notes",
+      "sql_column": "Note",
+      "amexio": null,
+      "notes": "Not in the DOL extract (notification-specific; may be present for other notifications). To check against a notification with requirement data."
+    },
+    {
+      "element": "tradeCoverage",
+      "group": "notification",
+      "definition": "The trade area and products covered by the notification, indexed according to a classification system specific to the relevant trade area and product category.  — enc: Harmonized System (HS) Nomenclature 2022 Edition International Classification for Standards (ICS) Services Sectoral Classification List (SSCL) Environment Coverage Classification System",
+      "front_end": "HS (2022) [ENG]\nServices [ENG]\nICS (2015) [ENG]\nEnvironment [ENG]\nSH (2007) [FR]\nServices [FR]\nICS (2005) [FR]\nEnvironnement [FR]\nHS (2007) [ES]\nServicios [ES]\nICS (2005) [ES]\nMedio ambiente [ES]",
+      "back_end": "Env.\nHS\nICS\nServ.",
+      "sql_column": "ClassificationCode",
+      "amexio": null,
+      "notes": "Not in the DOL extract (notification-specific; may be present for other notifications). To check against a notification with requirement data."
+    },
+    {
+      "element": "notificationAttachment",
+      "group": "notification",
+      "definition": "A document or file accompanying a notification that provides supplementary or supporting information related to the notification's subject matter. Attachments accompany the primary notification and are not part of the official record unless explicitly designated and published as an official document (e.g., as a standalone document or formal annex).  — enc: URL",
+      "front_end": "Notification Attachments [ENG]\nFichiers joints [FR]\nCobertura comercial [ES]",
+      "back_end": null,
+      "sql_column": "FileURL",
+      "amexio": null,
+      "notes": "Not in the DOL extract (notification-specific; may be present for other notifications). To check against a notification with requirement data."
+    },
+    {
+      "element": "— (no DOME term)",
+      "group": "Amexio only",
+      "definition": null,
+      "front_end": null,
+      "back_end": null,
+      "sql_column": null,
+      "amexio": "HeaderId",
+      "notes": "DOL catalogue header ID. No DOME term. Probably the cat_header_id that the PREMIS profile writes on DOME creation and revision (DPM116, DPM110): to confirm, and decide whether DOME should carry it."
+    },
+    {
+      "element": "— (no DOME term)",
+      "group": "documents for meetings",
+      "definition": null,
+      "front_end": "Date",
+      "back_end": null,
+      "sql_column": null,
+      "amexio": "MeetingId",
+      "notes": "No DOME term. Decide whether DOME needs meeting data."
+    },
+    {
+      "element": "— (no DOME term)",
+      "group": "documents for meetings",
+      "definition": null,
+      "front_end": null,
+      "back_end": null,
+      "sql_column": null,
+      "amexio": "MeetingStartDate (xs:date)",
+      "notes": "No DOME term. As MeetingId."
+    },
+    {
+      "element": "meeting name",
+      "group": "documents for meetings",
+      "definition": "Title of the meeting",
+      "front_end": "Meeting Name [ENG]",
+      "back_end": null,
+      "sql_column": null,
+      "amexio": null,
+      "notes": null
+    }
+  ]
+}

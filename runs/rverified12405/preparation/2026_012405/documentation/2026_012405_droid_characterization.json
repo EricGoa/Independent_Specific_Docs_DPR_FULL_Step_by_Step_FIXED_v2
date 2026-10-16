@@ -1,0 +1,179 @@
+{
+  "poc": 5,
+  "job_id": "2026_012405",
+  "created_utc": "2026-10-16T08:24:29.430135+00:00",
+  "tool": "DROID",
+  "invocation": "direct_java_jar",
+  "java_executable": "C:\\Users\\Gao\\Downloads\\droid-binary-6.8.1-bin-win64-with-jre\\jre\\bin\\java.exe",
+  "droid_jar": "C:\\Users\\Gao\\Downloads\\droid-binary-6.8.1-bin-win64-with-jre\\droid-command-line-6.8.1.jar",
+  "characterization_scope": "SOURCE_FILES",
+  "characterization_timing": "PRE_CONVERSION",
+  "source_definition": "PoC 1 staged authoring sources, published *_src.pdf, and rep_2/data/attachments files",
+  "files": [
+    {
+      "file_id": "c6cb8aac-a109-4729-8b86-8cbba2a743ce",
+      "relative_path": "representations/rep_1/data/en/2026_012405_en.docx",
+      "filename": "2026_012405_en.docx",
+      "size_bytes": 46867,
+      "sha512": "b297b4af0d50ab03277b56c5bbd6d6d2f801a1f0bdc25442d31f001d5b74776e499f4dfd5bd7f267511496f146809e02d5594b11d56bda2e661a4d3e20c0c227",
+      "identifications": [
+        {
+          "puid": "fmt/412",
+          "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+          "format_name": "Microsoft Word for Windows",
+          "format_version": "2007 onwards",
+          "identification_method": "Container",
+          "droid_status": "Done",
+          "droid_type": "File",
+          "droid_size": "46867"
+        }
+      ],
+      "identified": true
+    },
+    {
+      "file_id": "b2126cbb-a4d7-4f10-8fa5-5ef691de60af",
+      "relative_path": "representations/rep_1/data/es/2026_012405_es.docx",
+      "filename": "2026_012405_es.docx",
+      "size_bytes": 47616,
+      "sha512": "d47f020d266d6509511e7cd80afa38fd686a73db864d008626bd24dc05375e962b9e60c7ab49e7ff89ccc057d64093f2b2a66437d8a2f5a212d3c94a56a827d8",
+      "identifications": [
+        {
+          "puid": "fmt/412",
+          "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+          "format_name": "Microsoft Word for Windows",
+          "format_version": "2007 onwards",
+          "identification_method": "Container",
+          "droid_status": "Done",
+          "droid_type": "File",
+          "droid_size": "47616"
+        }
+      ],
+      "identified": true
+    },
+    {
+      "file_id": "f0d642d7-0fa9-4fa5-a1ed-dfd1f3d58037",
+      "relative_path": "representations/rep_1/data/fr/2026_012405_fr.docx",
+      "filename": "2026_012405_fr.docx",
+      "size_bytes": 47832,
+      "sha512": "1e5a7a5bcd747eb175781cadc490b1c629f6298bce8cd9de01e029023e299343376d12abcbcfba896f5570b8db1fd3614d5643e07e33c8e812378a9dc13f6804",
+      "identifications": [
+        {
+          "puid": "fmt/412",
+          "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+          "format_name": "Microsoft Word for Windows",
+          "format_version": "2007 onwards",
+          "identification_method": "Container",
+          "droid_status": "Done",
+          "droid_type": "File",
+          "droid_size": "47832"
+        }
+      ],
+      "identified": true
+    },
+    {
+      "file_id": "8b6b028c-2a00-464c-86ee-374d401bc559",
+      "relative_path": "representations/rep_2/data/attachments/2026_012405_notification_en_26_05201_00_e.pdf",
+      "filename": "2026_012405_notification_en_26_05201_00_e.pdf",
+      "size_bytes": 289921,
+      "sha512": "85ddbe9b9955645901168fe0e3671c3d48e9525dc99c9fe552ab837fa05a5b27ea7bcecda6ea3222594adb91ca771e792f0cfc5f106c2a8d300d39f81ac5d3fe",
+      "identifications": [
+        {
+          "puid": "fmt/276",
+          "mime_type": "application/pdf",
+          "format_name": "Acrobat PDF 1.7 - Portable Document Format",
+          "format_version": "1.7",
+          "identification_method": "Signature",
+          "droid_status": "Done",
+          "droid_type": "File",
+          "droid_size": "289921"
+        }
+      ],
+      "identified": true
+    },
+    {
+      "file_id": "551e4f8d-be00-4a58-b7e0-b6076dcfda06",
+      "relative_path": "representations/rep_2/data/attachments/2026_012405_notification_en_26_05201_01_e.pdf",
+      "filename": "2026_012405_notification_en_26_05201_01_e.pdf",
+      "size_bytes": 380982,
+      "sha512": "1c9e3fd15564052cce45bb06c854a6afc22b1f3f2e97ec64ec908283b72b2e9501f619f37261e246fba010d663221091569308fbf018de9907c5260916a00c05",
+      "identifications": [
+        {
+          "puid": "fmt/276",
+          "mime_type": "application/pdf",
+          "format_name": "Acrobat PDF 1.7 - Portable Document Format",
+          "format_version": "1.7",
+          "identification_method": "Signature",
+          "droid_status": "Done",
+          "droid_type": "File",
+          "droid_size": "380982"
+        }
+      ],
+      "identified": true
+    },
+    {
+      "file_id": "08451410-a6f3-43e2-b1d4-40546a939124",
+      "relative_path": "representations/rep_2/data/en/2026_012405_en_src.pdf",
+      "filename": "2026_012405_en_src.pdf",
+      "size_bytes": 46313,
+      "sha512": "2900d0f1b03c7b88ce82aff55b09150abab6d9f3daa3e05dc0a1ae57802d48df8fa347260ddea3b9253639c53546db3f97016a16feccf2a15a93da02bc57817f",
+      "identifications": [
+        {
+          "puid": "fmt/276",
+          "mime_type": "application/pdf",
+          "format_name": "Acrobat PDF 1.7 - Portable Document Format",
+          "format_version": "1.7",
+          "identification_method": "Signature",
+          "droid_status": "Done",
+          "droid_type": "File",
+          "droid_size": "46313"
+        }
+      ],
+      "identified": true
+    },
+    {
+      "file_id": "17c35f04-41c1-4b87-9adc-2ff40166c5f5",
+      "relative_path": "representations/rep_2/data/es/2026_012405_es_src.pdf",
+      "filename": "2026_012405_es_src.pdf",
+      "size_bytes": 61413,
+      "sha512": "824b3a3af577d833bac56bb749c2e04aa540ba03feaddcebd3a21945852b05b89527161c86311197b6ffcf7156fdb35286127404b84e25aebe1464da480e2197",
+      "identifications": [
+        {
+          "puid": "fmt/276",
+          "mime_type": "application/pdf",
+          "format_name": "Acrobat PDF 1.7 - Portable Document Format",
+          "format_version": "1.7",
+          "identification_method": "Signature",
+          "droid_status": "Done",
+          "droid_type": "File",
+          "droid_size": "61413"
+        }
+      ],
+      "identified": true
+    },
+    {
+      "file_id": "e053d355-6b70-443d-a26d-f538abc7013a",
+      "relative_path": "representations/rep_2/data/fr/2026_012405_fr_src.pdf",
+      "filename": "2026_012405_fr_src.pdf",
+      "size_bytes": 62034,
+      "sha512": "6319ea0faf69131dcefa4303721a54ad521a2711397b5593666c5e51dbaf2ffa044ecb2cf38b0444f23ec70ce79a43cf8f40dc7b25052222ece8d7a9542f23f3",
+      "identifications": [
+        {
+          "puid": "fmt/276",
+          "mime_type": "application/pdf",
+          "format_name": "Acrobat PDF 1.7 - Portable Document Format",
+          "format_version": "1.7",
+          "identification_method": "Signature",
+          "droid_status": "Done",
+          "droid_type": "File",
+          "droid_size": "62034"
+        }
+      ],
+      "identified": true
+    }
+  ],
+  "summary": {
+    "file_count": 8,
+    "identified_count": 8,
+    "unidentified_count": 0
+  }
+}

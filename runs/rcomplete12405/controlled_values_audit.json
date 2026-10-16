@@ -1,0 +1,219 @@
+[
+  {
+    "element": "messageDigestAlgorithm",
+    "value": "SHA-512",
+    "occurrences": 32,
+    "attributes_verified": true,
+    "writer_definition_covered_by_test": true
+  },
+  {
+    "element": "formatRegistryRole",
+    "value": "specification",
+    "occurrences": 32,
+    "attributes_verified": true,
+    "writer_definition_covered_by_test": true
+  },
+  {
+    "element": "relationshipType",
+    "value": "structural",
+    "occurrences": 24,
+    "attributes_verified": true,
+    "writer_definition_covered_by_test": true
+  },
+  {
+    "element": "relationshipType",
+    "value": "derivation",
+    "occurrences": 5,
+    "attributes_verified": true,
+    "writer_definition_covered_by_test": true
+  },
+  {
+    "element": "relationshipType",
+    "value": "dependency",
+    "occurrences": 15,
+    "attributes_verified": true,
+    "writer_definition_covered_by_test": true
+  },
+  {
+    "element": "relationshipSubType",
+    "value": "includes",
+    "occurrences": 12,
+    "attributes_verified": true,
+    "writer_definition_covered_by_test": true
+  },
+  {
+    "element": "relationshipSubType",
+    "value": "is Included In",
+    "occurrences": 12,
+    "attributes_verified": true,
+    "writer_definition_covered_by_test": true
+  },
+  {
+    "element": "relationshipSubType",
+    "value": "has Source",
+    "occurrences": 5,
+    "attributes_verified": true,
+    "writer_definition_covered_by_test": true
+  },
+  {
+    "element": "relationshipSubType",
+    "value": "isValidationReportOf",
+    "occurrences": 5,
+    "attributes_verified": true,
+    "writer_definition_covered_by_test": true
+  },
+  {
+    "element": "relationshipSubType",
+    "value": "isQaReportOf",
+    "occurrences": 5,
+    "attributes_verified": true,
+    "writer_definition_covered_by_test": true
+  },
+  {
+    "element": "relationshipSubType",
+    "value": "isConversionLogOf",
+    "occurrences": 5,
+    "attributes_verified": true,
+    "writer_definition_covered_by_test": true
+  },
+  {
+    "element": "eventType",
+    "value": "ingestion start",
+    "occurrences": 1,
+    "attributes_verified": true,
+    "writer_definition_covered_by_test": true
+  },
+  {
+    "element": "eventType",
+    "value": "message digest calculation",
+    "occurrences": 13,
+    "attributes_verified": true,
+    "writer_definition_covered_by_test": true
+  },
+  {
+    "element": "eventType",
+    "value": "fixity check",
+    "occurrences": 9,
+    "attributes_verified": true,
+    "writer_definition_covered_by_test": true
+  },
+  {
+    "element": "eventType",
+    "value": "filename change",
+    "occurrences": 5,
+    "attributes_verified": true,
+    "writer_definition_covered_by_test": true
+  },
+  {
+    "element": "eventType",
+    "value": "normalization",
+    "occurrences": 5,
+    "attributes_verified": true,
+    "writer_definition_covered_by_test": true
+  },
+  {
+    "element": "eventType",
+    "value": "validation",
+    "occurrences": 5,
+    "attributes_verified": true,
+    "writer_definition_covered_by_test": true
+  },
+  {
+    "element": "eventType",
+    "value": "qualityReview",
+    "occurrences": 5,
+    "attributes_verified": true,
+    "writer_definition_covered_by_test": true
+  },
+  {
+    "element": "eventType",
+    "value": "format identification",
+    "occurrences": 2,
+    "attributes_verified": true,
+    "writer_definition_covered_by_test": true
+  },
+  {
+    "element": "eventType",
+    "value": "creation",
+    "occurrences": 1,
+    "attributes_verified": true,
+    "writer_definition_covered_by_test": true
+  },
+  {
+    "element": "eventType",
+    "value": "metadata modification",
+    "occurrences": 0,
+    "attributes_verified": false,
+    "writer_definition_covered_by_test": true
+  },
+  {
+    "element": "eventType",
+    "value": "information package creation",
+    "occurrences": 2,
+    "attributes_verified": true,
+    "writer_definition_covered_by_test": true
+  },
+  {
+    "element": "eventOutcome",
+    "value": "success",
+    "occurrences": 48,
+    "attributes_verified": true,
+    "writer_definition_covered_by_test": true
+  },
+  {
+    "element": "linkingAgentRole",
+    "value": "executing program",
+    "occurrences": 48,
+    "attributes_verified": true,
+    "writer_definition_covered_by_test": true
+  },
+  {
+    "element": "linkingAgentRole",
+    "value": "authorizer",
+    "occurrences": 48,
+    "attributes_verified": true,
+    "writer_definition_covered_by_test": true
+  },
+  {
+    "element": "linkingAgentRole",
+    "value": "implementer",
+    "occurrences": 0,
+    "attributes_verified": false,
+    "writer_definition_covered_by_test": true
+  },
+  {
+    "element": "linkingObjectRole",
+    "value": "source",
+    "occurrences": 15,
+    "attributes_verified": true,
+    "writer_definition_covered_by_test": true
+  },
+  {
+    "element": "linkingObjectRole",
+    "value": "outcome",
+    "occurrences": 24,
+    "attributes_verified": true,
+    "writer_definition_covered_by_test": true
+  },
+  {
+    "element": "agentType",
+    "value": "software",
+    "occurrences": 9,
+    "attributes_verified": true,
+    "writer_definition_covered_by_test": true
+  },
+  {
+    "element": "agentType",
+    "value": "person",
+    "occurrences": 1,
+    "attributes_verified": true,
+    "writer_definition_covered_by_test": true
+  },
+  {
+    "element": "agentType",
+    "value": "organization",
+    "occurrences": 0,
+    "attributes_verified": false,
+    "writer_definition_covered_by_test": true
+  }
+]

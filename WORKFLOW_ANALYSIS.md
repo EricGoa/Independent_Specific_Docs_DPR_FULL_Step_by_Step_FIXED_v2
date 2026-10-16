@@ -1,3 +1,11 @@
+> Latest implementation update (2026-10-16): see WORKFLOW_v3_DESIGN.md, METS_PROFILE_v1.md, AGENT_REGISTRY_DESIGN.md and PREMIS_PROFILE_IMPLEMENTATION_ADDENDUM_v1.md. The completion workbook records every F001?F067 and W01?W17 disposition. Final real example: runs/rverified12405/FINAL_RESULT.html. Human QA and explicit reconversion are now implemented; all 39 tests passed. Earlier partial-work notes below are historical.
+
+> Update 2026-10-16: This document includes historical baseline findings.
+> The completed DOL_DOME crosswalk is now supplied and integrated into profile
+> extraction. See team-review/COMPLETED_CROSSWALK_INTEGRATION.md for current
+> mappings and outstanding schema discrepancies; earlier statements that the
+> crosswalk was unavailable describe the initial inspection.
+
 # Workflow dependency analysis and implementation
 
 Inspected the Python stages, monitor, command guide, .NET converter source/project,
